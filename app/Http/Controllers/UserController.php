@@ -31,4 +31,9 @@ class UserController extends Controller
         // `trainings` variable ko view mein pass kar rahe hain.
         return view('dashboard.hustlers_training', compact('trainings'));
     }
+
+    public function freelance_content()
+    {
+        return view('dashboard.freelancing_content');
+    }
 }

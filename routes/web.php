@@ -21,3 +21,4 @@ Route::get('/home', [FrontController::class, 'index'])->name('home');
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
 Route::get('/automation-course', [UserController::class, 'automation_course'])->name('user.dashboard.automation');
 Route::get('/hustlers', [UserController::class, 'huslers_campus'])->name('user.dashboard.huslers.traings');
+Route::get('/freelance-content', [UserController::class, 'freelance_content'])->name('user.dashboard.freelance.content');
