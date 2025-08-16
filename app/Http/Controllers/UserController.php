@@ -15,4 +15,9 @@ class UserController extends Controller
     {
         return view('dashboard.automation_course');
     }
+
+    public function huslers_campus()
+    {
+        return view('dashboard.hustlers_training');
+    }
 }
