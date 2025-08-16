@@ -8,8 +8,8 @@
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
 <link rel="icon" href="{{ asset('assets/images/icons/icon-favicon.svg') }}" type="image/x-icon" sizes="16x16">
-<link rel="stylesheet" href="{{ asset('assets/styles/tailwind.min.css?v=5.0') }}">
-<link rel="stylesheet" href="{{ asset('assets/styles/style.min.css?v=5.0') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/tailwind.min.css?v=5.0') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/style.min.css?v=5.0') }}">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -497,11 +497,11 @@
 
       @yield('content')
     </div>
- <script type="text/javascript" src="{{ asset('assets/scripts/vendors/jquery-3.6.0.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/scripts/chart-utils.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/scripts/chart.min.js') }}"></script>
+ <script type="text/javascript" src="{{ asset('assets/js/vendors/jquery-3.6.0.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/chart-utils.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/chart.min.js') }}"></script>
 <script type="text/javascript" src="https://unpkg.com/chartjs-chart-geo@3"></script>
-<script type="text/javascript" src="{{ asset('assets/scripts/app.js?v=5.0') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/app.js?v=5.0') }}"></script>
 
   </body>
 </html>
