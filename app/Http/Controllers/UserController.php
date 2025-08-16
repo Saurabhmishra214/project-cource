@@ -20,4 +20,9 @@ class UserController extends Controller
     {
         return view('dashboard.hustlers_training');
     }
+
+    public function freelance_content()
+    {
+        return view('dashboard.freelancing_content');
+    }
 }

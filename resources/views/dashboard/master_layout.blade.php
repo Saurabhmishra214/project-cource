@@ -56,7 +56,7 @@
               </label><img class="absolute right-2 transition-all duration-150 caret-icon pointer-events-none peer-checked:rotate-180 top-[22px]" src="assets/images/icons/icon-arrow-down.svg" alt="caret icon">
               <div class="hidden peer-checked:block">
                 <ul class="text-gray-300 child-menu z-10 pl-[53px]">
-                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="jobs-dashboard.html">Content</a></li>
+                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{route('user.dashboard.freelance.content')}}">Content</a></li>
                   <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="jobs-dashboard.html">Apply Form</a></li>
                 </ul>
               </div>

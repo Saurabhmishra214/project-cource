@@ -1,4 +1,4 @@
-@extends('dashboard.automation_course')
+@extends('dashboard.master_layout')
 @section('content')
     
     <main class="overflow-x-scroll scrollbar-hide flex flex-col justify-between pt-[42px] px-[23px] pb-[28px]">
