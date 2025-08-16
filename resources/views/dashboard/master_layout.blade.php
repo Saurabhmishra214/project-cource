@@ -7,12 +7,14 @@
     <meta name="keywords" content="">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
-    <link rel="icon" href="assets/images/icons/icon-favicon.svg" type="image/x-icon" sizes="16x16">
-    <link rel="stylesheet" href="assets/styles/tailwind.min.css?v=5.0">
-    <link rel="stylesheet" href="assets/styles/style.min.css?v=5.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap">
+<link rel="icon" href="{{ asset('assets/images/icons/icon-favicon.svg') }}" type="image/x-icon" sizes="16x16">
+<link rel="stylesheet" href="{{ asset('assets/styles/tailwind.min.css?v=5.0') }}">
+<link rel="stylesheet" href="{{ asset('assets/styles/style.min.css?v=5.0') }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=Noto+Sans:wght@400;500;600;700;800&display=swap">
+
   </head>
   <body class="w-screen relative overflow-x-hidden min-h-screen bg-gray-100 scrollbar-hide course-dashboard-page dark:bg-[#000]">
     <div class="wrapper mx-auto text-gray-900 font-normal grid scrollbar-hide grid-cols-[257px,1fr] grid-rows-[auto,1fr]" id="layout">
@@ -494,25 +496,12 @@
 
 
       @yield('content')
-
-      {{-- footer start --}}
-
-       <footer class="mt-[37px]">
-          <div class="w-full bg-neutral h-[1px] dark:bg-dark-neutral-border mb-[25px]"></div>
-          <div class="flex items-center justify-between text-desc text-gray-400 flex-wrap gap-5 dark:text-gray-dark-400">
-            <div class="flex items-center gap-2 flex-wrap">
-              <p> <span>© 2022 -</span><span class="text-color-brands">&nbsp;Frox</span><span>&nbsp;Dashboard</span></p>
-              <div class="bg-color-brands rounded-full hidden w-[2px] h-[2px] md:block"></div>
-              <p> <span>Made by</span><a class="text-color-brands" href="https://alithemes.com" target="_blank">&nbsp;AliThemes</a></p>
-            </div>
-            <div class="flex items-center gap-[15px]"><a class="transition-colors duration-300 hover:text-color-brands" href="#">About</a><a class="transition-colors duration-300 hover:text-color-brands" href="#">Careers</a><a class="transition-colors duration-300 hover:text-color-brands" href="#">Policy</a><a class="transition-colors duration-300 hover:text-color-brands" href="#">Contact</a></div>
-          </div>
-        </footer>
     </div>
-    <script type="text/javascript" src="assets/scripts/vendors/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="assets/scripts/chart-utils.min.js"></script>
-    <script type="text/javascript" src="assets/scripts/chart.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/chartjs-chart-geo@3"></script>
-    <script src="assets/scripts/app.js?v=5.0"></script>
+ <script type="text/javascript" src="{{ asset('assets/scripts/vendors/jquery-3.6.0.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/scripts/chart-utils.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/scripts/chart.min.js') }}"></script>
+<script type="text/javascript" src="https://unpkg.com/chartjs-chart-geo@3"></script>
+<script type="text/javascript" src="{{ asset('assets/scripts/app.js?v=5.0') }}"></script>
+
   </body>
 </html>
