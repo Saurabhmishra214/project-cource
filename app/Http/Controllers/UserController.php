@@ -25,4 +25,9 @@ class UserController extends Controller
     {
         return view('dashboard.freelancing_content');
     }
+
+    public function asset_sections()
+    {
+        return view('dashboard.asset_section');
+    }
 }

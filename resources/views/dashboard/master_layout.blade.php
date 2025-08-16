@@ -45,7 +45,7 @@
               <div class="hidden peer-checked:block">
                 <ul class="text-gray-300 child-menu z-10 pl-[53px]">
                   <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{route('user.dashboard.huslers.traings')}}">Business Trainings</a></li>
-                  {{-- <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{route('user.dashboard.huslers.assets')}}">Digital Assets</a></li> --}}
+                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{route('user.dashboard.huslers.assets')}}">Digital Assets</a></li>
                 </ul>
               </div>
             </div>
@@ -90,6 +90,12 @@
                   <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="social-feed-3.html">Social Feed 3</a></li>
                 </ul>
               </div>
+            </div>
+            <div class="sidemenu-item rounded-xl relative">
+              <input class="sr-only peer" type="checkbox" value="dashboard" name="sidemenu" id="dashboard">
+              <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent active" for="dashboard">
+                <div class="flex items-center gap-[10px]"><img src="assets/images/icons/icon-favorite-chart.svg" alt="side menu icon"><span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Affiliate Panel</span></div>
+              </label>
             </div>
           </div>
           <div class="w-full bg-neutral h-[1px] mb-[35px] dark:bg-dark-neutral-border"></div>
