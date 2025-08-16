@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\AutomationCourse;
 use App\Models\HustlersTraining; 
 use Illuminate\Http\Request;
+use App\Models\Job; // Job model ko import karein
 
 class UserController extends Controller
 {
@@ -32,8 +33,13 @@ class UserController extends Controller
         return view('dashboard.hustlers_training', compact('trainings'));
     }
 
-    public function freelance_content()
+      public function freelance_content()
     {
-        return view('dashboard.freelancing_content');
+        // Sabhi jobs ko unke skills ke saath database se fetch karein
+        // with('skills') ka upyog karke N+1 query problem se bachenge
+        $jobs = Job::with('skills')->get();
+        
+        // Jobs data ko view ke saath pass karein
+        return view('dashboard.freelancing_content', compact('jobs'));
     }
 }
