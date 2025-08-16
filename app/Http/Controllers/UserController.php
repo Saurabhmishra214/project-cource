@@ -10,4 +10,9 @@ class UserController extends Controller
     {
         return view('dashboard.home');
     }
+
+    public function automation_course()
+    {
+        return view('dashboard.automation_course');
+    }
 }
