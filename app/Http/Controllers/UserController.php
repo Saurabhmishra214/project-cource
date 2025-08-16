@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\AutomationCourse;
-
+use App\Models\HustlersTraining; 
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -21,5 +21,14 @@ class UserController extends Controller
         // `courses` variable ko view mein pass kar rahe hain.
         // Ab 'dashboard.automation_course' view mein `$courses` variable available hoga.
         return view('dashboard.automation_course', compact('courses'));
+    }
+
+     public function huslers_campus()
+    {
+        // HustlerTraining model ka upyog karke saare trainings database se fetch kar rahe hain.
+        $trainings = HustlersTraining::all();
+
+        // `trainings` variable ko view mein pass kar rahe hain.
+        return view('dashboard.hustlers_training', compact('trainings'));
     }
 }

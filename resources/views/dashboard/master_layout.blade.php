@@ -41,8 +41,12 @@
               <input class="sr-only peer" type="checkbox" value="finance" name="sidemenu" id="finance">
               <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent" for="finance">
                 <div class="flex items-center gap-[10px]"><img src="assets/images/icons/icon-wallet.svg" alt="side menu icon"><span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Hustlers Campus</span></div>
-              </label><div class="hidden peer-checked:block">
-                
+              </label><img class="absolute right-2 transition-all duration-150 caret-icon pointer-events-none peer-checked:rotate-180 top-[22px]" src="assets/images/icons/icon-arrow-down.svg" alt="caret icon">
+              <div class="hidden peer-checked:block">
+                <ul class="text-gray-300 child-menu z-10 pl-[53px]">
+                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{route('user.dashboard.huslers.traings')}}">Business Trainings</a></li>
+                  {{-- <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{route('user.dashboard.huslers.assets')}}">Digital Assets</a></li> --}}
+                </ul>
               </div>
             </div>
             <div class="sidemenu-item rounded-xl relative">
