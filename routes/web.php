@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
 
@@ -11,6 +12,8 @@ Route::get('/', function () {
 });
 
 
+Route::get('/register-form', [AuthController::class, 'showRegister'])->name('register_form');
+Route::get('/login-form', [AuthController::class, 'showLogin'])->name('login_form');
 
 
 

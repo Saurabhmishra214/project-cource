@@ -16,6 +16,12 @@
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css" >
     <!-- color scheme -->
     <link id="colors" href="{{asset('assets/css/colors/scheme-01.css')}}" rel="stylesheet" type="text/css" >
+     <link rel="stylesheet" href="{{asset('assets/css/tailwind.min.css?v=5.0')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.min.css?v=5.0')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap">
+ 
     
 
 </head>
@@ -118,11 +124,9 @@
                                         <li><a class="menu-item" href="#section-faq">FAQ</a></li>
                                         <li><a class="menu-item" href="news.html">Pages</a>
                                             <ul>
-                                                <li><a class="menu-item" href="tickets.html">Tickets Style 1</a></li>
-                                                <li><a class="menu-item" href="tickets-2.html">Tickets Style 2</a></li>
-                                                <li><a class="menu-item" href="news.html">News</a></li>
-                                                <li><a class="menu-item" href="news-single.html">News Single</a></li>
-                                                <li><a class="menu-item" href="contact.html">Contact</a>
+                                                <li><a class="menu-item" href="{{route('register_form')}}">Register</a></li>
+                                                <li><a class="menu-item" href="{{route('login_form')}}">Login</a></li>
+                                                
                                             </ul>
                                         </li>
                                     </ul>
@@ -196,6 +200,11 @@
     <script src="{{asset('assets/js/designesia.js')}}"></script>
     <script src="{{asset('assets/js/countdown-custom.js')}}"></script>
     <script src="{{asset('assets/js/custom-marquee.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/vendors/jquery-3.6.0.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/chart-utils.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/chart.min.js')}}"></script>
+    <script type="text/javascript" src="https://unpkg.com/chartjs-chart-geo@3"></script>
+    <script src="{{asset('assets/js/app.js?v=5.0')}}"></script>
 
 </body>
 
