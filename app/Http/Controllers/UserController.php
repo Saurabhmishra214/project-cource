@@ -42,4 +42,9 @@ class UserController extends Controller
         // Jobs data ko view ke saath pass karein
         return view('dashboard.freelancing_content', compact('jobs'));
     }
+
+    public function asset_sections()
+    {
+        return view('dashboard.asset_section');
+    }
 }
