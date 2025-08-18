@@ -10,4 +10,9 @@ class FrontController extends Controller
     {
         return view('frontend.home');
     }
+
+    public function blog()
+    {
+        return view('frontend.pages.blog');
+    }
 }
