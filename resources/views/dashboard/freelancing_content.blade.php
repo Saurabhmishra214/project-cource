@@ -37,8 +37,10 @@
           </div>
 
           <!-- Skills -->
+          
           <div class="flex gap-2 flex-wrap mb-4">
-            {{-- Skills ko display karne ke liye ek aur loop --}}
+
+
             @foreach ($job->skills as $skill)
               <span class="px-2 py-1 text-xs bg-gray-200 dark:bg-gray-700 rounded-md">{{ $skill->name }}</span>
             @endforeach
@@ -60,7 +62,7 @@
               <p class="text-xs text-gray-500 dark:text-gray-dark-500">Pay</p>
               <p class="text-sm font-semibold text-gray-900 dark:text-gray-dark-900">{{ $job->pay }}</p>
             </div>
-            <button class="px-4 py-2 text-xs font-semibold text-white bg-color-brands rounded-lg hover:bg-opacity-90">
+            <button style="background-color: white;color:black;" class="px-4 py-2 text-xs font-semibold text-white bg-color-brands rounded-lg hover:bg-opacity-90">
               Apply
             </button>
           </div>
