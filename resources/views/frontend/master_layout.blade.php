@@ -120,6 +120,17 @@
                                         <li><a class="menu-item" href="#section-tickets">Tickets</a></li>
                                         <li><a class="menu-item" href="#section-venue">Venue</a></li>
                                         <li><a class="menu-item" href="#section-faq">FAQ</a></li> --}}
+                                        <li><a class="menu-item" href="news.html">Courses</a>
+                                            <ul>
+                                                <li><a class="menu-item" href="">Business Campus</a>
+                                                        <ul>
+                                                            <li><a class="menu-item" href="">C1</a></li>
+                                                            <li><a class="menu-item" href="">C2</a></li>
+                                                        </ul>
+                                                </li>
+                                                <li><a class="menu-item" href="">Hustlers Campus</a></li>
+                                            </ul>
+                                        </li>
                                         <li><a class="menu-item" href="news.html">Pages</a>
                                             <ul>
                                                 <li><a class="menu-item" href="{{route('register_form')}}">Register</a></li>
