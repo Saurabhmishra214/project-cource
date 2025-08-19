@@ -353,9 +353,9 @@
                 <div class="row g-4 justify-content-center">
                     <div class="col-lg-6 relative z-3">
                           <div class="text-center">
-                              <div class="subtitle wow fadeInUp" data-wow-delay=".0s">Speakers</div>
-                              <h2 class="wow fadeInUp" data-wow-delay=".2s">Meet the Visionaries</h2>
-                              <p class="lead wow fadeInUp">Whether it's a quick refresh or a deep clean transformation, our expert touch leaves your home or office shining.</p>
+                              <div class="subtitle wow fadeInUp" data-wow-delay=".0s">TESTIMONIALS</div>
+                              <h2 class="wow fadeInUp" data-wow-delay=".2s">OUR STUDENTS ARE WINNING</h2>
+                              {{-- <p class="lead wow fadeInUp">Whether it's a quick refresh or a deep clean transformation, our expert touch leaves your home or office shining.</p> --}}
                           </div>
                     </div>
                 </div>
@@ -375,7 +375,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
+                    {{-- <div class="col-lg-4">
                         <div class="hover relative rounded-1 overflow-hidden wow fadeIn scale-in-mask">
                             <img src="{{ asset('assets/images/frontend/team/2.webp') }}" class="w-100 hover-scale-1-1" alt="">
                             <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
@@ -401,7 +401,7 @@
                                 <div class="gradient-edge-bottom h-100 op-8"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
@@ -433,10 +433,10 @@
             </div>
         </section>
 
-        <section id="section-schedule" class="section-dark text-light jarallax relative">
+        {{-- <section id="section-schedule" class="section-dark text-light jarallax relative">
             <div class="gradient-edge-top op-6 h-50 color"></div>
             {{-- <div class="gradient-edge-bottom"></div> --}}
-            <div class="sw-overlay op-8"></div>
+            {{--<div class="sw-overlay op-8"></div>
             <div class="container">
               <div class="row g-4 gx-5 justify-content-center">
                 <div class="col-lg-6 text-center">
@@ -954,7 +954,7 @@
                 </div>
               </div>
             </div>
-        </section>
+        </section> --}}
 
         <section id="section-tickets" class="section-dark text-light jarallax relative" aria-label="section">
             {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
@@ -1136,10 +1136,10 @@
             </div>
         </section>
 
-        <section id="section-venue" class="section-dark text-light jarallax relative" aria-label="section">
+        {{-- <section id="section-venue" class="section-dark text-light jarallax relative" aria-label="section">
             {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
             {{-- <div class="gradient-edge-bottom"></div> --}}
-            <div class="sw-overlay op-8"></div>
+            {{--<div class="sw-overlay op-8"></div>
           <div class="container relative z-2">
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-6 text-center">
@@ -1192,7 +1192,7 @@
             </div>
 
           </div>
-        </section>
+        </section> --}}
 
         <section  id="section-faq" class="section-dark text-light jarallax relative" aria-label="section">
             {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
@@ -1264,10 +1264,10 @@
           <div class="container relative z-2">
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <div class="subtitle wow fadeInUp" data-wow-delay=".0s">Stay in the Loop</div>
-                    <h2 class="wow fadeInUp" data-wow-delay=".2s">Join the Future of Innovation</h2>
+                    <div class="subtitle wow fadeInUp" data-wow-delay=".0s">LOCK IN YOUR PRICE</div>
+                    <h2 class="wow fadeInUp" data-wow-delay=".2s">PRICE INCREASE IS IMMINENT</h2>
                     <p class="wow fadeInUp" data-wow-delay=".4s">
-                      Making better things takes time. Drop us your email to stay in the know as we work to reduce our environmental impact. We'll share other exciting news and exclusive offers, too.
+                      Hundreds of thousands of students have already joined The Real World and are on their way to financial freedom.
                     </p>
                 </div>
             </div>
