@@ -59,38 +59,6 @@
             </div>
         </section>
 
-        <section id="section-about" class="section-dark text-light jarallax relative">
-            <div class="gradient-edge-top op-6 h-50 color"></div>
-            {{-- <div class="gradient-edge-bottom"></div> --}}
-            <div class="sw-overlay op-8"></div>
-            <div class="container">
-                <div class="row  gx-5 align-items-center justify-content-between">
-                    <div class="col-lg-6">
-                          <div class="me-lg-5 pe-lg-5 py-5 my-5">
-                              <div class="subtitle wow fadeInUp" data-wow-delay=".2s">About Us</div>
-                              <h2 class="wow fadeInUp" data-wow-delay=".4s">A global campus designed for the doers of tomorrow</h2>
-                              <p class="wow fadeInUp" data-wow-delay=".6s">Join thought leaders, developers, researchers, and founders as we explore how artificial intelligence is reshaping industries, creativity, and the future
-                              of work.</p>
-
-                              <ul class="ul-check">
-                                  <li class="wow fadeInUp" data-wow-delay=".8s">Vital Life Lessons</li>
-                                  <li class="wow fadeInUp" data-wow-delay=".9s">Private Network</li>
-                                  <li class="wow fadeInUp" data-wow-delay="1s">Access To Multi-Millionaires</li>
-                              </ul>
-
-                          </div>
-                    </div>
-
-                    <div class="col-lg-5">
-                        <div class="wow scaleIn">
-                            <img src="images/misc/c1.webp" class="w-100 rotate-animation" alt="">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
         <section class="section-dark p-0" aria-label="section">
             <div class="bg-color text-light d-flex py-4 lh-1 rot-2">
               <div class="de-marquee-list-1 wow fadeInLeft" data-wow-duration="3s">
@@ -127,8 +95,117 @@
             </div>
         </section>
 
-        <section id="section-why-attend" class="section-dark text-light jarallax relative">
+        <section id="section-pillars" class="section-dark text-light jarallax relative">
             <div class="gradient-edge-top op-6 h-50 color"></div>
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            <div class="sw-overlay op-8"></div>
+        <div class="container">
+            <div class="row g-4 text-center">
+            <div class="col-lg-4">
+                <div class="feature-box bg-dark-2 p-4 rounded-1">
+                <h3>YouTube Profits</h3>
+                <p>Learn proven strategies to monetize YouTube in 2025.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="feature-box bg-dark-2 p-4 rounded-1">
+                <h3>Business Takeover</h3>
+                <p>Systems & mentorship to grow your business fast.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="feature-box bg-dark-2 p-4 rounded-1">
+                <h3>AI-Powered Skills</h3>
+                <p>Master AI to multiply your results.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+
+        {{-- <section id="section-about" class="section-dark text-light jarallax relative">
+            <div class="gradient-edge-top op-6 h-50 color"></div>
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            {{-- <div class="sw-overlay op-8"></div>
+            <div class="container">
+                <div class="row  gx-5 align-items-center justify-content-between">
+                    <div class="col-lg-6">
+                          <div class="me-lg-5 pe-lg-5 py-5 my-5">
+                              <div class="subtitle wow fadeInUp" data-wow-delay=".2s">About Us</div>
+                              <h2 class="wow fadeInUp" data-wow-delay=".4s">A global campus designed for the doers of tomorrow</h2>
+                              <p class="wow fadeInUp" data-wow-delay=".6s">Join thought leaders, developers, researchers, and founders as we explore how artificial intelligence is reshaping industries, creativity, and the future
+                              of work.</p>
+
+                              <ul class="ul-check">
+                                  <li class="wow fadeInUp" data-wow-delay=".8s">Vital Life Lessons</li>
+                                  <li class="wow fadeInUp" data-wow-delay=".9s">Private Network</li>
+                                  <li class="wow fadeInUp" data-wow-delay="1s">Access To Multi-Millionaires</li>
+                              </ul>
+
+                          </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="wow scaleIn">
+                            <img src="{{ asset('assets/images/frontend/misc/c1.webp') }}" class="w-100 rotate-animation" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section> --}}
+
+        <section id="section-intro-videos" class="section-dark text-light relative py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+            <h2 class="wow fadeInUp">See Inside The Platform</h2>
+            <p class="lead wow fadeInUp" data-wow-delay=".2s">Real lessons, real people, real wins.</p>
+            </div>
+
+            <!-- Swiper -->
+            <div class="swiper myVideoSwiper">
+            <div class="swiper-wrapper">
+
+                <!-- Video Card 1 -->
+                <div class="swiper-slide">
+                <div class="video-card">
+                    <video muted loop playsinline>
+                    <source src="{{ asset('assets/video/1.mp4')}}" type="video/mp4">
+                    </video>
+                </div>
+                </div>
+
+                {{-- <!-- Video Card 2 -->
+                <div class="swiper-slide">
+                <div class="video-card">
+                    <video muted loop playsinline>
+                    <source src="{{ asset('assets/video/2.mp4')}}" type="video/mp4">
+                    </video>
+                </div>
+                </div>
+
+                <!-- Video Card 3 -->
+                <div class="swiper-slide">
+                <div class="video-card">
+                    <video muted loop playsinline>
+                    <source src="{{ asset('assets/video/3.mp4')}}" type="video/mp4">
+                    </video>
+                </div>
+                </div> --}}
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        </section>
+
+
+         <section id="section-why-attend" class="section-dark text-light jarallax relative">
+            {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
             {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
             <div class="container">
@@ -241,7 +318,7 @@
 
                 </div>
             </div>
-        </section>
+        </section> 
 
         <section class="bg-dark section-dark text-light pt-80 relative jarallax" aria-label="section">
             <img src="images/background/2.webp" class="jarallax-img" alt="">

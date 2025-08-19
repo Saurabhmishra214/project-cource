@@ -16,12 +16,64 @@
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css" >
     <!-- color scheme -->
     <link id="colors" href="{{asset('assets/css/colors/scheme-01.css')}}" rel="stylesheet" type="text/css" >
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
      {{-- <link rel="stylesheet" href="{{asset('assets/css/tailwind.min.css?v=5.0')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.min.css?v=5.0')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap"> --}}
-  
+    <style>
+        .myVideoSwiper {
+        width: 100%;
+        padding: 60px 0;
+        overflow: visible; /* ✅ allows side cards to be visible */
+        }
+
+        .myVideoSwiper .swiper-slide {
+        width: 350px; /* ✅ fixed card width */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.4s ease;
+        }
+
+        .video-card {
+        width: 100%;
+        height: 220px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        transition: all 0.4s ease;
+        }
+
+        .video-card video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+
+        /* Middle card highlight */
+        .myVideoSwiper .swiper-slide-active .video-card {
+        transform: scale(1.15);
+        box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+        opacity: 1;
+        z-index: 2;
+        }
+
+        /* Side cards */
+        .myVideoSwiper .swiper-slide-prev .video-card,
+        .myVideoSwiper .swiper-slide-next .video-card {
+        transform: scale(0.9);
+        opacity: 0.6;
+        z-index: 1;
+        }
+
+    </style>
     
 
 </head>
@@ -145,6 +197,36 @@
     <script src="{{asset('assets/js/designesia.js')}}"></script>
     <script src="{{asset('assets/js/countdown-custom.js')}}"></script>
     <script src="{{asset('assets/js/custom-marquee.js')}}"></script>
+    <script>
+    var swiper = new Swiper(".myVideoSwiper", {
+    slidesPerView: "auto",
+    centeredSlides: true,
+    spaceBetween: 30,  
+    loop: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    on: {
+        slideChangeTransitionEnd: function () {
+        // Pause all videos
+        document.querySelectorAll(".video-card video").forEach(v => v.pause());
+
+        // Play only the active one
+        let activeVideo = document.querySelector(".swiper-slide-active video");
+        if (activeVideo) activeVideo.play();
+        }
+    }
+    });
+
+    // Play first video initially
+    let firstVideo = document.querySelector(".swiper-slide-active video");
+    if (firstVideo) firstVideo.play();
+
+
+
+    </script>
+
 
 </body>
 

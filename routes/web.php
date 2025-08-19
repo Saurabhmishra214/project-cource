@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
@@ -20,6 +21,8 @@ Route::get('/login-form', [AuthController::class, 'showLogin'])->name('login_for
 
 Route::get('/home', [FrontController::class, 'index'])->name('home');
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
+
+Route::get('/admin-dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
 
 
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
