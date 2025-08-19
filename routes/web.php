@@ -8,7 +8,7 @@ use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('dashboard.home');
+    return view('frontend.home');
 });
 
 
@@ -23,6 +23,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::get('/home', [FrontController::class, 'index'])->name('home');
+Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
 
 
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');

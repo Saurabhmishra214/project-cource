@@ -1,5 +1,21 @@
-@extends('frontend.master_layout')
-@section('content')
+<!DOCTYPE html>
+<html class="scroll-smooth overflow-x-hidden" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign In Page</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+    <link rel="icon" href="{{asset('assets/images/icons/icon-favicon.svg')}}" type="image/x-icon" sizes="16x16">
+    <link rel="stylesheet" href="{{asset('assets/css/tailwind.min.css?v=5.0')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.min.css?v=5.0')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap">
+  </head>
+  <body class="w-screen relative overflow-x-hidden min-h-screen bg-gray-100 scrollbar-hide authentication-sign-in-page dark:bg-[#000]">
+    <div class="wrapper mx-auto text-gray-900 font-normal grid scrollbar-hide grid-cols-[257px,1fr] grid-rows-[auto,1fr]" id="layout">
 
      <main class="overflow-x-scroll scrollbar-hide flex flex-col justify-between pt-[42px] px-[23px] pb-[28px]">
         <div>
@@ -127,4 +143,11 @@
 
         </div>
      </main>
-@endsection
+</div>
+  <script type="text/javascript" src="{{asset('assets/js/vendors/jquery-3.6.0.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/chart-utils.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/chart.min.js')}}"></script>
+    <script type="text/javascript" src="https://unpkg.com/chartjs-chart-geo@3"></script>
+    <script src="{{asset('assets/js/app.js?v=5.0')}}"></script>
+  </body>
+</html>    

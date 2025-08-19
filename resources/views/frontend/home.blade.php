@@ -3,31 +3,31 @@
 
 <section id="section-hero" class="section-dark no-top no-bottom text-light jarallax relative mh-800" data-video-src="mp4:{{asset('assets/video/2.mp4')}}">
             <div class="gradient-edge-top op-6 h-50 color"></div>
-            <div class="gradient-edge-bottom"></div>
+            {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
             <div class="abs abs-centered z-2 w-80">
                 <div class="container wow scaleIn" data-wow-duration="3s">
                     <div class="row">
                         <div class="col-lg-12 text-center">
-                            <div class="subtitle">The Future of Intelligence</div>
-                            <h1 class="fs-120 text-uppercase fs-sm-12vw mb-4 lh-1">AI Summit 2025</h1>
+                            <div class="subtitle">JUST LIKE A VIDEO GAME YOU NEED TO</div>
+                            <h1 class="fs-120 text-uppercase fs-sm-12vw mb-4 lh-1">Level Up Every area of Your Life</h1>
 
                             <div class="d-block d-md-flex justify-content-center">
                                 <div class="d-flex justify-content-center align-items-center mx-4">
-                                    <i class="fa fa-calendar id-color me-3"></i>
-                                    <h4 class="mb-0">October 1–5, 2025</h4>
+                                    {{-- <i class="fa fa-calendar id-color me-3"></i> --}}
+                                    <p class="mb-0">This isn’t just another course. It’s a complete platform designed to sharpen your mind, habits, health, and income, so you grow in every area that matters.</p>
                                 </div>
 
-                                <div class="d-flex justify-content-center align-items-center mx-4">
+                                {{-- <div class="d-flex justify-content-center align-items-center mx-4">
                                     <i class="fa fa-location-pin id-color me-3"></i>
                                     <h4 class="mb-0">San Francisco, CA</h4>
-                                </div>
+                                </div> --}}
                             </div>
 
                             <div class="spacer-single"></div>
 
-                            <a class="btn-main mx-2 fx-slide" href="#section-tickets"><span>Get Tickets</span></a>
-                            <a class="btn-main btn-line mx-2 fx-slide" href="#section-schedule"><span>View Schedule</span></a>
+                            <a class="btn-main mx-2 fx-slide" href="{{route('login_form')}}"><span>Join Now</span></a>
+                            {{-- <a class="btn-main btn-line mx-2 fx-slide" href="#section-schedule"><span>View Schedule</span></a> --}}
                         </div>
                     </div>
                 </div>
@@ -40,16 +40,16 @@
                         <div class="row g-4 justify-content-between align-items-center relative z-2">
                             <div class="col-lg-3">
                                 <h2 class="mb-0">Hurry Up!</h2>
-                                <h4 class="mb-0">Book Your Seat Now</h4>
+                                {{-- <h4 class="mb-0">Book Your Seat Now</h4> --}}
                             </div>
                             <div class="col-lg-4">
                                 <div id="defaultCountdown" class="pt-2"></div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="d-flex">
-                                    <i class="fs-60 icofont-google-map id-color"></i>
+                                    {{-- <i class="fs-60 icofont-google-map id-color"></i> --}}
                                     <div class="ms-3">
-                                        <h4 class="mb-0">121 AI Blvd,<br>San Francisco BCA 94107</h4>
+                                        {{-- <h4 class="mb-0">121 AI Blvd,<br>San Francisco BCA 94107</h4> --}}
                                     </div>
                                 </div>
                             </div>
@@ -59,20 +59,23 @@
             </div>
         </section>
 
-        <section id="section-about" class="bg-dark section-dark text-light">
+        <section id="section-about" class="section-dark text-light jarallax relative">
+            <div class="gradient-edge-top op-6 h-50 color"></div>
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            <div class="sw-overlay op-8"></div>
             <div class="container">
                 <div class="row  gx-5 align-items-center justify-content-between">
                     <div class="col-lg-6">
                           <div class="me-lg-5 pe-lg-5 py-5 my-5">
-                              <div class="subtitle wow fadeInUp" data-wow-delay=".2s">About the Event</div>
-                              <h2 class="wow fadeInUp" data-wow-delay=".4s">A Global Gathering of AI Innovators</h2>
+                              <div class="subtitle wow fadeInUp" data-wow-delay=".2s">About Us</div>
+                              <h2 class="wow fadeInUp" data-wow-delay=".4s">A global campus designed for the doers of tomorrow</h2>
                               <p class="wow fadeInUp" data-wow-delay=".6s">Join thought leaders, developers, researchers, and founders as we explore how artificial intelligence is reshaping industries, creativity, and the future
                               of work.</p>
 
                               <ul class="ul-check">
-                                  <li class="wow fadeInUp" data-wow-delay=".8s">5 days of keynotes, workshops, and networking</li>
-                                  <li class="wow fadeInUp" data-wow-delay=".9s">50 world-class speakers</li>
-                                  <li class="wow fadeInUp" data-wow-delay="1s">Startup showcase and live demos</li>
+                                  <li class="wow fadeInUp" data-wow-delay=".8s">Vital Life Lessons</li>
+                                  <li class="wow fadeInUp" data-wow-delay=".9s">Private Network</li>
+                                  <li class="wow fadeInUp" data-wow-delay="1s">Access To Multi-Millionaires</li>
                               </ul>
 
                           </div>
@@ -124,7 +127,10 @@
             </div>
         </section>
 
-        <section id="section-why-attend" class="bg-dark section-dark text-light">
+        <section id="section-why-attend" class="section-dark text-light jarallax relative">
+            <div class="gradient-edge-top op-6 h-50 color"></div>
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            <div class="sw-overlay op-8"></div>
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-6 offset-lg-3 text-center">
@@ -239,8 +245,8 @@
 
         <section class="bg-dark section-dark text-light pt-80 relative jarallax" aria-label="section">
             <img src="images/background/2.webp" class="jarallax-img" alt="">
-            <div class="gradient-edge-top"></div>
-            <div class="gradient-edge-bottom"></div>
+            {{-- <div class="gradient-edge-top"></div> --}}
+            {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
             <div class="container relative z-4">
                 <div class="row align-items-center g-5">
@@ -262,7 +268,10 @@
             </div>
         </section>
 
-        <section id="section-speakers" class="bg-dark section-dark text-light">
+        <section id="section-speakers" class="section-dark text-light jarallax relative">
+            <div class="gradient-edge-top op-6 h-50 color"></div>
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            <div class="sw-overlay op-8"></div>
             <div class="container">
                 <div class="row g-4 justify-content-center">
                     <div class="col-lg-6 relative z-3">
@@ -323,8 +332,8 @@
 
         <section class="bg-dark section-dark pt-80 relative jarallax" aria-label="section">
             <img src="images/background/1.webp" class="jarallax-img" alt="">
-            <div class="gradient-edge-top"></div>
-            <div class="gradient-edge-bottom"></div>
+            {{-- <div class="gradient-edge-top"></div> --}}
+            {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
             <div class="container">
                 <div class="row g-4">
@@ -347,7 +356,10 @@
             </div>
         </section>
 
-        <section id="section-schedule" class="bg-dark section-dark text-light">
+        <section id="section-schedule" class="section-dark text-light jarallax relative">
+            <div class="gradient-edge-top op-6 h-50 color"></div>
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            <div class="sw-overlay op-8"></div>
             <div class="container">
               <div class="row g-4 gx-5 justify-content-center">
                 <div class="col-lg-6 text-center">
@@ -867,7 +879,10 @@
             </div>
         </section>
 
-        <section id="section-tickets" class="bg-dark section-dark text-light pt-80 relative jarallax" aria-label="section">
+        <section id="section-tickets" class="section-dark text-light jarallax relative" aria-label="section">
+            {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            <div class="sw-overlay op-8"></div>
             <img src="images/background/7.webp" class="jarallax-img" alt="">
             <div class="gradient-edge-top"></div>
             <div class="gradient-edge-bottom"></div>
@@ -1042,7 +1057,10 @@
             </div>
         </section>
 
-        <section id="section-venue" class="bg-dark section-dark text-light pt-80 relative jarallax" aria-label="section">
+        <section id="section-venue" class="section-dark text-light jarallax relative" aria-label="section">
+            {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            <div class="sw-overlay op-8"></div>
           <div class="container relative z-2">
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-6 text-center">
@@ -1097,7 +1115,10 @@
           </div>
         </section>
 
-        <section  id="section-faq" class="bg-dark section-dark text-light">
+        <section  id="section-faq" class="section-dark text-light jarallax relative" aria-label="section">
+            {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            <div class="sw-overlay op-8"></div>
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-5">
@@ -1158,8 +1179,8 @@
 
         <section class="bg-dark section-dark text-light pt-80 relative jarallax" aria-label="section">
             <img src="images/background/3.webp" class="jarallax-img" alt="">
-            <div class="gradient-edge-top"></div>
-            <div class="gradient-edge-bottom"></div>
+            {{-- <div class="gradient-edge-top"></div> --}}
+            {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
           <div class="container relative z-2">
             <div class="row g-4 justify-content-center">
