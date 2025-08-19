@@ -4,3 +4,31 @@
   --secondary-color: #907524;
   --secondary-color-rgb: rgb(144, 124, 36);
 }
+
+/* :root {
+  
+  --background-color: #0b0e13;       
+  --surface-color: #12151c;          
+  --card-color: #1c1f26;             
+
+  
+  --text-primary: #ffffff;           
+  --text-secondary: #d1d5db;         
+  --text-accent: #00bfff;           
+
+  
+  --primary-color: #facd63;          
+  --primary-color-rgb: 252, 195, 23;
+  --secondary-color: #907524;        
+  --secondary-color-rgb: 144, 124, 36;
+
+  --gold-gradient: linear-gradient(90deg, #ffb84d, #ff9500, #e07c00);
+
+  
+  --accent-blue: #1e90ff;            
+
+  
+  --button-bg: var(--gold-gradient);
+  --button-text: #0b0e13;            
+  --button-hover: linear-gradient(90deg, #ffd27f, #ffae42, #ff8800);
+} */
