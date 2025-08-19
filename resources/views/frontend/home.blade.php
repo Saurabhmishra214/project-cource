@@ -211,9 +211,9 @@
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-6 offset-lg-3 text-center">
-                        <div class="subtitle wow fadeInUp mb-3">Why Attend</div>
-                        <h2 class="wow fadeInUp" data-wow-delay=".2s">What You’ll Gain</h2>
-                        <p class="lead mb-0 wow fadeInUp">Hear from global AI pioneers, industry disruptors, and bold thinkers shaping the future across every domain.</p>
+                        <div class="subtitle wow fadeInUp mb-3">THE REAL WORLD CAMPUSES</div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".2s">10+ WEALTH CREATION METHODS</h2>
+                        <p class="lead mb-0 wow fadeInUp">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti earum assumenda dolores.</p>
                     </div>
                 </div>
 
@@ -230,13 +230,13 @@
                                     </div>
                                 </div>
                                 <div class="gradient-edge-bottom h-100"></div>
-                                <img src="images/misc/s3.webp" class="w-100 hover-scale-1-1" alt="">
+                                <img src="{{ asset('assets/images/frontend/misc/s3.webp') }}" class="w-100 hover-scale-1-1" alt="">
                                 <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    {{-- <div class="col-lg-4 col-md-6">
                         <div class="hover">
                             <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
                                 <div class="abs p-40 bottom-0 z-2">
@@ -246,13 +246,13 @@
                                     </div>
                                 </div>
                                 <div class="gradient-edge-bottom h-100"></div>
-                                <img src="images/misc/s4.webp" class="w-100 hover-scale-1-1" alt="">
+                                <img src="{{ asset('assets/images/frontend/misc/s4.webp') }}" class="w-100 hover-scale-1-1" alt="">
                                 <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="col-lg-4 col-md-6">
+                    {{-- <div class="col-lg-4 col-md-6">
                         <div class="hover">
                             <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
                                 <div class="abs p-40 bottom-0 z-2">
@@ -262,13 +262,13 @@
                                     </div>
                                 </div>
                                 <div class="gradient-edge-bottom h-100"></div>
-                                <img src="images/misc/s5.webp" class="w-100 hover-scale-1-1" alt="">
+                                <img src="{{ asset('assets/images/frontend/misc/s5.webp') }}" class="w-100 hover-scale-1-1" alt="">
                                 <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="col-lg-4 col-md-6">
+                    {{-- <div class="col-lg-4 col-md-6">
                         <div class="hover">
                             <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
                                 <div class="abs p-40 bottom-0 z-2">
@@ -278,13 +278,13 @@
                                     </div>
                                 </div>
                                 <div class="gradient-edge-bottom h-100"></div>
-                                <img src="images/misc/s6.webp" class="w-100 hover-scale-1-1" alt="">
+                                <img src="{{ asset('assets/images/frontend/misc/s6.webp') }}" class="w-100 hover-scale-1-1" alt="">
                                 <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="col-lg-4 col-md-6">
+                    {{-- <div class="col-lg-4 col-md-6">
                         <div class="hover">
                             <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
                                 <div class="abs p-40 bottom-0 z-2">
@@ -294,13 +294,13 @@
                                     </div>
                                 </div>
                                 <div class="gradient-edge-bottom h-100"></div>
-                                <img src="images/misc/s7.webp" class="w-100 hover-scale-1-1" alt="">
+                                <img src="{{ asset('assets/images/frontend/misc/s7.webp') }}" class="w-100 hover-scale-1-1" alt="">
                                 <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="col-lg-4 col-md-6">
+                    {{-- <div class="col-lg-4 col-md-6">
                         <div class="hover">
                             <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
                                 <div class="abs p-40 bottom-0 z-2">
@@ -314,7 +314,7 @@
                                 <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
