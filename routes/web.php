@@ -1,10 +1,7 @@
 <?php
 
-
 use App\Http\Controllers\AffiliateController;
-=======
 use App\Http\Controllers\AdminController;
-
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
