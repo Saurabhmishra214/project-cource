@@ -322,7 +322,7 @@
 
         <section class="bg-dark section-dark text-light pt-80 relative jarallax" aria-label="section">
             <img src="{{ asset('assets/images/frontend/background/2.webp') }}" class="jarallax-img" alt="">
-            {{-- <div class="gradient-edge-top"></div> --}}
+            <div class="gradient-edge-top"></div>
             {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
             <div class="container relative z-4">
