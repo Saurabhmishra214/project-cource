@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\AutomationCourse;
 use App\Models\HustlersTraining; 
 use Illuminate\Http\Request;
-use App\Models\Job; // Job model ko import karein
+use App\Models\Job;
+use App\Models\Skill; // Job model ko import karein --- IGNORE ---
 
 class UserController extends Controller
 {
@@ -33,15 +34,25 @@ class UserController extends Controller
         return view('dashboard.hustlers_training', compact('trainings'));
     }
 
-      public function freelance_content()
-    {
-        // Sabhi jobs ko unke skills ke saath database se fetch karein
-        // with('skills') ka upyog karke N+1 query problem se bachenge
-        $jobs = Job::with('skills')->get();
-        
-        // Jobs data ko view ke saath pass karein
-        return view('dashboard.freelancing_content', compact('jobs'));
+   public function freelance_content(Request $request)
+{
+    // Sabhi available skills (dropdown ke liye)
+    $allSkills = Skill::all();
+
+    // Agar filter lagaya gaya hai
+    $query = Job::with('skills');
+
+    if ($request->has('skill') && $request->skill != '') {
+        $query->whereHas('skills', function ($q) use ($request) {
+            $q->where('skills.id', $request->skill);
+        });
     }
+
+    $jobs = $query->get();
+
+    return view('dashboard.freelancing_content', compact('jobs', 'allSkills'));
+}
+
 
     public function asset_sections()
     {
