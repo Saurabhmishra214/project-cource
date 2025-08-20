@@ -59,38 +59,6 @@
             </div>
         </section>
 
-        <section id="section-about" class="section-dark text-light jarallax relative">
-            <div class="gradient-edge-top op-6 h-50 color"></div>
-            {{-- <div class="gradient-edge-bottom"></div> --}}
-            <div class="sw-overlay op-8"></div>
-            <div class="container">
-                <div class="row  gx-5 align-items-center justify-content-between">
-                    <div class="col-lg-6">
-                          <div class="me-lg-5 pe-lg-5 py-5 my-5">
-                              <div class="subtitle wow fadeInUp" data-wow-delay=".2s">About Us</div>
-                              <h2 class="wow fadeInUp" data-wow-delay=".4s">A global campus designed for the doers of tomorrow</h2>
-                              <p class="wow fadeInUp" data-wow-delay=".6s">Join thought leaders, developers, researchers, and founders as we explore how artificial intelligence is reshaping industries, creativity, and the future
-                              of work.</p>
-
-                              <ul class="ul-check">
-                                  <li class="wow fadeInUp" data-wow-delay=".8s">Vital Life Lessons</li>
-                                  <li class="wow fadeInUp" data-wow-delay=".9s">Private Network</li>
-                                  <li class="wow fadeInUp" data-wow-delay="1s">Access To Multi-Millionaires</li>
-                              </ul>
-
-                          </div>
-                    </div>
-
-                    <div class="col-lg-5">
-                        <div class="wow scaleIn">
-                            <img src="images/misc/c1.webp" class="w-100 rotate-animation" alt="">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
         <section class="section-dark p-0" aria-label="section">
             <div class="bg-color text-light d-flex py-4 lh-1 rot-2">
               <div class="de-marquee-list-1 wow fadeInLeft" data-wow-duration="3s">
@@ -127,16 +95,125 @@
             </div>
         </section>
 
-        <section id="section-why-attend" class="section-dark text-light jarallax relative">
+        <section id="section-pillars" class="section-dark text-light jarallax relative">
             <div class="gradient-edge-top op-6 h-50 color"></div>
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            <div class="sw-overlay op-8"></div>
+            <div class="container">
+            <div class="row g-4 text-center">
+            <div class="col-lg-4">
+                <div class="feature-box bg-dark-2 p-4 rounded-1">
+                <h3>YouTube Profits</h3>
+                <p>Learn proven strategies to monetize YouTube in 2025.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="feature-box bg-dark-2 p-4 rounded-1">
+                <h3>Business Takeover</h3>
+                <p>Systems & mentorship to grow your business fast.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="feature-box bg-dark-2 p-4 rounded-1">
+                <h3>AI-Powered Skills</h3>
+                <p>Master AI to multiply your results.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+
+        {{-- <section id="section-about" class="section-dark text-light jarallax relative">
+            <div class="gradient-edge-top op-6 h-50 color"></div>
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            {{-- <div class="sw-overlay op-8"></div>
+            <div class="container">
+                <div class="row  gx-5 align-items-center justify-content-between">
+                    <div class="col-lg-6">
+                          <div class="me-lg-5 pe-lg-5 py-5 my-5">
+                              <div class="subtitle wow fadeInUp" data-wow-delay=".2s">About Us</div>
+                              <h2 class="wow fadeInUp" data-wow-delay=".4s">A global campus designed for the doers of tomorrow</h2>
+                              <p class="wow fadeInUp" data-wow-delay=".6s">Join thought leaders, developers, researchers, and founders as we explore how artificial intelligence is reshaping industries, creativity, and the future
+                              of work.</p>
+
+                              <ul class="ul-check">
+                                  <li class="wow fadeInUp" data-wow-delay=".8s">Vital Life Lessons</li>
+                                  <li class="wow fadeInUp" data-wow-delay=".9s">Private Network</li>
+                                  <li class="wow fadeInUp" data-wow-delay="1s">Access To Multi-Millionaires</li>
+                              </ul>
+
+                          </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="wow scaleIn">
+                            <img src="{{ asset('assets/images/frontend/misc/c1.webp') }}" class="w-100 rotate-animation" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section> --}}
+
+        <section id="section-intro-videos" class="section-dark text-light relative py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+            <h2 class="wow fadeInUp">See Inside The Platform</h2>
+            <p class="lead wow fadeInUp" data-wow-delay=".2s">Real lessons, real people, real wins.</p>
+            </div>
+
+            <!-- Swiper -->
+            <div class="swiper myVideoSwiper">
+            <div class="swiper-wrapper">
+
+                <!-- Video Card 1 -->
+                <div class="swiper-slide">
+                <div class="video-card">
+                    <video muted loop playsinline>
+                    <source src="{{ asset('assets/video/1.mp4')}}" type="video/mp4">
+                    </video>
+                </div>
+                </div>
+
+                {{-- <!-- Video Card 2 -->
+                <div class="swiper-slide">
+                <div class="video-card">
+                    <video muted loop playsinline>
+                    <source src="{{ asset('assets/video/2.mp4')}}" type="video/mp4">
+                    </video>
+                </div>
+                </div>
+
+                <!-- Video Card 3 -->
+                <div class="swiper-slide">
+                <div class="video-card">
+                    <video muted loop playsinline>
+                    <source src="{{ asset('assets/video/3.mp4')}}" type="video/mp4">
+                    </video>
+                </div>
+                </div> --}}
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        </section>
+
+
+         <section id="section-why-attend" class="section-dark text-light jarallax relative">
+            {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
             {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-6 offset-lg-3 text-center">
-                        <div class="subtitle wow fadeInUp mb-3">Why Attend</div>
-                        <h2 class="wow fadeInUp" data-wow-delay=".2s">What You’ll Gain</h2>
-                        <p class="lead mb-0 wow fadeInUp">Hear from global AI pioneers, industry disruptors, and bold thinkers shaping the future across every domain.</p>
+                        <div class="subtitle wow fadeInUp mb-3">THE REAL WORLD CAMPUSES</div>
+                        <h2 class="wow fadeInUp" data-wow-delay=".2s">10+ WEALTH CREATION METHODS</h2>
+                        <p class="lead mb-0 wow fadeInUp">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti earum assumenda dolores.</p>
                     </div>
                 </div>
 
@@ -153,13 +230,13 @@
                                     </div>
                                 </div>
                                 <div class="gradient-edge-bottom h-100"></div>
-                                <img src="images/misc/s3.webp" class="w-100 hover-scale-1-1" alt="">
+                                <img src="{{ asset('assets/images/frontend/misc/s3.webp') }}" class="w-100 hover-scale-1-1" alt="">
                                 <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6">
+                    {{-- <div class="col-lg-4 col-md-6">
                         <div class="hover">
                             <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
                                 <div class="abs p-40 bottom-0 z-2">
@@ -169,13 +246,13 @@
                                     </div>
                                 </div>
                                 <div class="gradient-edge-bottom h-100"></div>
-                                <img src="images/misc/s4.webp" class="w-100 hover-scale-1-1" alt="">
+                                <img src="{{ asset('assets/images/frontend/misc/s4.webp') }}" class="w-100 hover-scale-1-1" alt="">
                                 <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="col-lg-4 col-md-6">
+                    {{-- <div class="col-lg-4 col-md-6">
                         <div class="hover">
                             <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
                                 <div class="abs p-40 bottom-0 z-2">
@@ -185,13 +262,13 @@
                                     </div>
                                 </div>
                                 <div class="gradient-edge-bottom h-100"></div>
-                                <img src="images/misc/s5.webp" class="w-100 hover-scale-1-1" alt="">
+                                <img src="{{ asset('assets/images/frontend/misc/s5.webp') }}" class="w-100 hover-scale-1-1" alt="">
                                 <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="col-lg-4 col-md-6">
+                    {{-- <div class="col-lg-4 col-md-6">
                         <div class="hover">
                             <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
                                 <div class="abs p-40 bottom-0 z-2">
@@ -201,13 +278,13 @@
                                     </div>
                                 </div>
                                 <div class="gradient-edge-bottom h-100"></div>
-                                <img src="images/misc/s6.webp" class="w-100 hover-scale-1-1" alt="">
+                                <img src="{{ asset('assets/images/frontend/misc/s6.webp') }}" class="w-100 hover-scale-1-1" alt="">
                                 <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="col-lg-4 col-md-6">
+                    {{-- <div class="col-lg-4 col-md-6">
                         <div class="hover">
                             <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
                                 <div class="abs p-40 bottom-0 z-2">
@@ -217,13 +294,13 @@
                                     </div>
                                 </div>
                                 <div class="gradient-edge-bottom h-100"></div>
-                                <img src="images/misc/s7.webp" class="w-100 hover-scale-1-1" alt="">
+                                <img src="{{ asset('assets/images/frontend/misc/s7.webp') }}" class="w-100 hover-scale-1-1" alt="">
                                 <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="col-lg-4 col-md-6">
+                    {{-- <div class="col-lg-4 col-md-6">
                         <div class="hover">
                             <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
                                 <div class="abs p-40 bottom-0 z-2">
@@ -237,14 +314,14 @@
                                 <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
-        </section>
+        </section> 
 
         <section class="bg-dark section-dark text-light pt-80 relative jarallax" aria-label="section">
-            <img src="images/background/2.webp" class="jarallax-img" alt="">
+            <img src="{{ asset('assets/images/frontend/background/2.webp') }}" class="jarallax-img" alt="">
             {{-- <div class="gradient-edge-top"></div> --}}
             {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
@@ -255,7 +332,7 @@
                             <div class="abs bg-color w-80px h-80px rounded-1 text-center end-0 z-2 wow scaleIn">
                                 <i class="icofont-quote-left text-white fs-40 d-block pt-3"></i>
                             </div>
-                            <img src="images/misc/s9.webp" class="w-100 rounded-1 wow scale-in-mask" alt="">
+                            <img src="{{ asset('assets/images/frontend/misc/s9.webp') }}" class="w-100 rounded-1 wow scale-in-mask" alt="">
                         </div>
                     </div>
 
@@ -276,9 +353,9 @@
                 <div class="row g-4 justify-content-center">
                     <div class="col-lg-6 relative z-3">
                           <div class="text-center">
-                              <div class="subtitle wow fadeInUp" data-wow-delay=".0s">Speakers</div>
-                              <h2 class="wow fadeInUp" data-wow-delay=".2s">Meet the Visionaries</h2>
-                              <p class="lead wow fadeInUp">Whether it's a quick refresh or a deep clean transformation, our expert touch leaves your home or office shining.</p>
+                              <div class="subtitle wow fadeInUp" data-wow-delay=".0s">TESTIMONIALS</div>
+                              <h2 class="wow fadeInUp" data-wow-delay=".2s">OUR STUDENTS ARE WINNING</h2>
+                              {{-- <p class="lead wow fadeInUp">Whether it's a quick refresh or a deep clean transformation, our expert touch leaves your home or office shining.</p> --}}
                           </div>
                     </div>
                 </div>
@@ -286,7 +363,7 @@
                 <div class="row g-4">
                     <div class="col-lg-4">
                         <div class="hover relative rounded-1 overflow-hidden wow fadeIn scale-in-mask">
-                            <img src="images/team/1.webp" class="w-100 hover-scale-1-1" alt="">
+                            <img src="{{ asset('assets/images/frontend/team/1.webp') }}" class="w-100 hover-scale-1-1" alt="">
                             <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             <div class="abs w-100 start-0 bottom-0 z-3">
                                 <div class="bg-blur p-4 m-4 rounded-1 text-light text-center relative z-2">
@@ -298,9 +375,9 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
+                    {{-- <div class="col-lg-4">
                         <div class="hover relative rounded-1 overflow-hidden wow fadeIn scale-in-mask">
-                            <img src="images/team/2.webp" class="w-100 hover-scale-1-1" alt="">
+                            <img src="{{ asset('assets/images/frontend/team/2.webp') }}" class="w-100 hover-scale-1-1" alt="">
                             <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             <div class="abs w-100 start-0 bottom-0 z-3">
                                 <div class="bg-blur p-4 m-4 rounded-1 text-light text-center relative z-2">
@@ -314,7 +391,7 @@
 
                     <div class="col-lg-4">
                         <div class="hover relative rounded-1 overflow-hidden wow fadeIn scale-in-mask">
-                            <img src="images/team/3.webp" class="w-100 hover-scale-1-1" alt="">
+                            <img src="{{ asset('assets/images/frontend/team/3.webp') }}" class="w-100 hover-scale-1-1" alt="">
                             <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
                             <div class="abs w-100 start-0 bottom-0 z-3">
                                 <div class="bg-blur p-4 m-4 rounded-1 text-light text-center relative z-2">
@@ -324,14 +401,14 @@
                                 <div class="gradient-edge-bottom h-100 op-8"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
         </section>
 
         <section class="bg-dark section-dark pt-80 relative jarallax" aria-label="section">
-            <img src="images/background/1.webp" class="jarallax-img" alt="">
+            <img src="{{ asset('assets/images/frontend/background/1.webp') }}" class="jarallax-img" alt="">
             {{-- <div class="gradient-edge-top"></div> --}}
             {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
@@ -340,26 +417,26 @@
 
                     <div class="col-md-12 wow fadeInUp">
                         <div class="owl-6 no-alpha owl-carousel owl-theme wow mask-right">
-                            <img src="images/logo-light/1.webp" class="w-100 px-4" alt="">
-                            <img src="images/logo-light/2.webp" class="w-100 px-4" alt="">
-                            <img src="images/logo-light/3.webp" class="w-100 px-4" alt="">
-                            <img src="images/logo-light/4.webp" class="w-100 px-4" alt="">
-                            <img src="images/logo-light/5.webp" class="w-100 px-4" alt="">
-                            <img src="images/logo-light/6.webp" class="w-100 px-4" alt="">
-                            <img src="images/logo-light/7.webp" class="w-100 px-4" alt="">
-                            <img src="images/logo-light/8.webp" class="w-100 px-4" alt="">
-                            <img src="images/logo-light/9.webp" class="w-100 px-4" alt="">
-                            <img src="images/logo-light/10.webp" class="w-100 px-4" alt="">
+                            <img src="{{ asset('assets/images/frontend/logo-light/1.webp') }}" class="w-100 px-4" alt="">
+                            <img src="{{ asset('assets/images/frontend/logo-light/2.webp') }}" class="w-100 px-4" alt="">
+                            <img src="{{ asset('assets/images/frontend/logo-light/3.webp') }}" class="w-100 px-4" alt="">
+                            <img src="{{ asset('assets/images/frontend/logo-light/4.webp') }}" class="w-100 px-4" alt="">
+                            <img src="{{ asset('assets/images/frontend/logo-light/5.webp') }}" class="w-100 px-4" alt="">
+                            <img src="{{ asset('assets/images/frontend/logo-light/6.webp') }}" class="w-100 px-4" alt="">
+                            <img src="{{ asset('assets/images/frontend/logo-light/7.webp') }}" class="w-100 px-4" alt="">
+                            <img src="{{ asset('assets/images/frontend/logo-light/8.webp') }}" class="w-100 px-4" alt="">
+                            <img src="{{ asset('assets/images/frontend/logo-light/9.webp') }}" class="w-100 px-4" alt="">
+                            <img src="{{ asset('assets/images/frontend/logo-light/10.webp') }}" class="w-100 px-4" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="section-schedule" class="section-dark text-light jarallax relative">
+        {{-- <section id="section-schedule" class="section-dark text-light jarallax relative">
             <div class="gradient-edge-top op-6 h-50 color"></div>
             {{-- <div class="gradient-edge-bottom"></div> --}}
-            <div class="sw-overlay op-8"></div>
+            {{--<div class="sw-overlay op-8"></div>
             <div class="container">
               <div class="row g-4 gx-5 justify-content-center">
                 <div class="col-lg-6 text-center">
@@ -877,7 +954,7 @@
                 </div>
               </div>
             </div>
-        </section>
+        </section> --}}
 
         <section id="section-tickets" class="section-dark text-light jarallax relative" aria-label="section">
             {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
@@ -891,9 +968,9 @@
             <div class="container relative z-2">
                 <div class="row g-4 gx-5 justify-content-center">
                   <div class="col-lg-6 text-center">
-                      <div class="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s">Ticket Options</div>
-                      <h2 class="wow fadeInUp" data-wow-delay=".2s">Choose Your Pass</h2>
-                      <p class="lead wow fadeInUp" data-wow-delay=".4s">Select the perfect ticket for your needs and gain access to exclusive sessions, workshops, and more.</p>
+                      <div class="subtitle s2 mb-3 wow fadeInUp" data-wow-delay=".0s">EXCLUSIVE FEATURES</div>
+                      <h2 class="wow fadeInUp" data-wow-delay=".2s">GET ACCESS TO</h2>
+                      <p class="lead wow fadeInUp" data-wow-delay=".4s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, beatae?</p>
                   </div>
                 </div>
 
@@ -903,25 +980,25 @@
                             <!-- ticket item begin -->
                             <div class="item">
                                 <div class="d-ticket">
-                                    <img src="images/logo.webp" class="w-80px mb-4" alt="">
-                                    <img src="images/misc/barcode.webp" class="w-20 p-2 abs abs-middle end-0 me-2" alt="">
-                                    <img src="images/logo-big-white.webp" class="w-40 abs abs-centered me-4 op-2" alt="">
-                                    <h2>Standard</h2>
-                                    <h4 class="mb-4">$299</h4>
-                                    <div class="fs-14">October 1 to 5 - 10:00 AM</div>
+                                    <img src="{{ asset('assets/images/frontend/logo.webp') }}" class="w-80px mb-4" alt="">
+                                    <img src="{{ asset('assets/images/frontend/misc/barcode.webp') }}" class="w-20 p-2 abs abs-middle end-0 me-2" alt="">
+                                    <img src="{{ asset('assets/images/frontend/logo-big-white.webp') }}" class="w-40 abs abs-centered me-4 op-2" alt="">
+                                    <h2>STEP-BY-STEP LEARNING</h2>
+                                    {{-- <h4 class="mb-4">$299</h4> --}}
+                                    {{-- <div class="fs-14">October 1 to 5 - 10:00 AM</div> --}}
                                 </div>
 
                                 <div class="relative overflow-hidden">
                                     <div class="py-4 z-2">
                                         <ul class="ul-check mb-4">
-                                            <li>Access to keynotes and sessions.</li>
-                                            <li>Admission to exhibitions and demos.</li>
-                                            <li>Networking opportunities.</li>
-                                            <li>Digital materials and session recordings.</li>
+                                            <li>Easy to follow program for financial success</li>
+                                            <li>New high income skills constantly added</li>
+                                            {{-- <li>Networking opportunities.</li> --}}
+                                            <li>Learn with our hyper advanced application</li>
                                         </ul>
                                     </div>
 
-                                    <a class="btn-main fx-slide w-100" href="tickets.html"><span>Buy Ticket</span></a>
+                                    {{-- <a class="btn-main fx-slide w-100" href="tickets.html"><span>Buy Ticket</span></a> --}}
                                     
                                 </div>
                             </div>
@@ -929,55 +1006,57 @@
 
                             <!-- ticket item begin -->
                             <div class="item">
-                                <div class="d-ticket">
-                                    <img src="images/logo.webp" class="w-80px mb-4" alt="">
-                                    <img src="images/misc/barcode.webp" class="w-20 p-2 abs abs-middle end-0 me-2" alt="">
-                                    <img src="images/logo-big-white.webp" class="w-40 abs abs-centered me-4 op-2" alt="">
-                                    <h2>VIP</h2>
-                                    <h4 class="mb-4">$699</h4>
-                                    <div class="fs-14">October 1 to 5 - 10:00 AM</div>
+                                <div class="d-ticket s2">
+                                    <img src="{{ asset('assets/images/frontend/logo.webp') }}" class="w-80px mb-4" alt="">
+                                    <img src="{{ asset('assets/images/frontend/misc/barcode.webp') }}" class="w-20 p-2 abs abs-middle end-0 me-2" alt="">
+                                    <img src="{{ asset('assets/images/frontend/logo-big-white.webp') }}" class="w-40 abs abs-centered me-4 op-2" alt="">
+                                    <h2>DAILY LIVE SESSIONS</h2>
+                                    {{-- <h4 class="mb-4">$1199</h4>
+                                    <div class="fs-14">October 1 to 5 - 10:00 AM</div> --}}
                                 </div>
                                 <div class="relative">
                                     <div class="py-4 z-2">
                                         <ul class="ul-check mb-4">
-                                            <li>All Standard benefits.</li>
-                                            <li>VIP lounge access and exclusive events.</li>
-                                            <li>Front-row seating and priority workshop access.</li>
-                                            <li>VIP swag bag and exclusive content.</li>
+                                            <li>Daily live sessions with millionaire coaches</li>
+                                            <li>Scale from Zero to $10k/month as fast as possible</li>
+                                            {{-- <li>Personalized session scheduling.</li> --}}
+                                            <li>Network with 155,000+ students</li>
                                         </ul>
                                     </div>
                                 </div>
 
-                                <a class="btn-main fx-slide w-100" href="tickets.html"><span>Buy Ticket</span></a>
+                                <a class="btn-main fx-slide w-100" href="{{ route('register_form') }}"><span>Join Now</span></a>
                             </div>
                             <!-- ticket item end -->
 
                             <!-- ticket item begin -->
                             <div class="item">
-                                <div class="d-ticket s2">
-                                    <img src="images/logo.webp" class="w-80px mb-4" alt="">
-                                    <img src="images/misc/barcode.webp" class="w-20 p-2 abs abs-middle end-0 me-2" alt="">
-                                    <img src="images/logo-big-white.webp" class="w-40 abs abs-centered me-4 op-2" alt="">
-                                    <h2>Full Access</h2>
-                                    <h4 class="mb-4">$1199</h4>
-                                    <div class="fs-14">October 1 to 5 - 10:00 AM</div>
+                                <div class="d-ticket">
+                                    <img src="{{ asset('assets/images/frontend/logo.webp') }}" class="w-80px mb-4" alt="">
+                                    <img src="{{ asset('assets/images/frontend/misc/barcode.webp') }}" class="w-20 p-2 abs abs-middle end-0 me-2" alt="">
+                                    <img src="{{ asset('assets/images/frontend/logo-big-white.webp') }}" class="w-40 abs abs-centered me-4 op-2" alt="">
+                                    <h2>AN EXCLUSIVE COMMUNITY</h2>
+                                    {{-- <h4 class="mb-4">$699</h4>
+                                    <div class="fs-14">October 1 to 5 - 10:00 AM</div> --}}
                                 </div>
                                 <div class="relative">
                                     <div class="py-4 z-2">
                                         <ul class="ul-check mb-4">
-                                            <li>All VIP benefits.</li>
-                                            <li>Access to all workshops and breakout sessions.</li>
-                                            <li>Personalized session scheduling.</li>
-                                            <li>Speaker meet-and-greet and after-party access.</li>
+                                            <li>Mentors are hyper-successful experts in their field</li>
+                                            <li>Get mentored every step of your journey</li>
+                                            <li>Network with 155,000+ students</li>
+                                            {{-- <li>VIP swag bag and exclusive content.</li> --}}
                                         </ul>
                                     </div>
                                 </div>
 
-                                <a class="btn-main fx-slide w-100" href="tickets.html"><span>Buy Ticket</span></a>
+                                {{-- <a class="btn-main fx-slide w-100" href="{{ route('register_form') }}"><span>Join Now</span></a> --}}
                             </div>
                             <!-- ticket item end -->
 
-                            <!-- ticket item begin -->
+                            
+
+                            {{-- <!-- ticket item begin -->
                             <div class="item">
                                 <div class="d-ticket s2">
                                     <img src="images/logo.webp" class="w-80px mb-4" alt="">
@@ -1050,17 +1129,17 @@
 
                                 <a class="btn-main fx-slide w-100" href="tickets.html"><span>Buy Ticket</span></a>
                             </div>
-                            <!-- ticket item end -->
+                            <!-- ticket item end --> --}}
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="section-venue" class="section-dark text-light jarallax relative" aria-label="section">
+        {{-- <section id="section-venue" class="section-dark text-light jarallax relative" aria-label="section">
             {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
             {{-- <div class="gradient-edge-bottom"></div> --}}
-            <div class="sw-overlay op-8"></div>
+            {{--<div class="sw-overlay op-8"></div>
           <div class="container relative z-2">
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-6 text-center">
@@ -1113,7 +1192,7 @@
             </div>
 
           </div>
-        </section>
+        </section> --}}
 
         <section  id="section-faq" class="section-dark text-light jarallax relative" aria-label="section">
             {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
@@ -1185,10 +1264,10 @@
           <div class="container relative z-2">
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <div class="subtitle wow fadeInUp" data-wow-delay=".0s">Stay in the Loop</div>
-                    <h2 class="wow fadeInUp" data-wow-delay=".2s">Join the Future of Innovation</h2>
+                    <div class="subtitle wow fadeInUp" data-wow-delay=".0s">LOCK IN YOUR PRICE</div>
+                    <h2 class="wow fadeInUp" data-wow-delay=".2s">PRICE INCREASE IS IMMINENT</h2>
                     <p class="wow fadeInUp" data-wow-delay=".4s">
-                      Making better things takes time. Drop us your email to stay in the know as we work to reduce our environmental impact. We'll share other exciting news and exclusive offers, too.
+                      Hundreds of thousands of students have already joined The Real World and are on their way to financial freedom.
                     </p>
                 </div>
             </div>
