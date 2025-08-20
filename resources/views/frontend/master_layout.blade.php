@@ -14,6 +14,7 @@
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bootstrap">
     <link href="{{asset('assets/css/vendors.css')}}" rel="stylesheet" type="text/css" >
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css" >
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/video-slider/video-style.css') }}"> --}}
     <!-- color scheme -->
     <link id="colors" href="{{asset('assets/css/colors/scheme-01.css')}}" rel="stylesheet" type="text/css" >
     <!-- Swiper CSS -->
@@ -122,13 +123,13 @@
                                         <li><a class="menu-item" href="#section-faq">FAQ</a></li> --}}
                                         <li><a class="menu-item" href="news.html">Courses</a>
                                             <ul>
-                                                <li><a class="menu-item" href="">Business Campus</a>
-                                                        <ul>
+                                                <li><a class="menu-item" href="{{ route('courses.automation') }}">Automation Business</a>
+                                                        {{-- <ul>
                                                             <li><a class="menu-item" href="">C1</a></li>
                                                             <li><a class="menu-item" href="">C2</a></li>
-                                                        </ul>
+                                                        </ul> --}}
                                                 </li>
-                                                <li><a class="menu-item" href="">Hustlers Campus</a></li>
+                                                <li><a class="menu-item" href="{{ route('courses.hustlers') }}">Hustlers Campus</a></li>
                                             </ul>
                                         </li>
                                         <li><a class="menu-item" href="news.html">Pages</a>
