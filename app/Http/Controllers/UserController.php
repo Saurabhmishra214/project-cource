@@ -47,4 +47,9 @@ class UserController extends Controller
     {
         return view('dashboard.asset_section');
     }
+
+    public function user_profile()
+    {
+        return view('dashboard.user_profile');
+    }
 }
