@@ -26,37 +26,39 @@
                 </div>
             </div>
 
-            <!-- Training Tabs -->
-            <div class="row mb-4">
-                <div class="col-12 text-center">
-                    <ul class="nav justify-content-center nav-tabs border-0 fw-bold fs-5">
-                        <li class="nav-item"><a href="#" class="nav-link active text-primary">Day 1</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Day 2</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Day 3</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Day 4</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Day 5</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Day 6</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Day 7</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Day 8</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Day 9</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Day 10</a></li>
-                    </ul>
-                </div>
+         <!-- Training Tabs -->
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <ul class="nav justify-content-center nav-tabs border-0 fw-bold fs-5" id="training-days">
+                    <li class="nav-item"><a href="#" class="nav-link active text-primary" data-day="1">Day 1</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-day="2">Day 2</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-day="3">Day 3</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-day="4">Day 4</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-day="5">Day 5</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-day="6">Day 6</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-day="7">Day 7</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-day="8">Day 8</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-day="9">Day 9</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-day="10">Day 10</a></li>
+                </ul>
             </div>
+        </div>
 
-            <!-- Video Section -->
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="card bg-dark text-center shadow">
-                        <div class="card-body p-0">
-                            <video class="w-100 rounded" height="400" controls poster="https://via.placeholder.com/1280x400?text=Day+1+Training">
-                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                                Your browser does not support HTML video.
-                            </video>
-                        </div>
+        <!-- Video Section -->
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card bg-dark text-center shadow">
+                    <div class="card-body p-0" id="video-section">
+                        <!-- Default video for Day 1 -->
+                        <video class="w-100 rounded" height="400" controls 
+                            poster="https://via.placeholder.com/1280x400?text=Day+1+Training">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" type="video/mp4">
+                            Your browser does not support HTML video.
+                        </video>
                     </div>
                 </div>
             </div>
+        </div>
 
             <!-- Intro Text -->
             <div class="row my-5">
@@ -127,6 +129,46 @@
         </div><!-- container-fluid -->
     </div><!-- page-content -->
 </div><!-- page-wrapper -->
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll("#training-days .nav-link");
+    const videoSection = document.getElementById("video-section");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // highlight active tab
+            tabs.forEach(t => t.classList.remove("active", "text-primary"));
+            this.classList.add("active", "text-primary");
+
+            const day = this.getAttribute("data-day");
+
+            // fetch video data via AJAX
+            fetch(`/get-training-day/${day}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        videoSection.innerHTML = `
+                            <video class="w-100 rounded" height="400" controls poster="${data.poster}">
+                                <source src="${data.video}" type="video/mp4">
+                                Your browser does not support HTML video.
+                            </video>
+                        `;
+                    } else {
+                        videoSection.innerHTML = `<p class="text-danger py-5">${data.message}</p>`;
+                    }
+                })
+                .catch(err => {
+                    videoSection.innerHTML = `<p class="text-danger py-5">Error loading video</p>`;
+                    console.error(err);
+                });
+        });
+    });
+});
+</script>
 
 
 @endsection
