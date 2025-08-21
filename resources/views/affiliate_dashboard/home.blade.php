@@ -487,133 +487,133 @@
 
 
         <!-- Page Content-->
-<div class="page-content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
-          <h4 class="page-title">Dashboard</h4>
-          <div class="">
-            <ol class="breadcrumb mb-0">
-              <li class="breadcrumb-item"><a href="#">Mifty</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Greeting -->
-    <div class="row mb-4">
-      <div class="col-12">
-        <h3 class="fw-bold">Hello, <span class="text-primary">A Swathi 👋</span></h3>
-      </div>
-    </div>
-
-    <!-- Growth Dashboard + Earnings -->
-    <div class="row justify-content-center">
-      <!-- Growth Dashboard -->
-      <div class="col-md-8 col-lg-8">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="mb-3">Growth Dashboard <small class="text-muted d-block">Track. Reflect. Rise.</small></h5>
-            <div class="row text-center">
-              <div class="col-md-3">
-                <h4>₹87,000</h4>
-                <p class="text-muted mb-0">All Time</p>
-              </div>
-              <div class="col-md-3">
-                <h4>₹87,000</h4>
-                <p class="text-muted mb-0">All Time Paid</p>
-              </div>
-              <div class="col-md-3">
-                <h4>₹10,000</h4>
-                <p class="text-muted mb-0">In Last 30 Days</p>
-              </div>
-              <div class="col-md-3">
-                <h4>₹0</h4>
-                <p class="text-muted mb-0">In Last 7 Days</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Earnings at a Glance -->
-      <div class="col-md-4 col-lg-4">
-        <div class="card">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Earnings at a Glance</h5>
-            <div class="dropdown">
-              <a href="#" class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">
-                Weekly
-              </a>
-              <div class="dropdown-menu dropdown-menu-end">
-                <a class="dropdown-item" href="#">Weekly</a>
-                <a class="dropdown-item" href="#">Monthly</a>
-                <a class="dropdown-item" href="#">Yearly</a>
-              </div>
-            </div>
-          </div>
-          <div class="card-body text-center">
-            <p class="text-muted mb-0">No data available</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Rank + Total Earning -->
-    <div class="row justify-content-center mt-4">
-      <!-- Rank -->
-      <div class="col-md-4 col-lg-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="mb-3">Your Rank <small class="text-muted d-block">Among other affiliates</small></h5>
-            <h3 class="text-primary">#1408</h3>
-            <ul class="list-unstyled mt-3">
-              <li class="d-flex justify-content-between align-items-center mb-2">
-                <div class="d-flex align-items-center">
-                  <img src="assets/images/users/avatar-1.jpg" class="rounded-circle me-2" width="35">
-                  Parshant
+        <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
+                <h4 class="page-title">Dashboard</h4>
+                <div class="">
+                    <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="#">Mifty</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
                 </div>
-                <span>87,000</span>
-              </li>
-              <li class="d-flex justify-content-between align-items-center mb-2">
-                <div class="d-flex align-items-center">
-                  <img src="assets/images/users/avatar-2.jpg" class="rounded-circle me-2" width="35">
-                  A Swathi
                 </div>
-                <span>87,000</span>
-              </li>
-              <li class="d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
-                  <img src="assets/images/users/avatar-3.jpg" class="rounded-circle me-2" width="35">
-                  Suraj Nayak
-                </div>
-                <span>87,000</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Total Earning -->
-      <div class="col-md-8 col-lg-8">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="mb-3">Total Earning</h5>
-            <div id="total_earning_chart" class="apex-charts" style="height:300px;"></div>
-            <div class="text-end">
-              <span class="badge bg-dark">● Revenue</span>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            </div>
 
-  </div><!-- container -->
-</div>
-<!-- end page content -->
+            <!-- Greeting -->
+            <div class="row mb-4">
+            <div class="col-12">
+                <h3 class="fw-bold">Hello, <span class="text-primary">John</span></h3>
+            </div>
+            </div>
+
+            <!-- Growth Dashboard + Earnings -->
+            <div class="row justify-content-center">
+            <!-- Growth Dashboard -->
+            <div class="col-md-8 col-lg-8">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="mb-3">Growth Dashboard <small class="text-muted d-block">Track. Reflect. Rise.</small></h5>
+                    <div class="row text-center">
+                    <div class="col-md-3">
+                        <h4>₹87,000</h4>
+                        <p class="text-muted mb-0">All Time</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>₹87,000</h4>
+                        <p class="text-muted mb-0">All Time Paid</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>₹10,000</h4>
+                        <p class="text-muted mb-0">In Last 30 Days</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>₹0</h4>
+                        <p class="text-muted mb-0">In Last 7 Days</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Earnings at a Glance -->
+            <div class="col-md-4 col-lg-4">
+                <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Earnings at a Glance</h5>
+                    <div class="dropdown">
+                    <a href="#" class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">
+                        Weekly
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">Weekly</a>
+                        <a class="dropdown-item" href="#">Monthly</a>
+                        <a class="dropdown-item" href="#">Yearly</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <p class="text-muted mb-0">No data available</p>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Rank + Total Earning -->
+            <div class="row justify-content-center mt-4">
+            <!-- Rank -->
+            <div class="col-md-4 col-lg-4">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="mb-3">Your Rank <small class="text-muted d-block">Among other affiliates</small></h5>
+                    <h3 class="text-primary">#1408</h3>
+                    <ul class="list-unstyled mt-3">
+                    <li class="d-flex justify-content-between align-items-center mb-2">
+                        <div class="d-flex align-items-center">
+                        <img src="assets/images/users/avatar-1.jpg" class="rounded-circle me-2" width="35">
+                        Parshant
+                        </div>
+                        <span>87,000</span>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center mb-2">
+                        <div class="d-flex align-items-center">
+                        <img src="assets/images/users/avatar-2.jpg" class="rounded-circle me-2" width="35">
+                        John
+                        </div>
+                        <span>87,000</span>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                        <img src="assets/images/users/avatar-3.jpg" class="rounded-circle me-2" width="35">
+                        Doe
+                        </div>
+                        <span>87,000</span>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+            <!-- Total Earning -->
+            <div class="col-md-8 col-lg-8">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="mb-3">Total Earning</h5>
+                    <div id="total_earning_chart" class="apex-charts" style="height:300px;"></div>
+                    <div class="text-end">
+                    <span class="badge bg-dark">● Revenue</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+
+        </div><!-- container -->
+        </div>
+        <!-- end page content -->
 
     </div>
 

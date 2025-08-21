@@ -10,4 +10,9 @@ class AffiliateController extends Controller
     {
         return view('affiliate_dashboard.home');
     }
+
+    public function affiliate_training()
+    {
+        return view('affiliate_dashboard.training');
+    }
 }

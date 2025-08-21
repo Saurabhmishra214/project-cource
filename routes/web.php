@@ -39,4 +39,5 @@ Route::get('/asset-sections', [UserController::class, 'asset_sections'])->name('
 Route::get('/profile', [UserController::class, 'user_profile'])->name('user.profile');
 
 Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
+Route::get('/affiliate-training', [AffiliateController::class, 'affiliate_training'])->name('user.affiliate.training');
 
