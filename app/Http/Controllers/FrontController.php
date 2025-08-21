@@ -15,4 +15,14 @@ class FrontController extends Controller
     {
         return view('frontend.pages.blog');
     }
+
+    public function automation_course()
+    {
+        return view('frontend.pages.courses.automation_course');
+    }
+
+    public function hustlers_course()
+    {
+        return view('frontend.pages.courses.hustlers');
+    }
 }

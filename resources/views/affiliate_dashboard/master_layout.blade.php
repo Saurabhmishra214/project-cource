@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
 
             <title>Dashboard | Mifty - Admin & Dashboard Template</title>
-=======
+
             <title>Affiliate Panel</title>
 
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,6 +24,7 @@
      <link href="{{asset('assets/css/affiliate/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
      <link href="{{asset('assets/css/affiliate/icons.min.css')}}" rel="stylesheet" type="text/css" />
      <link href="{{asset('assets/css/affiliate/app.min.css')}}" rel="stylesheet" type="text/css" />
+     
 
 </head>
 
@@ -256,7 +257,7 @@
                             aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
 
                             <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
-=======
+ 
                             <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
 
                         </a>
@@ -265,7 +266,7 @@
                                 <div class="flex-shrink-0">
 
                                     <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
-=======
+ 
                                     <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
 
                                 </div>
@@ -278,7 +279,7 @@
                             <small class="text-muted px-2 pb-1 d-block">Account</small>
 
                             <a class="dropdown-item" href="pages-profile.html"><i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile</a>
-=======
+ 
                             <a class="dropdown-item" href="{{ route('user.profile') }}"><i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile</a>
 
                             <a class="dropdown-item" href="pages-faq.html"><i class="las la-wallet fs-18 me-1 align-text-bottom"></i> Earning</a>
@@ -324,7 +325,7 @@
                         <li class="nav-item">
 
                             <a class="nav-link" href="index.html">
-=======
+ 
                             <a class="nav-link" href="{{ route('user.affiliate.dashboard') }}">
 
                                 <i class="iconoir-report-columns menu-icon"></i>
@@ -341,9 +342,9 @@
                                 <span>Analytics</span>
                             </a>
                             <div class="collapse " id="sidebarAnalytics">
-=======
+ 
                             <a class="nav-link" role="button"
-                                aria-expanded="false" aria-controls="sidebarAnalytics"> 
+                                aria-expanded="false" aria-controls="sidebarAnalytics" href="{{ route('user.affiliate.training') }}"> 
                                 <i class="iconoir-reports menu-icon"></i>                                       
                                 <span>Affiliate Trainings</span>
                             </a>
@@ -367,7 +368,7 @@
                                 <span>Ecommerce</span>
                             </a>
                             <div class="collapse " id="sidebarEcommerce">
-=======
+ 
                             </div> --}}
                         </li><!--end nav-item-->                                
                         <li class="nav-item">
@@ -399,7 +400,7 @@
                                 </ul><!--end nav-->
 
                             </div>
-=======
+ 
                             </div> --}}
 
                         </li><!--end nav-item-->
@@ -409,7 +410,7 @@
                                 <i class="iconoir-chat-bubble menu-icon"></i> 
 
                                 <span>Chat</span>
-=======
+ 
                                 <span>Marketing Tools</span>
 
                             </a>
@@ -419,7 +420,7 @@
                                 <i class="iconoir-community menu-icon"></i> 
 
                                 <span>Contact List</span>
-=======
+ 
                                 <span>Personal Team Support</span>
 
                             </a>
@@ -429,7 +430,7 @@
                                 <i class="iconoir-calendar menu-icon"></i> 
 
                                 <span>Calendar</span>
-=======
+ 
                                 <span>Offers</span>
 
                             </a>
@@ -443,7 +444,7 @@
                         </li><!--end nav-item-->
                     
                         <li class="menu-label mt-2">
-=======
+ 
                                 <span>Rewards & Ranks</span>
                             </a>
                         </li><!--end nav-item-->
@@ -786,7 +787,7 @@
 
                     </ul><!--end navbar-nav--->
                     <div class="update-msg text-center"> 
-=======
+ 
                     </ul><!--end navbar-nav---> --}}
                     {{-- <div class="update-msg text-center"> 
 
@@ -798,7 +799,7 @@
                         <a href="javascript: void(0);" class="btn bg-black text-white shadow-sm rounded-pill">Upgrade your plan</a>
 
                     </div>
-=======
+ 
                     </div> --}}
 
                 </div>

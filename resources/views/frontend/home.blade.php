@@ -26,7 +26,7 @@
 
                             <div class="spacer-single"></div>
 
-                            <a class="btn-main mx-2 fx-slide" href="{{route('login_form')}}"><span>Join Now</span></a>
+                            <a class="btn-main mx-2 fx-slide" href="{{route('register_form')}}"><span>Join Now</span></a>
                             {{-- <a class="btn-main btn-line mx-2 fx-slide" href="#section-schedule"><span>View Schedule</span></a> --}}
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                 </div>
                 </div>
 
-                {{-- <!-- Video Card 2 -->
+                <!-- Video Card 2 -->
                 <div class="swiper-slide">
                 <div class="video-card">
                     <video muted loop playsinline>
@@ -189,10 +189,10 @@
                 <div class="swiper-slide">
                 <div class="video-card">
                     <video muted loop playsinline>
-                    <source src="{{ asset('assets/video/3.mp4')}}" type="video/mp4">
+                    <source src="{{ asset('assets/video/video1.mp4')}}" type="video/mp4">
                     </video>
                 </div>
-                </div> --}}
+                </div>
 
             </div>
 
@@ -322,7 +322,7 @@
 
         <section class="bg-dark section-dark text-light pt-80 relative jarallax" aria-label="section">
             <img src="{{ asset('assets/images/frontend/background/2.webp') }}" class="jarallax-img" alt="">
-            {{-- <div class="gradient-edge-top"></div> --}}
+            <div class="gradient-edge-top"></div>
             {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
             <div class="container relative z-4">
