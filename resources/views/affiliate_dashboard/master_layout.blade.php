@@ -5,7 +5,11 @@
     
 
     <meta charset="utf-8" />
+
+            <title>Dashboard | Mifty - Admin & Dashboard Template</title>
+=======
             <title>Affiliate Panel</title>
+
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
             <meta content="" name="author" />
@@ -250,12 +254,20 @@
                     <li class="dropdown topbar-item">
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
                             aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
+
+                            <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+=======
                             <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
+
                         </a>
                         <div class="dropdown-menu dropdown-menu-end py-0">
                             <div class="d-flex align-items-center dropdown-item py-2 bg-secondary-subtle">
                                 <div class="flex-shrink-0">
+
+                                    <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+=======
                                     <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
+
                                 </div>
                                 <div class="flex-grow-1 ms-2 text-truncate align-self-center">
                                     <h6 class="my-0 fw-medium text-dark fs-13">William Martin</h6>
@@ -264,7 +276,11 @@
                             </div>
                             <div class="dropdown-divider mt-0"></div>
                             <small class="text-muted px-2 pb-1 d-block">Account</small>
+
+                            <a class="dropdown-item" href="pages-profile.html"><i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile</a>
+=======
                             <a class="dropdown-item" href="{{ route('user.profile') }}"><i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile</a>
+
                             <a class="dropdown-item" href="pages-faq.html"><i class="las la-wallet fs-18 me-1 align-text-bottom"></i> Earning</a>
                             <small class="text-muted px-2 py-1 d-block">Settings</small>                        
                             <a class="dropdown-item" href="pages-profile.html"><i class="las la-cog fs-18 me-1 align-text-bottom"></i>Account Settings</a>
@@ -306,7 +322,11 @@
                         </li>
 
                         <li class="nav-item">
+
+                            <a class="nav-link" href="index.html">
+=======
                             <a class="nav-link" href="{{ route('user.affiliate.dashboard') }}">
+
                                 <i class="iconoir-report-columns menu-icon"></i>
                                 <span>Dashboard</span>
                                 <span class="badge text-bg-warning ms-auto">08</span>
@@ -314,12 +334,21 @@
                         </li><!--end nav-item-->
 
                         <li class="nav-item">
+
+                            <a class="nav-link" href="#sidebarAnalytics" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarAnalytics"> 
+                                <i class="iconoir-reports menu-icon"></i>                                       
+                                <span>Analytics</span>
+                            </a>
+                            <div class="collapse " id="sidebarAnalytics">
+=======
                             <a class="nav-link" role="button"
                                 aria-expanded="false" aria-controls="sidebarAnalytics"> 
                                 <i class="iconoir-reports menu-icon"></i>                                       
                                 <span>Affiliate Trainings</span>
                             </a>
                             {{-- <div class="collapse " id="sidebarAnalytics">
+
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
                                         <a href="analytics-customers.html" class="nav-link ">Customers</a>
@@ -328,6 +357,17 @@
                                         <a href="analytics-reports.html" class="nav-link ">Reports</a>
                                     </li><!--end nav-item-->
                                 </ul><!--end nav-->
+
+                            </div>
+                        </li><!--end nav-item-->                                
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sidebarEcommerce" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarEcommerce"> 
+                                <i class="iconoir-cart-alt menu-icon"></i>                                        
+                                <span>Ecommerce</span>
+                            </a>
+                            <div class="collapse " id="sidebarEcommerce">
+=======
                             </div> --}}
                         </li><!--end nav-item-->                                
                         <li class="nav-item">
@@ -357,35 +397,59 @@
                                         <a class="nav-link" href="ecommerce-refunds.html">Refunds</a>
                                     </li><!--end nav-item-->
                                 </ul><!--end nav-->
+
+                            </div>
+=======
                             </div> --}}
+
                         </li><!--end nav-item-->
                      
                         <li class="nav-item">
                             <a class="nav-link" href="apps-chat.html">
                                 <i class="iconoir-chat-bubble menu-icon"></i> 
+
+                                <span>Chat</span>
+=======
                                 <span>Marketing Tools</span>
+
                             </a>
                         </li><!--end nav-item--> 
                         <li class="nav-item">
                             <a class="nav-link" href="apps-contact-list.html">
                                 <i class="iconoir-community menu-icon"></i> 
+
+                                <span>Contact List</span>
+=======
                                 <span>Personal Team Support</span>
+
                             </a>
                         </li><!--end nav-item--> 
                         <li class="nav-item">
                             <a class="nav-link" href="apps-calendar.html">
                                 <i class="iconoir-calendar menu-icon"></i> 
+
+                                <span>Calendar</span>
+=======
                                 <span>Offers</span>
+
                             </a>
                         </li><!--end nav-item-->  
                         <li class="nav-item">
                             <a class="nav-link" href="apps-invoice.html">
                                 <i class="iconoir-paste-clipboard menu-icon"></i> 
+
+                                <span>Invoice</span>
+                            </a>
+                        </li><!--end nav-item-->
+                    
+                        <li class="menu-label mt-2">
+=======
                                 <span>Rewards & Ranks</span>
                             </a>
                         </li><!--end nav-item-->
                     
                         {{-- <li class="menu-label mt-2">
+
                             <small class="label-border">
                                 <div class="border_left hidden-xs"></div>
                                 <div class="border_right"></div>
@@ -719,15 +783,24 @@
                                 </ul><!--end nav-->
                             </div><!--end startbarAuthentication-->
                         </li><!--end nav-item-->
+
+                    </ul><!--end navbar-nav--->
+                    <div class="update-msg text-center"> 
+=======
                     </ul><!--end navbar-nav---> --}}
                     {{-- <div class="update-msg text-center"> 
+
                         <div class="d-flex justify-content-center align-items-center thumb-lg update-icon-box  rounded-circle mx-auto">
                             <img src="assets/images/extra/party.gif" alt="" class="d-inline-block me-1" height="30">
                         </div>                   
                         <h5 class="mt-3">Mannat Themes</h5>
                         <p class="mb-3 text-muted">Mifty is a high quality web applications.</p>
                         <a href="javascript: void(0);" class="btn bg-black text-white shadow-sm rounded-pill">Upgrade your plan</a>
+
+                    </div>
+=======
                     </div> --}}
+
                 </div>
             </div><!--end startbar-collapse-->
         </div><!--end startbar-menu-->    
