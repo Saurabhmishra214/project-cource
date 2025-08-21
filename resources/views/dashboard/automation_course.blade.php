@@ -58,46 +58,44 @@
             </div>
         </div>
         
-        {{-- Yahan hum data ko dynamically display karenge --}}
-        {{-- Grid class ko `lg:grid-cols-3` tak hi rakha hai taaki ek row mein teen cards dikhein --}}
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
     @foreach ($courses as $course)
     <div class="bg-[#0f1624] rounded-2xl shadow-xl overflow-hidden flex flex-col transform transition hover:scale-[1.02] hover:shadow-2xl">
         
-        {{-- Video Section --}}
-        <div class="relative rounded-lg overflow-hidden">
-            <video id="video{{ $course->id }}" 
-                class="w-full h-48 object-cover" 
-                preload="metadata" 
-                muted>
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            </video>
+    {{-- Video Section --}}
+<div class="relative rounded-lg overflow-hidden">
 
-            {{-- Custom Controls --}}
-            <div class=class="absolute inset-0 flex items-center justify-center 
-                bg-black/40 opacity-0 group-hover:opacity-100 
-                transition-opacity duration-300 z-10">
-                <div class="flex gap-4">
-                    {{-- Play / Pause --}}
-                    <button onclick="togglePlay({{ $course->id }})"
-                        class="bg-white/20 hover:bg-white/40 rounded-full p-3 text-white shadow-lg">
-                        ▶
-                    </button>
+  
+ <video id="video{{ $course->id }}" controls width="400">
+    <source src="{{ $course->image_url }}" type="video/mp4">
+</video>
 
-                    {{-- Mute --}}
-                    <button onclick="toggleMute({{ $course->id }})"
-                        class="bg-white/20 hover:bg-white/40 rounded-full p-3 text-white shadow-lg">
-                        🔊
-                    </button>
+<p class="text-white">Video URL: {{ $course->image_url }}</p>
 
-                    {{-- Fullscreen --}}
-                    <button onclick="goFullscreen({{ $course->id }})"
-                        class="bg-white/20 hover:bg-white/40 rounded-full p-3 text-white shadow-lg">
-                        ⛶
-                    </button>
-                </div>
-            </div>
+
+    {{-- Custom Controls --}}
+    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 z-10">
+        <div class="flex gap-4">
+            {{-- Play / Pause --}}
+            <button onclick="togglePlay({{ $course->id }})"
+                class="bg-white/20 hover:bg-white/40 rounded-full p-3 text-white shadow-lg">
+                ▶
+            </button>
+
+            {{-- Mute --}}
+            <button onclick="toggleMute({{ $course->id }})"
+                class="bg-white/20 hover:bg-white/40 rounded-full p-3 text-white shadow-lg">
+                🔊
+            </button>
+
+            {{-- Fullscreen --}}
+            <button onclick="goFullscreen({{ $course->id }})"
+                class="bg-white/20 hover:bg-white/40 rounded-full p-3 text-white shadow-lg">
+                ⛶
+            </button>
         </div>
+    </div>
+</div>
 
 
         {{-- Content --}}
@@ -108,9 +106,8 @@
 
             {{-- Glowing Join Now Button --}}
             <div class="mt-3 flex justify-center">
-                <a href="{{ $course->link }}" class="glow-gold">JOIN NOW →</a>
+                <a href="{{ $course->link }}" target="_blank" class="glow-gold">JOIN NOW →</a>
             </div>
-            
         </div>
     </div>
     @endforeach
