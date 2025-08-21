@@ -49,3 +49,6 @@ Route::get('/profile', [UserController::class, 'user_profile'])->name('user.prof
 Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
 Route::get('/affiliate-training', [AffiliateController::class, 'affiliate_training'])->name('user.affiliate.training');
 
+Route::get('/affiliate-webinar', [AffiliateController::class, 'affiliate_webinar'])->name('user.affiliate.webinar');
+
+
