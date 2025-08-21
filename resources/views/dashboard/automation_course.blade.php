@@ -62,7 +62,7 @@
         {{-- Grid class ko `lg:grid-cols-3` tak hi rakha hai taaki ek row mein teen cards dikhein --}}
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
     @foreach ($courses as $course)
-    <div class="bg-[#0f1624]  shadow-xl overflow-hidden flex flex-col transform transition hover:scale-[1.02] hover:shadow-2xl">
+    <div class="bg-[#0f1624] rounded-2xl shadow-xl overflow-hidden flex flex-col transform transition hover:scale-[1.02] hover:shadow-2xl">
         
         {{-- Video Section --}}
         <div class="relative rounded-lg overflow-hidden">
@@ -101,7 +101,7 @@
 
 
         {{-- Content --}}
-        <div class="p-5 flex-1 flex flex-col border-b border-l border-r border-[#b8860b]">
+        <div class="p-5 flex-1 flex flex-col">
             <span class="text-xs text-gray-400 uppercase tracking-wide">{{ $course->category }}</span>
             <h2 class="text-white font-semibold text-lg leading-snug mt-1">{{ $course->title }}</h2>
             <p class="text-gray-300 text-sm mt-2 line-clamp-2">{{ $course->description }}</p>

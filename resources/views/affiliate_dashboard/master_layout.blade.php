@@ -24,6 +24,7 @@
      <link href="{{asset('assets/css/affiliate/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
      <link href="{{asset('assets/css/affiliate/icons.min.css')}}" rel="stylesheet" type="text/css" />
      <link href="{{asset('assets/css/affiliate/app.min.css')}}" rel="stylesheet" type="text/css" />
+     
 
 </head>
 
@@ -343,7 +344,7 @@
                             <div class="collapse " id="sidebarAnalytics">
 =======
                             <a class="nav-link" role="button"
-                                aria-expanded="false" aria-controls="sidebarAnalytics"> 
+                                aria-expanded="false" aria-controls="sidebarAnalytics" href="{{ route('user.affiliate.training') }}"> 
                                 <i class="iconoir-reports menu-icon"></i>                                       
                                 <span>Affiliate Trainings</span>
                             </a>
