@@ -43,7 +43,7 @@ Route::get('/freelance-content', [UserController::class, 'freelance_content'])->
 Route::get('/asset-sections', [UserController::class, 'asset_sections'])->name('user.dashboard.huslers.assets');
 
 Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
-=======
+
 Route::get('/profile', [UserController::class, 'user_profile'])->name('user.profile');
 
 Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
