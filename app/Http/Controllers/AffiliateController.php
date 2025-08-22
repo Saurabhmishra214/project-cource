@@ -64,4 +64,9 @@ class AffiliateController extends Controller
         return view('affiliate_dashboard.webinar');
 
     }
+
+    public function affiliate_rewards()
+    {
+        return view('affiliate_dashboard.rewards');
+    }
 }

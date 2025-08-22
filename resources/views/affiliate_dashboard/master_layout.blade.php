@@ -61,13 +61,13 @@
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
                         aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
-                        <img src="assets/images/flags/us_flag.jpg" alt="" class="thumb-sm rounded-circle">
+                        <img src="{{ asset('assets/images/affiliate/flags/us_flag.jpg') }}" alt="" class="thumb-sm rounded-circle">
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/us_flag.jpg" alt="" height="15" class="me-2">English</a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/spain_flag.jpg" alt="" height="15" class="me-2">Spanish</a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/germany_flag.jpg" alt="" height="15" class="me-2">German</a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/french_flag.jpg" alt="" height="15" class="me-2">French</a>
+                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/affiliate/flags/us_flag.jpg') }}" alt="" height="15" class="me-2">English</a>
+                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/affiliate/flags/spain_flag.jpg') }}" alt="" height="15" class="me-2">Spanish</a>
+                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/affiliate/flags/germany_flag.jpg') }}" alt="" height="15" class="me-2">German</a>
+                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/affiliate/flags/french_flag.jpg') }}" alt="" height="15" class="me-2">French</a>
                         </div>
                     </li><!--end topbar-language-->
         
@@ -260,7 +260,7 @@
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
                             aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
 
-                            <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+                            <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
  
  
                             <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
@@ -270,7 +270,7 @@
                             <div class="d-flex align-items-center dropdown-item py-2 bg-secondary-subtle">
                                 <div class="flex-shrink-0">
 
-                                    <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+                                    <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
  
  
                                     <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
@@ -310,11 +310,11 @@
         <div class="brand">
             <a href="index.html" class="logo">
                 <span>
-                    <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                    <img src="{{ asset('assets/images/affiliate/logo-sm.png') }}" alt="logo-small" class="logo-sm">
                 </span>
                 <span class="">
-                    <img src="assets/images/logo-light.png" alt="logo-large" class="logo-lg logo-light">
-                    <img src="assets/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
+                    <img src="{{ asset('assets/images/affiliate/logo-light.png') }}" alt="logo-large" class="logo-lg logo-light">
+                    <img src="{{ asset('assets/images/affiliate/logo-dark.png') }}" alt="logo-large" class="logo-lg logo-dark">
                 </span>
             </a>
         </div>
@@ -436,7 +436,7 @@
                             </a>
                         </li><!--end nav-item--> 
                         <li class="nav-item">
-                            <a class="nav-link" href="apps-calendar.html">
+                            <a class="nav-link" href="{{ route('user.affiliate.rewards') }}">
                                 <i class="iconoir-calendar menu-icon"></i> 
 
                                 {{-- <span>Calendar</span> --}}
