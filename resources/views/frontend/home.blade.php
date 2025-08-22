@@ -210,6 +210,42 @@
             <div class="sw-overlay op-8"></div>
             <div class="container">
                 <div class="row g-4">
+                     
+                        <div class="col-lg-5 offset-lg-1 align-self-center">
+                                            <div class="p-3">
+                                                <div class="subtitle wow fadeInUp">ONE YEAR IS ALL YOU NEED </div>
+                                                <h1 class=" wow fadeInUp" data-wow-delay=".2s">LOCK IN FOR THE NEXT YEAR</h1>
+                                                <p class=" wow fadeInUp">You can get rich with just one year of focus... But only if you invest focus in the right business models using the right information.
+                                                    In The Real World you will get access to multimillionaire professors who will give you a step-by-step path to reach your goals as fast as humanly possible.
+                                                </p>
+                                                <button type="button" class="btn btn-primary" href="{{ route('register_form') }}">Join Now</button>
+                                            </div>
+                                        </div><!--end col-->
+                                        <div class="col-lg-5 offset-lg-1 text-center">
+    
+                                            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <div class="carousel-item active">
+                                                        <img src="{{ asset('assets/images/affiliate/extra/card/img-2.jpg') }}" class="d-block w-100" alt="...">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="assets/images/extra/card/img-1.jpg" class="d-block w-100" alt="...">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="assets/images/extra/card/img-3.jpg" class="d-block w-100" alt="...">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!--end col-->
+                </div>
+            </div>
+         </section>
+         <section id="section-why-attend" class="section-dark text-light jarallax relative">
+            {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            <div class="sw-overlay op-8"></div>
+            <div class="container">
+                <div class="row g-4">
                     <div class="col-lg-6 offset-lg-3 text-center">
                         <div class="subtitle wow fadeInUp mb-3">THE REAL WORLD CAMPUSES</div>
                         <h2 class="wow fadeInUp" data-wow-delay=".2s">10+ WEALTH CREATION METHODS</h2>
