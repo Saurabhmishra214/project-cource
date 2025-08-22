@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AffiliateTraining;
 
 class AffiliateController extends Controller
 {
@@ -11,9 +12,18 @@ class AffiliateController extends Controller
         return view('affiliate_dashboard.home');
     }
 
-    public function affiliate_training()
+   public function affiliate_training()
     {
-        return view('affiliate_dashboard.training');
+        // डेटाबेस से सभी ट्रेनिंग प्राप्त करें
+        $trainings = AffiliateTraining::with('sessions')
+                                      ->orderBy('day_number', 'asc')
+                                      ->get()
+                                      ->groupBy('category');
+
+        // व्यू को डेटा पास करें
+        return view('affiliate_dashboard.training', [
+            'trainings' => $trainings,
+        ]);
     }
 
 

@@ -8,6 +8,7 @@
 
             <title>Dashboard | Mifty - Admin & Dashboard Template</title>
 
+
             <title>Affiliate Panel</title>
 
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,6 +262,7 @@
 
                             <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
  
+ 
                             <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
 
                         </a>
@@ -269,6 +271,7 @@
                                 <div class="flex-shrink-0">
 
                                     <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+ 
  
                                     <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
 
@@ -282,6 +285,7 @@
                             <small class="text-muted px-2 pb-1 d-block">Account</small>
 
                             <a class="dropdown-item" href="pages-profile.html"><i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile</a>
+ 
  
                             <a class="dropdown-item" href="{{ route('user.profile') }}"><i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile</a>
 
@@ -329,6 +333,7 @@
 
                             <a class="nav-link" href="index.html">
  
+ 
                             <a class="nav-link" href="{{ route('user.affiliate.dashboard') }}">
 
                                 <i class="iconoir-report-columns menu-icon"></i>
@@ -372,6 +377,7 @@
                             </a>
                             <div class="collapse " id="sidebarEcommerce">
  
+ 
                             </div> --}}
                         </li><!--end nav-item-->                                
                         <li class="nav-item">
@@ -403,6 +409,7 @@
                                 </ul><!--end nav-->
 
                             </div>
+ 
  
                             </div> --}}
 
@@ -791,6 +798,7 @@
                     </ul><!--end navbar-nav--->
                     <div class="update-msg text-center"> 
  
+ 
                     </ul><!--end navbar-nav---> --}}
                     {{-- <div class="update-msg text-center"> 
 
@@ -802,6 +810,7 @@
                         <a href="javascript: void(0);" class="btn bg-black text-white shadow-sm rounded-pill">Upgrade your plan</a>
 
                     </div>
+ 
  
                     </div> --}}
 
