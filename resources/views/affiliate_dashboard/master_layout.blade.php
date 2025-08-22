@@ -339,12 +339,12 @@
 
                         <li class="nav-item">
 
-                            <a class="nav-link" href="#sidebarAnalytics" data-bs-toggle="collapse" role="button"
+                            {{-- <a class="nav-link" href="#sidebarAnalytics" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarAnalytics"> 
                                 <i class="iconoir-reports menu-icon"></i>                                       
                                 <span>Analytics</span>
                             </a>
-                            <div class="collapse " id="sidebarAnalytics">
+                            <div class="collapse " id="sidebarAnalytics"> --}}
  
                             <a class="nav-link" role="button"
                                 aria-expanded="false" aria-controls="sidebarAnalytics" href="{{ route('user.affiliate.training') }}"> 
@@ -412,7 +412,7 @@
                             <a class="nav-link" href="apps-chat.html">
                                 <i class="iconoir-chat-bubble menu-icon"></i> 
 
-                                <span>Chat</span>
+                                {{-- <span>Chat</span> --}}
  
                                 <span>Marketing Tools</span>
 
@@ -422,7 +422,7 @@
                             <a class="nav-link" href="apps-contact-list.html">
                                 <i class="iconoir-community menu-icon"></i> 
 
-                                <span>Contact List</span>
+                                {{-- <span>Contact List</span> --}}
  
                                 <span>Personal Team Support</span>
 
@@ -432,25 +432,25 @@
                             <a class="nav-link" href="apps-calendar.html">
                                 <i class="iconoir-calendar menu-icon"></i> 
 
-                                <span>Calendar</span>
+                                {{-- <span>Calendar</span> --}}
  
-                                <span>Offers</span>
+                                 <span>Rewards & Ranks</span>
 
                             </a>
                         </li><!--end nav-item-->  
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="apps-invoice.html">
                                 <i class="iconoir-paste-clipboard menu-icon"></i> 
 
                                 <span>Invoice</span>
                             </a>
-                        </li><!--end nav-item-->
+                        </li><!--end nav-item--> --}}
                     
-                        <li class="menu-label mt-2">
+                        {{-- <li class="menu-label mt-2">
  
                                 <span>Rewards & Ranks</span>
                             </a>
-                        </li><!--end nav-item-->
+                        </li><!--end nav-item--> --}}
                     
                         {{-- <li class="menu-label mt-2">
 
