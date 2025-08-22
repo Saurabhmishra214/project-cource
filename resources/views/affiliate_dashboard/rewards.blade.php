@@ -1,6 +1,90 @@
 @extends('affiliate_dashboard.master_layout')
 @section('content')
 
+
+<style>
+  .podium-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-end;
+        }
+
+        .podium {
+            width: 120px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            perspective: 800px;
+        }
+
+        /* Podium heights */
+        .first { height: 200px; background: gold; z-index: 3; }
+        .second { height: 150px; background: silver; z-index: 2; }
+        .third { height: 120px; background: #cd7f32; z-index: 1; }
+
+        .podium-step {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+            transform: rotateX(10deg) rotateY(-5deg);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .profile {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            overflow: hidden;
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ccc;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+            }
+
+        .tooltip {
+            position: absolute;
+            bottom: 110%; /* place above the podium */
+            left: 50%; 
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0; /* hidden by default */
+            pointer-events: none; /* avoid blocking mouse */
+            transition: opacity 0.3s ease, bottom 0.3s ease; /* smooth fade/slide */
+            z-index: 10;
+        }
+
+        .podium:hover .tooltip {
+            opacity: 1;      /* show tooltip */
+            bottom: 120%;    /* slightly move it upward */
+        }
+
+</style>
+
      <div class="page-wrapper">
 
         <!-- Page Content-->
@@ -167,7 +251,38 @@
                                 </div>  <!--end row-->                                  
                             </div><!--end card-header-->
                             <div class="card-body pt-0">
-                                <div id="apex_bar" class="apex-charts"></div>                                
+                                {{-- <div id="apex_bar" class="apex-charts"></div>--}}
+                               <div class="podium-container justify-content-center mt-4 mb-2">
+                                    <!-- Second Place -->
+                                    <div class="podium second">
+                                        <div class="profile">
+                                        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="User 2">
+                                        </div>
+                                        <div class="podium-step"></div>
+                                        <div class="tooltip">User 2<br>Earnings: $1500</div>
+                                        <div class="name">User 2</div>
+                                    </div>
+
+                                    <!-- First Place -->
+                                    <div class="podium first">
+                                        <div class="profile">
+                                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="User 1">
+                                        </div>
+                                        <div class="podium-step"></div>
+                                        <div class="tooltip">User 1<br>Earnings: $2500</div>
+                                        <div class="name">User 1</div>
+                                    </div>
+
+                                    <!-- Third Place -->
+                                    <div class="podium third">
+                                        <div class="profile">
+                                        <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="User 3">
+                                        </div>
+                                        <div class="podium-step"></div>
+                                        <div class="tooltip">User 3<br>Earnings: $1000</div>
+                                        <div class="name">User 3</div>
+                                    </div>
+                                    </div>
                             </div>
                             <!--end card-body-->
                         </div>
