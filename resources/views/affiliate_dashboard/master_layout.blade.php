@@ -8,6 +8,7 @@
 
             <title>Dashboard | Mifty - Admin & Dashboard Template</title>
 
+
             <title>Affiliate Panel</title>
 
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -60,13 +61,13 @@
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
                         aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
-                        <img src="assets/images/flags/us_flag.jpg" alt="" class="thumb-sm rounded-circle">
+                        <img src="{{ asset('assets/images/affiliate/flags/us_flag.jpg') }}" alt="" class="thumb-sm rounded-circle">
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/us_flag.jpg" alt="" height="15" class="me-2">English</a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/spain_flag.jpg" alt="" height="15" class="me-2">Spanish</a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/germany_flag.jpg" alt="" height="15" class="me-2">German</a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/french_flag.jpg" alt="" height="15" class="me-2">French</a>
+                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/affiliate/flags/us_flag.jpg') }}" alt="" height="15" class="me-2">English</a>
+                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/affiliate/flags/spain_flag.jpg') }}" alt="" height="15" class="me-2">Spanish</a>
+                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/affiliate/flags/germany_flag.jpg') }}" alt="" height="15" class="me-2">German</a>
+                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/affiliate/flags/french_flag.jpg') }}" alt="" height="15" class="me-2">French</a>
                         </div>
                     </li><!--end topbar-language-->
         
@@ -259,7 +260,8 @@
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
                             aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
 
-                            <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+                            <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
+ 
  
                             <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
 
@@ -268,7 +270,8 @@
                             <div class="d-flex align-items-center dropdown-item py-2 bg-secondary-subtle">
                                 <div class="flex-shrink-0">
 
-                                    <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+                                    <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
+ 
  
                                     <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
 
@@ -282,6 +285,7 @@
                             <small class="text-muted px-2 pb-1 d-block">Account</small>
 
                             <a class="dropdown-item" href="pages-profile.html"><i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile</a>
+ 
  
                             <a class="dropdown-item" href="{{ route('user.profile') }}"><i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile</a>
 
@@ -306,11 +310,11 @@
         <div class="brand">
             <a href="index.html" class="logo">
                 <span>
-                    <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                    <img src="{{ asset('assets/images/affiliate/logo-sm.png') }}" alt="logo-small" class="logo-sm">
                 </span>
                 <span class="">
-                    <img src="assets/images/logo-light.png" alt="logo-large" class="logo-lg logo-light">
-                    <img src="assets/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
+                    <img src="{{ asset('assets/images/affiliate/logo-light.png') }}" alt="logo-large" class="logo-lg logo-light">
+                    <img src="{{ asset('assets/images/affiliate/logo-dark.png') }}" alt="logo-large" class="logo-lg logo-dark">
                 </span>
             </a>
         </div>
@@ -328,6 +332,7 @@
                         <li class="nav-item">
 
                             <a class="nav-link" href="index.html">
+ 
  
                             <a class="nav-link" href="{{ route('user.affiliate.dashboard') }}">
 
@@ -372,6 +377,7 @@
                             </a>
                             <div class="collapse " id="sidebarEcommerce">
  
+ 
                             </div> --}}
                         </li><!--end nav-item-->                                
                         <li class="nav-item">
@@ -404,6 +410,7 @@
 
                             </div>
  
+ 
                             </div> --}}
 
                         </li><!--end nav-item-->
@@ -429,7 +436,7 @@
                             </a>
                         </li><!--end nav-item--> 
                         <li class="nav-item">
-                            <a class="nav-link" href="apps-calendar.html">
+                            <a class="nav-link" href="{{ route('user.affiliate.rewards') }}">
                                 <i class="iconoir-calendar menu-icon"></i> 
 
                                 {{-- <span>Calendar</span> --}}
@@ -791,6 +798,7 @@
                     </ul><!--end navbar-nav--->
                     <div class="update-msg text-center"> 
  
+ 
                     </ul><!--end navbar-nav---> --}}
                     {{-- <div class="update-msg text-center"> 
 
@@ -802,6 +810,7 @@
                         <a href="javascript: void(0);" class="btn bg-black text-white shadow-sm rounded-pill">Upgrade your plan</a>
 
                     </div>
+ 
  
                     </div> --}}
 

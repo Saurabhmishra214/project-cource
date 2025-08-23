@@ -1,7 +1,7 @@
 @extends('frontend.master_layout')
 @section('content')
 
-<section id="section-hero" class="section-dark no-top no-bottom text-light jarallax relative mh-800" data-video-src="mp4:video/1.mp4">
+    <section id="section-hero" class="section-dark no-top no-bottom text-light jarallax relative mh-800" data-video-src="mp4:video/1.mp4">
             <div class="gradient-edge-top op-6 h-50 color"></div>
             {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
@@ -93,7 +93,7 @@
                                                 </div><!--end media-body-->
                                             </div>                                             
                                             <div class="align-self-center">
-                                                <a href="#" class="btn btn-sm btn-primary">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
+                                                <a href="{{ route('blog.details') }}" class="btn btn-sm btn-primary">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
                                             </div>
                                         </div>                                        
                                     </div><!--end blog-card-->               
