@@ -28,6 +28,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap"> --}}
+
+    <!-- App css -->
+     <link href="{{asset('assets/css/affiliate/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{asset('assets/css/cards/webinar.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{asset('assets/css/affiliate/icons.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{asset('assets/css/affiliate/app.min.css')}}" rel="stylesheet" type="text/css" />
+
     <style>
         .myVideoSwiper {
         width: 100%;
@@ -239,6 +246,16 @@
 
     </script>
 
+<script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
+
+    {{-- <script src="{{asset('assets/libs/apexcharts/apexcharts.min.js')}}"></script>
+    <script src="https://apexcharts.com/samples/assets/stock-prices.js"></script>
+    <script src="{{asset('assets/js/affiliate/pages/index.init.js')}}"></script>
+
+    <script src="{{asset('assets/libs/fullcalendar/index.global.min.js')}}"></script>
+    <script src="{{asset('assets/js/affiliate/pages/calendar.init.js')}}"></script> --}}
+    <script src="{{asset('assets/js/affiliate/app.js')}}"></script>
 
 </body>
 
