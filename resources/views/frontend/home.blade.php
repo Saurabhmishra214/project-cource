@@ -195,53 +195,6 @@
             </div>
         </section> --}}
 
-        <section id="section-intro-videos" class="section-dark text-light relative py-5">
-        <div class="container">
-            <div class="text-center mb-4">
-            <h2 class="wow fadeInUp">See Inside The Platform</h2>
-            <p class="lead wow fadeInUp" data-wow-delay=".2s">Real lessons, real people, real wins.</p>
-            </div>
-
-            <!-- Swiper -->
-            <div class="swiper myVideoSwiper">
-            <div class="swiper-wrapper">
-
-                <!-- Video Card 1 -->
-                <div class="swiper-slide">
-                <div class="video-card">
-                    <video muted loop playsinline>
-                    <source src="{{ asset('assets/video/1.mp4')}}" type="video/mp4">
-                    </video>
-                </div>
-                </div>
-
-                <!-- Video Card 2 -->
-                <div class="swiper-slide">
-                <div class="video-card">
-                    <video muted loop playsinline>
-                    <source src="{{ asset('assets/video/2.mp4')}}" type="video/mp4">
-                    </video>
-                </div>
-                </div>
-
-                <!-- Video Card 3 -->
-                <div class="swiper-slide">
-                <div class="video-card">
-                    <video muted loop playsinline>
-                    <source src="{{ asset('assets/video/video1.mp4')}}" type="video/mp4">
-                    </video>
-                </div>
-                </div>
-
-            </div>
-
-            <!-- Navigation -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            </div>
-        </div>
-        </section>
-
 
          <section id="section-why-attend" class="section-dark text-light jarallax relative">
             {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
@@ -1332,7 +1285,7 @@
         </section>
 
         <section class="bg-dark section-dark text-light pt-80 relative jarallax" aria-label="section">
-            <img src="images/background/3.webp" class="jarallax-img" alt="">
+            <img src="{{ asset('assets/images/frontend/background/3.webp') }}" class="jarallax-img" alt="">
             {{-- <div class="gradient-edge-top"></div> --}}
             {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
