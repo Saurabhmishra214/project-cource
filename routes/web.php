@@ -47,6 +47,10 @@ Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard
 
 Route::get('/profile', [UserController::class, 'user_profile'])->name('user.profile');
 
+    Route::post('/profile/upload', [UserController::class, 'uploadProfile'])->name('profile.upload');
+    Route::delete('/profile/delete', [UserController::class, 'deleteProfile'])->name('profile.delete');
+
+
 Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
 Route::get('/affiliate-training', [AffiliateController::class, 'affiliate_training'])->name('user.affiliate.training');
 
