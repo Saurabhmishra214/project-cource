@@ -1,5 +1,187 @@
 @extends('frontend.master_layout')
 @section('content')
+<style>
+    .video-card-horizontal {
+    display: -ms-grid;
+    display: grid;
+    /* overflow: hidden; */
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    grid-auto-columns: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    -ms-grid-columns: 0.65fr 1fr;
+    grid-template-columns: 0.65fr 1fr;
+    -ms-grid-rows: auto;
+    grid-template-rows: auto;
+    border-radius: 10px;
+    background-color: #e8edf4;
+    -webkit-transition: box-shadow 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    transition: box-shadow 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    transition: box-shadow 250ms ease-in-out, transform 250ms ease-in-out;
+    transition: box-shadow 250ms ease-in-out, transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+    color: #666a70;
+    text-decoration: none;
+    cursor: pointer;
+        }
+
+    .video-card-horizontal:hover {
+    box-shadow: 0 10px 20px -10px rgba(29, 16, 67, 0.25);
+    -webkit-transform: translate(0px, -3px);
+    -ms-transform: translate(0px, -3px);
+    transform: translate(0px, -3px);
+    color: #666a70;
+    } .video-card {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #e8edf4;
+    -webkit-transition: box-shadow 150ms ease-in, -webkit-transform 150ms ease-in;
+    transition: box-shadow 150ms ease-in, -webkit-transform 150ms ease-in;
+    transition: box-shadow 150ms ease-in, transform 150ms ease-in;
+    transition: box-shadow 150ms ease-in, transform 150ms ease-in, -webkit-transform 150ms ease-in;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+    .video-card:hover {
+    box-shadow: 0 5px 12px -9px rgba(0, 0, 0, 0.6);
+    -webkit-transform: translate(0px, -12px);
+    -ms-transform: translate(0px, -12px);
+    transform: translate(0px, -12px);
+    }
+
+    .video-card-image-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    /* overflow: hidden; */
+    height: auto;         
+    aspect-ratio: 16/9; 
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    border-bottom: 6px solid #6937ff;
+    border-radius: 10px 10px 0px 0px;
+    background-image: url("/assets/images/frontend/misc/c1.webp");
+    background-position: 50% 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    -o-object-fit: cover;
+    object-fit: cover;
+    }
+
+    .video-card-content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 200px;
+    padding: 36px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    }.video-card-image-inner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 36px;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background-color: rgba(19, 11, 44, 0.6);
+    }
+
+    .video-length {
+    margin-top: auto;
+    }
+
+    .video-card-link {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    color: #666a70;
+    text-decoration: none;
+    }
+
+    .video-card-link:hover {
+    color: #666a70;
+    }
+
+    .video-card-length {
+    margin-top: auto;
+    color: #130b2c;
+    font-weight: 700;
+    }
+
+    .card-play-button-small {
+    position: absolute;
+    left: 36px;
+    top: -25px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 45px;
+    height: 45px;
+    min-height: 45px;
+    min-width: 45px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    }
+</style>
 
 <section id="section-hero" class="section-dark no-top no-bottom text-light jarallax relative mh-800" data-video-src="mp4:{{asset('assets/video/2.mp4')}}">
             <div class="gradient-edge-top op-6 h-50 color"></div>
@@ -248,103 +430,52 @@
                 <div class="spacer-single"></div>
 
                 <div class="row g-4">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="hover">
-                            <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
-                                <div class="abs p-40 bottom-0 z-2">
-                                    <div class="relative wow fadeInUp">
-                                        <h4>Cutting-Edge Knowledge</h4>
-                                        <p class="mb-0">Stay ahead of the curve with insights from AI leaders shaping tomorrow’s technology.</p>
-                                    </div>
-                                </div>
-                                <div class="gradient-edge-bottom h-100"></div>
-                                <img src="{{ asset('assets/images/frontend/misc/s3.webp') }}" class="w-100 hover-scale-1-1" alt="">
-                                <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
-                            </div>
+
+                <!-- Video Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div role="listitem" class="w-dyn-item">
+                    <a href="/video/the-box-model" class="video-card w-inline-block">
+                        <div class="video-card-image-wrapper">
+                        <div class="video-card-image-inner">
+                            <div class="tagline">Vlogs</div>
                         </div>
+                        </div>
+                        <div class="video-card-content">
+                        <h3>The box model</h3>
+                        <div class="video-card-length">1:54</div>
+                        <div class="card-play-button-small">
+                            <img src="{{ asset('assets/images/cards/5e1f80f9fbdfd472b86cd8ec_play-icon.svg') }}" alt="" class="icon-small">
+                        </div>
+                        </div>
+                    </a>
                     </div>
+                </div>
 
-                    {{-- <div class="col-lg-4 col-md-6">
-                        <div class="hover">
-                            <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
-                                <div class="abs p-40 bottom-0 z-2">
-                                    <div class="relative wow fadeInUp">
-                                        <h4>Hands-On Learning</h4>
-                                        <p class="mb-0">Join live workshops and labs to build practical skills in AI and machine learning.</p>
-                                    </div>
-                                </div>
-                                <div class="gradient-edge-bottom h-100"></div>
-                                <img src="{{ asset('assets/images/frontend/misc/s4.webp') }}" class="w-100 hover-scale-1-1" alt="">
-                                <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
-                            </div>
+                <!-- Video Card 2 -->
+                {{-- <div class="col-lg-4 col-md-6">
+                    <div role="listitem" class="w-dyn-item">
+                    <a href="/video/another-video" class="video-card w-inline-block">
+                        <div class="video-card-image-wrapper"
+                            style="background-image:url('https://cdn.prod.website-files.com/...another-video.jpg')">
+                        <div class="video-card-image-inner">
+                            <div class="tagline">Tutorial</div>
                         </div>
-                    </div> --}}
+                        </div>
+                        <div class="video-card-content">
+                        <h3>Another Video</h3>
+                        <div class="video-card-length">3:21</div>
+                        <div class="card-play-button-small">
+                            <img src="{{ asset('assets/images/cards/5e1f80f9fbdfd472b86cd8ec_play-icon.svg') }}" alt="" class="icon-small">
+                        </div>
+                        </div>
+                    </a>
+                    </div>
+                </div> --}}
 
-                    {{-- <div class="col-lg-4 col-md-6">
-                        <div class="hover">
-                            <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
-                                <div class="abs p-40 bottom-0 z-2">
-                                    <div class="relative wow fadeInUp">
-                                        <h4>Global Networking</h4>
-                                        <p class="mb-0">Meet developers, founders, and researchers from around the world to collaborate and grow.</p>
-                                    </div>
-                                </div>
-                                <div class="gradient-edge-bottom h-100"></div>
-                                <img src="{{ asset('assets/images/frontend/misc/s5.webp') }}" class="w-100 hover-scale-1-1" alt="">
-                                <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
-                            </div>
-                        </div>
-                    </div> --}}
-
-                    {{-- <div class="col-lg-4 col-md-6">
-                        <div class="hover">
-                            <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
-                                <div class="abs p-40 bottom-0 z-2">
-                                    <div class="relative wow fadeInUp">
-                                        <h4>Startup Showcase</h4>
-                                        <p class="mb-0">Explore the latest AI tools and ideas from promising startups and research labs.</p>
-                                    </div>
-                                </div>
-                                <div class="gradient-edge-bottom h-100"></div>
-                                <img src="{{ asset('assets/images/frontend/misc/s6.webp') }}" class="w-100 hover-scale-1-1" alt="">
-                                <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
-                            </div>
-                        </div>
-                    </div> --}}
-
-                    {{-- <div class="col-lg-4 col-md-6">
-                        <div class="hover">
-                            <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
-                                <div class="abs p-40 bottom-0 z-2">
-                                    <div class="relative wow fadeInUp">
-                                        <h4>AI Career Boost</h4>
-                                        <p class="mb-0">Access exclusive job fairs, mentorship sessions, and recruiting events to grow your career.</p>
-                                    </div>
-                                </div>
-                                <div class="gradient-edge-bottom h-100"></div>
-                                <img src="{{ asset('assets/images/frontend/misc/s7.webp') }}" class="w-100 hover-scale-1-1" alt="">
-                                <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
-                            </div>
-                        </div>
-                    </div> --}}
-
-                    {{-- <div class="col-lg-4 col-md-6">
-                        <div class="hover">
-                            <div class="bg-dark-2 relative rounded-1 overflow-hidden hover-bg-color hover-text-light wow scale-in-mask">
-                                <div class="abs p-40 bottom-0 z-2">
-                                    <div class="relative wow fadeInUp">
-                                        <h4>Ethics & Future</h4>
-                                        <p class="mb-0">Engage in vital conversations around AI ethics, policy, and the future of intelligence.</p>
-                                    </div>
-                                </div>
-                                <div class="gradient-edge-bottom h-100"></div>
-                                <img src="images/misc/s8.webp" class="w-100 hover-scale-1-1" alt="">
-                                <div class="abs w-100 h-100 start-0 top-0 hover-op-1 radial-gradient-color"></div>
-                            </div>
-                        </div>
-                    </div> --}}
+                <!-- Repeat more col-lg-4 col-md-6 for additional videos -->
 
                 </div>
+
             </div>
         </section> 
 
