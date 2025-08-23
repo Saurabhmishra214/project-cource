@@ -53,4 +53,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function networkEntry()
+{
+    return $this->hasOne(Network::class, 'user_id');
+}
+
+
+public function children()
+{
+    return $this->hasMany(Network::class, 'parent_user_id');
+}
+
+
 }

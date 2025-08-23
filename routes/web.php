@@ -29,6 +29,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/home', [FrontController::class, 'index'])->name('home');
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
+Route::get('/blog-details', [FrontController::class, 'blogDetails'])->name('blog.details');
 Route::get('/automation', [FrontController::class, 'automation_course'])->name('courses.automation');
 Route::get('/hustler', [FrontController::class, 'hustlers_course'])->name('courses.hustlers');
 
@@ -54,5 +55,6 @@ Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard
 Route::get('/affiliate-training', [AffiliateController::class, 'affiliate_training'])->name('user.affiliate.training');
 
 Route::get('/affiliate-webinar', [AffiliateController::class, 'affiliate_webinar'])->name('user.affiliate.webinar');
+Route::get('/affiliate-rewards', [AffiliateController::class, 'affiliate_rewards'])->name('user.affiliate.rewards');
 
 

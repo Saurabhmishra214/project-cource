@@ -97,31 +97,70 @@
 
         <section id="section-pillars" class="section-dark text-light jarallax relative">
             <div class="gradient-edge-top op-6 h-50 color"></div>
-            {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
             <div class="container">
-            <div class="row g-4 text-center">
-            <div class="col-lg-4">
-                <div class="feature-box bg-dark-2 p-4 rounded-1">
-                <h3>YouTube Profits</h3>
-                <p>Learn proven strategies to monetize YouTube in 2025.</p>
+                <div class="row g-4 text-center">
+
+                <!-- Card 1 -->
+                <div class="col-lg-4">
+                    <article class="pillar-card relative w-full h-104 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
+  
+                    <!-- wrapper for hover zoom -->
+                    <div class="w-full h-full overflow-hidden">
+                        <img style="width:100%; height:100%; object-fit:cover; transition:0.5s;" 
+                        onmouseover="this.style.transform='scale(1.1)'" 
+                        onmouseout="this.style.transform='scale(1)'" 
+                        src="{{ asset('assets/images/affiliate/card1.jfif') }}">
+                    </div>
+
+                    <!-- overlay -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left">
+                        <h3 class="text-xl font-bold text-yellow-400">YouTube Profits</h3>
+                        <p class="text-sm text-gray-200">Learn proven strategies to monetize YouTube in 2025.</p>
+                        <button class="mt-3 px-4 py-2 bg-yellow-400 text-black font-semibold rounded-md hover:bg-yellow-300 transition">
+                        Read More
+                        </button>
+                    </div>
+                    </article>
+
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-lg-4">
+                    <article class="pillar-card h-104 relative rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
+                    <img style="width:100%; height:100%; object-fit:cover; transition:0.5s;" 
+                        onmouseover="this.style.transform='scale(1.1)'" 
+                        onmouseout="this.style.transform='scale(1)'" 
+                        src="{{ asset('assets/images/affiliate/card1.jfif') }}">
+
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left">
+                        <h3 class="text-2xl font-bold text-yellow-400">Business Takeover</h3>
+                        <p class="text-sm text-gray-200">Systems & mentorship to grow your business fast.</p>
+                        <button class="mt-3 px-4 py-2 bg-yellow-400 text-black font-semibold rounded-md hover:bg-yellow-300 transition">Read More</button>
+                    </div>
+                    </article>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-lg-4">
+                    <article class="pillar-card h-96 relative rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
+                    <img style="width:100%; height:100%; object-fit:cover; transition:0.5s;" 
+                        onmouseover="this.style.transform='scale(1.1)'" 
+                        onmouseout="this.style.transform='scale(1)'" 
+                        src="{{ asset('assets/images/affiliate/card1.jfif') }}">
+                        
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left">
+                        <h3 class="text-2xl font-bold text-yellow-400">AI-Powered Skills</h3>
+                        <p class="text-sm text-gray-200">Master AI to multiply your results.</p>
+                        <button class="mt-3 px-4 py-2 text-black font-semibold rounded-md hover:bg-yellow-300 transition">Read More</button>
+                    </div>
+                    </article>
+                </div>
+
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="feature-box bg-dark-2 p-4 rounded-1">
-                <h3>Business Takeover</h3>
-                <p>Systems & mentorship to grow your business fast.</p>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="feature-box bg-dark-2 p-4 rounded-1">
-                <h3>AI-Powered Skills</h3>
-                <p>Master AI to multiply your results.</p>
-                </div>
-            </div>
-            </div>
-        </div>
         </section>
+
 
 
         {{-- <section id="section-about" class="section-dark text-light jarallax relative">
@@ -204,6 +243,42 @@
         </section>
 
 
+         <section id="section-why-attend" class="section-dark text-light jarallax relative">
+            {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            <div class="sw-overlay op-8"></div>
+            <div class="container">
+                <div class="row g-4">
+                     
+                        <div class="col-lg-5 offset-lg-1 align-self-center">
+                                            <div class="p-3">
+                                                <div class="subtitle wow fadeInUp">ONE YEAR IS ALL YOU NEED </div>
+                                                <h1 class=" wow fadeInUp" data-wow-delay=".2s">LOCK IN FOR THE NEXT YEAR</h1>
+                                                <p class=" wow fadeInUp">You can get rich with just one year of focus... But only if you invest focus in the right business models using the right information.
+                                                    In The Real World you will get access to multimillionaire professors who will give you a step-by-step path to reach your goals as fast as humanly possible.
+                                                </p>
+                                                <button type="button" class="btn btn-primary" href="{{ route('register_form') }}">Join Now</button>
+                                            </div>
+                                        </div><!--end col-->
+                                        <div class="col-lg-5 offset-lg-1 text-center">
+    
+                                            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <div class="carousel-item active">
+                                                        <img src="{{ asset('assets/images/affiliate/extra/card/img-2.jpg') }}" class="d-block w-100" alt="...">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="assets/images/extra/card/img-1.jpg" class="d-block w-100" alt="...">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img src="assets/images/extra/card/img-3.jpg" class="d-block w-100" alt="...">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!--end col-->
+                </div>
+            </div>
+         </section>
          <section id="section-why-attend" class="section-dark text-light jarallax relative">
             {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
             {{-- <div class="gradient-edge-bottom"></div> --}}

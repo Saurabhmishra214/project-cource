@@ -32,6 +32,7 @@
     <!-- App css -->
      <link href="{{asset('assets/css/affiliate/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
      <link href="{{asset('assets/css/cards/webinar.css')}}" rel="stylesheet" type="text/css" />
+     {{-- <link href="{{asset('assets/css/cards/video_cards.css')}}" rel="stylesheet" type="text/css" /> --}}
      <link href="{{asset('assets/css/affiliate/icons.min.css')}}" rel="stylesheet" type="text/css" />
      <link href="{{asset('assets/css/affiliate/app.min.css')}}" rel="stylesheet" type="text/css" />
 
