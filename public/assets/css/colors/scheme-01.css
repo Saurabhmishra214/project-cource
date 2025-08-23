@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #facd63;
-  --primary-color-rgb: rgb(252, 195, 23);
-  --secondary-color: #907524;
-  --secondary-color-rgb: rgb(144, 124, 36);
+  --primary-color: #0b0b0f;
+  --primary-color-rgb: rgb(11, 11, 15);
+  --secondary-color: #FF8C00;
+  --secondary-color-rgb: rgb(255, 140, 0);
 }
 
 /* :root {
