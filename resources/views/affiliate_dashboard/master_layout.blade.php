@@ -51,7 +51,6 @@
                 </li>                   
             </ul>
 
-<<<<<<< HEAD
                 <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">                        
                     <li>
                         <button class="nav-link mobile-menu-btn nav-icon" id="togglemenu">
@@ -308,63 +307,6 @@
                             <a class="dropdown-item" href="pages-faq.html"><i class="las la-question-circle fs-18 me-1 align-text-bottom"></i> Help Center</a>                       
                             <div class="dropdown-divider mb-0"></div>
                             <a class="dropdown-item text-danger" href="auth-login.html"><i class="las la-power-off fs-18 me-1 align-text-bottom"></i> Logout</a>
-=======
-            <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">
-                <!-- Search -->
-                <li class="hide-phone app-search">
-                    <form role="search" action="#" method="get">
-                        <input type="search" name="search" class="form-control top-search mb-0" placeholder="Search here...">
-                        <button type="submit"><i class="iconoir-search"></i></button>
-                    </form>
-                </li>     
-
-                <!-- Language Dropdown -->
-                <li class="dropdown">
-                    <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button">
-                        <img src="{{ asset('assets/images/flags/us_flag.jpg') }}" alt="" class="thumb-sm rounded-circle">
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/us_flag.jpg') }}" height="15" class="me-2">English</a>
-                        <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/spain_flag.jpg') }}" height="15" class="me-2">Spanish</a>
-                        <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/germany_flag.jpg') }}" height="15" class="me-2">German</a>
-                        <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/french_flag.jpg') }}" height="15" class="me-2">French</a>
-                    </div>
-                </li>
-
-                <!-- Dark Mode Toggle -->
-                <li class="topbar-item">
-                    <a class="nav-link nav-icon" href="javascript:void(0);" id="light-dark-mode">
-                        <i class="iconoir-half-moon dark-mode"></i>
-                        <i class="iconoir-sun-light light-mode"></i>
-                    </a>                    
-                </li>
-
-                <!-- Notifications -->
-                <li class="dropdown topbar-item">
-                    <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button">
-                        <i class="iconoir-bell"></i>
-                        <span class="alert-badge"></span>
-                    </a>
-                    <div class="dropdown-menu stop dropdown-menu-end dropdown-lg py-0">
-                        <!-- notifications content -->
-                    </div>
-                </li>
-
-                <!-- User Profile -->
-                <li class="dropdown topbar-item">
-                    <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button">
-                        <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end py-0">
-                        <div class="d-flex align-items-center dropdown-item py-2 bg-secondary-subtle">
-                            <div class="flex-shrink-0">
-                                <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
-                            </div>
-                            <div class="flex-grow-1 ms-2 text-truncate align-self-center">
-                                <h6 class="my-0 fw-medium text-dark fs-13">William Martin</h6>
-                                <small class="text-muted mb-0">Front End Developer</small>
-                            </div>
->>>>>>> 9ec9a22c481f24b572777e9222e17a4462ddeb11
                         </div>
                         <div class="dropdown-divider mt-0"></div>
                         <small class="text-muted px-2 pb-1 d-block">Account</small>

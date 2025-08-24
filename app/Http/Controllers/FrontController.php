@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\Content;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
     public function index()
     {
-        return view('frontend.home');
+        $hero = Content::where('section', 'hero')
+                       ->pluck('value', 'field');
+
+        $global = Content::where('section', 'global')
+                         ->pluck('value', 'field')
+                         ->toArray();
+
+        return view('frontend.home', compact('global', 'hero'));
+
     }
 
     public function blog()
     {
-        return view('frontend.pages.blog');
+        $blogs = Blog::latest()->take(6)->get();
+        return view('frontend.pages.blog', compact('blogs'));
     }
 
     public function blogDetails()
