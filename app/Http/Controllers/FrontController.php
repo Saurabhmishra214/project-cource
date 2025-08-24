@@ -16,6 +16,11 @@ class FrontController extends Controller
         return view('frontend.pages.blog');
     }
 
+    public function blogDetails()
+    {
+        return view('frontend.pages.blog_details');
+    }
+
     public function automation_course()
     {
         return view('frontend.pages.courses.automation_course');

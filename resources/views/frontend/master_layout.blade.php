@@ -32,7 +32,9 @@
     <!-- App css -->
      <link href="{{asset('assets/css/affiliate/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
      <link href="{{asset('assets/css/cards/webinar.css')}}" rel="stylesheet" type="text/css" />
+     {{-- <link href="{{asset('assets/css/cards/video_cards.css')}}" rel="stylesheet" type="text/css" /> --}}
      <link href="{{asset('assets/css/affiliate/icons.min.css')}}" rel="stylesheet" type="text/css" />
+     {{-- <link href="{{asset('assets/css/wealth_card.css')}}" rel="stylesheet" type="text/css" /> --}}
      <link href="{{asset('assets/css/affiliate/app.min.css')}}" rel="stylesheet" type="text/css" />
 
     <style>
@@ -170,7 +172,10 @@
 
 
         <!-- footer begin -->
-    <footer class="text-light section-dark">
+    <footer class="section-dark text-light jarallax relative">
+            {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
+            {{-- <div class="gradient-edge-bottom"></div> --}}
+            <div class="sw-overlay op-8"></div>
         <div class="container">
             <div class="row g-4 align-items-center">
                 <div class="col-md-12">

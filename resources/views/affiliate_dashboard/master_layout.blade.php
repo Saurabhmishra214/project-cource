@@ -8,6 +8,7 @@
 
             <title>Dashboard | Mifty - Admin & Dashboard Template</title>
 
+
             <title>Affiliate Panel</title>
 
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,12 +34,24 @@
 
 <body>
 
-    <!-- Top Bar Start -->
-    <div class="topbar d-print-none">
-        <div class="container-fluid">
-            <nav class="topbar-custom d-flex justify-content-between" id="topbar-custom">    
-        
 
+
+    <!-- Top Bar Start -->
+   <div class="topbar d-print-none">
+    <div class="container-fluid">
+        <nav class="topbar-custom d-flex justify-content-between" id="topbar-custom">    
+            <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">                        
+                <li>
+                    <button class="nav-link mobile-menu-btn nav-icon" id="togglemenu">
+                        <i class="iconoir-menu"></i>
+                    </button>
+                </li> 
+                <li class="mx-2 welcome-text">
+                    <h5 class="mb-0 fw-semibold text-truncate">Good Morning, James!</h5>
+                </li>                   
+            </ul>
+
+<<<<<<< HEAD
                 <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">                        
                     <li>
                         <button class="nav-link mobile-menu-btn nav-icon" id="togglemenu">
@@ -60,13 +73,13 @@
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
                         aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
-                        <img src="assets/images/flags/us_flag.jpg" alt="" class="thumb-sm rounded-circle">
+                        <img src="{{ asset('assets/images/affiliate/flags/us_flag.jpg') }}" alt="" class="thumb-sm rounded-circle">
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/us_flag.jpg" alt="" height="15" class="me-2">English</a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/spain_flag.jpg" alt="" height="15" class="me-2">Spanish</a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/germany_flag.jpg" alt="" height="15" class="me-2">German</a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/flags/french_flag.jpg" alt="" height="15" class="me-2">French</a>
+                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/affiliate/flags/us_flag.jpg') }}" alt="" height="15" class="me-2">English</a>
+                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/affiliate/flags/spain_flag.jpg') }}" alt="" height="15" class="me-2">Spanish</a>
+                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/affiliate/flags/germany_flag.jpg') }}" alt="" height="15" class="me-2">German</a>
+                            <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/affiliate/flags/french_flag.jpg') }}" alt="" height="15" class="me-2">French</a>
                         </div>
                     </li><!--end topbar-language-->
         
@@ -259,7 +272,8 @@
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button"
                             aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
 
-                            <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+                            <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
+ 
  
                             <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
 
@@ -268,7 +282,8 @@
                             <div class="d-flex align-items-center dropdown-item py-2 bg-secondary-subtle">
                                 <div class="flex-shrink-0">
 
-                                    <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md rounded-circle">
+                                    <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
+ 
  
                                     <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
 
@@ -283,6 +298,7 @@
 
                             <a class="dropdown-item" href="pages-profile.html"><i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile</a>
  
+ 
                             <a class="dropdown-item" href="{{ route('user.profile') }}"><i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile</a>
 
                             <a class="dropdown-item" href="pages-faq.html"><i class="las la-wallet fs-18 me-1 align-text-bottom"></i> Earning</a>
@@ -292,13 +308,83 @@
                             <a class="dropdown-item" href="pages-faq.html"><i class="las la-question-circle fs-18 me-1 align-text-bottom"></i> Help Center</a>                       
                             <div class="dropdown-divider mb-0"></div>
                             <a class="dropdown-item text-danger" href="auth-login.html"><i class="las la-power-off fs-18 me-1 align-text-bottom"></i> Logout</a>
+=======
+            <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">
+                <!-- Search -->
+                <li class="hide-phone app-search">
+                    <form role="search" action="#" method="get">
+                        <input type="search" name="search" class="form-control top-search mb-0" placeholder="Search here...">
+                        <button type="submit"><i class="iconoir-search"></i></button>
+                    </form>
+                </li>     
+
+                <!-- Language Dropdown -->
+                <li class="dropdown">
+                    <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button">
+                        <img src="{{ asset('assets/images/flags/us_flag.jpg') }}" alt="" class="thumb-sm rounded-circle">
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/us_flag.jpg') }}" height="15" class="me-2">English</a>
+                        <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/spain_flag.jpg') }}" height="15" class="me-2">Spanish</a>
+                        <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/germany_flag.jpg') }}" height="15" class="me-2">German</a>
+                        <a class="dropdown-item" href="#"><img src="{{ asset('assets/images/flags/french_flag.jpg') }}" height="15" class="me-2">French</a>
+                    </div>
+                </li>
+
+                <!-- Dark Mode Toggle -->
+                <li class="topbar-item">
+                    <a class="nav-link nav-icon" href="javascript:void(0);" id="light-dark-mode">
+                        <i class="iconoir-half-moon dark-mode"></i>
+                        <i class="iconoir-sun-light light-mode"></i>
+                    </a>                    
+                </li>
+
+                <!-- Notifications -->
+                <li class="dropdown topbar-item">
+                    <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button">
+                        <i class="iconoir-bell"></i>
+                        <span class="alert-badge"></span>
+                    </a>
+                    <div class="dropdown-menu stop dropdown-menu-end dropdown-lg py-0">
+                        <!-- notifications content -->
+                    </div>
+                </li>
+
+                <!-- User Profile -->
+                <li class="dropdown topbar-item">
+                    <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button">
+                        <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end py-0">
+                        <div class="d-flex align-items-center dropdown-item py-2 bg-secondary-subtle">
+                            <div class="flex-shrink-0">
+                                <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt="" class="thumb-md rounded-circle">
+                            </div>
+                            <div class="flex-grow-1 ms-2 text-truncate align-self-center">
+                                <h6 class="my-0 fw-medium text-dark fs-13">William Martin</h6>
+                                <small class="text-muted mb-0">Front End Developer</small>
+                            </div>
+>>>>>>> 9ec9a22c481f24b572777e9222e17a4462ddeb11
                         </div>
-                    </li>
-                </ul><!--end topbar-nav-->
-            </nav>
-            <!-- end navbar-->
-        </div>
+                        <div class="dropdown-divider mt-0"></div>
+                        <small class="text-muted px-2 pb-1 d-block">Account</small>
+                        <a class="dropdown-item" href="{{ route('user.profile') }}">
+                            <i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile
+                        </a>
+                        <a class="dropdown-item" href="pages-faq.html"><i class="las la-wallet fs-18 me-1 align-text-bottom"></i> Earning</a>
+                        <small class="text-muted px-2 py-1 d-block">Settings</small>                        
+                        <a class="dropdown-item" href="pages-profile.html"><i class="las la-cog fs-18 me-1 align-text-bottom"></i>Account Settings</a>
+                        <a class="dropdown-item" href="pages-profile.html"><i class="las la-lock fs-18 me-1 align-text-bottom"></i> Security</a>
+                        <a class="dropdown-item" href="pages-faq.html"><i class="las la-question-circle fs-18 me-1 align-text-bottom"></i> Help Center</a>                       
+                        <div class="dropdown-divider mb-0"></div>
+                        <a class="dropdown-item text-danger" href="auth-login.html"><i class="las la-power-off fs-18 me-1 align-text-bottom"></i> Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
     </div>
+</div>
+
     <!-- Top Bar End -->
     <!-- leftbar-tab-menu -->
     <div class="startbar d-print-none">
@@ -306,11 +392,11 @@
         <div class="brand">
             <a href="index.html" class="logo">
                 <span>
-                    <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                    <img src="{{ asset('assets/images/affiliate/logo-sm.png') }}" alt="logo-small" class="logo-sm">
                 </span>
                 <span class="">
-                    <img src="assets/images/logo-light.png" alt="logo-large" class="logo-lg logo-light">
-                    <img src="assets/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
+                    <img src="{{ asset('assets/images/affiliate/logo-light.png') }}" alt="logo-large" class="logo-lg logo-light">
+                    <img src="{{ asset('assets/images/affiliate/logo-dark.png') }}" alt="logo-large" class="logo-lg logo-dark">
                 </span>
             </a>
         </div>
@@ -329,6 +415,7 @@
 
                             <a class="nav-link" href="index.html">
  
+ 
                             <a class="nav-link" href="{{ route('user.affiliate.dashboard') }}">
 
                                 <i class="iconoir-report-columns menu-icon"></i>
@@ -339,12 +426,12 @@
 
                         <li class="nav-item">
 
-                            <a class="nav-link" href="#sidebarAnalytics" data-bs-toggle="collapse" role="button"
+                            {{-- <a class="nav-link" href="#sidebarAnalytics" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarAnalytics"> 
                                 <i class="iconoir-reports menu-icon"></i>                                       
                                 <span>Analytics</span>
                             </a>
-                            <div class="collapse " id="sidebarAnalytics">
+                            <div class="collapse " id="sidebarAnalytics"> --}}
  
                             <a class="nav-link" role="button"
                                 aria-expanded="false" aria-controls="sidebarAnalytics" href="{{ route('user.affiliate.training') }}"> 
@@ -371,6 +458,7 @@
                                 <span>Ecommerce</span>
                             </a>
                             <div class="collapse " id="sidebarEcommerce">
+ 
  
                             </div> --}}
                         </li><!--end nav-item-->                                
@@ -404,6 +492,7 @@
 
                             </div>
  
+ 
                             </div> --}}
 
                         </li><!--end nav-item-->
@@ -412,7 +501,7 @@
                             <a class="nav-link" href="apps-chat.html">
                                 <i class="iconoir-chat-bubble menu-icon"></i> 
 
-                                <span>Chat</span>
+                                {{-- <span>Chat</span> --}}
  
                                 <span>Marketing Tools</span>
 
@@ -422,35 +511,35 @@
                             <a class="nav-link" href="apps-contact-list.html">
                                 <i class="iconoir-community menu-icon"></i> 
 
-                                <span>Contact List</span>
+                                {{-- <span>Contact List</span> --}}
  
                                 <span>Personal Team Support</span>
 
                             </a>
                         </li><!--end nav-item--> 
                         <li class="nav-item">
-                            <a class="nav-link" href="apps-calendar.html">
+                            <a class="nav-link" href="{{ route('user.affiliate.rewards') }}">
                                 <i class="iconoir-calendar menu-icon"></i> 
 
-                                <span>Calendar</span>
+                                {{-- <span>Calendar</span> --}}
  
-                                <span>Offers</span>
+                                 <span>Rewards & Ranks</span>
 
                             </a>
                         </li><!--end nav-item-->  
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="apps-invoice.html">
                                 <i class="iconoir-paste-clipboard menu-icon"></i> 
 
                                 <span>Invoice</span>
                             </a>
-                        </li><!--end nav-item-->
+                        </li><!--end nav-item--> --}}
                     
-                        <li class="menu-label mt-2">
+                        {{-- <li class="menu-label mt-2">
  
                                 <span>Rewards & Ranks</span>
                             </a>
-                        </li><!--end nav-item-->
+                        </li><!--end nav-item--> --}}
                     
                         {{-- <li class="menu-label mt-2">
 
@@ -791,6 +880,7 @@
                     </ul><!--end navbar-nav--->
                     <div class="update-msg text-center"> 
  
+ 
                     </ul><!--end navbar-nav---> --}}
                     {{-- <div class="update-msg text-center"> 
 
@@ -802,6 +892,7 @@
                         <a href="javascript: void(0);" class="btn bg-black text-white shadow-sm rounded-pill">Upgrade your plan</a>
 
                     </div>
+ 
  
                     </div> --}}
 
@@ -826,6 +917,7 @@
     <script src="{{asset('assets/libs/fullcalendar/index.global.min.js')}}"></script>
     <script src="{{asset('assets/js/affiliate/pages/calendar.init.js')}}"></script>
     <script src="{{asset('assets/js/affiliate/app.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 </html>
