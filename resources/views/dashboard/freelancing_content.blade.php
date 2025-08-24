@@ -97,7 +97,8 @@
               <p class="text-xs text-gray-500 dark:text-gray-dark-500">Pay</p>
               <p class="text-sm font-semibold text-gray-900 dark:text-gray-dark-900">{{ $job->pay }}</p>
             </div>
-            <button style="background-color: white;color:black;" class="px-4 py-2 text-xs font-semibold text-white bg-color-brands rounded-lg hover:bg-opacity-90">
+            <button style="background-color: white;color:black;" class="px-4 py-2 text-xs font-semibold text-white bg-color-brands rounded-lg hover:bg-opacity-90"
+            onclick="window.location='{{ route('user.dashboard.freelance.apply') }}'">
               Apply
             </button>
           </div>

@@ -4,7 +4,7 @@
 use App\Http\Controllers\AffiliateController;
 
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
@@ -47,10 +47,17 @@ Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard
 
 Route::get('/profile', [UserController::class, 'user_profile'])->name('user.profile');
 
+    Route::post('/profile/upload', [UserController::class, 'uploadProfile'])->name('profile.upload');
+    Route::delete('/profile/delete', [UserController::class, 'deleteProfile'])->name('profile.delete');
+
+
 Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
 Route::get('/affiliate-training', [AffiliateController::class, 'affiliate_training'])->name('user.affiliate.training');
 
 Route::get('/affiliate-webinar', [AffiliateController::class, 'affiliate_webinar'])->name('user.affiliate.webinar');
 Route::get('/affiliate-rewards', [AffiliateController::class, 'affiliate_rewards'])->name('user.affiliate.rewards');
+
+Route::get('/freelance/apply', [ApplicationController::class, 'freelance_apply'])->name('user.dashboard.freelance.apply');
+Route::post('/freelance/apply/store', [ApplicationController::class, 'store'])->name('user.dashboard.freelance.application.store');
 
 

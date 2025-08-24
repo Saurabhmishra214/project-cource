@@ -34,11 +34,22 @@
 
 <body>
 
+
+
     <!-- Top Bar Start -->
-    <div class="topbar d-print-none">
-        <div class="container-fluid">
-            <nav class="topbar-custom d-flex justify-content-between" id="topbar-custom">    
-        
+   <div class="topbar d-print-none">
+    <div class="container-fluid">
+        <nav class="topbar-custom d-flex justify-content-between" id="topbar-custom">    
+            <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">                        
+                <li>
+                    <button class="nav-link mobile-menu-btn nav-icon" id="togglemenu">
+                        <i class="iconoir-menu"></i>
+                    </button>
+                </li> 
+                <li class="mx-2 welcome-text">
+                    <h5 class="mb-0 fw-semibold text-truncate">Good Morning, James!</h5>
+                </li>                   
+            </ul>
 
                 <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">                        
                     <li>
@@ -297,12 +308,25 @@
                             <div class="dropdown-divider mb-0"></div>
                             <a class="dropdown-item text-danger" href="auth-login.html"><i class="las la-power-off fs-18 me-1 align-text-bottom"></i> Logout</a>
                         </div>
-                    </li>
-                </ul><!--end topbar-nav-->
-            </nav>
-            <!-- end navbar-->
-        </div>
+                        <div class="dropdown-divider mt-0"></div>
+                        <small class="text-muted px-2 pb-1 d-block">Account</small>
+                        <a class="dropdown-item" href="{{ route('user.profile') }}">
+                            <i class="las la-user fs-18 me-1 align-text-bottom"></i> Profile
+                        </a>
+                        <a class="dropdown-item" href="pages-faq.html"><i class="las la-wallet fs-18 me-1 align-text-bottom"></i> Earning</a>
+                        <small class="text-muted px-2 py-1 d-block">Settings</small>                        
+                        <a class="dropdown-item" href="pages-profile.html"><i class="las la-cog fs-18 me-1 align-text-bottom"></i>Account Settings</a>
+                        <a class="dropdown-item" href="pages-profile.html"><i class="las la-lock fs-18 me-1 align-text-bottom"></i> Security</a>
+                        <a class="dropdown-item" href="pages-faq.html"><i class="las la-question-circle fs-18 me-1 align-text-bottom"></i> Help Center</a>                       
+                        <div class="dropdown-divider mb-0"></div>
+                        <a class="dropdown-item text-danger" href="auth-login.html"><i class="las la-power-off fs-18 me-1 align-text-bottom"></i> Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
     </div>
+</div>
+
     <!-- Top Bar End -->
     <!-- leftbar-tab-menu -->
     <div class="startbar d-print-none">
@@ -835,6 +859,7 @@
     <script src="{{asset('assets/libs/fullcalendar/index.global.min.js')}}"></script>
     <script src="{{asset('assets/js/affiliate/pages/calendar.init.js')}}"></script>
     <script src="{{asset('assets/js/affiliate/app.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 </html>
