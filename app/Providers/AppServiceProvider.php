@@ -21,10 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $global = Content::where('section', 'global')
-        ->pluck('value', 'field')
-        ->toArray();
+        // $global = Content::where('section', 'global')
+        // ->pluck('value', 'field')
+        // ->toArray();
 
-        View::share('global', $global);
+        // View::share('global', $global);
     }
 }

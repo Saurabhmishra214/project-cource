@@ -1,6 +1,11 @@
 @extends('frontend.master_layout')
 @section('content')
 <style>
+    .card-content {
+        background-color: rgba(0, 0, 0, 0.6)
+        
+    }
+
     .video-card-horizontal {
     display: -ms-grid;
     display: grid;
@@ -25,7 +30,7 @@
     color: #666a70;
     text-decoration: none;
     cursor: pointer;
-        }
+    }
 
     .video-card-horizontal:hover {
     box-shadow: 0 10px 20px -10px rgba(29, 16, 67, 0.25);
@@ -33,11 +38,14 @@
     -ms-transform: translate(0px, -3px);
     transform: translate(0px, -3px);
     color: #666a70;
-    } .video-card {
+    } 
+    
+    .video-card {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    height: auto;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -66,8 +74,8 @@
     display: -ms-flexbox;
     display: flex;
     /* overflow: hidden; */
-    height: auto;         
-    aspect-ratio: 16/9; 
+    min-height: 200px;         
+    /* aspect-ratio: 16/9;  */
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
@@ -93,7 +101,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    min-height: 200px;
+    height: 200px;
     padding: 36px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -108,7 +116,9 @@
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
-    }.video-card-image-inner {
+    }
+    
+    .video-card-image-inner {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -181,6 +191,46 @@
     font-size: 14px;
     font-weight: 700;
     }
+
+    .video-wrapper {
+    position: relative;
+    }
+
+    .video-wrapper > video {
+        width: 100%;
+        vertical-align: middle;
+    }
+
+    .video-wrapper > video.has-media-controls-hidden::-webkit-media-controls {
+        display: none;
+    }
+
+    .video-overlay-play-button {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 10px calc(50% - 50px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        opacity: 0.95;
+        cursor: pointer;
+        background-image: linear-gradient(transparent, #000);
+        transition: opacity 150ms;
+    }
+
+    .video-overlay-play-button:hover {
+        opacity: 1;
+    }
+
+    .video-overlay-play-button.is-hidden {
+        display: none;
+    }
+
+    /* .wealth {
+        background-image: url('{{ asset('assets/images/frontend/background/8.jpg') }}');
+    } */
 </style>
 
 <section id="section-hero" class="section-dark no-top no-bottom text-light jarallax relative mh-800" data-video-src="mp4:{{asset('assets/video/2.mp4')}}">
@@ -208,7 +258,7 @@
 
                             <div class="spacer-single"></div>
 
-                            <a class="btn-main mx-2 fx-slide" href="{{route('register_form')}}"><span>Join {{ $global['site_name'] ?? '' }} Now</span></a>
+                            <a class="btn-main mx-2 fx-slide" href="{{route('register_form')}}" style="height: 40px; width:300px; font-size:20px"><span>Join {{ $global['site_name'] ?? 'Tecrat' }} Now</span></a>
                             {{-- <a class="btn-main btn-line mx-2 fx-slide" href="#section-schedule"><span>View Schedule</span></a> --}}
                         </div>
                     </div>
@@ -277,7 +327,68 @@
             </div>
         </section>
 
-        <section id="section-pillars" class="section-dark text-light jarallax relative">
+        <section id="section-pillars" class="section-dark text-light jarallax relative " style="background-image: url('{{ asset('assets/images/frontend/background/12.webp') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
+            <div class="gradient-edge-top op-6 h-50 color"></div>
+            <div class="sw-overlay op-8"></div>
+            {{-- <div class="container"> --}}
+                <div class="swiper myVideoSwiper" style="background-color: transparent" >
+                    <div class="swiper-wrapper" style="background-color: transparent" >
+
+                        <div class="swiper-slide" >
+                        <div class="video-wrapper">
+                            <video src="//clips.vorwaerts-gmbh.de/VfE_html5.mp4" poster="//s3-us-west-2.amazonaws.com/s.cdpn.io/3174/poster.png"></video>
+                        </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                        <div class="video-wrapper">
+                            <video src="//clips.vorwaerts-gmbh.de/VfE_html5.mp4" poster="//s3-us-west-2.amazonaws.com/s.cdpn.io/3174/poster.png"></video>
+                        </div>
+                        </div>
+                        <div class="swiper-slide">
+                        <div class="video-wrapper">
+                            <video src="//clips.vorwaerts-gmbh.de/VfE_html5.mp4" poster="//s3-us-west-2.amazonaws.com/s.cdpn.io/3174/poster.png"></video>
+                        </div>
+                        </div>
+                        <div class="swiper-slide">
+                        <div class="video-wrapper">
+                            <video src="//clips.vorwaerts-gmbh.de/VfE_html5.mp4" poster="//s3-us-west-2.amazonaws.com/s.cdpn.io/3174/poster.png"></video>
+                        </div>
+                        </div>
+                        <div class="swiper-slide">
+                        <div class="video-wrapper">
+                            <video src="//clips.vorwaerts-gmbh.de/VfE_html5.mp4" poster="//s3-us-west-2.amazonaws.com/s.cdpn.io/3174/poster.png"></video>
+                        </div>
+                        </div>
+                        <div class="swiper-slide">
+                        <div class="video-wrapper">
+                            <video src="//clips.vorwaerts-gmbh.de/VfE_html5.mp4" poster="//s3-us-west-2.amazonaws.com/s.cdpn.io/3174/poster.png"></video>
+                        </div>
+                        </div>
+                        <div class="swiper-slide">
+                        <div class="video-wrapper">
+                            <video src="//clips.vorwaerts-gmbh.de/VfE_html5.mp4" poster="//s3-us-west-2.amazonaws.com/s.cdpn.io/3174/poster.png"></video>
+                        </div>
+                        </div>
+
+                        <!-- Add more slides here -->
+
+                    </div>
+
+                    <!-- Optional navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    </div>
+
+                <div class="spacer-single"></div>
+                    <div class="justify-content-center text-center">
+                        <a class="btn-main mx-2 fx-slide" href="{{route('register_form')}}" style="height: 40px; width:300px; font-size:20px"><span>Join {{ $global['site_name'] ?? 'Tecrat' }} Now</span></a>
+                    </div>
+                            
+            {{-- </div> --}}
+        </section>
+
+        <section id="section-pillars" class="section-dark text-light jarallax relative" style="background-image: url('{{ asset('assets/images/frontend/background/13.webp') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
             <div class="gradient-edge-top op-6 h-50 color"></div>
             <div class="sw-overlay op-8"></div>
             <div class="container">
@@ -285,61 +396,66 @@
 
                 <!-- Card 1 -->
                 <div class="col-lg-4">
-                    <article class="pillar-card relative w-full h-104 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
+                    <article class="pillar-card relative w-full rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105" style="height: 26rem;">
   
                     <!-- wrapper for hover zoom -->
-                    <div class="w-full h-full overflow-hidden">
-                        <img style="width:100%; height:100%; object-fit:cover; transition:0.5s;" 
+                    {{-- <div class="w-full h-full overflow-hidden"> --}}
+                        <img style="width:100%; height:100%; transition:0.5s;" 
                         onmouseover="this.style.transform='scale(1.1)'" 
                         onmouseout="this.style.transform='scale(1)'" 
                         src="{{ asset('assets/images/affiliate/card1.jfif') }}">
-                    </div>
+                    {{-- </div> --}}
 
                     <!-- overlay -->
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left">
+                    {{-- <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left justify-items-center card-content">
                         <h3 class="text-xl font-bold text-yellow-400">YouTube Profits</h3>
                         <p class="text-sm text-gray-200">Learn proven strategies to monetize YouTube in 2025.</p>
                         <button class="mt-3 px-4 py-2 bg-yellow-400 text-black font-semibold rounded-md hover:bg-yellow-300 transition">
                         Read More
                         </button>
-                    </div>
+                    </div> --}}
                     </article>
 
                 </div>
 
                 <!-- Card 2 -->
                 <div class="col-lg-4">
-                    <article class="pillar-card h-104 relative rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
-                    <img style="width:100%; height:100%; object-fit:cover; transition:0.5s;" 
+                    <article class="pillar-card relative rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105" style="height: 26rem;">
+                    <img style="width:100%; height:100%; transition:0.5s;" 
                         onmouseover="this.style.transform='scale(1.1)'" 
                         onmouseout="this.style.transform='scale(1)'" 
                         src="{{ asset('assets/images/affiliate/card1.jfif') }}">
 
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left">
+                    {{-- <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left justify-items-center card-content">
                         <h3 class="text-2xl font-bold text-yellow-400">Business Takeover</h3>
                         <p class="text-sm text-gray-200">Systems & mentorship to grow your business fast.</p>
                         <button class="mt-3 px-4 py-2 bg-yellow-400 text-black font-semibold rounded-md hover:bg-yellow-300 transition">Read More</button>
-                    </div>
+                    </div> --}}
                     </article>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="col-lg-4">
-                    <article class="pillar-card h-96 relative rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
-                    <img style="width:100%; height:100%; object-fit:cover; transition:0.5s;" 
+                    <article class="pillar-card relative rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105" style="height: 26rem;">
+                    <img style="width:100%; height:100%; transition:0.5s;" 
                         onmouseover="this.style.transform='scale(1.1)'" 
                         onmouseout="this.style.transform='scale(1)'" 
                         src="{{ asset('assets/images/affiliate/card1.jfif') }}">
                         
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left">
+                    {{-- <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left justify-items-center card-content">
                         <h3 class="text-2xl font-bold text-yellow-400">AI-Powered Skills</h3>
                         <p class="text-sm text-gray-200">Master AI to multiply your results.</p>
                         <button class="mt-3 px-4 py-2 text-black font-semibold rounded-md hover:bg-yellow-300 transition">Read More</button>
-                    </div>
+                    </div> --}}
                     </article>
                 </div>
 
                 </div>
+                <div class="spacer-single"></div>
+                    <div class="justify-content-center text-center">
+                        <a class="btn-main mx-2 fx-slide" href="{{route('register_form')}}" style="height: 40px; width:300px; font-size:20px"><span>Join {{ $global['site_name'] ?? 'Tecrat' }} Now</span></a>
+                    </div>
+                            
             </div>
         </section>
 
@@ -378,7 +494,7 @@
         </section> --}}
 
 
-         <section id="section-why-attend" class="section-dark text-light jarallax relative">
+         <section id="section-why-attend" class="section-dark text-light jarallax relative" style="background-image: url('{{ asset('assets/images/frontend/background/12.webp') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
             {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
             {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
@@ -392,7 +508,7 @@
                                                 <p class=" wow fadeInUp">You can get rich with just one year of focus... But only if you invest focus in the right business models using the right information.
                                                     In The Real World you will get access to multimillionaire professors who will give you a step-by-step path to reach your goals as fast as humanly possible.
                                                 </p>
-                                                <button type="button" class="btn btn-primary" href="{{ route('register_form') }}">Join Now</button>
+                                                <a class="btn-main mx-2 fx-slide" href="{{route('register_form')}}"><span>Join {{ $global['site_name'] ?? 'Tecrat' }} Now</span></a>
                                             </div>
                                         </div><!--end col-->
                                         <div class="col-lg-5 offset-lg-1 text-center">
@@ -400,10 +516,10 @@
                                             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
-                                                        <img src="{{ asset('assets/images/affiliate/extra/card/img-2.jpg') }}" class="d-block w-100" alt="...">
+                                                        <img src="{{ asset('assets/images/frontend/slider1.jpg') }}" class="d-block w-100" alt="...">
                                                     </div>
                                                     <div class="carousel-item">
-                                                        <img src="assets/images/extra/card/img-1.jpg" class="d-block w-100" alt="...">
+                                                        <img src="assets/images/frontend/slider2.jpg" class="d-block w-100" alt="...">
                                                     </div>
                                                     <div class="carousel-item">
                                                         <img src="assets/images/extra/card/img-3.jpg" class="d-block w-100" alt="...">
@@ -411,10 +527,11 @@
                                                 </div>
                                             </div>
                                         </div><!--end col-->
+                                        
                 </div>
             </div>
          </section>
-         <section id="section-why-attend" class="section-dark text-light jarallax relative">
+         <section id="section-why-attend" class="section-dark text-light jarallax relative wealth" style="background-image: url('{{ asset('assets/images/frontend/background/13.webp') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
             {{-- <div class="gradient-edge-top op-6 h-50 color"></div> --}}
             {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
@@ -450,40 +567,19 @@
                     </a>
                     </div>
                 </div>
-
-                <!-- Video Card 2 -->
-                {{-- <div class="col-lg-4 col-md-6">
-                    <div role="listitem" class="w-dyn-item">
-                    <a href="/video/another-video" class="video-card w-inline-block">
-                        <div class="video-card-image-wrapper"
-                            style="background-image:url('https://cdn.prod.website-files.com/...another-video.jpg')">
-                        <div class="video-card-image-inner">
-                            <div class="tagline">Tutorial</div>
-                        </div>
-                        </div>
-                        <div class="video-card-content">
-                        <h3>Another Video</h3>
-                        <div class="video-card-length">3:21</div>
-                        <div class="card-play-button-small">
-                            <img src="{{ asset('assets/images/cards/5e1f80f9fbdfd472b86cd8ec_play-icon.svg') }}" alt="" class="icon-small">
-                        </div>
-                        </div>
-                    </a>
+                <div class="justify-content-center text-center">
+                        <a class="btn-main mx-2 fx-slide" href="{{route('register_form')}}" style="height: 40px; width:300px; font-size:20px"><span>Join {{ $global['site_name'] ?? 'Tecrat' }} Now</span></a>
                     </div>
-                </div> --}}
-
-                <!-- Repeat more col-lg-4 col-md-6 for additional videos -->
-
                 </div>
 
             </div>
         </section> 
 
-        <section class="bg-dark section-dark text-light pt-80 relative jarallax" aria-label="section">
+        {{-- <section class="bg-dark section-dark text-light pt-80 relative jarallax" aria-label="section">
             <img src="{{ asset('assets/images/frontend/background/2.webp') }}" class="jarallax-img" alt="">
             <div class="gradient-edge-top"></div>
             {{-- <div class="gradient-edge-bottom"></div> --}}
-            <div class="sw-overlay op-8"></div>
+          {{--  <div class="sw-overlay op-8"></div>
             <div class="container relative z-4">
                 <div class="row align-items-center g-5">
                     <div class="col-md-4">
@@ -502,9 +598,9 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
-        <section id="section-speakers" class="section-dark text-light jarallax relative">
+        <section id="section-speakers" class="section-dark text-light jarallax relative" style="background-image: url('{{ asset('assets/images/frontend/background/13.webp') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
             <div class="gradient-edge-top op-6 h-50 color"></div>
             {{-- <div class="gradient-edge-bottom"></div> --}}
             <div class="sw-overlay op-8"></div>
@@ -561,16 +657,18 @@
                             </div>
                         </div>
                     </div> --}}
-
+                    <div class="justify-content-center text-center">
+                        <a class="btn-main mx-2 fx-slide" href="{{route('register_form')}}" style="height: 40px; width:300px; font-size:20px"><span>Join {{ $global['site_name'] ?? 'Tecrat' }} Now</span></a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="bg-dark section-dark pt-80 relative jarallax" aria-label="section">
+        {{-- <section class="bg-dark section-dark pt-80 relative jarallax" aria-label="section">
             <img src="{{ asset('assets/images/frontend/background/1.webp') }}" class="jarallax-img" alt="">
             {{-- <div class="gradient-edge-top"></div> --}}
             {{-- <div class="gradient-edge-bottom"></div> --}}
-            <div class="sw-overlay op-8"></div>
+            {{--<div class="sw-overlay op-8"></div>
             <div class="container">
                 <div class="row g-4">
 
@@ -590,7 +688,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         {{-- <section id="section-schedule" class="section-dark text-light jarallax relative">
             <div class="gradient-edge-top op-6 h-50 color"></div>
@@ -1184,7 +1282,9 @@
                                     </div>
                                 </div>
 
-                                <a class="btn-main fx-slide w-100" href="{{ route('register_form') }}"><span>Join Now</span></a>
+                                <div class="justify-content-center text-center">
+                                    <a class="btn-main mx-2 fx-slide" href="{{route('register_form')}}" style="height: 40px; width:300px; font-size:20px"><span>Join {{ $global['site_name'] ?? 'Tecrat' }} Now</span></a>
+                                </div>
                             </div>
                             <!-- ticket item end -->
 
@@ -1431,7 +1531,7 @@
                 </div>
             </div>
 
-            <form class="row justify-content-center">
+            {{-- <form class="row justify-content-center">
               <div class="col-md-6 col-lg-4 mb-3 wow fadeInUp" data-wow-delay=".6s">
                 <input type="email" class="form-control form-control-lg text-center" placeholder="Enter Your Email Address" required>
               </div>
@@ -1450,9 +1550,54 @@
                   Note: You can opt-out at any time. See our <a href="#" class="text-decoration-underline">Privacy Policy</a> and <a href="#" class="text-decoration-underline">Terms</a>.
                 </p>
               </div>
-            </form>
+            </form> --}}
           </div>
         </section>
+
+<script>
+    const swiper = new Swiper(".myVideoSwiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+        640: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+    },
+});
+
+</script>
+
+<script>
+    const videoWrappers = document.querySelectorAll('.video-wrapper');
+
+videoWrappers.forEach(wrapper => {
+    const video = wrapper.querySelector('video');
+
+    // Insert overlay play button
+    wrapper.insertAdjacentHTML('beforeend', `
+        <svg class="video-overlay-play-button" viewBox="0 0 200 200" alt="Play video">
+            <circle cx="100" cy="100" r="90" fill="none" stroke-width="15" stroke="#fff"/>
+            <polygon points="70,55 70,145 145,100" fill="#fff"/>
+        </svg>
+    `);
+
+    const playButton = wrapper.querySelector('.video-overlay-play-button');
+    video.classList.add('has-media-controls-hidden');
+
+    // Click to play
+    playButton.addEventListener('click', () => {
+        video.play();
+        playButton.classList.add('is-hidden');
+        video.classList.remove('has-media-controls-hidden');
+        video.setAttribute('controls', 'controls');
+    });
+});
+
+</script>
 
 
 @endsection

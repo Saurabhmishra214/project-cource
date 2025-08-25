@@ -64,12 +64,8 @@ class AffiliateController extends Controller
         return view('affiliate_dashboard.webinar');
 
     }
-<<<<<<< HEAD
 
     public function affiliate_rewards()
-=======
-    public function getTrainingDay($day)
->>>>>>> 9ec9a22c481f24b572777e9222e17a4462ddeb11
     {
         return view('affiliate_dashboard.rewards');
     }

@@ -19,6 +19,11 @@
     <link id="colors" href="{{asset('assets/css/colors/scheme-01.css')}}" rel="stylesheet" type="text/css" >
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -122,7 +127,7 @@
                                 <div class="de-flex-col header-col-mid">
                                     <ul id="mainmenu">
                                         <li><a class="menu-item active" href="{{route('home')}}">Home</a></li>
-                                        <li><a class="menu-item" href="#section-about">About</a></li>
+                                        {{-- <li><a class="menu-item" href="#section-about">About</a></li>  --}}
                                         <li><a class="menu-item" href="{{route('blog')}}">Blogs</a></li>
                                         {{-- <li><a class="menu-item" href="#section-why-attend">Why Attend</a></li>
                                         <li><a class="menu-item" href="#section-speakers">Speakers</a></li>
