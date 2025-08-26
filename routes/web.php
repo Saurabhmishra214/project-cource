@@ -8,7 +8,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
-
+use App\Http\Controllers\AutomationCoursesController;
+use App\Http\Controllers\AffiliateTrainingsController;
+use App\Http\Controllers\FreelancingController;
+use App\Http\Controllers\LiveWebinarController;
+use App\Http\Controllers\BlogController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +23,12 @@ Route::get('/', function () {
 
 Route::get('/register-form', [AuthController::class, 'showRegister'])->name('register_form');
 Route::post('/register-store', [AuthController::class, 'registerUser'])->name('register.submit');
+
+
+
+Route::get('/referral-register', [AuthController::class, 'showReferralForm'])->name('referral.register');
+
+
 
 Route::get('/login-form', [AuthController::class, 'showLogin'])->name('login_form');
 
@@ -34,7 +44,6 @@ Route::get('/automation', [FrontController::class, 'automation_course'])->name('
 Route::get('/hustler', [FrontController::class, 'hustlers_course'])->name('courses.hustlers');
 
 
-Route::get('/admin-dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
 
 
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
@@ -56,5 +65,89 @@ Route::get('/affiliate-training', [AffiliateController::class, 'affiliate_traini
 
 Route::get('/affiliate-webinar', [AffiliateController::class, 'affiliate_webinar'])->name('user.affiliate.webinar');
 Route::get('/affiliate-rewards', [AffiliateController::class, 'affiliate_rewards'])->name('user.affiliate.rewards');
+Route::get('rewards_dashboard', [AffiliateController::class, 'rewards_dashboard'])->name('rewards_dashboard');
 
 
+
+
+
+// admin routes
+
+Route::get('/admin-dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
+Route::get('/admin-profile', [AdminController::class, 'admin_profile'])->name('admin.profile');
+
+
+
+
+
+// admin courses routes
+
+
+
+Route::get('/courses/add', [AutomationCoursesController::class, 'coursesadd'])->name('courses.add');
+
+Route::post('/courses/store', [AutomationCoursesController::class, 'coursestore'])->name('courses.store');
+
+Route::get('/courses/list', [AutomationCoursesController::class, 'courseslist'])->name('courses.list');
+
+Route::get('/courses/edit/{id}', [AutomationCoursesController::class, 'coursesedit'])->name('courses.edit');
+
+Route::post('/courses/update/{id}', [AutomationCoursesController::class, 'courseupdate'])->name('courses.update');
+
+Route::delete('/courses/delete/{id}', [AutomationCoursesController::class, 'coursedelete'])->name('courses.delete');
+
+
+
+
+
+// admin business trainings routes  
+
+    Route::get('businesstrainings-list', [AffiliateTrainingsController::class, 'list'])->name('businesstrainings.list');
+
+
+    Route::get('businesstrainings-create', [AffiliateTrainingsController::class, 'create'])->name('businesstrainings.create');
+    Route::post('businesstrainings-store', [AffiliateTrainingsController::class, 'store'])->name('businesstrainings.store');
+    
+    // Show single training with sessions
+    Route::get('businesstrainings{id}', [AffiliateTrainingsController::class, 'show'])->name('businesstrainings.show');
+    
+    // Edit + update
+    Route::get('businesstrainings{id}/edit', [AffiliateTrainingsController::class, 'edit'])->name('businesstrainings.edit');
+    Route::put('businesstrainings{id}', [AffiliateTrainingsController::class, 'update'])->name('businesstrainings.update');
+    
+    // Delete
+    Route::delete('businesstrainings{id}/delete', [AffiliateTrainingsController::class, 'destroy'])->name('businesstrainings.destroy');
+
+
+
+
+
+// Freelancing Jobs routes without group
+Route::get('/freelancing', [FreelancingController::class, 'index'])->name('freelancing.index');          // List Jobs
+Route::get('/freelancing/create', [FreelancingController::class, 'create'])->name('freelancing.create');   // Add Job form
+Route::post('/freelancing/store', [FreelancingController::class, 'store'])->name('freelancing.store');     // Save Job
+Route::get('/freelancing/{id}', [FreelancingController::class, 'show'])->name('freelancing.show');        // Show single Job
+Route::get('/freelancing/{id}/edit', [FreelancingController::class, 'edit'])->name('freelancing.edit');   // Edit Job form
+Route::post('/freelancing/{id}', [FreelancingController::class, 'update'])->name('freelancing.update');    // Update Job
+Route::delete('/freelancing/{id}', [FreelancingController::class, 'destroy'])->name('freelancing.destroy');// Delete Job
+
+
+// Live Webinar Routes
+Route::get('livewebinar', [LiveWebinarController::class, 'index'])->name('livewebinar.index');          // List all webinars
+Route::get('livewebinar/create', [LiveWebinarController::class, 'create'])->name('livewebinar.create'); // Show add webinar form
+Route::post('livewebinar', [LiveWebinarController::class, 'store'])->name('livewebinar.store');         // Save new webinar
+Route::get('livewebinar/{id}', [LiveWebinarController::class, 'show'])->name('livewebinar.show');
+Route::get('livewebinar/{id}/edit', [LiveWebinarController::class, 'edit'])->name('livewebinar.edit'); // Show edit form
+Route::post('livewebinar/{id}/update', [LiveWebinarController::class, 'update'])->name('livewebinar.update');
+Route::delete('livewebinar/{id}', [LiveWebinarController::class, 'destroy'])->name('livewebinar.destroy');   // Delete webinar
+
+
+
+// Blog Routes (without group)
+Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');           // List all blogs
+Route::get('blogs/create', [BlogController::class, 'create'])->name('blogs.create');  // Show add blog form
+Route::post('blogs', [BlogController::class, 'store'])->name('blogs.store');          // Save new blog
+Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');        // Show single blog
+Route::get('blogs/{id}/edit', [BlogController::class, 'edit'])->name('blogs.edit');   // Show edit form
+Route::post('blogs/{id}/update', [BlogController::class, 'update'])->name('blogs.update'); // Update blog using POST
+Route::delete('blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy');   
