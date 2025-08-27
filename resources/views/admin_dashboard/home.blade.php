@@ -1,7 +1,7 @@
 @extends('admin_dashboard.master_layout')
 @section('content')
     
- <div class="page-wrapper">
+ <div class="page-wrapper dark-theme">
 
         <!-- Page Content-->
         <div class="page-content">

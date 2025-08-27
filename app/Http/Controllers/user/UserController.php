@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
+use App\Http\Controllers\Controller;
 use App\Models\AutomationCourse;
 use App\Models\HustlersTraining; 
 use Illuminate\Http\Request;
@@ -37,23 +38,28 @@ class UserController extends Controller
     }
 
    public function freelance_content(Request $request)
-{
-    // Sabhi available skills (dropdown ke liye)
-    $allSkills = Skill::all();
+    {
+        // Sabhi available skills (dropdown ke liye)
+        $allSkills = Skill::all();
 
-    // Agar filter lagaya gaya hai
-    $query = Job::with('skills');
+        // Agar filter lagaya gaya hai
+        $query = Job::with('skills');
 
-    if ($request->has('skill') && $request->skill != '') {
-        $query->whereHas('skills', function ($q) use ($request) {
-            $q->where('skills.id', $request->skill);
-        });
+        if ($request->has('skill') && $request->skill != '') {
+            $query->whereHas('skills', function ($q) use ($request) {
+                $q->where('skills.id', $request->skill);
+            });
+        }
+
+        $jobs = $query->get();
+
+        return view('dashboard.freelancing_content', compact('jobs', 'allSkills'));
     }
 
-    $jobs = $query->get();
-
-    return view('dashboard.freelancing_content', compact('jobs', 'allSkills'));
-}
+    // public function freelance_apply()
+    // {
+    //     return view('dashboard.apply_form');
+    // }
 
 
     public function asset_sections()
@@ -112,6 +118,7 @@ public function uploadProfile(Request $request)
     ]);
 }
 
+ 
 
 
 }

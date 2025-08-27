@@ -32,4 +32,9 @@ class AutomationCourse extends Model
         'category',
         'link'
     ];
+
+    public function snippet()
+    {
+        return $this->hasOne(Snippet::class, 'course_id');
+    }
 }

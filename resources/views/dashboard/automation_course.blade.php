@@ -59,66 +59,71 @@
         </div>
         
   <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    @foreach ($courses as $course)
-    <div class="bg-[#0f1624] rounded-2xl shadow-xl overflow-hidden flex flex-col transform transition hover:scale-[1.02] hover:shadow-2xl">
+      @foreach ($courses as $course)
+      <div class="bg-[#0f1624] rounded-2xl shadow-xl overflow-hidden flex flex-col transform transition hover:scale-[1.02] hover:shadow-2xl">
+          
+          <div class="relative w-full h-48 rounded-lg overflow-hidden">
+              {{-- Background Thumbnail --}}
+              <img src="{{ asset('assets/images/angular-course.png') }}" 
+                  alt="{{ $course->title }}" 
+                  class="w-full h-full object-cover">
+
+              {{-- Play Button Overlay --}}
+              <img src="{{ asset('assets/images/play-button.png') }}" 
+                  alt="Play Button"
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+                        w-16 h-16 opacity-80 hover:opacity-100 transition cursor-pointer"
+                  onclick="openModal('{{ $course->image_url }}')">
+          </div>
+
+
+
+          {{-- Content (unchanged) --}}
+          <div class="p-5 flex-1 flex flex-col">
+              <span class="text-xs text-gray-400 uppercase tracking-wide">{{ $course->category }}</span>
+              <h2 class="text-white font-semibold text-lg leading-snug mt-1">{{ $course->title }}</h2>
+              <p class="text-gray-300 text-sm mt-2 line-clamp-2">{{ $course->description }}</p>
+
+              <div class="mt-3 flex justify-center">
+                  <a href="{{ $course->link }}" target="_blank" class="glow-gold">JOIN NOW →</a>
+              </div>
+          </div>
+      </div>
+      @endforeach
+  </div>
+  <!-- Modal -->
+  <div id="videoModal" class="hidden fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+    <div class="bg-[#0f1624] rounded-2xl shadow-2xl max-w-3xl w-full relative overflow-hidden">
         
-    {{-- Video Section --}}
-<div class="relative rounded-lg overflow-hidden">
+        <!-- Close Button -->
+        <button  onclick="closeModal('{{ $course->image_url }}')"
+            class="absolute top-4 right-4 text-white hover:text-red-400 transition p-2 rounded-full bg-white/10 hover:bg-white/20">
+            <!-- Lucide / Heroicon Close (X) -->
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                fill="none" viewBox="0 0 24 24" stroke-width="2" 
+                stroke="currentColor" class="w-6 h-6" >
+              <path stroke-linecap="round" stroke-linejoin="round" 
+                    d="M6 18L18 6M6 6l12 12"  />
+            </svg>
+        </button>
 
-  
- <video id="video{{ $course->id }}" controls width="400">
-    <source src="{{ $course->image_url }}" type="video/mp4">
-</video>
-
-<p class="text-white">Video URL: {{ $course->image_url }}</p>
-
-
-    {{-- Custom Controls --}}
-    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 z-10">
-        <div class="flex gap-4">
-            {{-- Play / Pause --}}
-            <button onclick="togglePlay({{ $course->id }})"
-                class="bg-white/20 hover:bg-white/40 rounded-full p-3 text-white shadow-lg">
-                ▶
-            </button>
-
-            {{-- Mute --}}
-            <button onclick="toggleMute({{ $course->id }})"
-                class="bg-white/20 hover:bg-white/40 rounded-full p-3 text-white shadow-lg">
-                🔊
-            </button>
-
-            {{-- Fullscreen --}}
-            <button onclick="goFullscreen({{ $course->id }})"
-                class="bg-white/20 hover:bg-white/40 rounded-full p-3 text-white shadow-lg">
-                ⛶
-            </button>
-        </div>
+        <!-- Video -->
+        <video id="modalVideo" controls autoplay class="w-full rounded-b-2xl">
+            <source id="modalVideoSource" src="" type="video/mp4">
+        </video>
     </div>
-</div>
+  </div>
 
 
-        {{-- Content --}}
-        <div class="p-5 flex-1 flex flex-col">
-            <span class="text-xs text-gray-400 uppercase tracking-wide">{{ $course->category }}</span>
-            <h2 class="text-white font-semibold text-lg leading-snug mt-1">{{ $course->title }}</h2>
-            <p class="text-gray-300 text-sm mt-2 line-clamp-2">{{ $course->description }}</p>
 
-            {{-- Glowing Join Now Button --}}
-            <div class="mt-3 flex justify-center">
-                <a href="{{ $course->link }}" target="_blank" class="glow-gold">JOIN NOW →</a>
-            </div>
-        </div>
-    </div>
-    @endforeach
-</div>
+
 
 
 
     </div>
 </main>
 
-<script>
+{{-- <script>
 function togglePlay(id) {
   let video = document.getElementById("video" + id);
   if (video.paused) video.play();
@@ -138,5 +143,28 @@ function goFullscreen(id) {
     video.webkitRequestFullscreen();
   }
 }
-</script>
+</script> --}}
+<script>
+  function openModal(videoUrl) {
+      let modal = document.getElementById("videoModal");
+      let video = document.getElementById("modalVideo");
+      let source = document.getElementById("modalVideoSource");
+
+      source.src = videoUrl;
+      video.load();
+      video.play();
+
+      modal.classList.remove("hidden");
+  }
+
+  function closeModal() {
+      let modal = document.getElementById("videoModal");
+      let video = document.getElementById("modalVideo");
+
+      modal.classList.add("hidden");
+      video.pause();
+      video.currentTime = 0;
+  }
+  </script>
+
 @endsection

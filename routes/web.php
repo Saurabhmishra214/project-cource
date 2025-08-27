@@ -1,18 +1,21 @@
 <?php
 
 
-use App\Http\Controllers\AffiliateController;
+use App\Http\Controllers\user\AffiliateController;
 
-use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\user\UserController;
 use App\Http\Controllers\FrontController;
-use App\Http\Controllers\AutomationCoursesController;
-use App\Http\Controllers\AffiliateTrainingsController;
-use App\Http\Controllers\FreelancingController;
-use App\Http\Controllers\LiveWebinarController;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\admin\AutomationCoursesController;
+use App\Http\Controllers\admin\AffiliateBusinessTrainingsController;
+use App\Http\Controllers\admin\FreelancingController;
+use App\Http\Controllers\admin\LiveWebinarController;
+use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\Admin\AffiliateTrainingController;
+use App\Http\Controllers\user\hustlerscampus\digitalassets\SoftwareProductController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -52,7 +55,7 @@ Route::get('/hustlers', [UserController::class, 'huslers_campus'])->name('user.d
 Route::get('/freelance-content', [UserController::class, 'freelance_content'])->name('user.dashboard.freelance.content');
 Route::get('/asset-sections', [UserController::class, 'asset_sections'])->name('user.dashboard.huslers.assets');
 
-Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
+// Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
 
 Route::get('/profile', [UserController::class, 'user_profile'])->name('user.profile');
 
@@ -66,6 +69,9 @@ Route::get('/affiliate-training', [AffiliateController::class, 'affiliate_traini
 Route::get('/affiliate-webinar', [AffiliateController::class, 'affiliate_webinar'])->name('user.affiliate.webinar');
 Route::get('/affiliate-rewards', [AffiliateController::class, 'affiliate_rewards'])->name('user.affiliate.rewards');
 Route::get('rewards_dashboard', [AffiliateController::class, 'rewards_dashboard'])->name('rewards_dashboard');
+
+Route::get('/freelance/apply', [ApplicationController::class, 'freelance_apply'])->name('user.dashboard.freelance.apply');
+Route::post('/freelance/apply/store', [ApplicationController::class, 'store'])->name('user.dashboard.freelance.application.store');
 
 
 
@@ -102,21 +108,21 @@ Route::delete('/courses/delete/{id}', [AutomationCoursesController::class, 'cour
 
 // admin business trainings routes  
 
-    Route::get('businesstrainings-list', [AffiliateTrainingsController::class, 'list'])->name('businesstrainings.list');
+    Route::get('businesstrainings-list', [AffiliateBusinessTrainingsController::class, 'list'])->name('businesstrainings.list');
 
 
-    Route::get('businesstrainings-create', [AffiliateTrainingsController::class, 'create'])->name('businesstrainings.create');
-    Route::post('businesstrainings-store', [AffiliateTrainingsController::class, 'store'])->name('businesstrainings.store');
+    Route::get('businesstrainings-create', [AffiliateBusinessTrainingsController::class, 'create'])->name('businesstrainings.create');
+    Route::post('businesstrainings-store', [AffiliateBusinessTrainingsController::class, 'store'])->name('businesstrainings.store');
     
     // Show single training with sessions
-    Route::get('businesstrainings{id}', [AffiliateTrainingsController::class, 'show'])->name('businesstrainings.show');
+    Route::get('businesstrainings{id}', [AffiliateBusinessTrainingsController::class, 'show'])->name('businesstrainings.show');
     
     // Edit + update
-    Route::get('businesstrainings{id}/edit', [AffiliateTrainingsController::class, 'edit'])->name('businesstrainings.edit');
-    Route::put('businesstrainings{id}', [AffiliateTrainingsController::class, 'update'])->name('businesstrainings.update');
+    Route::get('businesstrainings{id}/edit', [AffiliateBusinessTrainingsController::class, 'edit'])->name('businesstrainings.edit');
+    Route::put('businesstrainings{id}', [AffiliateBusinessTrainingsController::class, 'update'])->name('businesstrainings.update');
     
     // Delete
-    Route::delete('businesstrainings{id}/delete', [AffiliateTrainingsController::class, 'destroy'])->name('businesstrainings.destroy');
+    Route::delete('businesstrainings{id}/delete', [AffiliateBusinessTrainingsController::class, 'destroy'])->name('businesstrainings.destroy');
 
 
 
@@ -151,3 +157,18 @@ Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');  
 Route::get('blogs/{id}/edit', [BlogController::class, 'edit'])->name('blogs.edit');   // Show edit form
 Route::post('blogs/{id}/update', [BlogController::class, 'update'])->name('blogs.update'); // Update blog using POST
 Route::delete('blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy');   
+
+
+
+// Admin Affiliate Trainings Routes
+
+Route::get('admin/affiliatetrainings', [AffiliateTrainingController::class, 'index'])->name('affiliatetrainings.list');
+Route::get('admin/affiliatetrainings/add', [AffiliateTrainingController::class, 'create'])->name('affiliatetrainings.add');
+Route::post('admin/affiliatetrainings/store', [AffiliateTrainingController::class, 'store'])->name('affiliatetrainings.store');
+Route::get('admin/affiliatetrainings/{id}/edit', [AffiliateTrainingController::class, 'edit'])->name('affiliatetrainings.edit');
+Route::post('admin/affiliatetrainings/{id}/update', [AffiliateTrainingController::class, 'update'])->name('affiliatetrainings.update');
+Route::delete('admin/affiliatetrainings/{id}/delete', [AffiliateTrainingController::class, 'destroy'])->name('affiliatetrainings.delete');
+
+
+// Hustlers Campus Digital Assets - Software Products Routes
+Route::get('product/index', [SoftwareProductController::class, 'productindex'])->name('product.index');

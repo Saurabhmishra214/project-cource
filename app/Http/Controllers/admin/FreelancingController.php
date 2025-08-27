@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
+use App\Http\Controllers\Controller; 
 
 use App\Models\Job;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FreelancingController extends Controller
 {
@@ -23,9 +25,32 @@ class FreelancingController extends Controller
     // Save Job
 public function store(Request $request)
 {
- 
+    // Manual validation
+    $validator = Validator::make($request->all(), [
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+        'company_name' => 'required|string|max:255',
+        'location' => 'required|string|max:255',
+        'pay' => 'required|string|max:255',
+        'duration' => 'required|string|max:255',
+        // अगर skills भी भेजी जा रही हैं
+        // 'skills' => 'nullable|array',
+        // 'skills.*' => 'exists:skills,id',
+    ]);
 
-    Job::create($request->all());
+    if ($validator->fails()) {
+        return redirect()->back()
+                         ->withErrors($validator)
+                         ->withInput();
+    }
+
+    // Job create
+    $job = Job::create($request->all());
+
+    // अगर skills भी भेजी हैं तो attach करो
+    if ($request->has('skills')) {
+        $job->skills()->sync($request->skills); // skills is an array of skill IDs
+    }
 
     return redirect()->route('freelancing.index')->with('success', 'Job added successfully!');
 }

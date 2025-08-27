@@ -31,70 +31,81 @@
                         </div>
 
                         <div class="card-body pt-0">
-                            <form class="row g-3 needs-validation was-validated" 
-                                  method="POST" 
-                                  action="{{ route('courses.update', $course->id) }}" 
-                                  novalidate>
-                                @csrf
-                                @method('post')
+                      <form class="row g-3 needs-validation was-validated" 
+      method="POST" 
+      action="{{ route('courses.update', $course->id) }}" 
+      novalidate>
+    @csrf
+    @method('PATCH')
 
-                                <div class="col-md-6">
-                                    <label for="validationCustom01" class="form-label">Course Title</label>
-                                    <input type="text" 
-                                           class="form-control" 
-                                           id="validationCustom01" 
-                                           name="title" 
-                                           value="{{ old('title', $course->title) }}" 
-                                           required>
-                                    <div class="invalid-feedback">
-                                        Please enter course title.
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+        <label for="validationCustom01" class="form-label">Course Title</label>
+        <input type="text" 
+               class="form-control @error('title') is-invalid @enderror" 
+               id="validationCustom01" 
+               name="title" 
+               value="{{ old('title', $course->title) }}" 
+               required>
+        @error('title')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
 
-                                <div class="col-md-6">
-                                    <label for="validationCustom02" class="form-label">Course Description</label>
-                                    <input type="text" 
-                                           class="form-control" 
-                                           id="validationCustom02" 
-                                           name="description" 
-                                           value="{{ old('description', $course->description) }}" 
-                                           required>
-                                    <div class="invalid-feedback">
-                                        Please enter course description.
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+        <label for="validationCustom02" class="form-label">Course Description</label>
+        <input type="text" 
+               class="form-control @error('description') is-invalid @enderror" 
+               id="validationCustom02" 
+               name="description" 
+               value="{{ old('description', $course->description) }}" 
+               required>
+        @error('description')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
 
-                                <div class="col-md-6">
-                                    <label for="validationCustom03" class="form-label">Video URL</label>
-                                    <input type="text" 
-                                           class="form-control" 
-                                           id="validationCustom03" 
-                                           name="video_url" 
-                                           value="{{ old('video_url', $course->video_url) }}" 
-                                           required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid video URL.
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+        <label for="validationCustom03" class="form-label">Video URL</label>
+        <input type="text" 
+               class="form-control @error('video_url') is-invalid @enderror" 
+               id="validationCustom03" 
+               name="video_url" 
+               value="{{ old('video_url', $course->video_url) }}" 
+               required>
+        @error('video_url')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
 
-                                <div class="col-md-6">
-                                    <label for="category" class="form-label">Category</label>
-                                    <select class="form-select" id="category" name="category" required>
-                                        <option disabled value="">Choose...</option>
-                                        <option value="programming" {{ old('category', $course->category) == 'programming' ? 'selected' : '' }}>Programming</option>
-                                        <option value="web" {{ old('category', $course->category) == 'web' ? 'selected' : '' }}>Web Development</option>
-                                        <option value="design" {{ old('category', $course->category) == 'design' ? 'selected' : '' }}>Design</option>
-                                        <option value="marketing" {{ old('category', $course->category) == 'marketing' ? 'selected' : '' }}>Marketing</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Please select a valid category.
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+        <label for="category" class="form-label">Category</label>
+        <select class="form-select @error('category') is-invalid @enderror" 
+                id="category" 
+                name="category" 
+                required>
+            <option disabled value="">Choose...</option>
+            <option value="programming" {{ old('category', $course->category) == 'programming' ? 'selected' : '' }}>Programming</option>
+            <option value="web" {{ old('category', $course->category) == 'web' ? 'selected' : '' }}>Web Development</option>
+            <option value="design" {{ old('category', $course->category) == 'design' ? 'selected' : '' }}>Design</option>
+            <option value="marketing" {{ old('category', $course->category) == 'marketing' ? 'selected' : '' }}>Marketing</option>
+        </select>
+        @error('category')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
 
-                                <div class="col-12">
-                                    <button class="btn btn-primary" type="submit">Update Course</button>
-                                </div>
-                            </form>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Update Course</button>
+    </div>
+</form>
                         </div> 
                     </div>
                 </div> 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-startbar="light" data-bs-theme="light">
+<html lang="en" dir="ltr" data-bs-theme="dark">
 
 <head>
 
@@ -41,7 +41,7 @@
 
 <!-- Simple DataTables -->
 <link href="{{ asset('assets/libs/simple-datatables/style.css') }}" rel="stylesheet" type="text/css" />
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
     <style>
@@ -53,10 +53,80 @@
         .nav-link[aria-expanded="true"] .fa-chevron-down {
             transform: rotate(180deg);
         }
+
+        .startbar .startbar-menu .navbar-nav .nav-item .nav-link::after {
+    content: "\F134"; /* यह एक बूटस्ट्रैप आइकॉन का कोड है */
+    font-family: "bootstrap-icons";
+    font-size: 14px;
+    margin-left: auto;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transition: transform 0.2s;
+}
+
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link:not(.collapsed)::after {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+        
+.nav-link.collapsed::after {
+    display: none !important;  /* Bootstrap ka default arrow/box hat gaya */
+    content: none !important;
+}
+
+.nav-link {
+    padding-right: 0.75rem !important;  /* default Bootstrap arrow ke liye jyada padding hoti hai */
+}
+.nav-link::after {
+    display: none !important; /* arrow/box hat gaya */
+}
+
+.nav-link.collapsed::after {
+    content: "\f078"; /* Font Awesome down arrow (▼) ya Bootstrap Icon */
+    font-family: "Font Awesome 6 Free"; 
+    font-weight: 900;
+    float: right;
+    transition: transform 0.3s ease;
+}
+
+/* jab collapse open ho */
+.nav-link[aria-expanded="true"]::after {
+    transform: rotate(-180deg); /* arrow rotate ho jayega */
+}
+
+.nav-link.collapsed::after {
+    content: "›";   /* Right arrow */
+    float: right;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+.nav-link[aria-expanded="true"]::after {
+    transform: rotate(90deg); /* right → down */
+}
+
+.toggle-arrow {
+    transition: transform 0.3s ease;
+}
+.nav-link[aria-expanded="true"] .toggle-arrow {
+    transform: rotate(90deg); /* right → down */
+}
+
+.nav-link .dropdown-icon {
+  transition: transform 0.3s ease;
+}
+
+.nav-link[aria-expanded="true"] .dropdown-icon {
+  transform: rotate(90deg);
+}
+
+
+
     </style>
 </head>
 
-<body>
+<body class="dark">
 
 
 
@@ -108,10 +178,7 @@
                     </li><!--end topbar-language-->
 
                     <li class="topbar-item">
-                        <a class="nav-link nav-icon" href="javascript:void(0);" id="light-dark-mode">
-                            <i class="iconoir-half-moon dark-mode"></i>
-                            <i class="iconoir-sun-light light-mode"></i>
-                        </a>
+                    
                     </li>
 
                     <li class="dropdown topbar-item">
@@ -340,175 +407,173 @@
             </a>
         </div>
       
-        <div class="startbar-menu">
-            <div class="startbar-collapse" id="startbarCollapse" data-simplebar>
-                <div class="d-flex align-items-start flex-column w-100">
-                    <!-- Navigation -->
-                    <ul class="navbar-nav mb-auto w-100">
-                        <li class="menu-label mt-2">
-                            <span>Navigation</span>
-                        </li>
+      <div class="startbar-menu">
+  <div class="startbar-collapse" id="startbarCollapse" data-simplebar>
+    <div class="d-flex align-items-start flex-column w-100">
 
-                        <li class="nav-item">
+      <!-- Navigation -->
+      <ul class="navbar-nav mb-auto w-100">
+        <li class="menu-label mt-2">
+          <span>Navigation</span>
+        </li>
 
-                            <a class="nav-link" href="index.html">
+        <!-- Dashboard -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('admin.dashboard') }}">
+            <i class="iconoir-report-columns menu-icon"></i>
+            <span>Dashboard</span>
+            <span class="badge text-bg-warning ms-auto">08</span>
+          </a>
+        </li><!--end nav-item-->
 
-
-                                <a class="nav-link" href="{{ route('admin.dashboard') }}">
-
-                                    <i class="iconoir-report-columns menu-icon"></i>
-                                    <span>Dashboard</span>
-                                    <span class="badge text-bg-warning ms-auto">08</span>
-                                </a>
-                        </li><!--end nav-item-->
-
-
- <li class="nav-item">
-        <a class="nav-link collapsed" href="#sidebarCourses" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCourses"> 
-            <i class="iconoir-light-bulb-on menu-icon"></i> 
-            <span> Automation Courses</span>
-        </a>
-        <div class="collapse" id="sidebarCourses">
+        <!-- Automation Courses -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarCourses" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-light-bulb-on menu-icon"></i>
+              <span class="ms-2">Automation Courses</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarCourses">
             <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a href="{{route('courses.add')}}" class="nav-link ">Add Courses</a>
-                </li><!--end nav-item-->
-                <li class="nav-item">
-                    <a href="{{route('courses.list')}}" class="nav-link ">List Courses</a>
-                </li><!--end nav-item-->
-            </ul><!--end nav-->
-        </div>
-    </li><!--end nav-item-->
+              <li class="nav-item"><a href="{{route('courses.add')}}" class="nav-link">Add Courses</a></li>
+              <li class="nav-item"><a href="{{route('courses.list')}}" class="nav-link">List Courses</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
 
-    <!-- Business Trainings Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#sidebarTrainings" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTrainings"> 
-            <i class="iconoir-community menu-icon"></i> 
-            <span> Business Trainings</span>
-        </a>
-        <div class="collapse" id="sidebarTrainings">
+        <!-- Business Trainings -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarTrainings" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-community menu-icon"></i>
+              <span class="ms-2">Business Trainings</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarTrainings">
             <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a href="{{route('businesstrainings.create')}}" class="nav-link ">Add Trainings</a>
-                </li><!--end nav-item-->
-                <li class="nav-item">
-                    <a href="{{route('businesstrainings.list')}}" class="nav-link ">List Trainings</a>
-                </li><!--end nav-item-->
-            </ul><!--end nav-->
-        </div>
-    </li><!--end nav-item-->
+              <li class="nav-item"><a href="{{route('businesstrainings.create')}}" class="nav-link">Add Trainings</a></li>
+              <li class="nav-item"><a href="{{route('businesstrainings.list')}}" class="nav-link">List Trainings</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
 
-    <!-- Freelancing Arena Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#sidebarFreelancing" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarFreelancing"> 
-            <i class="iconoir-calendar menu-icon"></i> 
-            <span> Freelancing Arena</span>
-        </a>
-        <div class="collapse" id="sidebarFreelancing">
+        <!-- Freelancing Arena -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarFreelancing" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-calendar menu-icon"></i>
+              <span class="ms-2">Freelancing Arena</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarFreelancing">
             <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a href="{{route('freelancing.create')}}" class="nav-link ">Add Jobs</a>
-                </li><!--end nav-item-->
-                <li class="nav-item">
-                    <a href="{{route('freelancing.index')}}" class="nav-link ">List Jobs</a>
-                </li><!--end nav-item-->
-            </ul><!--end nav-->
-        </div>
-    </li><!--end nav-item-->
+              <li class="nav-item"><a href="{{route('freelancing.create')}}" class="nav-link">Add Jobs</a></li>
+              <li class="nav-item"><a href="{{route('freelancing.index')}}" class="nav-link">List Jobs</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
 
-    <!-- Blogs Arena Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#sidebarBlogs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarBlogs"> 
-            <i class="iconoir-paste-clipboard menu-icon"></i> 
-            <span> Blogs Arena</span>
-        </a>
-        <div class="collapse" id="sidebarBlogs">
+        <!-- Blogs Arena -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarBlogs" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-paste-clipboard menu-icon"></i>
+              <span class="ms-2">Blogs Arena</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarBlogs">
             <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a href="analytics-customers.html" class="nav-link ">Add Blogs</a>
-                </li><!--end nav-item-->
-                <li class="nav-item">
-                    <a href="analytics-reports.html" class="nav-link ">List Blogs</a>
-                </li><!--end nav-item-->
-            </ul><!--end nav-->
-        </div>
-    </li><!--end nav-item-->
+              <li class="nav-item"><a href="{{route('blogs.create')}}" class="nav-link">Add Blogs</a></li>
+              <li class="nav-item"><a href="{{route('blogs.index')}}" class="nav-link">List Blogs</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
 
-    <!-- Affiliate Trainings Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#sidebarAffiliateTrainings" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAffiliateTrainings"> 
-            <i class="iconoir-cube-hole menu-icon"></i> 
-            <span> Affiliate Trainings </span>
-        </a>
-        <div class="collapse" id="sidebarAffiliateTrainings">
+        <!-- Affiliate Trainings -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarAffiliateTrainings" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-cube-hole menu-icon"></i>
+              <span class="ms-2">Affiliate Trainings</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarAffiliateTrainings">
             <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a href="analytics-customers.html" class="nav-link ">Add Trainings</a>
-                </li><!--end nav-item-->
-                <li class="nav-item">
-                    <a href="analytics-reports.html" class="nav-link ">List Trainings</a>
-                </li><!--end nav-item-->
-            </ul><!--end nav-->
-        </div>
-    </li><!--end nav-item-->
+              <li class="nav-item"><a href="{{route('affiliatetrainings.add')}}" class="nav-link">Add Trainings</a></li>
+              <li class="nav-item"><a href="{{route('affiliatetrainings.list')}}" class="nav-link">List Trainings</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
 
-    <!-- Live Webinar Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#sidebarWebinar" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarWebinar"> 
-            <i class="iconoir-video-camera menu-icon"></i> 
-            <span> Live Webinar </span>
-        </a>
-        <div class="collapse" id="sidebarWebinar">
+        <!-- Live Webinar -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarWebinar" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-video-camera menu-icon"></i>
+              <span class="ms-2">Live Webinar</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarWebinar">
             <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a href="{{route('livewebinar.create')}}" class="nav-link ">Add Webinars</a>
-                </li><!--end nav-item-->
-                <li class="nav-item">
-                    <a href="{{route('livewebinar.index')}}" class="nav-link ">List Webinars</a>
-                </li><!--end nav-item-->
-            </ul><!--end nav-->
-        </div>
-    </li><!--end nav-item-->
+              <li class="nav-item"><a href="{{route('livewebinar.create')}}" class="nav-link">Add Webinars</a></li>
+              <li class="nav-item"><a href="{{route('livewebinar.index')}}" class="nav-link">List Webinars</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
 
-    <!-- View Rewards & Ranks Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#sidebarRewards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarRewards"> 
-            <i class="iconoir-trophy menu-icon"></i> 
-            <span> View Reward & Ranks </span>
-        </a>
-        <div class="collapse" id="sidebarRewards">
+        <!-- Rewards & Ranks -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarRewards" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-trophy menu-icon"></i>
+              <span class="ms-2">View Rewards & Ranks</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarRewards">
             <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a href="analytics-customers.html" class="nav-link ">View</a>
-                </li><!--end nav-item-->
-            </ul><!--end nav-->
-        </div>
-    </li><!--end nav-item-->
-    
-    <!-- Provide Role and Permission Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#sidebarRoles" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarRoles"> 
-            <i class="iconoir-fingerprint-lock-circle menu-icon"></i> 
-            <span> Provide Role and Permission </span>
-        </a>
-        <div class="collapse" id="sidebarRoles">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a href="analytics-customers.html" class="nav-link ">Add Role</a>
-                </li><!--end nav-item-->
-                <li class="nav-item">
-                    <a href="analytics-reports.html" class="nav-link ">Provide Permission</a>
-                </li><!--end nav-item-->
-            </ul><!--end nav-->
-        </div>
-    </li><!--end nav-item-->
+              <li class="nav-item"><a href="analytics-customers.html" class="nav-link">View</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
 
-                        </div>                   
-     
-                    </div>
- 
- 
-                    </div> 
+        <!-- Roles & Permissions -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarRoles" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-fingerprint-lock-circle menu-icon"></i>
+              <span class="ms-2">Roles & Permissions</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarRoles">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="analytics-customers.html" class="nav-link">Add Role</a></li>
+              <li class="nav-item"><a href="analytics-reports.html" class="nav-link">Provide Permission</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+      </ul>
+    </div>
+  </div>
+</div>
+
 
                 </div>
             </div><!--end startbar-collapse-->

@@ -1682,6 +1682,10 @@ hr.hr-dashed {
   margin-bottom: 3px;
   border: 1px solid transparent;
 }
+
+
+
+
 .startbar .startbar-menu .navbar-nav .nav-item .nav-link:hover, .startbar .startbar-menu .navbar-nav .nav-item .nav-link.active {
   color: var(--bs-menu-link-hover-color);
 }

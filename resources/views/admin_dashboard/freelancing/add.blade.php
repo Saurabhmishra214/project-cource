@@ -33,81 +33,100 @@
                                     </div>  <!--end row-->                                  
                                 </div><!--end card-header-->
                                 <div class="card-body pt-0">
-   <form class="row g-3 needs-validation was-validated" 
-                                  method="POST" 
-                                  action="{{ route('freelancing.store') }}" 
-                                  novalidate>
-                                @csrf
+<form class="row g-3 needs-validation was-validated" 
+      method="POST" 
+      action="{{ route('freelancing.store') }}" 
+      novalidate>
+    @csrf
 
-                                <div class="col-md-6">
-                                    <label class="form-label">Job Title</label>
-                                    <input type="text" 
-                                           class="form-control" 
-                                           name="title" 
-                                           value="{{ old('title') }}" 
-                                           required>
-                                    <div class="invalid-feedback">
-                                        Please enter job title.
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+        <label class="form-label">Job Title</label>
+        <input type="text" 
+               class="form-control @error('title') is-invalid @enderror" 
+               name="title" 
+               value="{{ old('title') }}" 
+               required>
+        @error('title')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
 
-                                <div class="col-md-6">
-                                    <label class="form-label">Description</label>
-                                    <input type="text" 
-                                           class="form-control" 
-                                           name="description" 
-                                           value="{{ old('description') }}" 
-                                           required>
-                                    <div class="invalid-feedback">
-                                        Please enter job description.
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+        <label class="form-label">Description</label>
+        <input type="text" 
+               class="form-control @error('description') is-invalid @enderror" 
+               name="description" 
+               value="{{ old('description') }}" 
+               required>
+        @error('description')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
 
-                                <div class="col-md-6">
-                                    <label class="form-label">Company Name</label>
-                                    <input type="text" 
-                                           class="form-control" 
-                                           name="company_name" 
-                                           value="{{ old('company_name') }}" required>
-                                                   <div class="invalid-feedback">
-                                        Please enter Company Name
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+        <label class="form-label">Company Name</label>
+        <input type="text" 
+               class="form-control @error('company_name') is-invalid @enderror" 
+               name="company_name" 
+               value="{{ old('company_name') }}" 
+               required>
+        @error('company_name')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
 
-                                <div class="col-md-6">
-                                    <label class="form-label">Location</label>
-                                    <input type="text" 
-                                           class="form-control" 
-                                           name="location" 
-                                           value="{{ old('location') }}" required>
-                                </div>
+    <div class="col-md-6">
+        <label class="form-label">Location</label>
+        <input type="text" 
+               class="form-control @error('location') is-invalid @enderror" 
+               name="location" 
+               value="{{ old('location') }}" 
+               required>
+        @error('location')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
 
-                                <div class="col-md-6">
-                                    <label class="form-label">Pay</label>
-                                    <input type="number" 
-                                           class="form-control" 
-                                           name="pay" 
-                                           value="{{ old('pay') }}" required>
-                                                   <div class="invalid-feedback">
-                                        Please enter Pay
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+        <label class="form-label">Pay</label>
+        <input type="text" 
+               class="form-control @error('pay') is-invalid @enderror" 
+               name="pay" 
+               value="{{ old('pay') }}" 
+               required>
+        @error('pay')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
 
-                                <div class="col-md-6">
-                                    <label class="form-label">Duration</label>
-                                    <input type="text" 
-                                           class="form-control" 
-                                           name="duration" 
-                                           value="{{ old('duration') }}" required>
-                                                   <div class="invalid-feedback">
-                                        Please enter Duration
-                                    </div>
-                                </div>
+    <div class="col-md-6">
+        <label class="form-label">Duration</label>
+        <input type="text" 
+               class="form-control @error('duration') is-invalid @enderror" 
+               name="duration" 
+               value="{{ old('duration') }}" 
+               required>
+        @error('duration')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
 
-                                <div class="col-12">
-                                    <button class="btn btn-primary" type="submit">Add Job</button>
-                                </div>
-                            </form>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Add Job</button>
+    </div>
+</form>
           
                                 </div><!--end card-body--> 
                             </div><!--end card--> 

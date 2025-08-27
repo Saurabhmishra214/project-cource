@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\admin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AffiliateTraining; // AffiliateTraining मॉडल को आयात करें
 use App\Models\AffiliateTrainingSession; // AffiliateTrainingSession मॉडल को आयात करें
@@ -10,7 +10,7 @@ use App\Models\AffiliateTrainingSession; // AffiliateTrainingSession मॉड�
  * यह क्लास Affiliate Trainings को मैनेज करती है।
  * इसमें सभी CRUD ऑपरेशन्स शामिल हैं।
  */
-class AffiliateTrainingsController extends Controller
+class AffiliateBusinessTrainingsController extends Controller
 {
    
  

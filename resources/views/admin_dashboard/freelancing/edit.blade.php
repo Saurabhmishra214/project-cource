@@ -30,83 +30,95 @@
                             </div>                                  
                         </div>
                         <div class="card-body pt-0">
-                         <form class="row g-3 needs-validation" 
+<form class="row g-3 needs-validation" 
       method="POST" 
       action="{{ route('freelancing.update', $job->id) }}" 
       novalidate>
     @csrf
-    {{-- @method('PATCH') remove kar diya, sirf POST rahega --}}
+    @method('PATCH')
 
     <div class="col-md-6">
         <label class="form-label">Job Title</label>
         <input type="text" 
-               class="form-control" 
+               class="form-control @error('title') is-invalid @enderror" 
                name="title" 
                value="{{ old('title', $job->title) }}" 
                required>
-        <div class="invalid-feedback">
-            Please enter job title.
-        </div>
+        @error('title')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
     </div>
 
     <div class="col-md-6">
         <label class="form-label">Description</label>
         <input type="text" 
-               class="form-control" 
+               class="form-control @error('description') is-invalid @enderror" 
                name="description" 
                value="{{ old('description', $job->description) }}" 
                required>
-        <div class="invalid-feedback">
-            Please enter job description.
-        </div>
+        @error('description')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
     </div>
 
     <div class="col-md-6">
         <label class="form-label">Company Name</label>
         <input type="text" 
-               class="form-control" 
+               class="form-control @error('company_name') is-invalid @enderror" 
                name="company_name" 
                value="{{ old('company_name', $job->company_name) }}" 
                required>
-        <div class="invalid-feedback">
-            Please enter Company Name.
-        </div>
+        @error('company_name')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
     </div>
 
     <div class="col-md-6">
         <label class="form-label">Location</label>
         <input type="text" 
-               class="form-control" 
+               class="form-control @error('location') is-invalid @enderror" 
                name="location" 
                value="{{ old('location', $job->location) }}" 
                required>
-        <div class="invalid-feedback">
-            Please enter location.
-        </div>
+        @error('location')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
     </div>
 
     <div class="col-md-6">
         <label class="form-label">Pay</label>
-        <input type="number" 
-               class="form-control" 
+        <input type="text" 
+               class="form-control @error('pay') is-invalid @enderror" 
                name="pay" 
                value="{{ old('pay', $job->pay) }}" 
                required>
-        <div class="invalid-feedback">
-            Please enter Pay.
-        </div>
+        @error('pay')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
     </div>
 
     <div class="col-md-6">
         <label class="form-label">Duration</label>
         <input type="text" 
-               class="form-control" 
+               class="form-control @error('duration') is-invalid @enderror" 
                name="duration" 
                value="{{ old('duration', $job->duration) }}" 
                required>
-        <div class="invalid-feedback">
-            Please enter Duration.
-        </div>
+        @error('duration')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
     </div>
 
     <div class="col-12">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-startbar="light" data-bs-theme="light">
+<html lang="en" dir="ltr" data-bs-theme="dark">
 
 <head>
 
@@ -18,7 +18,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
-    <!-- App favicon -->
+    <!-- App favicon d-->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
 
@@ -32,7 +32,7 @@
 
 </head>
 
-<body>
+<body class="dark">
 
 
 
@@ -84,10 +84,7 @@
                     </li><!--end topbar-language-->
 
                     <li class="topbar-item">
-                        <a class="nav-link nav-icon" href="javascript:void(0);" id="light-dark-mode">
-                            <i class="iconoir-half-moon dark-mode"></i>
-                            <i class="iconoir-sun-light light-mode"></i>
-                        </a>
+                       
                     </li>
 
                     <li class="dropdown topbar-item">
