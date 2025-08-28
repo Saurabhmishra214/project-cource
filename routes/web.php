@@ -96,6 +96,8 @@ Route::post('/courses/store', [AutomationCoursesController::class, 'coursestore'
 
 Route::get('/courses/list', [AutomationCoursesController::class, 'courseslist'])->name('courses.list');
 
+Route::get('/courses/view/{id}', [AutomationCoursesController::class, 'courseview'])->name('courses.view');
+
 Route::get('/courses/edit/{id}', [AutomationCoursesController::class, 'coursesedit'])->name('courses.edit');
 
 Route::post('/courses/update/{id}', [AutomationCoursesController::class, 'courseupdate'])->name('courses.update');

@@ -57,6 +57,12 @@ class AutomationCoursesController extends Controller
          return view('admin_dashboard.Courses.list',compact('courses'));
     }
 
+    public function courseview($id)
+    {
+        $course = AutomationCourse::findOrFail($id);
+        return view('admin_dashboard.Courses.details', compact('course'));
+    }
+
 
 
     public function coursesedit($id)
