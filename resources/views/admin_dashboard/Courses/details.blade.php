@@ -7,14 +7,14 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
-                                <h4 class="page-title">Profile</h4>
+                                <h4 class="page-title">{{ $course->title }}</h4>
                                 <div class="">
                                     <ol class="breadcrumb mb-0">
                                         <li class="breadcrumb-item"><a href="#">Mifty</a>
                                         </li><!--end nav-item-->
                                         <li class="breadcrumb-item"><a href="#">Pages</a>
                                         </li><!--end nav-item-->
-                                        <li class="breadcrumb-item active">Profile</li>
+                                        {{-- <li class="breadcrumb-item active">Profile</li> --}}
                                     </ol>
                                 </div>                                
                             </div><!--end page-title-box-->
@@ -47,22 +47,22 @@
                                                         <div class="card-body pt-0">
                                                             <!-- 16:9 aspect ratio -->
                                                             <div class="ratio ratio-16x9">
-                                                                <video src="{{ $course->video_url }}"></video>
+                                                                <video src="{{ $course->image_url }}"></video>
                                                             </div>  
                                                         </div><!--end card-body--> 
                                                     </div><!--end card--> 
                                                     <div class="post-title mt-3">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <span class="badge bg-primary-subtle text-primary">Natural</span>
+                                                                <span class="badge bg-primary-subtle text-primary">{{ $course->category }}</span>
                                                             </div><!--end col-->
                                                             <div class="col-auto">
-                                                                <span class="text-muted"><i class="far fa-calendar me-1"></i>02 July 2024</span>
+                                                                <span class="text-muted"><i class="far fa-calendar me-1"></i>{{ $course->created_at }}</span>
                                                             </div><!--end col-->
                                                         </div><!--end row-->
                                                        
-                                                        <h5 href="#" class="fs-20 fw-bold d-block my-3">There is nothing more beautiful than nature.</h5>
-                                                        <span class="fs-15 bg-light py-2 px-3 rounded">Taking pictures is savouring life intensely.</span>
+                                                        <h5 href="#" class="fs-20 fw-bold d-block my-3">{{ $course->title }}</h5>
+                                                        <span class="fs-15 bg-light py-2 px-3 rounded">{{ $course->description}}</span>
                                                         <p class="fs-15 mt-3"> 
 
                                                         </p>
@@ -75,16 +75,10 @@
                                                 <div class="card-body pt-0">
                                                     <div class="row mb-3">
                                                         <div class="col">
-                                                            <p class="text-dark fw-semibold mb-0">Artical tags</p>
+                                                            <p class="text-dark fw-semibold mb-0">Skills</p>
                                                         </div>
                                                     </div>
                                                     <span class="badge bg-light text-dark px-3 py-2 fw-semibold">Music</span>
-                                                    <span class="badge bg-light text-dark px-3 py-2 fw-semibold">Animals</span>
-                                                    <span class="badge bg-light text-dark px-3 py-2 fw-semibold">Natural</span>
-                                                    <span class="badge bg-light text-dark px-3 py-2 fw-semibold">Food</span>
-                                                    <span class="badge bg-light text-dark px-3 py-2 fw-semibold">Fashion</span>
-                                                    <span class="badge bg-light text-dark px-3 py-2 fw-semibold">Helth</span>
-                                                    <span class="badge bg-light text-dark px-3 py-2 fw-semibold">Charity</span>
                                                 </div>
                                             </div>    
                                         </div><!--end col-->                                                

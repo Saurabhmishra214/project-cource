@@ -36,7 +36,7 @@
                                 <table class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>Id</th>
                                             <th>Title</th>
                                             <th>Main Video URL</th>
                                             <th>Day Number</th>
@@ -47,7 +47,7 @@
                                     <tbody>
                                         @forelse($trainings as $training)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $training->id }}</td>
                                                 <td>{{ $training->title }}</td>
                                                 <td>
                                                     <a href="{{ $training->main_video_url }}" target="_blank">
@@ -57,7 +57,7 @@
                                                 <td>{{ $training->day_number }}</td>
                                                 <td>{{ ucfirst($training->category) }}</td>
                                                 <td class="text-end">
-                                                    <a href="{{ route('affiliatetrainings.store', $training->id) }}" class="btn btn-sm btn-outline-primary me-1">
+                                                    <a href="{{ route('affiliatetrainings.show', $training->id) }}" class="btn btn-sm btn-outline-primary me-1">
                                                         <i class="fa-solid fa-eye fs-6"></i>
                                                     </a>
                                                     <a href="{{ route('affiliatetrainings.edit', $training->id) }}" class="btn btn-sm btn-outline-secondary me-1">
@@ -79,9 +79,42 @@
                                         @endforelse
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="mt-3">
-                                {{ $trainings->links() }}
+                                <div class="d-flex justify-content-center mt-3">
+                                    <ul class="pagination">
+                                        {{-- Previous Page Link --}}
+                                        @if ($trainings->onFirstPage())
+                                            <li class="page-item disabled">
+                                                <span class="page-link">Previous</span>
+                                            </li>
+                                        @else
+                                            <li class="page-item">
+                                                <a class="page-link" href="{{ $trainings->previousPageUrl() }}" rel="prev">Previous</a>
+                                            </li>
+                                        @endif
+
+                                        {{-- Pagination Elements --}}
+                                        @foreach ($trainings->links()->elements[0] ?? [] as $page => $url)
+                                            @if ($page == $trainings->currentPage())
+                                                <li class="page-item active">
+                                                    <span class="page-link">{{ $page }}</span>
+                                                </li>
+                                            @else
+                                                <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        {{-- Next Page Link --}}
+                                        @if ($trainings->hasMorePages())
+                                            <li class="page-item">
+                                                <a class="page-link" href="{{ $trainings->nextPageUrl() }}" rel="next">Next</a>
+                                            </li>
+                                        @else
+                                            <li class="page-item disabled">
+                                                <span class="page-link">Next</span>
+                                            </li>
+                                        @endif
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

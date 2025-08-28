@@ -21,6 +21,12 @@ class AffiliateTrainingController extends Controller
         return view('admin_dashboard.affiliatetrainings.add');
     }
 
+    public function details($id)
+    {
+        $training = AffiliateTraining::findOrFail($id);
+        return view('admin_dashboard.affiliatetrainings.show', compact('training'));
+    }
+
     // Store new training
     public function store(Request $request)
     {

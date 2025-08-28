@@ -11,7 +11,7 @@ class LiveWebinarController extends Controller
 {
     // List all webinars
 public function index() {
-$webinars = Webinar::paginate(10); // 10 items per page
+$webinars = Webinar::latest()->paginate(10); // 10 items per page
 return view('admin_dashboard.livewebinar.list', compact('webinars'));
 
 }

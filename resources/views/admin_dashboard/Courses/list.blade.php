@@ -89,13 +89,14 @@
                                             <table class="table mb-0 checkbox-all datatable-table" id="datatable_1">
                                                 <thead>
                                                     <tr>
-                                                        <th style="width: 16px; width: 4.358552631578947%;">
+                                                        {{-- <th style="width: 16px; width: 4.358552631578947%;">
                                                             <button class="">
                                                                 <div class="form-check mb-0 ms-n1">
                                                                     <input type="checkbox" class="form-check-input" name="select-all" id="select-all">
                                                                 </div>
                                                             </button>
-                                                        </th>
+                                                        </th> --}}
+                                                        <th class="ps-0" data-sortable="true"><button class="datatable-sorter">Id</button></th>
                                                         <th class="ps-0" data-sortable="true"><button class="datatable-sorter">Title</button></th>
                                                         <th data-sortable="true"><button class="datatable-sorter">Video URL</button></th>
                                                         <th data-sortable="true"><button class="datatable-sorter">Category</button></th>
@@ -122,7 +123,7 @@
                                                             <td><a href="{{ $course->link }}" target="_blank" class="d-inline-block align-middle mb-0 text-body">Go to Link</a></td>
                                                         <td class="text-end">
     {{-- Show Button --}}
-    <a href="" class="btn btn-sm btn-outline-primary me-1">
+    <a href="{{ route('courses.view', $course->id) }}" class="btn btn-sm btn-outline-primary me-1">
         <i class="fa-solid fa-eye fs-6"></i>
     </a>
 
@@ -150,25 +151,42 @@
                                                     <!-- यहाँ डायनामिक डेटा समाप्त होता है -->
                                                 </tbody>
                                             </table>
-                                        </div>
-                                        <div class="datatable-bottom">
-                                            <div class="datatable-info">Showing 1 to 10 of 13 entries</div>
-                                            <nav class="datatable-pagination">
-                                                <ul class="datatable-pagination-list">
-                                                    <li class="datatable-pagination-list-item datatable-hidden datatable-disabled">
-                                                        <button data-page="1" class="datatable-pagination-list-item-link" aria-label="Page 1">‹</button>
-                                                    </li>
-                                                    <li class="datatable-pagination-list-item datatable-active">
-                                                        <button data-page="1" class="datatable-pagination-list-item-link" aria-label="Page 1">1</button>
-                                                    </li>
-                                                    <li class="datatable-pagination-list-item">
-                                                        <button data-page="2" class="datatable-pagination-list-item-link" aria-label="Page 2">2</button>
-                                                    </li>
-                                                    <li class="datatable-pagination-list-item">
-                                                        <button data-page="2" class="datatable-pagination-list-item-link" aria-label="Page 2">›</button>
-                                                    </li>
-                                                </ul>
-                                            </nav>
+                                            <div class="d-flex justify-content-center mt-3">
+                                    <ul class="pagination">
+                                        {{-- Previous Page Link --}}
+                                        @if ($courses->onFirstPage())
+                                            <li class="page-item disabled">
+                                                <span class="page-link">Previous</span>
+                                            </li>
+                                        @else
+                                            <li class="page-item">
+                                                <a class="page-link" href="{{ $courses->previousPageUrl() }}" rel="prev">Previous</a>
+                                            </li>
+                                        @endif
+
+                                        {{-- Pagination Elements --}}
+                                        @foreach ($courses->links()->elements[0] ?? [] as $page => $url)
+                                            @if ($page == $courses->currentPage())
+                                                <li class="page-item active">
+                                                    <span class="page-link">{{ $page }}</span>
+                                                </li>
+                                            @else
+                                                <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        {{-- Next Page Link --}}
+                                        @if ($courses->hasMorePages())
+                                            <li class="page-item">
+                                                <a class="page-link" href="{{ $courses->nextPageUrl() }}" rel="next">Next</a>
+                                            </li>
+                                        @else
+                                            <li class="page-item disabled">
+                                                <span class="page-link">Next</span>
+                                            </li>
+                                        @endif
+                                    </ul>
+                                </div>
                                         </div>
                                     </div>
                                 </div>

@@ -117,7 +117,7 @@ Route::delete('/courses/delete/{id}', [AutomationCoursesController::class, 'cour
     Route::post('businesstrainings-store', [AffiliateBusinessTrainingsController::class, 'store'])->name('businesstrainings.store');
     
     // Show single training with sessions
-    Route::get('businesstrainings{id}', [AffiliateBusinessTrainingsController::class, 'show'])->name('businesstrainings.show');
+    Route::get('business-trainings/view/{id}', [AffiliateBusinessTrainingsController::class, 'details'])->name('businesstrainings.view');
     
     // Edit + update
     Route::get('businesstrainings{id}/edit', [AffiliateBusinessTrainingsController::class, 'edit'])->name('businesstrainings.edit');
@@ -134,7 +134,7 @@ Route::delete('/courses/delete/{id}', [AutomationCoursesController::class, 'cour
 Route::get('/freelancing', [FreelancingController::class, 'index'])->name('freelancing.index');          // List Jobs
 Route::get('/freelancing/create', [FreelancingController::class, 'create'])->name('freelancing.create');   // Add Job form
 Route::post('/freelancing/store', [FreelancingController::class, 'store'])->name('freelancing.store');     // Save Job
-Route::get('/freelancing/{id}', [FreelancingController::class, 'show'])->name('freelancing.show');        // Show single Job
+Route::get('/freelancing/view/{id}', [FreelancingController::class, 'details'])->name('freelancing.view');        // Show single Job
 Route::get('/freelancing/{id}/edit', [FreelancingController::class, 'edit'])->name('freelancing.edit');   // Edit Job form
 Route::post('/freelancing/{id}', [FreelancingController::class, 'update'])->name('freelancing.update');    // Update Job
 Route::delete('/freelancing/{id}', [FreelancingController::class, 'destroy'])->name('freelancing.destroy');// Delete Job
@@ -166,6 +166,7 @@ Route::delete('blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.des
 
 Route::get('admin/affiliatetrainings', [AffiliateTrainingController::class, 'index'])->name('affiliatetrainings.list');
 Route::get('admin/affiliatetrainings/add', [AffiliateTrainingController::class, 'create'])->name('affiliatetrainings.add');
+Route::get('admin/affiliatetrainings/view/{id}', [AffiliateTrainingController::class, 'details'])->name('affiliatetrainings.show');
 Route::post('admin/affiliatetrainings/store', [AffiliateTrainingController::class, 'store'])->name('affiliatetrainings.store');
 Route::get('admin/affiliatetrainings/{id}/edit', [AffiliateTrainingController::class, 'edit'])->name('affiliatetrainings.edit');
 Route::post('admin/affiliatetrainings/{id}/update', [AffiliateTrainingController::class, 'update'])->name('affiliatetrainings.update');

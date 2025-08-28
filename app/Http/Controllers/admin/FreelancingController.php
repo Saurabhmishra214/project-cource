@@ -12,9 +12,10 @@ class FreelancingController extends Controller
     // List Jobs
     public function index()
     {
-        $jobs = Job::all(); // सब jobs fetch करो
+        $jobs = Job::orderBy('created_at', 'desc')->paginate(10); // 10 per page
         return view('admin_dashboard.freelancing.list', compact('jobs'));
     }
+
 
     // Add Job form
     public function create()
@@ -57,10 +58,10 @@ public function store(Request $request)
 
 
     // Show single Job
-    public function show($id)
+    public function details($id)
     {
         $job = Job::findOrFail($id);
-        return view('admin_dashboard.freelancing.show', compact('job'));
+        return view('admin_dashboard.freelancing.details', compact('job'));
     }
 
     // Edit Job form

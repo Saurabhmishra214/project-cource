@@ -47,7 +47,7 @@
                                                         <div class="card-body pt-0">
                                                             <!-- 16:9 aspect ratio -->
                                                             <div class="ratio ratio-16x9">
-                                                                <video src="{{ $training->session_video_url }}"></video>
+                                                                <video src="{{ $training->main_video_url }}"></video>
                                                             </div>  
                                                         </div><!--end card-body--> 
                                                     </div><!--end card--> 
@@ -57,12 +57,12 @@
                                                                 <span class="badge bg-primary-subtle text-primary">{{ $training->category }}</span>
                                                             </div><!--end col-->
                                                             <div class="col-auto">
-                                                                <span class="text-muted"><i class="far fa-calendar me-1"></i>{{ $training->created_at }}</span>
+                                                                <span class="text-muted"><i class="far fa-calendar me-1"></i>Day {{ $training->day_number }}</span>
                                                             </div><!--end col-->
                                                         </div><!--end row-->
                                                        
-                                                        <h5 href="#" class="fs-20 fw-bold d-block my-3">{{ $webinar->title }}</h5>
-                                                        <span class="fs-15 bg-light py-2 px-3 rounded">{{ $webinar->description}}</span>
+                                                        <h5 href="#" class="fs-20 fw-bold d-block my-3">{{ $training->title }}</h5>
+                                                        <span class="fs-15 bg-light py-2 px-3 rounded">{{ $training->description}}</span>
                                                         <p class="fs-15 mt-3"> 
 
                                                         </p>
