@@ -462,6 +462,42 @@
           </div>
         </li><!--end nav-item-->
 
+        <!-- Digital Products -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-light-bulb-on menu-icon"></i>
+              <span class="ms-2">Digital Products</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarCourses">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('digitalproduct.add')}}" class="nav-link">Add Products</a></li>
+              {{-- <li class="nav-item"><a href="{{route('products.list')}}" class="nav-link">List Products</a></li> --}}
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <!-- Software Assets -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarCourses" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-light-bulb-on menu-icon"></i>
+              <span class="ms-2">Software Assets</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarCourses">
+            <ul class="nav flex-column">
+              {{-- <li class="nav-item"><a href="{{route('software.add')}}" class="nav-link">Add Softwares</a></li>
+              <li class="nav-item"><a href="{{route('software.list')}}" class="nav-link">List Softwares</a></li> --}}
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
         <!-- Freelancing Arena -->
         <li class="nav-item">
           <a class="nav-link collapsed d-flex justify-content-between align-items-center"

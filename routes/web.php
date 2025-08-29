@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\FreelancingController;
 use App\Http\Controllers\admin\LiveWebinarController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\Admin\AffiliateTrainingController;
+use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\user\hustlerscampus\digitalassets\SoftwareProductController;
 
 
@@ -175,3 +176,7 @@ Route::delete('admin/affiliatetrainings/{id}/delete', [AffiliateTrainingControll
 
 // Hustlers Campus Digital Assets - Software Products Routes
 Route::get('product/index', [SoftwareProductController::class, 'productindex'])->name('product.index');
+
+// Digital Product Routes
+Route::get('/digital-product/add', [ProductController::class, 'create'])->name('digitalproduct.add'); 
+Route::post('/digital-product/store', [ProductController::class, 'store'])->name('digitalproduct.store'); 
