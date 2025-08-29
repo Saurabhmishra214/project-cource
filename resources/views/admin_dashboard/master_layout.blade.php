@@ -465,17 +465,17 @@
         <!-- Digital Products -->
         <li class="nav-item">
           <a class="nav-link collapsed d-flex justify-content-between align-items-center"
-             href="#" data-bs-toggle="collapse" role="button" aria-expanded="false">
+             href="#sidebarProducts" data-bs-toggle="collapse" role="button" aria-expanded="false">
             <div class="d-flex align-items-center">
               <i class="iconoir-light-bulb-on menu-icon"></i>
               <span class="ms-2">Digital Products</span>
             </div>
             <i class="bi bi-chevron-right dropdown-icon"></i>
           </a>
-          <div class="collapse" id="sidebarCourses">
+          <div class="collapse" id="sidebarProducts">
             <ul class="nav flex-column">
               <li class="nav-item"><a href="{{route('digitalproduct.add')}}" class="nav-link">Add Products</a></li>
-              {{-- <li class="nav-item"><a href="{{route('products.list')}}" class="nav-link">List Products</a></li> --}}
+              <li class="nav-item"><a href="{{route('digitalproduct.index')}}" class="nav-link">List Products</a></li>
             </ul>
           </div>
         </li><!--end nav-item-->
@@ -483,17 +483,35 @@
         <!-- Software Assets -->
         <li class="nav-item">
           <a class="nav-link collapsed d-flex justify-content-between align-items-center"
-             href="#sidebarCourses" data-bs-toggle="collapse" role="button" aria-expanded="false">
+             href="#sidebarSoftware" data-bs-toggle="collapse" role="button" aria-expanded="false">
             <div class="d-flex align-items-center">
               <i class="iconoir-light-bulb-on menu-icon"></i>
               <span class="ms-2">Software Assets</span>
             </div>
             <i class="bi bi-chevron-right dropdown-icon"></i>
           </a>
-          <div class="collapse" id="sidebarCourses">
+          <div class="collapse" id="sidebarSoftware">
             <ul class="nav flex-column">
-              {{-- <li class="nav-item"><a href="{{route('software.add')}}" class="nav-link">Add Softwares</a></li>
-              <li class="nav-item"><a href="{{route('software.list')}}" class="nav-link">List Softwares</a></li> --}}
+              <li class="nav-item"><a href="{{route('software.add')}}" class="nav-link">Add Softwares</a></li> 
+              <li class="nav-item"><a href="{{route('software.index')}}" class="nav-link">List Softwares</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <!-- Gamify Challenges -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarGamify" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-light-bulb-on menu-icon"></i>
+              <span class="ms-2">Gamify Challenges</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarGamify">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('gamifychallenge.add')}}" class="nav-link">Add Challenges</a></li> 
+              {{-- <li class="nav-item"><a href="{{route('challenge.index')}}" class="nav-link">List Challenges</a></li> --}}
             </ul>
           </div>
         </li><!--end nav-item-->

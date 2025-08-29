@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+        public function index() {
+            $products = DigitalProduct::latest()->paginate(10); // 10 items per page
+            return view('admin_dashboard.digital_products.list', compact('products'));
+
+        }
     public function create()
     {
         return view('admin_dashboard.digital_products.add');
@@ -42,5 +48,41 @@ class ProductController extends Controller
             DigitalProduct::create($data);
 
             return redirect()->back()->with('success', 'Digital product created successfully!');
+        }
+
+        public function edit($id)
+        {
+            $products = DigitalProduct::findOrFail($id);
+            return view('admin_dashboard.digital_products.edit', compact('products'));
+        }
+
+        public function update(Request $request, $id)
+        {
+            $request->validate([
+                'product_name'      => 'required|string|max:255',
+                'product_image_url' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+                'sales_page_url'    => 'nullable|url',
+                'google_drive_link' => 'nullable|url',
+            ]);
+
+            $products = DigitalProduct::findOrFail($id);
+            $products->update($request->all());
+
+            return redirect()->route('digitalproduct.index')
+                            ->with('success', 'Training updated successfully!');
+        }
+
+        public function destroy($id)
+        {
+            $product = DigitalProduct::findOrFail($id);
+
+            // Delete all referrals related to this product
+            $product->referrals()->delete();
+
+            // Now delete the product
+            $product->delete();
+
+            return redirect()->route('digitalproduct.index')
+                            ->with('success', 'Product deleted successfully!');
         }
 }

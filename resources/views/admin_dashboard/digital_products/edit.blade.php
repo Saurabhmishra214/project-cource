@@ -9,7 +9,7 @@
                   <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
-                            <h4 class="page-title">Softwares</h4>
+                            <h4 class="page-title">Digital Products</h4>
                             <div class="">
                                 <ol class="breadcrumb mb-0">
                                     <li class="breadcrumb-item"><a href="#">Mifty</a>
@@ -28,14 +28,14 @@
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col">                      
-                            <h4 class="card-title">Add Software</h4>
+                            <h4 class="card-title">Add Product</h4>
                                         </div><!--end col-->
                                     </div>  <!--end row-->                                  
                                 </div><!--end card-header-->
                                 <div class="card-body pt-0">
                                     <form class="row g-3 needs-validation was-validated" 
                                         method="POST" 
-                                        action="{{ route('software.store') }}" 
+                                        action="{{ route('digitalproduct.update', $products->product_id) }}" 
                                         novalidate
                                         enctype="multipart/form-data">
                                         @csrf
@@ -43,9 +43,9 @@
                                         <div class="col-md-6">
                                             <label class="form-label">Product Name</label>
                                             <input type="text" 
-                                                class="form-control @error('Software Name') is-invalid @enderror" 
-                                                name="software_name" 
-                                                value="{{ old('software_name') }}" 
+                                                class="form-control @error('Product Name') is-invalid @enderror" 
+                                                name="product_name" 
+                                                value="{{ old('product_name', $products->product_name) }}" 
                                                 required>
                                             @error('title')
                                                 <div class="invalid-feedback">
@@ -57,9 +57,9 @@
                                         <div class="col-md-6">
                                             <label class="form-label">Image</label>
                                             <input type="file" 
-                                                class="form-control @error('Image file') is-invalid @enderror" 
-                                                name="software_image_url" 
-                                                value="{{ old('software_image_url') }}" 
+                                                class="form-control @error('file') is-invalid @enderror" 
+                                                name="product_image_url" 
+                                                value="{{ old('product_image_url', $products->product_image_url) }}" 
                                                 required>
                                             @error('description')
                                                 <div class="invalid-feedback">
@@ -73,7 +73,7 @@
                                             <input type="text" 
                                                 class="form-control @error('Google drive link') is-invalid @enderror" 
                                                 name="google_drive_link" 
-                                                value="{{ old('google_drive_link') }}" 
+                                                value="{{ old('google_drive_link', $products->google_drive_link) }}" 
                                                 required>
                                             @error('company_name')
                                                 <div class="invalid-feedback">
@@ -85,51 +85,9 @@
                                         <div class="col-md-6">
                                             <label class="form-label">Sales Page URL</label>
                                             <input type="text" 
-                                                class="form-control @error('Sales Page URL') is-invalid @enderror" 
+                                                class="form-control @error('URL') is-invalid @enderror" 
                                                 name="sales_page_url" 
-                                                value="{{ old('sales_page_url') }}" 
-                                                required>
-                                            @error('location')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label class="form-label">Description</label>
-                                            <textarea type="text" 
-                                                class="form-control @error('Description') is-invalid @enderror" 
-                                                name="description" 
-                                                value="{{ old('description') }}" 
-                                                required>Type Here..</textarea>
-                                            @error('location')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label class="form-label">Price</label>
-                                            <input type="text" 
-                                                class="form-control @error('Price') is-invalid @enderror" 
-                                                name="price" 
-                                                value="{{ old('price') }}" 
-                                                required>
-                                            @error('location')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label class="form-label">Title</label>
-                                            <input type="text" 
-                                                class="form-control @error('Title') is-invalid @enderror" 
-                                                name="title" 
-                                                value="{{ old('title') }}" 
+                                                value="{{ old('sales_page_url', $products->sales_page_url) }}" 
                                                 required>
                                             @error('location')
                                                 <div class="invalid-feedback">
@@ -167,7 +125,7 @@
                                         </div> --}}
 
                                         <div class="col-12">
-                                            <button class="btn btn-primary" type="submit">Add Software</button>
+                                            <button class="btn btn-primary" type="submit">Add Product</button>
                                         </div>
                                     </form>
           

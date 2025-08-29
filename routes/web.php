@@ -14,10 +14,9 @@ use App\Http\Controllers\admin\FreelancingController;
 use App\Http\Controllers\admin\LiveWebinarController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\Admin\AffiliateTrainingController;
+use App\Http\Controllers\admin\GamifyController;
 use App\Http\Controllers\admin\ProductController;
-use App\Http\Controllers\user\hustlerscampus\digitalassets\SoftwareProductController;
-
-
+use App\Http\Controllers\admin\SoftwareController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -173,10 +172,33 @@ Route::get('admin/affiliatetrainings/{id}/edit', [AffiliateTrainingController::c
 Route::post('admin/affiliatetrainings/{id}/update', [AffiliateTrainingController::class, 'update'])->name('affiliatetrainings.update');
 Route::delete('admin/affiliatetrainings/{id}/delete', [AffiliateTrainingController::class, 'destroy'])->name('affiliatetrainings.delete');
 
+// Route::get('/softwares', [DigitalSoftwareController::class, 'index'])->name('softwares.index');
+
+// Route::post('/softwares/generate-referral', [DigitalSoftwareController::class, 'generateReferralLink'])->name('softwares.generateReferral');
+
+// Route::get('/software-sales/{software}', [DigitalSoftwareController::class, 'show'])->name('softwares.show');
+
 
 // Hustlers Campus Digital Assets - Software Products Routes
-Route::get('product/index', [SoftwareProductController::class, 'productindex'])->name('product.index');
+// Route::get('product/index', [SoftwareProductController::class, 'productindex'])->name('product.index');
 
 // Digital Product Routes
+Route::get('/digital-product/index', [ProductController::class, 'index'])->name('digitalproduct.index'); // List all the products
 Route::get('/digital-product/add', [ProductController::class, 'create'])->name('digitalproduct.add'); 
+Route::get('/digital-product/{id}/edit', [ProductController::class, 'edit'])->name('digitalproduct.edit'); 
 Route::post('/digital-product/store', [ProductController::class, 'store'])->name('digitalproduct.store'); 
+Route::post('/digital-product/{id}/update', [ProductController::class, 'update'])->name('digitalproduct.update'); 
+Route::delete('/digital-product/{id}/delete', [ProductController::class, 'destroy'])->name('digitalproduct.delete');
+
+//Software routes
+Route::get('/software/index', [SoftwareController::class, 'index'])->name('software.index'); // List all the products
+Route::get('/software/add', [SoftwareController::class, 'create'])->name('software.add'); 
+Route::get('/software/{id}/edit', [SoftwareController::class, 'edit'])->name('software.edit'); 
+Route::post('/software/store', [SoftwareController::class, 'store'])->name('software.store'); 
+Route::put('/software/{id}/update', [SoftwareController::class, 'update'])->name('software.update'); 
+Route::delete('/software/{id}/delete', [SoftwareController::class, 'destroy'])->name('software.delete');
+
+// Gamify Challenge Routes
+Route::get('/gamify-challenge/index', [GamifyController::class, 'index'])->name('gamifychallenge.index'); // List all the challenges
+Route::post('/gamify-challenge/store', [GamifyController::class, 'store'])->name('gamifychallenge.store');
+Route::get('/gamify-challenge/add', [GamifyController::class, 'create'])->name('gamifychallenge.add'); 

@@ -5,23 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DigitalProduct extends Model
+class Software extends Model
 {
     use HasFactory;
 
-    protected $table = 'digital_products';
-    protected $primaryKey = 'product_id'; 
-    public $incrementing = true;          
-    protected $keyType = 'int'; 
+    protected $table = 'digital_softwares';
+    protected $primaryKey = 'software_id';
+    public $incrementing = true;
 
     protected $fillable = [
-        'product_name',
-        'product_image_url',
+        'software_name',
+        'software_image_url',
         'sales_page_url',
         'google_drive_link',
+        'description',
+        'price',
+        'title',
     ];
 
-    // Relation: A product can have many referrals
     public function referrals()
     {
         return $this->hasMany(UserReferral::class, 'product_id');
