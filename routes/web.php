@@ -202,3 +202,6 @@ Route::delete('/software/{id}/delete', [SoftwareController::class, 'destroy'])->
 Route::get('/gamify-challenge/index', [GamifyController::class, 'index'])->name('gamifychallenge.index'); // List all the challenges
 Route::post('/gamify-challenge/store', [GamifyController::class, 'store'])->name('gamifychallenge.store');
 Route::get('/gamify-challenge/add', [GamifyController::class, 'create'])->name('gamifychallenge.add'); 
+Route::get('/gamify-challenge/{id}/edit', [GamifyController::class, 'edit'])->name('gamifychallenge.edit'); 
+Route::put('/gamify-challenge/{id}/update', [GamifyController::class, 'update'])->name('gamifychallenge.update'); 
+Route::delete('/gamify-challenge/{id}/delete', [GamifyController::class, 'destroy'])->name('gamifychallenge.delete');

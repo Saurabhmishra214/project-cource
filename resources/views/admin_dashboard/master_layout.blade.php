@@ -511,7 +511,7 @@
           <div class="collapse" id="sidebarGamify">
             <ul class="nav flex-column">
               <li class="nav-item"><a href="{{route('gamifychallenge.add')}}" class="nav-link">Add Challenges</a></li> 
-              {{-- <li class="nav-item"><a href="{{route('challenge.index')}}" class="nav-link">List Challenges</a></li> --}}
+              <li class="nav-item"><a href="{{route('gamifychallenge.index')}}" class="nav-link">List Challenges</a></li>
             </ul>
           </div>
         </li><!--end nav-item-->

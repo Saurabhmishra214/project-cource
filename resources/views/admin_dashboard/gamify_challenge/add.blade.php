@@ -9,7 +9,7 @@
                   <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
-                            <h4 class="page-title">Gamify Challeneg</h4>
+                            <h4 class="page-title">Gamify Challenge</h4>
                             <div class="">
                                 <ol class="breadcrumb mb-0">
                                     <li class="breadcrumb-item"><a href="#">Mifty</a>
@@ -28,7 +28,7 @@
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col">                      
-                            <h4 class="card-title">Add Challenge</h4>
+                                        <h4 class="card-title">Add Challenge</h4>
                                         </div><!--end col-->
                                     </div>  <!--end row-->                                  
                                 </div><!--end card-header-->
@@ -139,7 +139,7 @@
                                         </div> --}}
 
                                         <div class="col-12">
-                                            <button class="btn btn-primary" type="submit">Add Challeneg</button>
+                                            <button class="btn btn-primary" type="submit">Add Challenge</button>
                                         </div>
                                     </form>
           

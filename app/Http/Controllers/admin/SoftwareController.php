@@ -73,7 +73,7 @@ class SoftwareController extends Controller
         $softwares->update($request->all());
 
         return redirect()->route('software.index')
-                        ->with('success', 'Training updated successfully!');
+                        ->with('success', 'Software updated successfully!');
     }
 
     public function destroy($id)

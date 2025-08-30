@@ -69,7 +69,7 @@ class ProductController extends Controller
             $products->update($request->all());
 
             return redirect()->route('digitalproduct.index')
-                            ->with('success', 'Training updated successfully!');
+                            ->with('success', 'Product updated successfully!');
         }
 
         public function destroy($id)
