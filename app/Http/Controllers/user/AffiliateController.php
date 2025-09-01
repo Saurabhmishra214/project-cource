@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\user;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AffiliateTraining;
+use App\Models\Network;
+use Jorenvh\Share\ShareFacade as Share;
+
 
 class AffiliateController extends Controller
 {
@@ -59,14 +62,52 @@ class AffiliateController extends Controller
     //     ]);
     // }
 
-    public function affiliate_webinar()
-    {
-        return view('affiliate_dashboard.webinar');
+public function affiliate_webinar()
+{
+    // सभी webinars ले लो, latest वाले पहले
+    $webinars = \App\Models\Webinar::latest()->get();
 
-    }
+    return view('affiliate_dashboard.webinar', compact('webinars'));
+}
 
-    public function affiliate_rewards()
-    {
-        return view('affiliate_dashboard.rewards');
-    }
+
+
+public function affiliate_rewards()
+{
+    $title = "Check out my affiliate rewards page!";
+
+    $shareLinks = Share::page(
+        url()->current(),
+        $title
+    )
+    ->facebook()
+    ->twitter()
+    ->linkedin()
+    ->whatsapp()
+    ->telegram()
+    ->getRawLinks(); // ✅ यह array देगा
+
+    return view('affiliate_dashboard.rewards', compact('shareLinks'));
+}
+
+
+public function rewards_dashboard()
+{
+    $user = auth()->user();
+
+    // total referral coins
+    $totalCoins = $user->coins;
+
+    // jo users mere referral se register hue hain
+    $referrals = Network::with('user') // Network ke through user data le aayega
+        ->where('parent_user_id', $user->id)
+        ->get();
+
+    return view('affiliate_dashboard.rewards_dashboard', compact('totalCoins', 'referrals'));
+}
+
+
+// s
+
+
 }

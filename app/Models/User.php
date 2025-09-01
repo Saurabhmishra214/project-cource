@@ -29,6 +29,8 @@ class User extends Authenticatable
         'referred_by',
         'status',
         'last_login_at',
+        'is_verified',
+        'coins'
     ];
 
     /**
@@ -53,4 +55,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function networkEntry()
+{
+    return $this->hasOne(Network::class, 'user_id');
+}
+
+
+public function children()
+{
+    return $this->hasMany(Network::class, 'parent_user_id');
+}
+
+
 }

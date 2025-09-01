@@ -1,322 +1,677 @@
 <!DOCTYPE html>
-<html class="scroll-smooth overflow-x-hidden" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Course Dashboard Page</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="robots" content="index, follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
-    <link rel="icon" href="{{asset('assets/images/icons/icon-favicon.svg')}}" type="image/x-icon" sizes="16x16">
-    <link rel="stylesheet" href="{{asset('assets/css/tailwind.min.css?v=5.0')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/style.min.css?v=5.0')}}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap">
-  </head>
-  <body class="w-screen relative overflow-x-hidden min-h-screen bg-gray-100 scrollbar-hide course-dashboard-page dark:bg-[#000]">
-    <div class="wrapper mx-auto text-gray-900 font-normal grid scrollbar-hide grid-cols-[257px,1fr] grid-rows-[auto,1fr]" id="layout">
-    {{-- <aside class="bg-white row-span-2 border-r border-neutral relative flex flex-col justify-between p-[25px] 
-        dark:bg-gradient-to-b dark:from-yellow-500 dark:via-yellow-600 dark:to-yellow-800 dark:border-yellow-700"> --}}
+<html lang="en" dir="ltr" data-bs-theme="dark">
+
+<head>
+
+
+    <meta charset="utf-8" />
+
+    <title>Dashboard | Mifty - Admin & Dashboard Template</title>
+
+
+    <title>Affiliate Panel</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<!-- Latest Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- FullCalendar -->
+<!-- FullCalendar -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
+<!-- App favicon -->
+<link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+
+<!-- Core CSS -->
+<link href="{{ asset('assets/css/affiliate/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/css/affiliate/icons.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/css/affiliate/app.min.css') }}" rel="stylesheet" type="text/css" />
+
+<!-- Extra CSS -->
+<link href="{{ asset('assets/css/cards/webinar.css') }}" rel="stylesheet" type="text/css" />
+
+<!-- Vanilla DataTables -->
+<link rel="stylesheet" href="{{ asset('assets/libs/vanilla-datatables/vanilla-dataTables.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/libs/vanilla-datatables-editable/datatable.editable.min.css') }}">
+
+<!-- Simple DataTables -->
+<link href="{{ asset('assets/libs/simple-datatables/style.css') }}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+        .nav-link.collapsed .fa-chevron-down {
+            transform: rotate(0deg);
+            transition: transform 0.3s;
+        }
+
+        .nav-link[aria-expanded="true"] .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .startbar .startbar-menu .navbar-nav .nav-item .nav-link::after {
+    content: "\F134"; /* यह एक बूटस्ट्रैप आइकॉन का कोड है */
+    font-family: "bootstrap-icons";
+    font-size: 14px;
+    margin-left: auto;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transition: transform 0.2s;
+}
+
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link:not(.collapsed)::after {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
         
-      <aside class="bg-white row-span-2 border-r border-neutral relative flex flex-col justify-between p-[25px] dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
-        <div class="absolute p-2 border-neutral right-0 border bg-white rounded-full cursor-pointer duration-300 translate-x-1/2 hover:opacity-75 dark:bg-dark-neutral-bg dark:border-dark-neutral-border" id="sidebar-btn"><img src="assets/images/icons/icon-arrow-left.svg" alt="left chevron icon"></div>
-        <div><a class="mb-10" href="index.html"> <img class="logo-maximize" src="assets/images/icons/icon-logo.svg" alt="Frox logo"><img class="logo-minimize ml-[10px]" src="assets/images/icons/icon-favicon.svg" alt="Frox logo"></a>
-          <div class="pt-[106px] lg:pt-[35px] pb-[18px]">
-            <div class="sidemenu-item rounded-xl relative">
-              <input class="sr-only peer" type="checkbox" value="dashboard" name="sidemenu" id="dashboard">
-              <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent active" for="dashboard">
-                <div class="flex items-center gap-[10px]"><img src="assets/images/icons/icon-favorite-chart.svg" alt="side menu icon"><span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Dashboard</span></div>
-              </label>
-            </div>
-            <div class="sidemenu-item rounded-xl relative">
-              <input class="sr-only peer" type="checkbox" value="ecommerce" name="sidemenu" id="ecommerce">
-              <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent" for="ecommerce">
-                <div class="flex items-center gap-[10px]"><img src="assets/images/icons/icon-products.svg" alt="side menu icon"><span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Automation Businesses</span></div>
-              </label><img class="absolute right-2 transition-all duration-150 caret-icon pointer-events-none peer-checked:rotate-180 top-[22px]" src="assets/images/icons/icon-arrow-down.svg" alt="caret icon">
-              <div class="hidden peer-checked:block">
-                <ul class="text-gray-300 child-menu z-10 pl-[53px]">
-                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{route('user.dashboard.automation')}}">Courses</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="sidemenu-item rounded-xl relative">
-              <input class="sr-only peer" type="checkbox" value="finance" name="sidemenu" id="finance">
-              <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent" for="finance">
-                <div class="flex items-center gap-[10px]"><img src="assets/images/icons/icon-wallet.svg" alt="side menu icon"><span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Hustlers Campus</span></div>
-              </label><img class="absolute right-2 transition-all duration-150 caret-icon pointer-events-none peer-checked:rotate-180 top-[22px]" src="assets/images/icons/icon-arrow-down.svg" alt="caret icon">
-              <div class="hidden peer-checked:block">
-                <ul class="text-gray-300 child-menu z-10 pl-[53px]">
-                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{route('user.dashboard.huslers.traings')}}">Business Trainings</a></li>
-                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{route('user.dashboard.huslers.assets')}}">Digital Assets</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="sidemenu-item rounded-xl relative">
-              <input class="sr-only peer" type="checkbox" value="jobs" name="sidemenu" id="jobs">
-              <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent" for="jobs">
-                <div class="flex items-center gap-[10px]"><img src="assets/images/icons/icon-job.svg" alt="side menu icon"><span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Freelancing Arena</span></div>
-              </label><img class="absolute right-2 transition-all duration-150 caret-icon pointer-events-none peer-checked:rotate-180 top-[22px]" src="assets/images/icons/icon-arrow-down.svg" alt="caret icon">
-              <div class="hidden peer-checked:block">
-                <ul class="text-gray-300 child-menu z-10 pl-[53px]">
-                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{route('user.dashboard.freelance.content')}}">Content</a></li>
-                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="jobs-dashboard.html">Apply Form</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="sidemenu-item rounded-xl relative">
-              <input class="sr-only peer" type="checkbox" value="cms" name="sidemenu" id="cms">
-              <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent" for="cms">
-                <div class="flex items-center gap-[10px]"><img src="assets/images/icons/icon-cms.svg" alt="side menu icon"><span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Gamify Challenges</span></div>
-              </label><img class="absolute right-2 transition-all duration-150 caret-icon pointer-events-none peer-checked:rotate-180 top-[22px]" src="assets/images/icons/icon-arrow-down.svg" alt="caret icon">
-              <div class="hidden peer-checked:block">
-                <ul class="text-gray-300 child-menu z-10 pl-[53px]">
-                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="cms-dashboard.html">Something</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="sidemenu-item rounded-xl relative">
-              <input class="sr-only peer" type="checkbox" value="crm" name="sidemenu" id="crm">
-              <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent" for="crm">
-                <div class="flex items-center gap-[10px]"><img src="assets/images/icons/icon-crm.svg" alt="side menu icon"><span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Community Access</span></div>
-              </label>
-            </div>
-            <div class="sidemenu-item rounded-xl relative">
-              <input class="sr-only peer" type="checkbox" value="network" name="sidemenu" id="network">
-              <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent" for="network">
-                <div class="flex items-center gap-[10px]"><img src="assets/images/icons/icon-network.svg" alt="side menu icon"><span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Social Media</span></div>
-              </label><img class="absolute right-2 transition-all duration-150 caret-icon pointer-events-none peer-checked:rotate-180 top-[22px]" src="assets/images/icons/icon-arrow-down.svg" alt="caret icon">
-              <div class="hidden peer-checked:block">
-                <ul class="text-gray-300 child-menu z-10 pl-[53px]">
-                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="social-feed-1.html">Social Feed 1</a></li>
-                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="social-feed-2.html">Social Feed 2</a></li>
-                  <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="social-feed-3.html">Social Feed 3</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="sidemenu-item rounded-xl relative">
-              <input class="sr-only peer" type="checkbox" value="dashboard" name="sidemenu" id="dashboard">
-              <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent active" for="dashboard">
-                <div class="flex items-center gap-[10px]"><img src="assets/images/icons/icon-favorite-chart.svg" alt="side menu icon"><span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Affiliate Panel</span></div>
-              </label>
-            </div>
-          </div>
-          <div class="w-full bg-neutral h-[1px] mb-[35px] dark:bg-dark-neutral-border"></div>
-          <div class="seller-minimize"> 
-            <h3 class="text-sm font-bold text-gray-1100 mb-[15px] dark:text-gray-dark-1100">Sellers</h3>
-            <div class="flex items-center round text-"><a class="block rounded-full border-neutral overflow-hidden border-[1.4px] dark:border-gray-dark-100 w-9 h-9 z-50" href="seller-details.html"><img class="w-full h-full object-cover" src="assets/images/avatar-layouts-1.png" alt="user avatar"></a><a class="block rounded-full border-neutral overflow-hidden border-[1.4px] dark:border-gray-dark-100 w-9 h-9 z-40 translate-x-[-10px]" href="seller-details.html"><img class="w-full h-full object-cover" src="assets/images/avatar-layouts-2.png" alt="user avatar"></a>
-            </div>
-          </div>
-          <div class="upgrade-card">
-            <div class="w-full bg-neutral h-[1px] mb-[35px] dark:bg-dark-neutral-border"></div>
-            <div class="rounded-xl bg-neutral py-5 w-fit flex flex-col gap-5 justify-between px-[31px] dark:bg-dark-neutral-border">
-              <div class="relative mr-[18px]"><img class="ml-[6px] dark:hidden" src="{{asset('assets/images/icons/icon-chat-bubble.svg')}}" alt="chat bubble"><img class="hidden ml-[6px] dark:block" src="assets/images/icons/icon-chat-bubble-dark.svg" alt="chat bubble"><img class="w-full h-full object-cover" src="assets/images/hero-layouts.svg" alt="hero"><img class="ml-auto absolute right-0 translate-x-[120%]" src="assets/images/circle-list-1.png" alt="circle list"></div>
-              <p class="text-desc text-center text-gray-1100 font-normal mx-auto max-w-[15ch] dark:text-gray-dark-1100">Unlock more information now by Upgrade to<span class="font-bold">&nbsp;PRO</span></p>
-              <button class="btn normal-case h-fit min-h-fit transition-all duration-300 border-4 bg-color-brands hover:bg-color-brands hover:border-[#B2A7FF] dark:hover:border-[#B2A7FF] px-5 block border-neutral py-[7px] dark:border-dark-neutral-border">Upgrade Now</button>
-            </div>
-          </div>
-        </div>
-        <div class="rounded-xl bg-neutral pt-4 flex items-center gap-5 mt-5 sidebar-control pr-[18px] pb-[13px] pl-[19px] dark:bg-dark-neutral-border">
-          <div class="flex items-center gap-3"><i class="moon-icon" id="theme-toggle-dark-icon"><img class="cursor-pointer" src="{{asset('assets/images/icons/icon-moon.svg')}}" alt="moon icon"><img class="cursor-pointer" src="assets/images/icons/icon-moon-active.svg" alt="moon icon"></i>
-            <label class="flex items-center cursor-pointer" for="theme-toggle" id="toggle-theme-btn"> 
-              <div class="relative"> 
-                <input class="sr-only peer" type="checkbox" name="" id="theme-toggle">
-                <div class="block rounded-full w-[48px] h-[16px] bg-gray-300 peer-checked:bg-[#B2A7FF]"></div>
-                <div class="dot dotS absolute rounded-full transition h-[24px] w-[24px] top-[-4px] left-[-4px] bg-[#B2A7FF] peer-checked:bg-color-brands"></div>
-              </div>
-            </label><i class="sun-icon" id="theme-toggle-light-icon"><img class="cursor-pointer" src="{{asset('assets/images/icons/icon-sun.svg')}}" alt="sun icon"><img class="cursor-pointer" src="assets/images/icons/icon-sun-active.svg" alt="sun icon"></i>
-          </div>
-          <div class="bg-neutral-bg w-[2px] h-[30px] dark:bg-dark-neutral-bg"></div>
-          <div> <img class="cursor-pointer" id="sidebar-expand" src="{{asset('assets/images/icons/icon-maximize-3.svg')}}" alt="expand icon"></div>
-        </div>
-      </aside>
-      <header class="flex items-center justify-between flex-wrap bg-neutral-bg p-5 gap-5 md:py-6 md:pl-[25px] md:pr-[38px] lg:flex-nowrap dark:bg-dark-neutral-bg lg:gap-0"><a class="hidden logo" href="index.html"><img class="md:mr-[100px] lg:mr-[133px]" src="assets/images/icons/icon-logo.svg" alt="Frox logo"></a>
-        <div class="bg-gray-100 flex rounded-xl w-full m-0 py-[14px] px-[18px] xl:w-[360px] dark:bg-gray-dark-100 lg:max-w-[250px] xl:max-w-[360px] lg:mr-[47px] lg:ml-6 order-last lg:order-first"><img src="assets/images/icons/icon-search-normal.svg" alt="seacrh icon">
-          <input class="input w-full bg-transparent outline-none pl-2 h-5 text-gray-300 focus:!outline-none placeholder:text-gray-300 dark:placeholder:text-gray-dark-300 placeholder:font-semibold" type="text" placeholder="Search"><img src="assets/images/icons/icon-microphone-2.svg" alt="microphone icon">
-        </div>
-        <div class="dropdown">
-          <label class="cursor-pointer dropdown-label flex items-center justify-between w-[142px]" tabindex="0">
-            <div class="items-center justify-center hidden rounded-lg border border-neutral dark:border-dark-neutral-border gap-x-[10px] px-[18px] py-[11px] sm:flex">
-              <div class="flex items-center gap-[11px]"><img src="{{asset('assets/images/icons/icon-export.svg')}}" alt="export icon"><span class="text-normal font-semibold text-gray-500 dark:text-gray-dark-500">Browse</span></div><img src="assets/images/icons/icon-arrow-down.svg" alt="down icon">
-            </div>
-          </label>
-          <ul class="dropdown-content" tabindex="0">
-            <div class="relative menu rounded-box dropdown-shadow min-w-[237px] mt-[25px] md:mt-[48px] p-[25px] pb-[10px] bg-color-brands">
-              <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-color-brands"></div>
-              <li class="text-normal p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img src="assets/images/icons/icon-verify.svg" alt="icon"></i><span class="text-white hover:text-[#C6CBD9]">All Brands</span></a>
-              </li>
-              <li class="text-normal p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img src="assets/images/icons/icon-verify.svg" alt="icon"></i><span class="text-white hover:text-[#C6CBD9]">News Reviews</span></a>
-              </li>
-              <li class="text-normal p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img src="assets/images/icons/icon-verify.svg" alt="icon"></i><span class="text-white hover:text-[#C6CBD9]">Financial report</span></a>
-              </li>
-              <li class="text-normal p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img src="assets/images/icons/icon-verify.svg" alt="icon"></i><span class="text-white hover:text-[#C6CBD9]">Shipping</span></a>
-              </li>
-              <li class="text-normal p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img src="assets/images/icons/icon-verify.svg" alt="icon"></i><span class="text-white hover:text-[#C6CBD9]">View Catalog</span></a>
-              </li>
-              <li class="text-normal p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img src="assets/images/icons/icon-verify.svg" alt="icon"></i><span class="text-white hover:text-[#C6CBD9]">Revenue report</span></a>
-              </li>
-              <li class="text-normal p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img src="assets/images/icons/icon-verify.svg" alt="icon"></i><span class="text-white hover:text-[#C6CBD9]">Refund requests</span></a>
-              </li>
-            </div>
-          </ul>
-        </div>
-        <div class="flex items-center order-2 user-noti gap-[30px] xl:gap-[48px] lg:order-3 lg:mr-0">
-          <div class="dropdown dropdown-end">
-            <label class="cursor-pointer dropdown-label" tabindex="0">
-              <div class="relative w-[26px] h-[26px]"><img class="w-full h-full object-cover" src="{{asset('assets/images/icons/icon-messages.svg')}}" alt="message icon">
-                <div class="w-2 h-2 bg-fuchsia rounded-full absolute right-[1px] top-[-1px]"></div>
-              </div>
-            </label>
-            <ul class="dropdown-content" tabindex="0">
-              <div class="relative menu rounded-box dropdown-shadow bg-white px-6 mt-[50px] min-w-[350px] pt-[21px] pb-[11px] dark:bg-dark-neutral-bg">
-                <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute border-b-white w-[14px] top-[-7px] right-[18px] dark:border-b-dark-neutral-bg"></div>
-                <div class="flex items-center justify-between pb-5 border-b border-neutral mb-[22px] dark:border-b-dark-neutral-border">
-                  <p class="text-sm leading-4 text-gray-1100 font-semibold dark:text-gray-dark-1100">New Mesages</p><a class="text-color-brands text-xs hover:opacity-75" href="#">View All</a>
-                </div>
-                <li class="rounded ml-[-14px] hover:bg-gray-100 w-[calc(100%+28px)] dark:hover:bg-gray-dark-100">
-                  <div class="flex items-start bg-transparent gap-[10px] p-[14px]"><img class="w-8 h-8 rounded-full" src="{{asset('assets/images/avatar-layouts-1.png')}}" alt="user avatar">
-                    <div> 
-                      <div class="flex items-center gap-[25px] mb-[7px]">
-                        <p class="leading-4 text-gray-1100 font-semibold text-[10px] dark:text-gray-dark-1100">Esther Howard</p>
-                        <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500">3 mins ago</p>
-                      </div>
-                      <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500 line-clamp-2">Please tell me how to develop this template to Tailwind CSS 3 and ReactJS ?</p>
-                    </div>
-                  </div>
-                </li>
-                <div class="w-full bg-neutral h-[1px] dark:bg-dark-neutral-border"></div>
-                <li class="rounded ml-[-14px] hover:bg-gray-100 w-[calc(100%+28px)] dark:hover:bg-gray-dark-100">
-                  <div class="flex items-start bg-transparent gap-[10px] p-[14px]"><img class="w-8 h-8 rounded-full" src="{{asset('assets/images/avatar-layouts-2.png')}}" alt="user avatar">
-                    <div> 
-                      <div class="flex items-center gap-[25px] mb-[7px]">
-                        <p class="leading-4 text-gray-1100 font-semibold text-[10px] dark:text-gray-dark-1100">Emma Watson</p>
-                        <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500">3 mins ago</p>
-                      </div>
-                      <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500 line-clamp-2">Hey, I'm going to meet a friend of mine at the department store.</p>
-                    </div>
-                  </div>
-                </li>
-                <div class="w-full bg-neutral h-[1px] dark:bg-dark-neutral-border"></div>
-                <li class="rounded ml-[-14px] hover:bg-gray-100 w-[calc(100%+28px)] dark:hover:bg-gray-dark-100">
-                  <div class="flex items-start bg-transparent gap-[10px] p-[14px]"><img class="w-8 h-8 rounded-full" src="{{asset('assets/images/avatar-layouts-3.png')}}" alt="user avatar">
-                    <div> 
-                      <div class="flex items-center gap-[25px] mb-[7px]">
-                        <p class="leading-4 text-gray-1100 font-semibold text-[10px] dark:text-gray-dark-1100">Elizabeth</p>
-                        <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500">3 mins ago</p>
-                      </div>
-                      <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500 line-clamp-2">Good morning, How are you? What about our next meeting?</p>
-                    </div>
-                  </div>
-                </li>
-              </div>
-            </ul>
-          </div>
-          <div class="dropdown dropdown-end">
-            <label class="cursor-pointer dropdown-label" tabindex="0">
-              <div class="relative w-[26px] h-[26px]"><img class="w-full h-full object-cover" src="{{asset('assets/images/icons/icon-notification-bing.svg')}}" alt="notification icon">
-                <div class="w-2 h-2 bg-fuchsia rounded-full absolute right-[1px] top-[-1px]"></div>
-              </div>
-            </label>
-            <ul class="dropdown-content" tabindex="0">
-              <div class="relative menu rounded-box dropdown-shadow bg-white px-6 mt-[50px] min-w-[350px] pt-[21px] pb-[11px] dark:bg-dark-neutral-bg">
-                <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute border-b-white w-[14px] top-[-7px] right-[18px] dark:border-b-dark-neutral-bg"></div>
-                <div class="flex items-center justify-between pb-5 border-b border-neutral mb-[22px] dark:border-b-dark-neutral-border">
-                  <p class="text-sm leading-4 text-gray-1100 font-semibold dark:text-gray-dark-1100">Notifications</p><a class="text-color-brands text-xs hover:opacity-75" href="#">View All</a>
-                </div>
-                <li class="rounded ml-[-14px] hover:bg-gray-100 w-[calc(100%+28px)] dark:hover:bg-gray-dark-100">
-                  <div class="flex items-start bg-transparent gap-[10px] p-[14px]"><img class="w-8 h-8 rounded-full" src="{{asset('assets/images/avatar-layouts-4.png')}}" alt="user avatar">
-                    <div> 
-                      <div class="flex items-center gap-[15px] mb-[7px]">
-                        <p class="leading-4 text-gray-1100 font-semibold text-[10px] dark:text-gray-dark-1100">Jenny Wilson</p>
-                        <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500 line-clamp-2">commented on your latest story</p>
-                      </div>
-                      <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500">1 min ago</p>
-                    </div>
-                  </div>
-                </li>
-                <div class="w-full bg-neutral h-[1px] dark:bg-dark-neutral-border"></div>
-                <li class="rounded ml-[-14px] hover:bg-gray-100 w-[calc(100%+28px)] dark:hover:bg-gray-dark-100">
-                  <div class="flex items-start bg-transparent gap-[10px] p-[14px]"><img class="w-8 h-8 rounded-full" src="{{asset('assets/images/avatar-layouts-1.png')}}" alt="user avatar">
-                    <div> 
-                      <div class="flex items-center gap-[15px] mb-[7px]">
-                        <p class="leading-4 text-gray-1100 font-semibold text-[10px] dark:text-gray-dark-1100">Esther Howard</p>
-                        <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500 line-clamp-2">commented on your latest story</p>
-                      </div>
-                      <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500">3 mins ago</p>
-                    </div>
-                  </div>
-                </li>
-                <div class="w-full bg-neutral h-[1px] dark:bg-dark-neutral-border"></div>
-                <li class="rounded ml-[-14px] hover:bg-gray-100 w-[calc(100%+28px)] dark:hover:bg-gray-dark-100">
-                  <div class="flex items-start bg-transparent gap-[10px] p-[14px]"><img class="w-8 h-8 rounded-full" src="{{asset('assets/images/avatar-layouts-2.png')}}" alt="user avatar">
-                    <div> 
-                      <div class="flex items-center gap-[15px] mb-[7px]">
-                        <p class="leading-4 text-gray-1100 font-semibold text-[10px] dark:text-gray-dark-1100">Steven</p>
-                        <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500 line-clamp-2">add new photos in Travel Album</p>
-                      </div>
-                      <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500">5 mins ago</p>
-                    </div>
-                  </div>
-                </li>
-                <div class="w-full bg-neutral h-[1px] dark:bg-dark-neutral-border"></div>
-                <li class="rounded ml-[-14px] hover:bg-gray-100 w-[calc(100%+28px)] dark:hover:bg-gray-dark-100">
-                  <div class="flex items-start bg-transparent gap-[10px] p-[14px]"><img class="w-8 h-8 rounded-full" src="assets/images/avatar-layouts-3.png" alt="user avatar">
-                    <div> 
-                      <div class="flex items-center gap-[15px] mb-[7px]">
-                        <p class="leading-4 text-gray-1100 font-semibold text-[10px] dark:text-gray-dark-1100">Wada Warren</p>
-                        <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500 line-clamp-2">posted new job</p>
-                      </div>
-                      <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500">6 mins ago</p>
-                    </div>
-                  </div>
-                </li>
-                <div class="w-full bg-neutral h-[1px] dark:bg-dark-neutral-border"></div>
-                <li class="rounded ml-[-14px] hover:bg-gray-100 w-[calc(100%+28px)] dark:hover:bg-gray-dark-100">
-                  <div class="flex items-start bg-transparent gap-[10px] p-[14px]"><img class="w-8 h-8 rounded-full" src="assets/images/avatar-layouts-4.png" alt="user avatar">
-                    <div> 
-                      <div class="flex items-center gap-[15px] mb-[7px]">
-                        <p class="leading-4 text-gray-1100 font-semibold text-[10px] dark:text-gray-dark-1100">Jenny Wilson</p>
-                        <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500 line-clamp-2"> Updated her profile and company</p>
-                      </div>
-                      <p class="leading-4 text-gray-500 text-[10px] dark:text-gray-dark-500">8 mins ago</p>
-                    </div>
-                  </div>
-                </li>
-              </div>
-            </ul>
-          </div>
-          <div class="dropdown dropdown-end">
-            <label class="cursor-pointer dropdown-label" tabindex="0"><img src="{{asset('assets/images/avatar-layouts-5.png')}}" alt="user avatar">
-            </label>
-            <ul class="dropdown-content" tabindex="0">
-              <div class="relative menu rounded-box dropdown-shadow p-[25px] pb-[10px] bg-neutral-bg mt-[25px] md:mt-[40px] min-w-[237px] dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
-                <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-neutral-bg dark:border-b-dark-neutral-bg right-[18px]"></div>
-                <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="sign-in.html"> <i class="w-4 h-4 grid place-items-center"><img class="group-hover:filter-black dark:group-hover:filter-white" src="assets/images/icons/icon-user.svg" alt="icon"></i><span>Profile</span></a>
-                </li>
-                <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img class="group-hover:filter-black dark:group-hover:filter-white" src="assets/images/icons/icon-favorite-chart.svg" alt="icon"></i><span>Dashboard</span></a>
-                </li>
-                <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img class="group-hover:filter-black dark:group-hover:filter-white" src="assets/images/icons/icon-bitcoin-card.svg" alt="icon"></i><span>Payouts</span></a>
-                </li>
-                <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img class="group-hover:filter-black dark:group-hover:filter-white" src="assets/images/icons/icon-trade.svg" alt="icon"></i><span>Statement</span></a>
-                </li>
-                <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img class="group-hover:filter-black dark:group-hover:filter-white" src="assets/images/icons/icon-sun.svg" alt="icon"></i><span>Settings</span></a>
-                </li>
-                <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img class="group-hover:filter-black dark:group-hover:filter-white" src="assets/images/icons/icon-logout.svg" alt="icon"></i><span>Log out</span></a>
-                </li>
-              </div>
-            </ul>
-          </div>
-        </div>
-      </header>
+.nav-link.collapsed::after {
+    display: none !important;  /* Bootstrap ka default arrow/box hat gaya */
+    content: none !important;
+}
+
+.nav-link {
+    padding-right: 0.75rem !important;  /* default Bootstrap arrow ke liye jyada padding hoti hai */
+}
+.nav-link::after {
+    display: none !important; /* arrow/box hat gaya */
+}
+
+.nav-link.collapsed::after {
+    content: "\f078"; /* Font Awesome down arrow (▼) ya Bootstrap Icon */
+    font-family: "Font Awesome 6 Free"; 
+    font-weight: 900;
+    float: right;
+    transition: transform 0.3s ease;
+}
+
+/* jab collapse open ho */
+.nav-link[aria-expanded="true"]::after {
+    transform: rotate(-180deg); /* arrow rotate ho jayega */
+}
+
+.nav-link.collapsed::after {
+    content: "›";   /* Right arrow */
+    float: right;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+.nav-link[aria-expanded="true"]::after {
+    transform: rotate(90deg); /* right → down */
+}
+
+.toggle-arrow {
+    transition: transform 0.3s ease;
+}
+.nav-link[aria-expanded="true"] .toggle-arrow {
+    transform: rotate(90deg); /* right → down */
+}
+
+.nav-link .dropdown-icon {
+  transition: transform 0.3s ease;
+}
+
+.nav-link[aria-expanded="true"] .dropdown-icon {
+  transform: rotate(90deg);
+}
 
 
-      @yield('content')
+
+    </style>
+</head>
+
+<body class="dark">
+
+
+
+    <!-- Top Bar Start -->
+    <div class="topbar d-print-none">
+        <div class="container-fluid">
+            <nav class="topbar-custom d-flex justify-content-between" id="topbar-custom">
+
+
+                <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">
+                    <li>
+                        <button class="nav-link mobile-menu-btn nav-icon" id="togglemenu">
+                            <i class="iconoir-menu"></i>
+                        </button>
+                    </li>
+                    <li class="mx-2 welcome-text">
+                        <h5 class="mb-0 fw-semibold text-truncate">Good Morning, James!</h5>
+                        <!-- <h6 class="mb-0 fw-normal text-muted text-truncate fs-14">Here's your overview this week.</h6> -->
+                    </li>
+                </ul>
+                <ul class="topbar-item list-unstyled d-inline-flex align-items-center mb-0">
+                    <li class="hide-phone app-search">
+                        <form role="search" action="#" method="get">
+                            <input type="search" name="search" class="form-control top-search mb-0"
+                                placeholder="Search here...">
+                            <button type="submit"><i class="iconoir-search"></i></button>
+                        </form>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
+                            <img src="{{ asset('assets/images/affiliate/flags/us_flag.jpg') }}" alt=""
+                                class="thumb-sm rounded-circle">
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#"><img
+                                    src="{{ asset('assets/images/affiliate/flags/us_flag.jpg') }}" alt=""
+                                    height="15" class="me-2">English</a>
+                            <a class="dropdown-item" href="#"><img
+                                    src="{{ asset('assets/images/affiliate/flags/spain_flag.jpg') }}" alt=""
+                                    height="15" class="me-2">Spanish</a>
+                            <a class="dropdown-item" href="#"><img
+                                    src="{{ asset('assets/images/affiliate/flags/germany_flag.jpg') }}" alt=""
+                                    height="15" class="me-2">German</a>
+                            <a class="dropdown-item" href="#"><img
+                                    src="{{ asset('assets/images/affiliate/flags/french_flag.jpg') }}" alt=""
+                                    height="15" class="me-2">French</a>
+                        </div>
+                    </li><!--end topbar-language-->
+
+                    <li class="topbar-item">
+                    
+                    </li>
+
+                    <li class="dropdown topbar-item">
+                        <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
+                            <i class="iconoir-bell"></i>
+                            <span class="alert-badge"></span>
+                        </a>
+                        <div class="dropdown-menu stop dropdown-menu-end dropdown-lg py-0">
+
+                            <h5 class="dropdown-item-text m-0 py-3 d-flex justify-content-between align-items-center">
+                                Notifications <a href="#" class="badge text-body-tertiary badge-pill">
+                                    <i class="iconoir-plus-circle fs-4"></i>
+                                </a>
+                            </h5>
+                            <ul class="nav nav-tabs nav-tabs-custom nav-success nav-justified mb-1" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link mx-0 active" data-bs-toggle="tab" href="#All"
+                                        role="tab" aria-selected="true">
+                                        All <span
+                                            class="badge bg-primary-subtle text-primary badge-pill ms-1">24</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link mx-0" data-bs-toggle="tab" href="#Projects" role="tab"
+                                        aria-selected="false" tabindex="-1">
+                                        Projects
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link mx-0" data-bs-toggle="tab" href="#Teams" role="tab"
+                                        aria-selected="false" tabindex="-1">
+                                        Team
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="ms-0" style="max-height:230px;" data-simplebar>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="All" role="tabpanel"
+                                        aria-labelledby="all-tab" tabindex="0">
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">2 min ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-wolf fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Your order is placed
+                                                    </h6>
+                                                    <small class="text-muted mb-0">Dummy text of the printing and
+                                                        industry.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">10 min ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-apple-swift fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Meeting with designers
+                                                    </h6>
+                                                    <small class="text-muted mb-0">It is a long established fact that a
+                                                        reader.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">40 min ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-birthday-cake fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">UX 3 Task complete.</h6>
+                                                    <small class="text-muted mb-0">Dummy text of the printing.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">1 hr ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-drone fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Your order is placed
+                                                    </h6>
+                                                    <small class="text-muted mb-0">It is a long established fact that a
+                                                        reader.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">2 hrs ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-user fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Payment Successfull</h6>
+                                                    <small class="text-muted mb-0">Dummy text of the printing.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                    </div>
+                                    <div class="tab-pane fade" id="Projects" role="tabpanel"
+                                        aria-labelledby="projects-tab" tabindex="0">
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">40 min ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-birthday-cake fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">UX 3 Task complete.</h6>
+                                                    <small class="text-muted mb-0">Dummy text of the printing.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">1 hr ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-drone fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Your order is placed
+                                                    </h6>
+                                                    <small class="text-muted mb-0">It is a long established fact that a
+                                                        reader.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">2 hrs ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-user fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Payment Successfull</h6>
+                                                    <small class="text-muted mb-0">Dummy text of the printing.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                    </div>
+                                    <div class="tab-pane fade" id="Teams" role="tabpanel"
+                                        aria-labelledby="teams-tab" tabindex="0">
+                                        <!-- item-->
+                                        <a href="#" class="dropdown-item py-3">
+                                            <small class="float-end text-muted ps-2">1 hr ago</small>
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="flex-shrink-0 bg-primary-subtle text-primary thumb-md rounded-circle">
+                                                    <i class="iconoir-drone fs-4"></i>
+                                                </div>
+                                                <div class="flex-grow-1 ms-2 text-truncate">
+                                                    <h6 class="my-0 fw-normal text-dark fs-13">Your order is placed
+                                                    </h6>
+                                                    <small class="text-muted mb-0">It is a long established fact that a
+                                                        reader.</small>
+                                                </div><!--end media-body-->
+                                            </div><!--end media-->
+                                        </a><!--end-item-->
+                                     
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- All-->
+                            <a href="pages-notifications.html" class="dropdown-item text-center text-dark fs-13 py-2">
+                                View All <i class="fi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="dropdown topbar-item">
+
+                        <a href="{{ route('admin.profile') }}">
+                            <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt=""
+                                class="thumb-md rounded-circle">
+
+                        </a>
+                      
+                    </li>
+                </ul><!--end topbar-nav-->
+            </nav>
+            <!-- end navbar-->
+        </div>
     </div>
-    <script type="text/javascript" src="{{asset('assets/js/vendors/jquery-3.6.0.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('assets/js/chart-utils.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('assets/js/chart.min.js')}}"></script>
-    <script type="text/javascript" src="https://unpkg.com/chartjs-chart-geo@3"></script>
-    <script src="{{asset('assets/js/app.js?v=5.0')}}"></script>
-  </body>
+    </div>
+
+    <!-- Top Bar End -->
+    <!-- leftbar-tab-menu -->
+    <div class="startbar d-print-none">
+        <!--start brand-->
+        <div class="brand">
+            <a href="index.html" class="logo">
+                <span>
+                    <img src="{{ asset('assets/images/affiliate/logo-sm.png') }}" alt="logo-small" class="logo-sm">
+                </span>
+                <span class="">
+                    <img src="{{ asset('assets/images/affiliate/logo-light.png') }}" alt="logo-large"
+                        class="logo-lg logo-light">
+                    <img src="{{ asset('assets/images/affiliate/logo-dark.png') }}" alt="logo-large"
+                        class="logo-lg logo-dark">
+                </span>
+            </a>
+        </div>
+      
+      <div class="startbar-menu">
+  <div class="startbar-collapse" id="startbarCollapse" data-simplebar>
+    <div class="d-flex align-items-start flex-column w-100">
+
+      <!-- Navigation -->
+      <ul class="navbar-nav mb-auto w-100">
+        <li class="menu-label mt-2">
+          <span>Navigation</span>
+        </li>
+
+        <!-- Dashboard -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('admin.dashboard') }}">
+            <i class="iconoir-report-columns menu-icon"></i>
+            <span>Dashboard</span>
+            <span class="badge text-bg-warning ms-auto">08</span>
+          </a>
+        </li><!--end nav-item-->
+
+        <!-- Automation Courses -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarCourses" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-light-bulb-on menu-icon"></i>
+              <span class="ms-2">Automation Courses</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarCourses">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('courses.add')}}" class="nav-link">Add Courses</a></li>
+              <li class="nav-item"><a href="{{route('courses.list')}}" class="nav-link">List Courses</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <!-- Business Trainings -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarTrainings" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-community menu-icon"></i>
+              <span class="ms-2">Business Trainings</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarTrainings">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('businesstrainings.create')}}" class="nav-link">Add Trainings</a></li>
+              <li class="nav-item"><a href="{{route('businesstrainings.list')}}" class="nav-link">List Trainings</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <!-- Digital Products -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarProducts" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-light-bulb-on menu-icon"></i>
+              <span class="ms-2">Digital Products</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarProducts">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('digitalproduct.add')}}" class="nav-link">Add Products</a></li>
+              <li class="nav-item"><a href="{{route('digitalproduct.index')}}" class="nav-link">List Products</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <!-- Software Assets -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarSoftware" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-light-bulb-on menu-icon"></i>
+              <span class="ms-2">Software Assets</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarSoftware">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('software.add')}}" class="nav-link">Add Softwares</a></li> 
+              <li class="nav-item"><a href="{{route('software.index')}}" class="nav-link">List Softwares</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <!-- Gamify Challenges -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarGamify" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-light-bulb-on menu-icon"></i>
+              <span class="ms-2">Gamify Challenges</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarGamify">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('gamifychallenge.add')}}" class="nav-link">Add Challenges</a></li> 
+              <li class="nav-item"><a href="{{route('gamifychallenge.index')}}" class="nav-link">List Challenges</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <!-- Freelancing Arena -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarFreelancing" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-calendar menu-icon"></i>
+              <span class="ms-2">Freelancing Arena</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarFreelancing">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('freelancing.create')}}" class="nav-link">Add Jobs</a></li>
+              <li class="nav-item"><a href="{{route('freelancing.index')}}" class="nav-link">List Jobs</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <!-- Blogs Arena -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarBlogs" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-paste-clipboard menu-icon"></i>
+              <span class="ms-2">Blogs Arena</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarBlogs">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('blogs.create')}}" class="nav-link">Add Blogs</a></li>
+              <li class="nav-item"><a href="{{route('blogs.index')}}" class="nav-link">List Blogs</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <!-- Affiliate Trainings -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarAffiliateTrainings" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-cube-hole menu-icon"></i>
+              <span class="ms-2">Affiliate Trainings</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarAffiliateTrainings">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('affiliatetrainings.add')}}" class="nav-link">Add Trainings</a></li>
+              <li class="nav-item"><a href="{{route('affiliatetrainings.list')}}" class="nav-link">List Trainings</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <!-- Live Webinar -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarWebinar" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-video-camera menu-icon"></i>
+              <span class="ms-2">Live Webinar</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarWebinar">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('livewebinar.create')}}" class="nav-link">Add Webinars</a></li>
+              <li class="nav-item"><a href="{{route('livewebinar.index')}}" class="nav-link">List Webinars</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <!-- Rewards & Ranks -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarRewards" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-trophy menu-icon"></i>
+              <span class="ms-2">View Rewards & Ranks</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarRewards">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="analytics-customers.html" class="nav-link">View</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <!-- Roles & Permissions -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarRoles" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-fingerprint-lock-circle menu-icon"></i>
+              <span class="ms-2">Roles & Permissions</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarRoles">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="analytics-customers.html" class="nav-link">Add Role</a></li>
+              <li class="nav-item"><a href="analytics-reports.html" class="nav-link">Provide Permission</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+                </div>
+            </div><!--end startbar-collapse-->
+        </div><!--end startbar-menu-->
+    </div><!--end startbar-->
+    <div class="startbar-overlay d-print-none"></div>
+    <!-- end leftbar-tab-menu-->
+
+    @yield('content')
+
+<!-- Core JS -->
+<script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
+
+<!-- ApexCharts -->
+<script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+<script src="https://apexcharts.com/samples/assets/stock-prices.js"></script>
+<script src="{{ asset('assets/js/affiliate/pages/index.init.js') }}"></script>
+
+<!-- FullCalendar -->
+<script src="{{ asset('assets/libs/fullcalendar/index.global.min.js') }}"></script>
+<script src="{{ asset('assets/js/affiliate/pages/calendar.init.js') }}"></script>
+
+<!-- Vanilla DataTables -->
+<script src="{{ asset('assets/libs/vanilla-datatables/vanilla-dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/libs/vanilla-datatables-editable/datatable.editable.min.js') }}"></script>
+<script src="{{ asset('assets/js/pages/editable.init.js') }}"></script>
+
+<!-- Simple DataTables -->
+<script src="{{ asset('assets/libs/simple-datatables/umd/simple-datatables.js') }}"></script>
+<script src="{{ asset('assets/js/pages/datatable.init.js') }}"></script>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Affiliate App -->
+<script src="{{ asset('assets/js/affiliate/app.js') }}"></script>
+
+<!-- Main App -->
+<script src="{{ asset('assets/js/app.js') }}"></script>
+
+
+
+
+</body>
+
 </html>

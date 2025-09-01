@@ -81,6 +81,23 @@
         @error('mobile_number')
             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
         @enderror
+        
+        {{-- Referral Code (NEW) --}}
+        <label for="referral_code">
+            <p class="text-left text-sm mb-2 text-gray-1100 dark:text-gray-dark-1100">Referral Code (Optional)</p>
+        </label>
+        <div class="form-control mb-[20px]">
+            <div class="input-group border rounded-lg border-[#E8EDF2] dark:border-[#313442]">
+                <input class="input flex-1 bg-transparent text-gray-300 focus:outline-none dark:text-gray-dark-300" 
+                       type="text" placeholder="Enter code" name="referral_code" value="{{ old('referral_code', request('referral_code')) }}">
+                <button class="btn-square flex items-center justify-center bg-transparent">
+                    <img src="assets/images/icons/icon-input-user.svg" alt="user icon">
+                </button>
+            </div>
+        </div>
+        @error('referral_code')
+            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+        @enderror
 
         {{-- Password --}}
         <label for="password">
@@ -112,6 +129,9 @@
                 </button>
             </div>
         </div>
+        @error('password_confirmation')
+            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+        @enderror
     </div>
 
     {{-- Submit --}}

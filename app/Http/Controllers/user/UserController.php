@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
+use App\Http\Controllers\Controller;
 use App\Models\AutomationCourse;
 use App\Models\HustlersTraining; 
 use Illuminate\Http\Request;
@@ -67,10 +68,13 @@ class UserController extends Controller
     }
 
    public function user_profile()
-{
-    $user = Auth::user(); // Logged-in user ka data
-    return view('dashboard.user_profile', compact('user'));
-}
+    {
+        $user = Auth::user(); // Logged-in user ka data
+        if ($user->role_id != 2) {
+            return redirect()->route('home')->with('error', 'Access denied!');
+        }
+        return view('dashboard.user_profile', compact('user'));
+    }
 
 
 
