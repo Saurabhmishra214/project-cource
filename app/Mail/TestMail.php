@@ -20,6 +20,6 @@ class TestMail extends Mailable
     public function build()
     {
         return $this->subject('Laravel SMTP Test')
-                    ->view('emails.test'); // हम emails/test.blade.php view बनाएंगे
+                    ->view('emails.test'); 
     }
 }

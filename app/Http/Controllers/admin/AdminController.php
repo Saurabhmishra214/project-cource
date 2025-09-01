@@ -16,7 +16,7 @@ class AdminController extends Controller
 
    public function admin_profile()
     {
-          $user = Auth::user(); // Logged-in user ka data
+          $user = Auth::user(); 
     return view('admin_dashboard.adminprofile', compact('user'));
     }
 

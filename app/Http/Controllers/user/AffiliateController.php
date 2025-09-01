@@ -17,13 +17,11 @@ class AffiliateController extends Controller
 
    public function affiliate_training()
     {
-        // डेटाबेस से सभी ट्रेनिंग प्राप्त करें
         $trainings = AffiliateTraining::with('sessions')
                                       ->orderBy('day_number', 'asc')
                                       ->get()
                                       ->groupBy('category');
 
-        // व्यू को डेटा पास करें
         return view('affiliate_dashboard.training', [
             'trainings' => $trainings,
         ]);
@@ -64,7 +62,6 @@ class AffiliateController extends Controller
 
 public function affiliate_webinar()
 {
-    // सभी webinars ले लो, latest वाले पहले
     $webinars = \App\Models\Webinar::latest()->get();
 
     return view('affiliate_dashboard.webinar', compact('webinars'));
@@ -85,7 +82,7 @@ public function affiliate_rewards()
     ->linkedin()
     ->whatsapp()
     ->telegram()
-    ->getRawLinks(); // ✅ यह array देगा
+    ->getRawLinks(); 
 
     return view('affiliate_dashboard.rewards', compact('shareLinks'));
 }
@@ -95,11 +92,11 @@ public function rewards_dashboard()
 {
     $user = auth()->user();
 
-    // total referral coins
+  
     $totalCoins = $user->coins;
 
-    // jo users mere referral se register hue hain
-    $referrals = Network::with('user') // Network ke through user data le aayega
+ 
+    $referrals = Network::with('user') 
         ->where('parent_user_id', $user->id)
         ->get();
 
@@ -107,7 +104,7 @@ public function rewards_dashboard()
 }
 
 
-// s
+
 
 
 }

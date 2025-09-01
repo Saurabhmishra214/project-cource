@@ -14,10 +14,17 @@ use App\Http\Controllers\admin\FreelancingController;
 use App\Http\Controllers\admin\LiveWebinarController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\Admin\AffiliateTrainingController;
-use App\Http\Controllers\user\hustlerscampus\digitalassets\SoftwareProductController;
+use App\Http\Controllers\user\hustlerscampus\digitalassets\DigitalProductImageController;
+use App\Http\Controllers\user\hustlerscampus\digitalassets\DigitalSoftwareController;
+use App\Http\Controllers\GamifyChallengeController;
+
+use Illuminate\Support\Facades\Auth;
 
 
 use Illuminate\Support\Facades\Route;
+
+Auth::routes();
+
 
 Route::get('/', function () {
     return view('frontend.home');
@@ -53,7 +60,11 @@ Route::get('/dashboard', [UserController::class, 'dashboard'])->name('user.dashb
 Route::get('/automation-course', [UserController::class, 'automation_course'])->name('user.dashboard.automation');
 Route::get('/hustlers', [UserController::class, 'huslers_campus'])->name('user.dashboard.huslers.traings');
 Route::get('/freelance-content', [UserController::class, 'freelance_content'])->name('user.dashboard.freelance.content');
+Route::get('/applyjob-form/{job}', [UserController::class, 'applyjob'])->name('applyjob.form');
+Route::post('/job-application', [UserController::class, 'store'])->name('job.application.store');
+
 Route::get('/asset-sections', [UserController::class, 'asset_sections'])->name('user.dashboard.huslers.assets');
+
 
 // Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
 
@@ -170,5 +181,27 @@ Route::post('admin/affiliatetrainings/{id}/update', [AffiliateTrainingController
 Route::delete('admin/affiliatetrainings/{id}/delete', [AffiliateTrainingController::class, 'destroy'])->name('affiliatetrainings.delete');
 
 
-// Hustlers Campus Digital Assets - Software Products Routes
-Route::get('product/index', [SoftwareProductController::class, 'productindex'])->name('product.index');
+// Hustlers Campus Digital Assets - Software Products 
+
+Route::get('/products', [DigitalProductImageController::class, 'index'])
+    ->name('products.index');
+
+Route::post('/products/generate-link', [DigitalProductImageController::class, 'generateReferralLink'])
+    ->name('products.generate-link');
+
+Route::get('/product-sales/{product}', [DigitalProductImageController::class, 'show'])
+    ->name('products.show');
+
+
+
+// Hustlers Campus Digital Assets - Software Products Routes    
+
+Route::get('/softwares', [DigitalSoftwareController::class, 'index'])->name('softwares.index');
+
+Route::post('/softwares/generate-link', [DigitalSoftwareController::class, 'generateReferralLink'])
+    ->name('softwares.generate-link')->middleware('auth');
+Route::get('/software/{software}', [DigitalSoftwareController::class, 'show'])
+    ->name('softwares.show');
+
+// Gamify Challenges Route
+Route::get('/gamify-challenges', [GamifyChallengeController::class, 'index'])->name('gamify.challenges.index');

@@ -8,7 +8,6 @@ use App\Models\AffiliateTraining;
 
 class AffiliateTrainingController extends Controller
 {
-    // List all trainings
     public function index()
     {
         $trainings = AffiliateTraining::latest()->paginate(10);
