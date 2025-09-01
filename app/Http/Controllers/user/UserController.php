@@ -6,9 +6,12 @@ use App\Models\AutomationCourse;
 use App\Models\HustlersTraining; 
 use Illuminate\Http\Request;
 use App\Models\Job;
-use App\Models\Skill; // Job model ko import karein --- IGNORE ---
+use App\Models\Skill; 
+use App\Models\JobApplication; 
+use Illuminate\Support\Facades\Validator;
+
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage; // 👈 yeh add karo
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -22,44 +25,83 @@ class UserController extends Controller
      public function automation_course()
     {
      
-        $courses = AutomationCourse::all();
+    $courses = AutomationCourse::paginate(6); // per page 6 courses
 
         
         return view('dashboard.automation_course', compact('courses'));
     }
 
-     public function huslers_campus()
-    {
-        // HustlerTraining model ka upyog karke saare trainings database se fetch kar rahe hain.
-        $trainings = HustlersTraining::all();
+    public function huslers_campus()
+{
+    $trainings = HustlersTraining::paginate(6); // per page 6 trainings
+    return view('dashboard.hustlers_training', compact('trainings'));
+}
 
-        // `trainings` variable ko view mein pass kar rahe hain.
-        return view('dashboard.hustlers_training', compact('trainings'));
+
+public function freelance_content(Request $request)
+{
+    $allSkills = Skill::all();
+
+    $query = Job::with('skills');
+
+    if ($request->has('skill') && $request->skill != '') {
+        $query->whereHas('skills', function ($q) use ($request) {
+            $q->where('skills.id', $request->skill);
+        });
     }
 
-   public function freelance_content(Request $request)
-    {
-        // Sabhi available skills (dropdown ke liye)
-        $allSkills = Skill::all();
+    // 👇 get() की जगह paginate() यूज़ करो
+    $jobs = $query->paginate(9); // प्रति पेज 9 jobs दिखेंगी
 
-        // Agar filter lagaya gaya hai
-        $query = Job::with('skills');
+    return view('dashboard.freelancing_content', compact('jobs', 'allSkills'));
+}
 
-        if ($request->has('skill') && $request->skill != '') {
-            $query->whereHas('skills', function ($q) use ($request) {
-                $q->where('skills.id', $request->skill);
-            });
-        }
 
-        $jobs = $query->get();
+  public function applyjob($job)
+{
+    $job = Job::findOrFail($job); // Job ka data fetch karo
+    return view('dashboard.applyjob', compact('job'));
+}
 
-        return view('dashboard.freelancing_content', compact('jobs', 'allSkills'));
+
+
+
+public function store(Request $request)
+{
+    // dd($request->all());
+    $validator = Validator::make($request->all(), [
+        'job_id' => 'required|exists:jobs,id',
+        'full_name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'phone_number' => 'string|max:20',
+        'date_of_birth' => 'date',
+        'highest_qualification' => 'required|string|max:100',
+        'passing_year' => 'required|digits:4|integer',
+        'resume_path' => 'required|file|mimes:pdf,doc,docx|max:2048',
+    ]);
+
+    // Check validation failure
+    if ($validator->fails()) {
+        return redirect()->back()
+                         ->withErrors($validator)
+                         ->withInput();
     }
 
-    // public function freelance_apply()
-    // {
-    //     return view('dashboard.apply_form');
-    // }
+    $data = $request->all();
+
+    // Handle resume upload
+    if ($request->hasFile('resume')) {
+        $data['resume_path'] = $request->file('resume')->store('resumes', 'public');
+    }
+
+    // Save to database
+    JobApplication::create($data);
+
+return redirect()->route('user.dashboard.freelance.content')
+                 ->with('success', 'Your action was successful!');
+}
+
+ 
 
 
     public function asset_sections()
@@ -68,13 +110,10 @@ class UserController extends Controller
     }
 
    public function user_profile()
-    {
-        $user = Auth::user(); // Logged-in user ka data
-        if ($user->role_id != 2) {
-            return redirect()->route('home')->with('error', 'Access denied!');
-        }
-        return view('dashboard.user_profile', compact('user'));
-    }
+{
+    $user = Auth::user(); 
+    return view('dashboard.user_profile', compact('user'));
+}
 
 
 
@@ -86,8 +125,7 @@ public function uploadProfile(Request $request)
 
     $user = Auth::user();
 
-    // Purani image delete karo agar hai
-    if ($user->profile_image) {
+   if ($user->profile_image) {
         Storage::disk('public')->delete($user->profile_image);
     }
 
@@ -97,7 +135,6 @@ public function uploadProfile(Request $request)
     $user->profile_image = $path;
     $user->save();
 
-    // Upload ke baad wapas redirect ho jaye
     return redirect()->back()->with('success', 'Profile image uploaded successfully.');
 }
 
@@ -107,12 +144,10 @@ public function uploadProfile(Request $request)
 {
     $user = Auth::user();
 
-    // Agar image hai to delete karo
     if ($user->profile_image) {
         Storage::disk('public')->delete($user->profile_image);
     }
 
-    // Path null kar do
     $user->profile_image = null;
     $user->save();
 

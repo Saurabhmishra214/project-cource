@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr" data-bs-theme="dark">
 
 <head>
-
+{{-- s --}}
 
     <meta charset="utf-8" />
 

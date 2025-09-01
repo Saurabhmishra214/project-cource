@@ -14,7 +14,6 @@ class ApplicationController extends Controller
 
     public function store(Request $request)
     {
-        // Validation
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -26,7 +25,6 @@ class ApplicationController extends Controller
             'address' => 'required|string',
         ]);
 
-        // Store data in DB
         JobApplication::create([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],

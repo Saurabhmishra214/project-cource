@@ -9,6 +9,9 @@ class DigitalProduct extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'product_id';
+    
+    public $incrementing = true;
     protected $table = 'digital_products';
     protected $primaryKey = 'product_id'; 
     public $incrementing = true;          
@@ -19,11 +22,8 @@ class DigitalProduct extends Model
         'product_image_url',
         'sales_page_url',
         'google_drive_link',
+        'description',
+        'price',
+        'title'
     ];
-
-    // Relation: A product can have many referrals
-    public function referrals()
-    {
-        return $this->hasMany(UserReferral::class, 'product_id');
-    }
 }

@@ -16,6 +16,8 @@ class AdminController extends Controller
 
    public function admin_profile()
     {
+          $user = Auth::user(); 
+    return view('admin_dashboard.adminprofile', compact('user'));
           $user = Auth::user(); // get the authenticated user
 
         if ($user->role_id == 1) {

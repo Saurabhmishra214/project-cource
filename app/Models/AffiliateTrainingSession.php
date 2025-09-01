@@ -19,9 +19,7 @@ class AffiliateTrainingSession extends Model
         'image_url',
     ];
 
-    /**
-     * Get the training that owns the session.
-     */
+   
     public function training()
     {
         return $this->belongsTo(AffiliateTraining::class, 'training_id');
