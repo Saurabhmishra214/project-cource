@@ -15,6 +15,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap">
+    <style>
+        #sidebar-btn {
+        z-index: 9999;
+        pointer-events: auto;
+        }
+    </style>
   </head>
   <body class="w-screen relative overflow-x-hidden min-h-screen bg-gray-100 scrollbar-hide course-dashboard-page dark:bg-[#000]">
     <div class="wrapper mx-auto text-gray-900 font-normal grid scrollbar-hide grid-cols-[257px,1fr] grid-rows-[auto,1fr]" id="layout">
