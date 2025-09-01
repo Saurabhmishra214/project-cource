@@ -24,7 +24,7 @@
                                 <table class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>Id</th>
                                             <th>Title</th>
                                             <th>Description</th>
                                             <th>Duration (min)</th>
@@ -38,7 +38,7 @@
                                     <tbody>
                                         @forelse($webinars as $webinar)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $webinar->webinar_id }}</td>
                                                 <td>{{ $webinar->title }}</td>
                                                 <td>{{ Str::limit($webinar->description, 50) }}</td>
                                                 <td>{{ $webinar->duration_minutes }}</td>
@@ -72,6 +72,42 @@
                                         @endforelse
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <ul class="pagination">
+                                        {{-- Previous Page Link --}}
+                                        @if ($webinars->onFirstPage())
+                                            <li class="page-item disabled">
+                                                <span class="page-link">Previous</span>
+                                            </li>
+                                        @else
+                                            <li class="page-item">
+                                                <a class="page-link" href="{{ $webinars->previousPageUrl() }}" rel="prev">Previous</a>
+                                            </li>
+                                        @endif
+
+                                        {{-- Pagination Elements --}}
+                                        @foreach ($webinars->links()->elements[0] ?? [] as $page => $url)
+                                            @if ($page == $webinars->currentPage())
+                                                <li class="page-item active">
+                                                    <span class="page-link">{{ $page }}</span>
+                                                </li>
+                                            @else
+                                                <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        {{-- Next Page Link --}}
+                                        @if ($webinars->hasMorePages())
+                                            <li class="page-item">
+                                                <a class="page-link" href="{{ $webinars->nextPageUrl() }}" rel="next">Next</a>
+                                            </li>
+                                        @else
+                                            <li class="page-item disabled">
+                                                <span class="page-link">Next</span>
+                                            </li>
+                                        @endif
+                                    </ul>
+                                </div>
                             </div>
                         </div><!--end card-body-->
                     </div><!--end card-->

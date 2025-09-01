@@ -110,6 +110,13 @@ return redirect()->route('user.dashboard.freelance.content')
     }
 
    public function user_profile()
+    {
+        $user = Auth::user(); // Logged-in user ka data
+        if ($user->role_id != 2) {
+            return redirect()->route('home')->with('error', 'Access denied!');
+        }
+        return view('dashboard.user_profile', compact('user'));
+    }
 {
     $user = Auth::user(); 
     return view('dashboard.user_profile', compact('user'));

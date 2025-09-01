@@ -18,7 +18,7 @@
                                 <table class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>Id</th>
                                             <th>Title</th>
                                             <th>Company</th>
                                             <th>Location</th>
@@ -30,7 +30,8 @@
                                     <tbody>
                                         @forelse($jobs as $job)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                
+                                                <td>{{ $job->id }}</td>
                                                 <td>{{ $job->title }}</td>
                                                 <td>{{ $job->company_name }}</td>
                                                 <td>{{ $job->location }}</td>
@@ -38,7 +39,7 @@
                                                 <td>{{ $job->duration }}</td>
                                                 <td class="text-center">
                                                     {{-- Show --}}
-                                                    <a href="{{ route('freelancing.show', $job->id) }}" class="btn btn-sm btn-outline-primary me-1">
+                                                    <a href="{{ route('freelancing.view', $job->id) }}" class="btn btn-sm btn-outline-primary me-1">
                                                         <i class="fa-solid fa-eye fs-6"></i>
                                                     </a>
 
@@ -64,12 +65,46 @@
                                         @endforelse
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <ul class="pagination">
+                                        {{-- Previous Page Link --}}
+                                        @if ($jobs->onFirstPage())
+                                            <li class="page-item disabled">
+                                                <span class="page-link">Previous</span>
+                                            </li>
+                                        @else
+                                            <li class="page-item">
+                                                <a class="page-link" href="{{ $jobs->previousPageUrl() }}" rel="prev">Previous</a>
+                                            </li>
+                                        @endif
+
+                                        {{-- Pagination Elements --}}
+                                        @foreach ($jobs->links()->elements[0] ?? [] as $page => $url)
+                                            @if ($page == $jobs->currentPage())
+                                                <li class="page-item active">
+                                                    <span class="page-link">{{ $page }}</span>
+                                                </li>
+                                            @else
+                                                <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        {{-- Next Page Link --}}
+                                        @if ($jobs->hasMorePages())
+                                            <li class="page-item">
+                                                <a class="page-link" href="{{ $jobs->nextPageUrl() }}" rel="next">Next</a>
+                                            </li>
+                                        @else
+                                            <li class="page-item disabled">
+                                                <span class="page-link">Next</span>
+                                            </li>
+                                        @endif
+                                    </ul>
+                                </div>
+
                             </div>
                         </div>
-                        {{-- Pagination (agar chahiye ho to) --}}
-                        {{-- <div class="card-footer">
-                            {{ $jobs->links() }}
-                        </div> --}}
+                        
                     </div>
                 </div>
             </div>

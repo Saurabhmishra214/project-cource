@@ -29,18 +29,18 @@ class AffiliateBusinessTrainingsController extends Controller
     }
 
    
-    public function show($id)
+    public function details($id)
     {
         $training = AffiliateTraining::with('sessions')->findOrFail($id);
 
-        return view('admin_dashboard.businesstrainings.show', compact('training'));
+        return view('admin_dashboard.businesstrainings.details', compact('training'));
     }
 
 
 
 public function list()
 {
-    $trainings = AffiliateTraining::all();
+    $trainings = AffiliateTraining::latest()->paginate(10);
 
     return view('admin_dashboard.businesstrainings.list', compact('trainings'));
 }

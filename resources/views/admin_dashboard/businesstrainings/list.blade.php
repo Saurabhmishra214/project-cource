@@ -37,7 +37,7 @@
                                 <table class="table mb-0">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>Id</th>
                                             <th>Title</th>
                                             <th>Description</th>
                                             <th>Video URL</th>
@@ -48,14 +48,14 @@
                                     <tbody>
                                         @forelse($trainings as $training)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $training->id }}</td>
                                                 <td>{{ $training->title }}</td>
                                                 <td>{{ $training->description }}</td>
                                                 <td>{{ $training->main_video_url }}</td>
                                                 <td>{{ $training->category }}</td>
                                                 <td class="text-end">
                                                     {{-- Show --}}
-                                                    <a href="{{ route('businesstrainings.show', $training->id) }}" 
+                                                    <a href="{{ route('businesstrainings.view', $training->id) }}" 
                                                        class="btn btn-sm btn-outline-primary me-1">
                                                         <i class="fa-solid fa-eye"></i>
                                                     </a>
@@ -85,6 +85,42 @@
                                         @endforelse
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <ul class="pagination">
+                                        {{-- Previous Page Link --}}
+                                        @if ($trainings->onFirstPage())
+                                            <li class="page-item disabled">
+                                                <span class="page-link">Previous</span>
+                                            </li>
+                                        @else
+                                            <li class="page-item">
+                                                <a class="page-link" href="{{ $trainings->previousPageUrl() }}" rel="prev">Previous</a>
+                                            </li>
+                                        @endif
+
+                                        {{-- Pagination Elements --}}
+                                        @foreach ($trainings->links()->elements[0] ?? [] as $page => $url)
+                                            @if ($page == $trainings->currentPage())
+                                                <li class="page-item active">
+                                                    <span class="page-link">{{ $page }}</span>
+                                                </li>
+                                            @else
+                                                <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                                            @endif
+                                        @endforeach
+
+                                        {{-- Next Page Link --}}
+                                        @if ($trainings->hasMorePages())
+                                            <li class="page-item">
+                                                <a class="page-link" href="{{ $trainings->nextPageUrl() }}" rel="next">Next</a>
+                                            </li>
+                                        @else
+                                            <li class="page-item disabled">
+                                                <span class="page-link">Next</span>
+                                            </li>
+                                        @endif
+                                    </ul>
+                                </div>
                             </div>
                         </div><!--end card-body-->
 

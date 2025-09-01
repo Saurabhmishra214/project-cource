@@ -50,9 +50,15 @@ class AutomationCoursesController extends Controller
 
       public function courseslist()
     {
-            $courses = AutomationCourse::all();
+            $courses = AutomationCourse::latest()->paginate(10);
 
          return view('admin_dashboard.Courses.list',compact('courses'));
+    }
+
+    public function courseview($id)
+    {
+        $course = AutomationCourse::findOrFail($id);
+        return view('admin_dashboard.Courses.details', compact('course'));
     }
 
 

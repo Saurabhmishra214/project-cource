@@ -17,12 +17,9 @@ class GamifyChallenge extends Model
         'description',
         'image',
         'posted_by',
-        'youtube_url'
+        'created_at',
     ];
 
-    /**
-     * Relation with User (who posted challenge)
-     */
     public function postedBy()
     {
         return $this->belongsTo(User::class, 'posted_by');
