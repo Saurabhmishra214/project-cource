@@ -76,7 +76,7 @@
                 </label><img class="absolute right-2 transition-all duration-150 caret-icon pointer-events-none peer-checked:rotate-180 top-[22px]" src="{{ asset('assets/images/icons/icon-arrow-down.svg') }}" alt="caret icon">
                 <div class="hidden peer-checked:block">
                     <ul class="text-gray-300 child-menu z-10 pl-[53px]">
-                        <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="cms-dashboard.html">Something</a></li>
+                        <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{route('gamify.challenges.index')}}">Something</a></li>
                     </ul>
                 </div>
             </div>

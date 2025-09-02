@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth overflow-x-hidden" lang="en">
+<html lang="en" dir="ltr" data-bs-theme="dark">
   <head>
     <meta charset="utf-8">
     <title>Sign In Page</title>
@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap">
   </head>
-  <body class="w-screen relative overflow-x-hidden min-h-screen bg-gray-100 scrollbar-hide authentication-sign-in-page dark:bg-[#000]">
+<body class="w-screen relative overflow-x-hidden min-h-screen scrollbar-hide authentication-sign-in-page bg-[#000]">
     <div class="wrapper mx-auto text-gray-900 font-normal grid scrollbar-hide grid-cols-[257px,1fr] grid-rows-[auto,1fr]" id="layout">
 
     <main class="overflow-x-scroll scrollbar-hide flex flex-col justify-between pt-[42px] px-[23px] pb-[28px]">

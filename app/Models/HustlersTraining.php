@@ -22,7 +22,6 @@ class HustlersTraining extends Model
         'link',
     ];
 
-    // Agar aapko status ke liye constant chahiye (best practice)
     const STATUS_IN_PROGRESS = 'In Progress';
     const STATUS_START_HERE = 'Start Here';
     const STATUS_BOOKMARKS = 'Bookmarks';

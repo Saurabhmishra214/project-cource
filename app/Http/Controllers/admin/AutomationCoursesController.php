@@ -26,12 +26,10 @@ class AutomationCoursesController extends Controller
         'category' => 'required|string|max:255',
         'description' => 'required|string',
         'video_url' => 'required|url',
-        // 'course_link' => 'nullable|url', // optional
     ]);
 
     // Check if validation fails
     if ($validator->fails()) {
-        // आप errors को redirect या JSON में भेज सकते हो
         return redirect()->back()
                          ->withErrors($validator)
                          ->withInput();

@@ -10,23 +10,20 @@ use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
 {
-    // List all blogs
     public function index()
     {
-        $blogs = Blog::latest()->get(); // sab blogs latest order me le lo
+        $blogs = Blog::latest()->get(); 
         return view('admin_dashboard.blog.list', compact('blogs'));
     }
 
-    // Show add blog form
     public function create()
     {
         return view('admin_dashboard.blog.add');
     }
 
-    // Store new blog
 public function store(Request $request)
 {
-    // Manual validation using Validator
+    
     $validator = Validator::make($request->all(), [
         'title' => 'required|string|max:255',
         'content' => 'required|string',
@@ -37,7 +34,6 @@ public function store(Request $request)
         'published_at' => 'nullable|date',
     ]);
 
-    // Check if validation fails
     if ($validator->fails()) {
         return redirect()->back()
                          ->withErrors($validator)
