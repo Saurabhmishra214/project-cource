@@ -13,15 +13,17 @@ use App\Http\Controllers\admin\AffiliateBusinessTrainingsController;
 use App\Http\Controllers\admin\FreelancingController;
 use App\Http\Controllers\admin\LiveWebinarController;
 use App\Http\Controllers\admin\BlogController;
-use App\Http\Controllers\Admin\AffiliateTrainingController;
+use App\Http\Controllers\admin\AffiliateTrainingController;
 use App\Http\Controllers\user\hustlerscampus\digitalassets\DigitalProductImageController;
 use App\Http\Controllers\user\hustlerscampus\digitalassets\DigitalSoftwareController;
 use App\Http\Controllers\GamifyChallengeController;
-
-use Illuminate\Support\Facades\Auth;
-
-
+use App\Http\Controllers\admin\GamifyController;
+use App\Http\Controllers\admin\OfferController;
+use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\SoftwareController;
+use App\Http\Controllers\admin\UserManageController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
@@ -73,6 +75,8 @@ Route::get('/profile', [UserController::class, 'user_profile'])->name('user.prof
     Route::post('/profile/upload', [UserController::class, 'uploadProfile'])->name('profile.upload');
     Route::delete('/profile/delete', [UserController::class, 'deleteProfile'])->name('profile.delete');
 
+Route::get('/user/dashboard/offers', [UserController::class, 'offers_show'])->name('user.offers');
+
 
 Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
 Route::get('/affiliate-training', [AffiliateController::class, 'affiliate_training'])->name('user.affiliate.training');
@@ -86,12 +90,6 @@ Route::post('/freelance/apply/store', [ApplicationController::class, 'store'])->
 
 
 
-
-
-// admin routes
-
-Route::get('/admin-dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
-Route::get('/admin-profile', [AdminController::class, 'admin_profile'])->name('admin.profile');
 
 
 
@@ -173,6 +171,22 @@ Route::delete('blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.des
 
 
 
+
+
+
+// admin routes
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    
+    Route::get('admin_profile', [AdminController::class, 'admin_profile'])->name('admin_profile');
+});
+Route::get('admin-dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
+
+
+    Route::post('admin/logout', [AdminController::class, 'admin_logout'])->name('admin.logout');
+
+
+
 // Admin Affiliate Trainings Routes
 
 Route::get('admin/affiliatetrainings', [AffiliateTrainingController::class, 'index'])->name('affiliatetrainings.list');
@@ -182,6 +196,12 @@ Route::post('admin/affiliatetrainings/store', [AffiliateTrainingController::clas
 Route::get('admin/affiliatetrainings/{id}/edit', [AffiliateTrainingController::class, 'edit'])->name('affiliatetrainings.edit');
 Route::post('admin/affiliatetrainings/{id}/update', [AffiliateTrainingController::class, 'update'])->name('affiliatetrainings.update');
 Route::delete('admin/affiliatetrainings/{id}/delete', [AffiliateTrainingController::class, 'destroy'])->name('affiliatetrainings.delete');
+
+// Route::get('/softwares', [DigitalSoftwareController::class, 'index'])->name('softwares.index');
+
+// Route::post('/softwares/generate-referral', [DigitalSoftwareController::class, 'generateReferralLink'])->name('softwares.generateReferral');
+
+// Route::get('/software-sales/{software}', [DigitalSoftwareController::class, 'show'])->name('softwares.show');
 
 
 // Hustlers Campus Digital Assets - Software Products 
@@ -208,3 +228,39 @@ Route::get('/software/{software}', [DigitalSoftwareController::class, 'show'])
 
 // Gamify Challenges Route
 Route::get('/gamify-challenges', [GamifyChallengeController::class, 'index'])->name('gamify.challenges.index');
+// Hustlers Campus Digital Assets - Software Products Routes
+// Route::get('product/index', [SoftwareProductController::class, 'productindex'])->name('product.index');
+
+// Digital Product Routes
+Route::get('/digital-product/index', [ProductController::class, 'index'])->name('digitalproduct.index'); // List all the products
+Route::get('/digital-product/add', [ProductController::class, 'create'])->name('digitalproduct.add'); 
+Route::get('/digital-product/{id}/edit', [ProductController::class, 'edit'])->name('digitalproduct.edit'); 
+Route::post('/digital-product/store', [ProductController::class, 'store'])->name('digitalproduct.store'); 
+Route::post('/digital-product/{id}/update', [ProductController::class, 'update'])->name('digitalproduct.update'); 
+Route::delete('/digital-product/{id}/delete', [ProductController::class, 'destroy'])->name('digitalproduct.delete');
+
+//Software routes
+Route::get('/mysoftware/index', [SoftwareController::class, 'index'])->name('software.index'); // List all the products
+Route::get('/mysoftware/add', [SoftwareController::class, 'create'])->name('software.add'); 
+Route::get('/mysoftware/{id}/edit', [SoftwareController::class, 'edit'])->name('software.edit'); 
+Route::post('/mysoftware/store', [SoftwareController::class, 'store'])->name('software.store'); 
+Route::put('/mysoftware/{id}/update', [SoftwareController::class, 'update'])->name('software.update'); 
+Route::delete('/mysoftware/{id}/delete', [SoftwareController::class, 'destroy'])->name('software.delete');
+
+// Gamify Challenge Routes
+Route::get('/gamify-challenge/index', [GamifyController::class, 'index'])->name('gamifychallenge.index'); // List all the challenges
+Route::post('/gamify-challenge/store', [GamifyController::class, 'store'])->name('gamifychallenge.store');
+Route::get('/gamify-challenge/add', [GamifyController::class, 'create'])->name('gamifychallenge.add'); 
+Route::get('/gamify-challenge/{id}/edit', [GamifyController::class, 'edit'])->name('gamifychallenge.edit'); 
+Route::put('/gamify-challenge/{id}/update', [GamifyController::class, 'update'])->name('gamifychallenge.update'); 
+Route::delete('/gamify-challenge/{id}/delete', [GamifyController::class, 'destroy'])->name('gamifychallenge.delete');
+
+// User manage routes
+Route::get('/admin/user/list', [UserManageController::class, 'index'])->name('admin.user.list');
+Route::get('/admin/user/{id}/details', [UserManageController::class, 'details'])->name('admin.user.details');
+Route::delete('/admin/user/{id}/delete', [UserManageController::class, 'destroy'])->name('admin.user.delete');
+
+//Offer manage routes
+Route::get('/offer/add', [OfferController::class, 'create'])->name('offer.add'); 
+Route::post('/offer/store', [OfferController::class, 'store'])->name('offer.store');
+

@@ -12,11 +12,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('assets/css/tailwind.min.css?v=5.0')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.min.css?v=5.0')}}">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body class="w-screen relative overflow-x-hidden min-h-screen bg-gray-100 scrollbar-hide authentication-sign-in-page dark:bg-[#000]">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -72,9 +74,10 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 w-screen relative overflow-x-hidden min-h-screen bg-gray-100 scrollbar-hide authentication-sign-in-page dark:bg-[#000]">
             @yield('content')
         </main>
     </div>
+    <script src="{{asset('assets/js/app.js?v=5.0')}}"></script>
 </body>
 </html>

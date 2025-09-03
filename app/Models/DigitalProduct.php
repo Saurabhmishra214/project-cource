@@ -12,10 +12,6 @@ class DigitalProduct extends Model
     protected $primaryKey = 'product_id';
     
     public $incrementing = true;
-    protected $table = 'digital_products';
-    protected $primaryKey = 'product_id'; 
-    public $incrementing = true;          
-    protected $keyType = 'int'; 
 
     protected $fillable = [
         'product_name',

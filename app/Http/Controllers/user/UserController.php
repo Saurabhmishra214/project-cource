@@ -7,7 +7,8 @@ use App\Models\HustlersTraining;
 use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Skill; 
-use App\Models\JobApplication; 
+use App\Models\JobApplication;
+use App\Models\Offer;
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Support\Facades\Auth;
@@ -155,6 +156,12 @@ public function uploadProfile(Request $request)
         'success' => 'Profile image deleted successfully.'
     ]);
 }
+
+    public function offers_show()
+    {
+        $offers = Offer::all();
+        return view('dashboard.offers', compact('offers'));
+    }
 
  
 
