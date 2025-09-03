@@ -167,7 +167,7 @@
                                         </div> --}}
 
                                         <div class="col-12">
-                                            <button class="btn btn-primary" type="submit">Add Product</button>
+                                            <button class="btn btn-primary" type="submit">Add Offer</button>
                                         </div>
                                     </form>
           

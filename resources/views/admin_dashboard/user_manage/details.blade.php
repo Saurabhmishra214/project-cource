@@ -39,20 +39,20 @@
                                         <div class="col">
                                             <div class="d-flex align-items-center">
                                                 <div class="position-relative">
-                                                    <img src="assets/images/users/avatar-3.jpg" alt="" class="rounded-circle img-fluid">
+                                                    <img src="{{ asset('storage/' . $user->profile_image) }}" alt="" class="rounded-circle img-fluid">
                                                     <div class="position-absolute top-50 start-100 translate-middle">
-                                                        <img src="assets/images/flags/baha_flag.jpg" alt="" class="rounded-circle thumb-sm border border-3 border-white">
+                                                        <img src="{{ asset('storage/' . $user->profile_image) }}" alt="" class="rounded-circle thumb-sm border border-3 border-white">
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1 text-truncate ms-3 align-self-end"> 
-                                                    <h5 class="m-0 fs-3 fw-bold">Rosa Dodson</h5>
-                                                    <p class="text-muted mb-0">@rosa</p>                                                                                                                                 
+                                                    <h5 class="m-0 fs-3 fw-bold">{{$user->name}}</h5>
+                                                    {{-- <p class="text-muted mb-0">@rosa</p>                                                                                                                                  --}}
                                                 </div><!--end media body-->
                                             </div><!--end media-->
                                             <div class="mt-3">
-                                                <div class="text-body mb-2  d-flex align-items-center"><i class="iconoir-language fs-20 me-1 text-muted"></i><span class="text-body fw-semibold">Language :</span> English / French / Spanish</div>                                    
-                                                <div class="text-muted mb-2 d-flex align-items-center"><i class="iconoir-mail-out fs-20 me-1"></i><span class="text-body fw-semibold">Email :</span><a href="#" class="text-primary text-decoration-underline">example@example.com</a></div>
-                                                <div class="text-body mb-3 d-flex align-items-center"><i class="iconoir-phone fs-20 me-1 text-muted"></i><span class="text-body fw-semibold">Phone :</span> +1 123 456 789</div>                                    
+                                                {{-- <div class="text-body mb-2  d-flex align-items-center"><i class="iconoir-language fs-20 me-1 text-muted"></i><span class="text-body fw-semibold">Language :</span> English / French / Spanish</div>                                     --}}
+                                                <div class="text-muted mb-2 d-flex align-items-center"><i class="iconoir-mail-out fs-20 me-1"></i><span class="text-body fw-semibold">Email :</span><a href="#" class="text-primary text-decoration-underline">{{$user->email}}</a></div>
+                                                <div class="text-body mb-3 d-flex align-items-center"><i class="iconoir-phone fs-20 me-1 text-muted"></i><span class="text-body fw-semibold">Phone :</span>{{$user->mobile_number}}</div>                                    
                                                 <ul class="mb-0 list-unstyled">
                                                     <li class="list-inline-item">
                                                         <a href="#" class="d-flex justify-content-center align-items-center thumb-md rounded-circle mx-auto social twitter">
@@ -79,29 +79,29 @@
                         <div class="col-lg-8">
                             <div class="bg-primary-subtle p-2 border-dashed border-primary rounded mb-3">
                                 <img src="assets/images/extra/party.gif" alt="" class="d-inline-block me-1" height="30">
-                                <span class="text-primary fw-semibold">Rosa Dodson's</span><span class="text-primary fw-normal"> best performance from last year</span>
+                                <span class="text-primary fw-semibold">{{$user->name}}'s</span><span class="text-primary fw-normal"> best performance from last year</span>
                             </div>
                             <div class="row g-3">
-                                <div class="col-md-6 col-lg-3"> 
+                                <div class="col-md-6 col-lg-4"> 
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="d-flex align-items-center">
                                                 <i class="iconoir-dollar-circle fs-24 align-self-center text-info me-2"></i>
                                                 <div class="flex-grow-1 text-truncate"> 
-                                                    <p class="text-dark mb-0 fw-semibold fs-13">Total Cost</p>    
+                                                    <p class="text-dark mb-0 fw-semibold fs-13">Total Course Purchased</p>    
                                                     <h3 class="mt-1 mb-0 fs-18 fw-bold">$27,215k <span class="fs-11 text-muted fw-normal">New 365 Days</span> </h3>                                                                                                                                   
                                                 </div><!--end media body-->
                                             </div>
                                         </div><!--end card-body-->
                                     </div> <!--end card-body-->                     
                                 </div><!--end col-->
-                                <div class="col-md-6 col-lg-3"> 
+                                <div class="col-md-6 col-lg-4"> 
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="d-flex align-items-center">
                                                 <i class="iconoir-cart fs-24 align-self-center text-blue me-2"></i>
                                                 <div class="flex-grow-1 text-truncate"> 
-                                                    <p class="text-dark mb-0 fw-semibold fs-13">Total Order</p>    
+                                                    <p class="text-dark mb-0 fw-semibold fs-13">Total Course Completed</p>    
                                                     <h3 class="mt-1 mb-0 fs-18 fw-bold">190 <span class="fs-11 text-muted fw-normal">Order 365 Days</span> </h3>                                                                                                                                   
                                                 </div><!--end media body-->
                                             </div>
@@ -109,34 +109,34 @@
                                     </div> <!--end card-body-->                     
                                 </div><!--end col-->
                                 
-                                <div class="col-md-6 col-lg-3"> 
+                                <div class="col-md-6 col-lg-4"> 
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="d-flex align-items-center">
                                                 <i class="iconoir-thumbs-up fs-24 align-self-center text-primary me-2"></i>
                                                 <div class="flex-grow-1 text-truncate"> 
-                                                    <p class="text-dark mb-0 fw-semibold fs-13">Completed</p>    
+                                                    <p class="text-dark mb-0 fw-semibold fs-13">Total Product Sell</p>    
                                                     <h3 class="mt-1 mb-0 fs-18 fw-bold">165 <span class="fs-11 text-muted fw-normal">Comp. Order 365 Days</span> </h3>                                                                                                                                   
                                                 </div><!--end media body-->
                                             </div>
                                         </div><!--end card-body-->
                                     </div> <!--end card-->                     
                                 </div><!--end col-->  
-                                <div class="col-md-6 col-lg-3"> 
+                                {{-- <div class="col-md-6 col-lg-3"> 
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="d-flex align-items-center">
                                                 <i class="iconoir-xmark-circle fs-24 align-self-center text-danger me-2"></i>
                                                 <div class="flex-grow-1 text-truncate"> 
-                                                    <p class="text-dark mb-0 fw-semibold fs-13">Cancled</p>    
+                                                    <p class="text-dark mb-0 fw-semibold fs-13">Referrals</p>    
                                                     <h3 class="mt-1 mb-0 fs-18 fw-bold">25 <span class="fs-11 text-muted fw-normal">Canc.Order 365 Days</span> </h3>                                                                                                                                   
                                                 </div><!--end media body-->
                                             </div>
                                         </div><!--end card-body-->
                                     </div> <!--end card-body-->                     
-                                </div><!--end col-->                              
+                                </div><!--end col-->                               --}}
                             </div><!--end row-->
-                            <div class="card">
+                            {{-- <div class="card">
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col">                      
@@ -240,7 +240,7 @@
                                           </table>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div> <!-- end col -->      
                     </div><!--end row-->                   
                 </div><!-- container -->

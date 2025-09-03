@@ -16,8 +16,8 @@ class UserManageController extends Controller
 
     public function details($id)
     {
-        $users = User::findOrFail($id);
-        return view('admin_dashboard.user_manage.details', compact('users'));
+        $user = User::findOrFail($id);
+        return view('admin_dashboard.user_manage.details', compact('user'));
     }
 
     public function destroy($id)
