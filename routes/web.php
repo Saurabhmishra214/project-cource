@@ -261,6 +261,10 @@ Route::get('/admin/user/{id}/details', [UserManageController::class, 'details'])
 Route::delete('/admin/user/{id}/delete', [UserManageController::class, 'destroy'])->name('admin.user.delete');
 
 //Offer manage routes
+Route::get('/offer/list', [OfferController::class, 'index'])->name('offer.index'); 
 Route::get('/offer/add', [OfferController::class, 'create'])->name('offer.add'); 
 Route::post('/offer/store', [OfferController::class, 'store'])->name('offer.store');
+Route::get('/offer/{id}/edit', [OfferController::class, 'edit'])->name('offer.edit');
+Route::put('/offer/{id}/update', [OfferController::class, 'update'])->name('offer.update'); 
+Route::delete('/offer/{id}/delete', [OfferController::class, 'destroy'])->name('offer.delete'); 
 
