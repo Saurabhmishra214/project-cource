@@ -9,35 +9,23 @@ class Network extends Model
 {
     use HasFactory;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
+
     protected $table = 'network';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+
     protected $fillable = [
         'user_id',
         'parent_user_id',
         'referral_code',
     ];
 
-    /**
-     * Get the user that owns the network entry.
-     */
+  
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    /**
-     * Get the parent (referrer) that owns the network entry.
-     */
+   
     public function parent()
     {
         return $this->belongsTo(User::class, 'parent_user_id');

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+class ADMINCONTROLLER extends Controller
 {
     public function admin_dashboard()
     {
@@ -16,13 +16,8 @@ class AdminController extends Controller
 
    public function admin_profile()
     {
-          $user = Auth::user(); // get the authenticated user
-
-        if ($user->role_id == 1) {
-            return view('admin_dashboard.home', compact('user'));
-        } else {
-            abort(403, 'Access denied');
-        }
+          $user = Auth::user(); 
+    return view('admin_dashboard.adminprofile', compact('user'));
     }
 
 

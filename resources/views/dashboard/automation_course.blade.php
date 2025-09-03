@@ -115,6 +115,49 @@
   </div>
 
 
+<div class="mt-8 flex flex-col sm:flex-row justify-between items-center text-gray-700 dark:text-gray-200 px-4">
+    <div class="mb-4 sm:mb-0 text-sm">
+        Showing
+        <span class="font-medium">{{ $courses->firstItem() }}</span>
+        to <span class="font-medium">{{ $courses->lastItem() }}</span>
+        of <span class="font-medium">{{ $courses->total() }}</span> results
+    </div>
+
+    <div class="flex items-center space-x-2">
+        {{-- Previous --}}
+        @if ($courses->onFirstPage())
+            <span class="px-4 py-2 rounded-lg cursor-not-allowed bg-gray-400 text-white">Previous</span>
+        @else
+            <a href="{{ $courses->previousPageUrl() }}" 
+               class="px-4 py-2 rounded-lg bg-[#7364db] text-white hover:opacity-90">Previous</a>
+        @endif
+
+        {{-- Page Numbers --}}
+        @foreach ($courses->links()->elements as $element)
+            @if (is_string($element))
+                <span class="px-4 py-2 text-gray-300">{{ $element }}</span>
+            @endif
+
+            @if (is_array($element))
+                @foreach ($element as $page => $url)
+                    @if ($page == $courses->currentPage())
+                        <span class="px-4 py-2 rounded-lg bg-orange-400 text-black dark:bg-orange-500 dark:text-white font-semibold shadow-sm">{{ $page }}</span>
+                    @else
+                        <a href="{{ $url }}" class="px-4 py-2 rounded-lg text-white bg-gray-700 hover:bg-gray-800">{{ $page }}</a>
+                    @endif
+                @endforeach
+            @endif
+        @endforeach
+
+        {{-- Next --}}
+        @if ($courses->hasMorePages())
+            <a href="{{ $courses->nextPageUrl() }}" 
+               class="px-4 py-2 rounded-lg bg-[#7364db] text-white hover:opacity-90">Next</a>
+        @else
+            <span class="px-4 py-2 rounded-lg cursor-not-allowed bg-gray-400 text-white">Next</span>
+        @endif
+    </div>
+</div>
 
 
 

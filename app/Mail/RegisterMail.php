@@ -21,7 +21,6 @@ class RegisterMail extends Mailable
 
     public function build()
     {
-        // View में पास करने के लिए डेटा तैयार करें
         $emailData = [
             'name' => $this->user->name,
             'email' => $this->user->email,

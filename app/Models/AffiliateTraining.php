@@ -20,9 +20,7 @@ class AffiliateTraining extends Model
         'category',
     ];
 
-    /**
-     * Get the sessions for the training.
-     */
+    
     public function sessions()
     {
         return $this->hasMany(AffiliateTrainingSession::class, 'training_id');

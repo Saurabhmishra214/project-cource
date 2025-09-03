@@ -84,7 +84,54 @@
                 </a>
             </div>
             @endforeach
+
+            
         </div>
+
+        <div class="mt-3 flex flex-col  sm:flex-row justify-between items-center text-gray-700 dark:text-gray-200 px-4">
+    <div class="mb-4 sm:mb-0 text-sm">
+        Showing
+        <span class="font-medium">{{ $trainings->firstItem() }}</span>
+        to <span class="font-medium">{{ $trainings->lastItem() }}</span>
+        of <span class="font-medium">{{ $trainings->total() }}</span> results
+    </div>
+
+    <div class="flex items-center space-x-2">
+        {{-- Previous --}}
+        @if ($trainings->onFirstPage())
+            <span class="px-4 py-2 rounded-lg cursor-not-allowed bg-gray-400 text-white">Previous</span>
+        @else
+            <a href="{{ $trainings->previousPageUrl() }}" 
+               class="px-4 py-2 rounded-lg bg-[#7364db] text-white hover:opacity-90">Previous</a>
+        @endif
+
+        {{-- Page Numbers --}}
+        @foreach ($trainings->links()->elements as $element)
+            @if (is_string($element))
+                <span class="px-4 py-2 text-gray-300">{{ $element }}</span>
+            @endif
+
+            @if (is_array($element))
+                @foreach ($element as $page => $url)
+                    @if ($page == $trainings->currentPage())
+                        <span class="px-4 py-2 rounded-lg bg-orange-400 text-black dark:bg-orange-500 dark:text-white font-semibold shadow-sm">{{ $page }}</span>
+                    @else
+                        <a href="{{ $url }}" class="px-4 py-2 rounded-lg text-white bg-gray-700 hover:bg-gray-800">{{ $page }}</a>
+                    @endif
+                @endforeach
+            @endif
+        @endforeach
+
+        {{-- Next --}}
+        @if ($trainings->hasMorePages())
+            <a href="{{ $trainings->nextPageUrl() }}" 
+               class="px-4 py-2 rounded-lg bg-[#7364db] text-white hover:opacity-90">Next</a>
+        @else
+            <span class="px-4 py-2 rounded-lg cursor-not-allowed bg-gray-400 text-white">Next</span>
+        @endif
+    </div>
+</div>
+
     </div>
 </main>
 

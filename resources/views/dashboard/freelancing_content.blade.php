@@ -97,16 +97,96 @@
               <p class="text-xs text-gray-500 dark:text-gray-dark-500">Pay</p>
               <p class="text-sm font-semibold text-gray-900 dark:text-gray-dark-900">{{ $job->pay }}</p>
             </div>
-            <button style="background-color: white;color:black;" class="px-4 py-2 text-xs font-semibold text-white bg-color-brands rounded-lg hover:bg-opacity-90"
-            onclick="window.location='{{ route('user.dashboard.freelance.apply') }}'">
-              Apply
-            </button>
+            <button style="background-color: white;color:black;"
+    class="px-4 py-2 text-xs font-semibold bg-color-brands rounded-lg hover:bg-opacity-90"
+    onclick="window.location='{{ route('applyjob.form', ['job' => $job->id]) }}'">
+    Apply
+</button>
+
           </div>
         </a>
       @endforeach
     </div>
   </div>
+
+
+  
 </div>
+
+
+<div class="mt-8 flex flex-col sm:flex-row justify-between items-center text-gray-700 dark:text-gray-200 px-4">
+    <div class="mb-4 sm:mb-0 text-sm">
+        Showing
+        <span class="font-medium">{{ $jobs->firstItem() }}</span>
+        to <span class="font-medium">{{ $jobs->lastItem() }}</span>
+        of <span class="font-medium">{{ $jobs->total() }}</span> results
+    </div>
+
+    <div class="flex items-center space-x-2">
+        {{-- Previous --}}
+        @if ($jobs->onFirstPage())
+            <span class="px-4 py-2 rounded-lg cursor-not-allowed bg-gray-400 text-white">Previous</span>
+        @else
+            <a href="{{ $jobs->previousPageUrl() }}" 
+               class="px-4 py-2 rounded-lg bg-[#7364db] text-white hover:opacity-90">Previous</a>
+        @endif
+
+        {{-- Page Numbers --}}
+        @foreach ($jobs->links()->elements as $element)
+            @if (is_string($element))
+                <span class="px-4 py-2 text-gray-300">{{ $element }}</span>
+            @endif
+
+            @if (is_array($element))
+                @foreach ($element as $page => $url)
+                    @if ($page == $jobs->currentPage())
+                        <span class="px-4 py-2 rounded-lg bg-orange-400 text-black dark:bg-orange-500 dark:text-white font-semibold shadow-sm">{{ $page }}</span>
+                    @else
+                        <a href="{{ $url }}" class="px-4 py-2 rounded-lg text-white bg-gray-700 hover:bg-gray-800">{{ $page }}</a>
+                    @endif
+                @endforeach
+            @endif
+        @endforeach
+
+        {{-- Next --}}
+        @if ($jobs->hasMorePages())
+            <a href="{{ $jobs->nextPageUrl() }}" 
+               class="px-4 py-2 rounded-lg bg-[#7364db] text-white hover:opacity-90">Next</a>
+        @else
+            <span class="px-4 py-2 rounded-lg cursor-not-allowed bg-gray-400 text-white">Next</span>
+        @endif
+    </div>
+</div>
+
 
 {{-- Static modals and other content (unchanged) --}}
 @endsection
+<!-- Head section me (CSS ke sath) -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+        @if(session('success'))
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: "{{ session('success') }}",
+            showConfirmButton: false,
+            timer: 2000
+        });
+    });
+</script>
+@endif
+
+@if(session('error'))
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: "{{ session('error') }}",
+        });
+    });
+</script>
+@endif

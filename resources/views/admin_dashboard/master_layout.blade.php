@@ -375,11 +375,11 @@
 
                     <li class="dropdown topbar-item">
 
-                        <a href="{{ route('admin.profile') }}">
+                        {{-- <a href="{{ route('admin.profile') }}">
                             <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt=""
                                 class="thumb-md rounded-circle">
 
-                        </a>
+                        </a> --}}
                       
                     </li>
                 </ul><!--end topbar-nav-->
@@ -601,6 +601,23 @@
           <div class="collapse" id="sidebarRewards">
             <ul class="nav flex-column">
               <li class="nav-item"><a href="analytics-customers.html" class="nav-link">View</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarOffers" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-trophy menu-icon"></i>
+              <span class="ms-2">Offer Management</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarOffers">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{ route('offer.add') }}" class="nav-link">Add</a></li>
+              <li class="nav-item"><a href="analytics-customers.html" class="nav-link">List</a></li>
             </ul>
           </div>
         </li><!--end nav-item-->

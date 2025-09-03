@@ -33,7 +33,7 @@
                 </div>
                 <div class="w-full bg-neutral h-[1px] dark:bg-dark-neutral-border mb-[42px]"></div>
                 <div class="grid items-center gap-6 grid-cols-1 mb-10 lg:grid-cols-2 xl:grid-cols-3">
-<a href="{{route('product.index')}}" class="block">
+<a href="{{route('products.index')}}" class="block">
     <div
         class="rounded-lg pt-6 pb-6 flex flex-col items-center justify-center text-white px-[15px] bg-[#4654AB] text-center 
         cursor-pointer hover:bg-[#3a4792] transition">
@@ -51,34 +51,36 @@
 
         <!-- Description -->
         <p class="text-sm opacity-80 leading-relaxed">
-            In Section – Templates, Software, Bundles Etc.
+In Section - SAaS & Subscription
+based Digital Products
         </p>
     </div>
 </a>
 
 
-                    <div
-                        class="rounded-lg pt-6 pb-6 flex flex-col items-center justify-center text-white px-[15px] bg-[#4654AB] text-center">
+                <a href="{{route('softwares.index')}}" class="block">
+    <div
+        class="rounded-lg pt-6 pb-6 flex flex-col items-center justify-center text-white px-[15px] bg-[#4654AB] text-center 
+        cursor-pointer hover:bg-[#3a4792] transition">
+        
+        <!-- Icon -->
+        <div class="mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-500" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+            </svg>
+        </div>
 
-                        <!-- Icon -->
-                        <div class="mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </div>
+        <!-- Title -->
+        <h3 class="text-lg font-semibold mb-2">Section 2</h3>
 
-                        <!-- Title -->
-                        <h3 class="text-lg font-semibold mb-2">Section 2</h3>
-
-                        <!-- Description -->
-                        <p class="text-sm opacity-80 leading-relaxed">
-                            In Section – Templates, Software, Bundles Etc.
-                        </p>
-
-                    </div>
+        <!-- Description -->
+        <p class="text-sm opacity-80 leading-relaxed">
+In Section - Templates,
+Software, Bundles Etc.
+        </p>
+    </div>
+</a>
                     <div
                         class="rounded-lg pt-6 pb-6 flex flex-col items-center justify-center text-white px-[15px] bg-[#4654AB] text-center">
 
