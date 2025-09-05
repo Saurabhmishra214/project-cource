@@ -180,8 +180,10 @@ Route::delete('blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.des
 
 Route::middleware(['auth', 'admin'])->group(function () {
     
-    Route::get('admin_profile', [AdminController::class, 'admin_profile'])->name('admin_profile');
 });
+
+    Route::get('admin_profile', [AdminController::class, 'admin_profile'])->name('admin_profile');
+
 Route::get('admin-dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
 
 
