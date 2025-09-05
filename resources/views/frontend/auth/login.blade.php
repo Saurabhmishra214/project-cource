@@ -10,6 +10,7 @@
     <link rel="icon" href="{{asset('assets/images/icons/icon-favicon.svg')}}" type="image/x-icon" sizes="16x16">
     <link rel="stylesheet" href="{{asset('assets/css/tailwind.min.css?v=5.0')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.min.css?v=5.0')}}">
+    <script src="{{asset('assets/js/theme.js?v=5.0')}}"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap">

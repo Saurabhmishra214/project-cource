@@ -177,29 +177,34 @@ public function registerUser(Request $request)
     }
 
 
-    public function loginUser(Request $request)
+  public function loginUser(Request $request)
     {
+        // 1. वैलिडेट करें कि ईमेल और पासवर्ड भरे गए हैं
         $request->validate([
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
         ]);
 
-
+        // 2. ऑथेंटिकेशन का प्रयास करें
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-      
+            // 3. यदि सफल, तो सेशन रीजेनरेट करें और लास्ट लॉगिन टाइम अपडेट करें
             $request->session()->regenerate();
             
-            // last_login_at field ko update karein
             $user = Auth::user();
             $user->last_login_at = now();
             $user->save();
 
-            return redirect()->intended('/dashboard');
+            // 4. रोल के आधार पर सही डैशबोर्ड पर रीडायरेक्ट करें
+            if ($user->role === 'admin') {
+                return redirect()->intended('admin-dashboard');
+            }
+            
+            return redirect()->intended('dashboard');
         }
 
-     
+        // 5. यदि विफल, तो वापस भेजें और एरर दिखाएं
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');

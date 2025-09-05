@@ -143,7 +143,9 @@
                         </button>
                     </li>
                     <li class="mx-2 welcome-text">
-                        <h5 class="mb-0 fw-semibold text-truncate">Good Morning, James!</h5>
+<h5 class="mb-0 fw-semibold text-truncate">
+    Hello.., {{ Auth::user()->name }}!
+</h5>
                         <!-- <h6 class="mb-0 fw-normal text-muted text-truncate fs-14">Here's your overview this week.</h6> -->
                     </li>
                 </ul>
@@ -155,7 +157,7 @@
                             <button type="submit"><i class="iconoir-search"></i></button>
                         </form>
                     </li>
-                    <li class="dropdown">
+                    {{-- <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#"
                             role="button" aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
                             <img src="{{ asset('assets/images/affiliate/flags/us_flag.jpg') }}" alt=""
@@ -175,12 +177,10 @@
                                     src="{{ asset('assets/images/affiliate/flags/french_flag.jpg') }}" alt=""
                                     height="15" class="me-2">French</a>
                         </div>
-                    </li><!--end topbar-language-->
+                    </li><!--end topbar-language--> --}}
 
-                    <li class="topbar-item">
-                    
-                    </li>
-
+              
+{{-- 
                     <li class="dropdown topbar-item">
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#"
                             role="button" aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
@@ -371,15 +371,26 @@
                                 View All <i class="fi-arrow-right"></i>
                             </a>
                         </div>
-                    </li>
+                    </li> --}}
 
-                    <li class="dropdown topbar-item">
 
-                        <a href="{{ route('admin.profile') }}">
+                     <li class="dropdown topbar-item">
+
+                        <a href="{{ route('admin_profile') }}">
                             <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt=""
                                 class="thumb-md rounded-circle">
 
                         </a>
+                      
+                    </li>
+
+                    <li class="dropdown topbar-item">
+
+                        {{-- <a href="{{ route('admin.profile') }}">
+                            <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt=""
+                                class="thumb-md rounded-circle">
+
+                        </a> --}}
                       
                     </li>
                 </ul><!--end topbar-nav-->
@@ -394,7 +405,7 @@
     <div class="startbar d-print-none">
         <!--start brand-->
         <div class="brand">
-            <a href="index.html" class="logo">
+            <a href="#" class="logo">
                 <span>
                     <img src="{{ asset('assets/images/affiliate/logo-sm.png') }}" alt="logo-small" class="logo-sm">
                 </span>
@@ -440,6 +451,7 @@
             <ul class="nav flex-column">
               <li class="nav-item"><a href="{{route('courses.add')}}" class="nav-link">Add Courses</a></li>
               <li class="nav-item"><a href="{{route('courses.list')}}" class="nav-link">List Courses</a></li>
+
             </ul>
           </div>
         </li><!--end nav-item-->
@@ -530,6 +542,8 @@
             <ul class="nav flex-column">
               <li class="nav-item"><a href="{{route('freelancing.create')}}" class="nav-link">Add Jobs</a></li>
               <li class="nav-item"><a href="{{route('freelancing.index')}}" class="nav-link">List Jobs</a></li>
+              <li class="nav-item"><a href="{{route('freelancing.applications')}}" class="nav-link">Job Applicants</a></li>
+
             </ul>
           </div>
         </li><!--end nav-item-->
@@ -588,7 +602,7 @@
           </div>
         </li><!--end nav-item-->
 
-        <!-- Rewards & Ranks -->
+        {{-- <!-- Rewards & Ranks -->
         <li class="nav-item">
           <a class="nav-link collapsed d-flex justify-content-between align-items-center"
              href="#sidebarRewards" data-bs-toggle="collapse" role="button" aria-expanded="false">
@@ -603,9 +617,53 @@
               <li class="nav-item"><a href="analytics-customers.html" class="nav-link">View</a></li>
             </ul>
           </div>
+        </li><!--end nav-item--> --}}
+
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarOffers" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-trophy menu-icon"></i>
+              <span class="ms-2">Offer Management</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarOffers">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{ route('offer.add') }}" class="nav-link">Add</a></li>
+              <li class="nav-item"><a href="{{ route('offer.index') }}" class="nav-link">List</a></li>
+            </ul>
+          </div>
         </li><!--end nav-item-->
 
-        <!-- Roles & Permissions -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarUsers" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-trophy menu-icon"></i>
+              <span class="ms-2">User Management</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarUsers">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('admin.user.list')}}" class="nav-link">List</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
+
+            <li class="nav-item">
+                <form action="{{ route('admin.logout') }}" method="POST" class="w-full">
+                    @csrf
+                    <button type="submit" class="nav-link flex items-center w-full px-4 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-200 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group">
+                        <i class="iconoir-log-out menu-icon text-lg"></i>
+                        <span class="ms-2">Logout</span>
+                    </button>
+                </form>
+            </li><!--end nav-item-->
+
+        {{-- <!-- Roles & Permissions -->
         <li class="nav-item">
           <a class="nav-link collapsed d-flex justify-content-between align-items-center"
              href="#sidebarRoles" data-bs-toggle="collapse" role="button" aria-expanded="false">
@@ -621,7 +679,7 @@
               <li class="nav-item"><a href="analytics-reports.html" class="nav-link">Provide Permission</a></li>
             </ul>
           </div>
-        </li><!--end nav-item-->
+        </li><!--end nav-item--> --}}
 
       </ul>
     </div>

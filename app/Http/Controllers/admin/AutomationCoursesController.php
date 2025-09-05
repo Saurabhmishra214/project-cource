@@ -108,4 +108,8 @@ class AutomationCoursesController extends Controller
         return redirect()->route('courses.list')->with('success', 'Course deleted successfully!');
     }
 
+
+
+
+
 }

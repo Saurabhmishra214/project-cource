@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class GamifyChallenge extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id'; 
 
+    public $timestamps = false; 
     protected $table = 'gamify_challenges';
 
     protected $fillable = [
