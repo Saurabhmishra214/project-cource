@@ -19,13 +19,12 @@ use App\Http\Controllers\user\hustlerscampus\digitalassets\DigitalSoftwareContro
 use App\Http\Controllers\GamifyChallengeController;
 use App\Http\Controllers\admin\GamifyController;
 use App\Http\Controllers\admin\OfferController;
-use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\SoftwareController;
 use App\Http\Controllers\admin\UserManageController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\admin\ProductController;
+use Illuminate\Support\Facades\Route;
 
-Auth::routes();
 
 
 Route::get('/', function () {
@@ -114,6 +113,8 @@ Route::post('/courses/update/{id}', [AutomationCoursesController::class, 'course
 Route::delete('/courses/delete/{id}', [AutomationCoursesController::class, 'coursedelete'])->name('courses.delete');
 
 
+Route::get('/courses/list', [AutomationCoursesController::class, 'courseslist'])->name('courses.list');
+
 
 
 
@@ -147,6 +148,7 @@ Route::get('/freelancing/view/{id}', [FreelancingController::class, 'details'])-
 Route::get('/freelancing/{id}/edit', [FreelancingController::class, 'edit'])->name('freelancing.edit');   // Edit Job form
 Route::post('/freelancing/{id}', [FreelancingController::class, 'update'])->name('freelancing.update');    // Update Job
 Route::delete('/freelancing/{id}', [FreelancingController::class, 'destroy'])->name('freelancing.destroy');// Delete Job
+Route::get('/freelancing/applications', [FreelancingController::class, 'allJobApplications'])->name('freelancing.applications'); // List Job Applications
 
 
 // Live Webinar Routes
@@ -268,3 +270,18 @@ Route::get('/offer/{id}/edit', [OfferController::class, 'edit'])->name('offer.ed
 Route::put('/offer/{id}/update', [OfferController::class, 'update'])->name('offer.update'); 
 Route::delete('/offer/{id}/delete', [OfferController::class, 'destroy'])->name('offer.delete'); 
 
+// Hustlers Campus Digital Assets - Software Products Routes
+// Route::get('product/index', [SoftwareProductController::class, 'productindex'])->name('product.index');
+
+// Digital Product Routes
+
+
+//Software routes
+
+// Gamify Challenge Routes
+Route::get('/gamify-challenge/index', [GamifyController::class, 'index'])->name('gamifychallenge.index'); // List all the challenges
+Route::post('/gamify-challenge/store', [GamifyController::class, 'store'])->name('gamifychallenge.store');
+Route::get('/gamify-challenge/add', [GamifyController::class, 'create'])->name('gamifychallenge.add'); 
+Route::get('/gamify-challenge/{id}/edit', [GamifyController::class, 'edit'])->name('gamifychallenge.edit'); 
+Route::put('/gamify-challenge/{id}/update', [GamifyController::class, 'update'])->name('gamifychallenge.update'); 
+Route::delete('/gamify-challenge/{id}/delete', [GamifyController::class, 'destroy'])->name('gamifychallenge.delete');

@@ -30,7 +30,8 @@ class User extends Authenticatable
         'status',
         'last_login_at',
         'is_verified',
-        'coins'
+        'coins',
+        'posted_by',
     ];
 
     /**

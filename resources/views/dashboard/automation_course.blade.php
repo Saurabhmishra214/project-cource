@@ -16,6 +16,84 @@
   animation: glowPulse 2s infinite;
 }
 
+body.modal-open {
+    overflow: hidden;
+  }
+  body.modal-open #section-why-attend {
+    filter: blur(6px);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Modal container */
+  .video-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    padding: 20px;
+    object-fit: cover;
+  }
+  .video-modal.active {
+    display: flex;
+  }
+
+  /* Modal content */
+  .video-modal-content {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 800px;
+    animation: modalFadeIn 0.3s ease-out;
+  }
+
+  /* Video iframe */
+  .video-modal-content video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+  }
+
+  /* Close button */
+  .close-modal {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .close-modal:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  .close-modal svg {
+    width: 20px;
+    height: 20px;
+    stroke: #fff;
+    pointer-events: none;
+  }
+
+
+  @keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
 /* .glow-gold:hover {
   box-shadow: 0 0 30px rgba(255, 223, 0, 0.9), 0 0 60px rgba(255, 223, 0, 0.7);
 }
@@ -69,11 +147,12 @@
                   class="w-full h-full object-cover">
 
               {{-- Play Button Overlay --}}
+              <div class="card-play-button-small openVideoModal" data-video="{{ $course->video_url }}">
               <img src="{{ asset('assets/images/play-button.png') }}" 
                   alt="Play Button"
                   class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-                        w-16 h-16 opacity-80 hover:opacity-100 transition cursor-pointer"
-                  onclick="openModal('{{ $course->image_url }}')">
+                        w-16 h-16 opacity-80 hover:opacity-100 transition cursor-pointer icon-small">
+              </div>
           </div>
 
 
@@ -92,7 +171,7 @@
       @endforeach
   </div>
   <!-- Modal -->
-  <div id="videoModal" class="hidden fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+  {{-- <div id="videoModal" class="hidden fixed inset-0 flex items-center justify-center bg-black/70 z-50">
     <div class="bg-[#0f1624] rounded-2xl shadow-2xl max-w-3xl w-full relative overflow-hidden">
         
         <!-- Close Button -->
@@ -112,7 +191,7 @@
             <source id="modalVideoSource" src="" type="video/mp4">
         </video>
     </div>
-  </div>
+  </div> --}}
 
 
 <div class="mt-8 flex flex-col sm:flex-row justify-between items-center text-gray-700 dark:text-gray-200 px-4">
@@ -165,6 +244,21 @@
 
     </div>
 </main>
+<!-- Video Modal -->
+        <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="close-modal" id="closeVideoModal">
+            <!-- SVG Close Icon -->
+            {{-- <svg xmlns="" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg> --}}
+            </button>
+            <video id="videoFrame" controls autoplay muted playsinline style="width:100%;height:100%;">
+            <source src="" type="video/mp4">
+            Something went wrong. Your browser does not support embedded videos.
+            </video>
+        </div>
+        </div>
 
 {{-- <script>
 function togglePlay(id) {
@@ -188,26 +282,59 @@ function goFullscreen(id) {
 }
 </script> --}}
 <script>
-  function openModal(videoUrl) {
-      let modal = document.getElementById("videoModal");
-      let video = document.getElementById("modalVideo");
-      let source = document.getElementById("modalVideoSource");
+        const modal = document.getElementById('videoModal');
+        const closeBtn = document.getElementById('closeVideoModal');
+        const videoFrame = document.getElementById('videoFrame');
+        let videoTimeout;
 
-      source.src = videoUrl;
-      video.load();
-      video.play();
+        // Calculate and show full video length on card
+        document.querySelectorAll('.openVideoModal').forEach(card => {
+            const videoURL = card.dataset.video;
+            const lengthDiv = card.querySelector('.video-card-length');
 
-      modal.classList.remove("hidden");
-  }
+            const tempVideo = document.createElement('video');
+            tempVideo.src = videoURL;
 
-  function closeModal() {
-      let modal = document.getElementById("videoModal");
-      let video = document.getElementById("modalVideo");
+            tempVideo.addEventListener('loadedmetadata', () => {
+                const minutes = Math.floor(tempVideo.duration / 60);
+                const seconds = Math.floor(tempVideo.duration % 60);
+                lengthDiv.textContent = `${minutes}:${seconds.toString().padStart(2,'0')}`;
+            });
+            
+            card.addEventListener('click', () => {
+                videoFrame.querySelector('source').src = videoURL;
+                videoFrame.load();
+                videoFrame.play();
 
-      modal.classList.add("hidden");
-      video.pause();
-      video.currentTime = 0;
-  }
-  </script>
+                modal.classList.add('active');
+                document.body.classList.add('modal-open');
+
+                // Stop after 10 seconds
+                // clearTimeout(videoTimeout);
+                // videoTimeout = setTimeout(() => {
+                //     videoFrame.pause();
+                // }, 10000); // 10 seconds
+            });
+        });
+
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+            videoFrame.pause();
+            videoFrame.removeAttribute('src');
+            videoFrame.load();
+            // clearTimeout(videoTimeout);
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside content
+        modal.addEventListener('click', e => {
+            if (e.target === modal) closeModal();
+        });
+
+
+        </script>
 
 @endsection

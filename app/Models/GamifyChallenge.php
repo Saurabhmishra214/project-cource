@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class GamifyChallenge extends Model
 {
     use HasFactory;
-
-    protected $table = 'gamify_challenges'; 
-
     protected $primaryKey = 'id'; 
 
     public $timestamps = false; 
+    protected $table = 'gamify_challenges';
 
     protected $fillable = [
         'video',
@@ -23,4 +21,9 @@ class GamifyChallenge extends Model
         'posted_by',
         'created_at',
     ];
+
+    public function postedBy()
+    {
+        return $this->belongsTo(User::class, 'posted_by');
+    }
 }

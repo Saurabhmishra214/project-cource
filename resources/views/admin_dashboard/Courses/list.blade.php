@@ -69,22 +69,7 @@
                             <div class="card-body pt-0">
                                 <div class="table-responsive">
                                     <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
-                                        <div class="datatable-top">
-                                            <div class="datatable-dropdown">
-                                                <label>
-                                                    <select class="datatable-selector" name="per-page">
-                                                        <option value="5">5</option>
-                                                        <option value="10" selected="">10</option>
-                                                        <option value="15">15</option>
-                                                        <option value="20">20</option>
-                                                        <option value="25">25</option>
-                                                    </select> entries per page
-                                                </label>
-                                            </div>
-                                            <div class="datatable-search">
-                                                <input class="datatable-input" placeholder="Search..." type="search" name="search" title="Search within table" aria-controls="datatable_1">
-                                            </div>
-                                        </div>
+                                       
                                         <div class="datatable-container">
                                             <table class="table mb-0 checkbox-all datatable-table" id="datatable_1">
                                                 <thead>
