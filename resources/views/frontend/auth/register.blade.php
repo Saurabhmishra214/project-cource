@@ -157,7 +157,7 @@
 
     <p class="text-sm text-gray-1100 dark:text-gray-dark-1100">
         Already have an account?
-        <a class="text-color-brands">&nbsp;Sign In</a>
+        <a href="{{route('login_form')}}" class="text-color-brands">&nbsp;Sign In</a>
     </p>
 </form>
 

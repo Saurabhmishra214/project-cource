@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Created Successfully</title>
+    <title>Job Application Confirmation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +20,7 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         .header {
-            background-color: #28a745;
+            background-color: #1E90FF;
             color: #ffffff;
             text-align: center;
             padding: 20px;
@@ -35,7 +35,7 @@
             line-height: 1.6;
         }
         .content h1 {
-            color: #28a745;
+            color: #1E90FF;
         }
         .content p {
             margin: 15px 0;
@@ -44,7 +44,7 @@
             display: inline-block;
             padding: 12px 25px;
             margin-top: 20px;
-            background-color: #28a745;
+            background-color: #1E90FF;
             color: #ffffff;
             text-decoration: none;
             border-radius: 5px;
@@ -67,17 +67,17 @@
     <div class="email-container">
         <div class="header">
             <img src="{{ asset('images/logo.png') }}" alt="Company Logo">
-            <h2>Welcome to [Your Company Name]!</h2>
+            <h2>Thank You for Applying!</h2>
         </div>
         <div class="content">
             <h1>Hello {{ $name }},</h1>
-            <p>Your account has been created successfully!</p>
-            <p><strong>Email:</strong> {{ $email }}</p>
-            <p><strong>Referral Link:</strong> <a href="{{ $referral_link }}">{{ $referral_link }}</a></p>
+            <p>We have successfully received your application for the <strong>{{ $job }}</strong> position.</p>
+            <p>Our recruitment team will review your application and get back to you within a few days.</p>
+            <p>In the meantime, feel free to explore our website and learn more about our company culture.</p>
             <a href="{{ url('/') }}" class="button">Visit Our Website</a>
         </div>
         <div class="footer">
-            &copy; {{ date('Y') }} [Your Company Name] | <a href="{{ url('/') }}">Website</a><br>
+            &copy; {{ date('Y') }} Your Company Name | <a href="{{ url('/') }}">Website</a><br>
             This is an automated message. Please do not reply.
         </div>
     </div>

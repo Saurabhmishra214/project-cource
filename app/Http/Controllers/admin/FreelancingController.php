@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use App\Models\JobApplication;
 class FreelancingController extends Controller
 {
     // List Jobs
@@ -97,4 +97,31 @@ public function store(Request $request)
 
         return redirect()->route('freelancing.index')->with('success', 'Job deleted successfully!');
     }
+
+
+
+
+   
+
+
+ public function allJobApplications(Request $request)
+{
+    $query = JobApplication::query()->with('job');
+
+    // Filters
+    if ($request->filled('job_id')) {
+        $query->where('job_id', $request->job_id);
+    }
+    if ($request->filled('company_name')) {
+        $query->whereHas('job', function($q) use ($request) {
+            $q->where('company_name', 'like', '%' . $request->company_name . '%');
+        });
+    }
+
+    $applications = $query->orderBy('created_at', 'desc')->paginate(20);
+    $jobs = Job::all(); // dropdown for filter
+
+    return view('admin_dashboard.freelancing.job_applications_report', compact('applications', 'jobs'));
+}
+
 }

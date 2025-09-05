@@ -9,6 +9,9 @@ use App\Models\Job;
 use App\Models\Skill; 
 use App\Models\JobApplication;
 use App\Models\Offer;
+use App\Mail\JobApplyMail;
+use Illuminate\Support\Facades\Mail;
+
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Support\Facades\Auth;
@@ -69,7 +72,7 @@ public function freelance_content(Request $request)
 
 public function store(Request $request)
 {
-    // dd($request->all());
+    // Validation
     $validator = Validator::make($request->all(), [
         'job_id' => 'required|exists:jobs,id',
         'full_name' => 'required|string|max:255',
@@ -81,7 +84,6 @@ public function store(Request $request)
         'resume_path' => 'required|file|mimes:pdf,doc,docx|max:2048',
     ]);
 
-    // Check validation failure
     if ($validator->fails()) {
         return redirect()->back()
                          ->withErrors($validator)
@@ -96,16 +98,25 @@ public function store(Request $request)
     }
 
     // Save to database
-    JobApplication::create($data);
+    $jobApplication = JobApplication::create($data);
 
-return redirect()->route('user.dashboard.freelance.content')
-                 ->with('success', 'Your action was successful!');
+    // Get job title for email
+    $job = Job::find($request->job_id);
+
+    $jobData = [
+        'name' => $request->full_name,
+        'email' => $request->email,
+        'job_title' => $job->title ?? 'the applied job',
+    ];
+
+    // Send confirmation email
+    Mail::to($request->email)->send(new JobApplyMail($jobData));
+
+    return redirect()->route('user.dashboard.freelance.content')
+                     ->with('success', 'Your application has been submitted and confirmation email sent!');
 }
 
- 
-
-
-    public function asset_sections()
+ public function asset_sections()
     {
         return view('dashboard.asset_section');
     }

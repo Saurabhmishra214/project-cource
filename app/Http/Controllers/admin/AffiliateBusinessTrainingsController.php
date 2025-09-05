@@ -40,11 +40,10 @@ class AffiliateBusinessTrainingsController extends Controller
 
 public function list()
 {
-    $trainings = AffiliateTraining::latest()->paginate(10);
-    $trainings = AffiliateTraining::all();
-
+    $trainings = AffiliateTraining::latest()->paginate(10); // paginate only
     return view('admin_dashboard.businesstrainings.list', compact('trainings'));
 }
+
 
 
 
