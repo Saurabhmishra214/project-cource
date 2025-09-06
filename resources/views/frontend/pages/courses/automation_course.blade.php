@@ -292,11 +292,9 @@
                                 </div>
                             </div>
 
-                            <div class="spacer-single"></div>
-
-                            <a class="btn-main mx-2 fx-slide" href="#section-tickets"><span>Join Now</span></a>
-                            {{-- <a class="btn-main btn-line mx-2 fx-slide" href="#section-schedule"><span>View Schedule</span></a> --}}
-                        </div>
+                               <div class="mt-3 flex justify-center">
+<a href="{{ route('course.lesson', ['courseId' => $course->id]) }}" target="_blank" class="glow-gold">JOIN NOW →</a>            </div>
+          </div>
                     </div>
                 </div>
             </div>

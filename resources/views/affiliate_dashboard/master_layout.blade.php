@@ -49,7 +49,10 @@
                         </button>
                     </li>
                     <li class="mx-2 welcome-text">
-                        <h5 class="mb-0 fw-semibold text-truncate">Good Morning, James!</h5>
+
+                        <h4 class="page-title">
+    Hello, <span class="text-primary">{{ Auth::user()->name }}</span>
+</h4>
                         <!-- <h6 class="mb-0 fw-normal text-muted text-truncate fs-14">Here's your overview this week.</h6> -->
                     </li>
                 </ul>
@@ -61,7 +64,7 @@
                             <button type="submit"><i class="iconoir-search"></i></button>
                         </form>
                     </li>
-                    <li class="dropdown">
+                    {{-- <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#"
                             role="button" aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
                             <img src="{{ asset('assets/images/affiliate/flags/us_flag.jpg') }}" alt=""
@@ -81,13 +84,13 @@
                                     src="{{ asset('assets/images/affiliate/flags/french_flag.jpg') }}" alt=""
                                     height="15" class="me-2">French</a>
                         </div>
-                    </li><!--end topbar-language-->
+                    </li><!--end topbar-language--> --}}
 
                     <li class="topbar-item">
                        
                     </li>
 
-                    <li class="dropdown topbar-item">
+                    {{-- <li class="dropdown topbar-item">
                         <a class="nav-link dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#"
                             role="button" aria-haspopup="false" aria-expanded="false" data-bs-offset="0,19">
                             <i class="iconoir-bell"></i>
@@ -290,7 +293,7 @@
                                 View All <i class="fi-arrow-right"></i>
                             </a>
                         </div>
-                    </li>
+                    </li> --}}
 
                     <li class="dropdown topbar-item">
                        
@@ -355,7 +358,7 @@
     <div class="startbar d-print-none">
         <!--start brand-->
         <div class="brand">
-            <a href="index.html" class="logo">
+            <a href="#" class="logo">
                 <span>
                     <img src="{{ asset('assets/images/affiliate/logo-sm.png') }}" alt="logo-small" class="logo-sm">
                 </span>

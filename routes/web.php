@@ -57,7 +57,13 @@ Route::get('/hustler', [FrontController::class, 'hustlers_course'])->name('cours
 
 
 
+Route::middleware(['role:user'])->group(function () {
+
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
+ 
+});
+
+
 Route::get('/automation-course', [UserController::class, 'automation_course'])->name('user.dashboard.automation');
 Route::get('/hustlers', [UserController::class, 'huslers_campus'])->name('user.dashboard.huslers.traings');
 Route::get('/freelance-content', [UserController::class, 'freelance_content'])->name('user.dashboard.freelance.content');
@@ -65,6 +71,8 @@ Route::get('/applyjob-form/{job}', [UserController::class, 'applyjob'])->name('a
 Route::post('/job-application', [UserController::class, 'store'])->name('job.application.store');
 
 Route::get('/asset-sections', [UserController::class, 'asset_sections'])->name('user.dashboard.huslers.assets');
+
+Route::get('course-lesson/{courseId}', [UserController::class, 'courselesson'])->name('course.lesson');
 
 
 // Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
@@ -113,8 +121,21 @@ Route::post('/courses/update/{id}', [AutomationCoursesController::class, 'course
 Route::delete('/courses/delete/{id}', [AutomationCoursesController::class, 'coursedelete'])->name('courses.delete');
 
 
+
+
 Route::get('/courses/list', [AutomationCoursesController::class, 'courseslist'])->name('courses.list');
 
+
+
+Route::middleware(['auth','role:admin'])->group(function() {
+    Route::get('courses/{course}/lessons', [AutomationCoursesController::class, 'lessonsList'])->name('lessons.list');
+    Route::get('courses/{course}/lessons/add', [AutomationCoursesController::class, 'lessonsAdd'])->name('lessons.add');
+    Route::post('courses/{course}/lessons/store', [AutomationCoursesController::class, 'lessonsStore'])->name('lessons.store');
+
+    Route::get('lessons/{id}/edit', [AutomationCoursesController::class, 'lessonsEdit'])->name('lessons.edit');
+    Route::post('lessons/{id}/update', [AutomationCoursesController::class, 'lessonsUpdate'])->name('lessons.update');
+    Route::delete('lessons/{id}/delete', [AutomationCoursesController::class, 'lessonsDelete'])->name('lessons.delete');
+});
 
 
 
@@ -178,14 +199,11 @@ Route::delete('blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.des
 
 // admin routes
 
-Route::middleware(['auth', 'admin'])->group(function () {
-    
-});
 
+ Route::middleware(['role:admin'])->group(function () {
+    Route::get('admin-dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
     Route::get('admin_profile', [AdminController::class, 'admin_profile'])->name('admin_profile');
-
-Route::get('admin-dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
-
+});
 
     Route::post('admin/logout', [AdminController::class, 'admin_logout'])->name('admin.logout');
 
@@ -200,6 +218,13 @@ Route::post('admin/affiliatetrainings/store', [AffiliateTrainingController::clas
 Route::get('admin/affiliatetrainings/{id}/edit', [AffiliateTrainingController::class, 'edit'])->name('affiliatetrainings.edit');
 Route::post('admin/affiliatetrainings/{id}/update', [AffiliateTrainingController::class, 'update'])->name('affiliatetrainings.update');
 Route::delete('admin/affiliatetrainings/{id}/delete', [AffiliateTrainingController::class, 'destroy'])->name('affiliatetrainings.delete');
+
+// Show session create form for specific training
+Route::get('trainings/{training}/sessions/create', [AffiliateTrainingController::class, 'sessionscreate'])->name('admin.sessions.create');
+
+// Store session for specific training
+Route::post('trainings/{training}/sessions', [AffiliateTrainingController::class, 'sessionsstore'])->name('sessions.store');
+
 
 // Route::get('/softwares', [DigitalSoftwareController::class, 'index'])->name('softwares.index');
 
