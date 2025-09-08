@@ -375,12 +375,20 @@
 
 
                      <li class="dropdown topbar-item">
+<a href="{{ route('admin_profile') }}">
+    @if(Auth::user() && Auth::user()->profile_image)
+        <img src="{{ asset('storage/' . Auth::user()->profile_image) }}" 
+             alt="Profile Image" 
+             class="thumb-md rounded-circle"
+             style="object-fit: cover;">
+    @else
+        <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" 
+             alt="Default Avatar" 
+             class="thumb-md rounded-circle"
+             style="object-fit: cover;">
+    @endif
+</a>
 
-                        <a href="{{ route('admin_profile') }}">
-                            <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt=""
-                                class="thumb-md rounded-circle">
-
-                        </a>
                       
                     </li>
 
@@ -713,6 +721,12 @@
     <!-- end leftbar-tab-menu-->
 
     @yield('content')
+
+
+
+
+  
+    
 
 <!-- Core JS -->
 <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
