@@ -3,7 +3,9 @@
 
 <main class="overflow-x-scroll scrollbar-hide flex flex-col justify-between pt-[42px] px-[23px] pb-[28px]">
         <div>
-          <h2 class="capitalize text-gray-1100 font-bold text-[28px] leading-[35px] dark:text-gray-dark-1100 mb-[13px]">Welcome</h2>
+<h2 class="capitalize text-gray-1100 font-bold text-[28px] leading-[35px] dark:text-gray-dark-1100 mb-[13px]">
+    Welcome, {{ Auth::user()->name }}
+</h2>
           <div class="flex justify-between flex-col gap-y-2 sm:flex-row mb-[34px]">
             <div class="flex items-center text-xs gap-x-[11px]">
               <div class="flex items-center gap-x-1"><img src="assets/images/icons/icon-home-2.svg" alt="home icon"><span class="capitalize text-gray-500 dark:text-gray-dark-500">Home</span></div><img src="assets/images/icons/icon-arrow-right.svg" alt="arrow right icon"><span class="capitalize text-color-brands">Dashboard</span>
@@ -13,327 +15,62 @@
             </div>
           </div>
           <section>
-            <div class="border bg-neutral-bg border-neutral dark:bg-dark-neutral-bg dark:border-dark-neutral-border p-7 rounded-2xl mb-6">
-              <div class="grid grid-cols-1 gap-x-[22.75px] gap-y-[24.21px] xl:grid-cols-4 lg:grid-cols-2">
-                <div class="flex flex-col gap-y-4 bg-neutral-bg border border-neutral-accent p-5 rounded-2xl dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
-                  <div class="flex items-center justify-between"> 
-                    <div class="flex gap-x-2 items-center"><img class="p-2 rounded-lg bg-green" src="assets/images/icons/icon-bag-happy.svg" alt="bag happy icon"><span class="text-gray-1100 font-bold dark:text-gray-dark-1100 text-[16px] leading-[16px]">1,528</span></div>
-                    <div class="translate-x-4">
-                      <canvas class="max-h-[34px]" width="400" height="400" id="incomeChart"></canvas>
-                    </div>
-                    <div class="dropdown dropdown-end translate-x-4 z-10 self-start">
-                      <label class="cursor-pointer dropdown-label flex items-center justify-between py-2 px-4" tabindex="0"><img class="cursor-pointer" src="assets/images/icons/icon-toggle.svg" alt="toggle icon">
-                      </label>
-                      <ul class="dropdown-content" tabindex="0">
-                        <div class="relative menu rounded-box dropdown-shadow min-w-[126px] bg-neutral-bg mt-[10px] pt-[14px] pb-[7px] px-4 border border-neutral-border dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
-                          <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-transparent right-[18px]"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Sales report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Export report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Profit manage</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Revenue report</span></a>
-                          </li>
-                          <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#remove"> <span class="text-red text-[11px] leading-4">Remove widget</span></a>
-                          </li>
-                        </div>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between"><span class="text-gray-500 text-xs dark:text-gray-dark-500">Acticles</span>
-                    <div class="flex items-center gap-x-[7px]"><img src="assets/images/icons/icon-export-green.svg" alt="export icon"><span class="text-green font-medium text-[16px] leading-[16px]">34.7%</span></div>
-                  </div>
+      <div class="border bg-neutral-bg border-neutral dark:bg-dark-neutral-bg dark:border-dark-neutral-border p-7 rounded-2xl mb-6">
+    <div class="grid grid-cols-1 gap-x-[22.75px] gap-y-[24.21px] xl:grid-cols-3 lg:grid-cols-2">
+
+        {{-- Completed Courses --}}
+        <div class="flex flex-col gap-y-4 bg-neutral-bg border border-neutral-accent p-5 rounded-2xl dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
+            <div class="flex items-center justify-between"> 
+                <div class="flex gap-x-2 items-center">
+                    <img class="p-2 rounded-lg bg-green" src="{{ asset('assets/images/icons/icon-bag-happy.svg') }}" alt="bag happy icon">
+                    <span class="text-gray-1100 font-bold dark:text-gray-dark-1100 text-[16px] leading-[16px]">Completed Courses</span>
                 </div>
-                <div class="flex flex-col gap-y-4 bg-neutral-bg border border-neutral-accent p-5 rounded-2xl dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
-                  <div class="flex items-center justify-between"> 
-                    <div class="flex gap-x-2 items-center"><img class="p-2 rounded-lg bg-blue" src="assets/images/icons/icon-messages-2.svg" alt="messages icon"><span class="text-gray-1100 font-bold dark:text-gray-dark-1100 text-[16px] leading-[16px]">1,682</span></div>
-                    <div class="translate-x-4">
-                      <canvas class="max-h-[34px]" width="400" height="400" id="cashChart"></canvas>
-                    </div>
-                    <div class="dropdown dropdown-end translate-x-4 z-10 self-start">
-                      <label class="cursor-pointer dropdown-label flex items-center justify-between py-2 px-4" tabindex="0"><img class="cursor-pointer" src="assets/images/icons/icon-toggle.svg" alt="toggle icon">
-                      </label>
-                      <ul class="dropdown-content" tabindex="0">
-                        <div class="relative menu rounded-box dropdown-shadow min-w-[126px] bg-neutral-bg mt-[10px] pt-[14px] pb-[7px] px-4 border border-neutral-border dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
-                          <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-transparent right-[18px]"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Sales report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Export report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Profit manage</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Revenue report</span></a>
-                          </li>
-                          <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#remove"> <span class="text-red text-[11px] leading-4">Remove widget</span></a>
-                          </li>
-                        </div>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between"><span class="text-gray-500 text-xs dark:text-gray-dark-500">Comments</span>
-                    <div class="flex items-center gap-x-[7px]"><img src="assets/images/icons/icon-export-green.svg" alt="export icon"><span class="text-green font-medium text-[16px] leading-[16px]">18.7%</span></div>
-                  </div>
-                </div>
-                <div class="flex flex-col gap-y-4 bg-neutral-bg border border-neutral-accent p-5 rounded-2xl dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
-                  <div class="flex items-center justify-between"> 
-                    <div class="flex gap-x-2 items-center"><img class="p-2 rounded-lg bg-violet" src="assets/images/icons/icon-folder-2.svg" alt="folder icon"><span class="text-gray-1100 font-bold dark:text-gray-dark-1100 text-[16px] leading-[16px]">282</span></div>
-                    <div class="translate-x-4">
-                      <canvas class="max-h-[34px]" width="400" height="400" id="purpleChart"></canvas>
-                    </div>
-                    <div class="dropdown dropdown-end translate-x-4 z-10 self-start">
-                      <label class="cursor-pointer dropdown-label flex items-center justify-between py-2 px-4" tabindex="0"><img class="cursor-pointer" src="assets/images/icons/icon-toggle.svg" alt="toggle icon">
-                      </label>
-                      <ul class="dropdown-content" tabindex="0">
-                        <div class="relative menu rounded-box dropdown-shadow min-w-[126px] bg-neutral-bg mt-[10px] pt-[14px] pb-[7px] px-4 border border-neutral-border dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
-                          <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-transparent right-[18px]"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Sales report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Export report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Profit manage</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Revenue report</span></a>
-                          </li>
-                          <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#remove"> <span class="text-red text-[11px] leading-4">Remove widget</span></a>
-                          </li>
-                        </div>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between"><span class="text-gray-500 text-xs dark:text-gray-dark-500">Categories</span>
-                    <div class="flex items-center gap-x-[7px]"><img src="assets/images/icons/icon-export-green.svg" alt="export icon"><span class="text-green font-medium text-[16px] leading-[16px]">22.7%</span></div>
-                  </div>
-                </div>
-                <div class="flex flex-col gap-y-4 bg-neutral-bg border border-neutral-accent p-5 rounded-2xl dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
-                  <div class="flex items-center justify-between"> 
-                    <div class="flex gap-x-2 items-center"><img class="p-2 rounded-lg bg-orange" src="assets/images/icons/icon-user-square.svg" alt="user square icon"><span class="text-gray-1100 font-bold dark:text-gray-dark-1100 text-[16px] leading-[16px]">985</span></div>
-                    <div class="translate-x-4">
-                      <canvas class="max-h-[34px]" width="400" height="400" id="profitChart"></canvas>
-                    </div>
-                    <div class="dropdown dropdown-end translate-x-4 z-10 self-start">
-                      <label class="cursor-pointer dropdown-label flex items-center justify-between py-2 px-4" tabindex="0"><img class="cursor-pointer" src="assets/images/icons/icon-toggle.svg" alt="toggle icon">
-                      </label>
-                      <ul class="dropdown-content" tabindex="0">
-                        <div class="relative menu rounded-box dropdown-shadow min-w-[126px] bg-neutral-bg mt-[10px] pt-[14px] pb-[7px] px-4 border border-neutral-border dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
-                          <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-transparent right-[18px]"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Sales report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Export report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Profit manage</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Revenue report</span></a>
-                          </li>
-                          <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#remove"> <span class="text-red text-[11px] leading-4">Remove widget</span></a>
-                          </li>
-                        </div>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between"><span class="text-gray-500 text-xs dark:text-gray-dark-500">Registed Users</span>
-                    <div class="flex items-center gap-x-[7px]"><img src="assets/images/icons/icon-export-green.svg" alt="export icon"><span class="text-green font-medium text-[16px] leading-[16px]">2.7%</span></div>
-                  </div>
-                </div>
-                <div class="flex flex-col gap-y-4 bg-neutral-bg border border-neutral-accent p-5 rounded-2xl dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
-                  <div class="flex items-center justify-between"> 
-                    <div class="flex gap-x-2 items-center"><img class="p-2 rounded-lg bg-fuchsia" src="assets/images/icons/icon-shapes.svg" alt="shapes icon"><span class="text-gray-1100 font-bold dark:text-gray-dark-1100 text-[16px] leading-[16px]">77,875</span></div>
-                    <div class="translate-x-4">
-                      <canvas class="max-h-[34px]" width="400" height="400" id="fuchsiaChart"></canvas>
-                    </div>
-                    <div class="dropdown dropdown-end translate-x-4 z-10 self-start">
-                      <label class="cursor-pointer dropdown-label flex items-center justify-between py-2 px-4" tabindex="0"><img class="cursor-pointer" src="assets/images/icons/icon-toggle.svg" alt="toggle icon">
-                      </label>
-                      <ul class="dropdown-content" tabindex="0">
-                        <div class="relative menu rounded-box dropdown-shadow min-w-[126px] bg-neutral-bg mt-[10px] pt-[14px] pb-[7px] px-4 border border-neutral-border dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
-                          <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-transparent right-[18px]"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Sales report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Export report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Profit manage</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Revenue report</span></a>
-                          </li>
-                          <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#remove"> <span class="text-red text-[11px] leading-4">Remove widget</span></a>
-                          </li>
-                        </div>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between"><span class="text-gray-500 text-xs dark:text-gray-dark-500">Banner Clicks</span>
-                    <div class="flex items-center gap-x-[7px]"><img src="assets/images/icons/icon-export-green.svg" alt="export icon"><span class="text-green font-medium text-[16px] leading-[16px]">12.8%</span></div>
-                  </div>
-                </div>
-                <div class="flex flex-col gap-y-4 bg-neutral-bg border border-neutral-accent p-5 rounded-2xl dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
-                  <div class="flex items-center justify-between"> 
-                    <div class="flex gap-x-2 items-center"><img class="p-2 rounded-lg bg-sky" src="assets/images/icons/icon-share.svg" alt="share icon"><span class="text-gray-1100 font-bold dark:text-gray-dark-1100 text-[16px] leading-[16px]">1,842</span></div>
-                    <div class="translate-x-4">
-                      <canvas class="max-h-[34px]" width="400" height="400" id="skyChart"></canvas>
-                    </div>
-                    <div class="dropdown dropdown-end translate-x-4 z-10 self-start">
-                      <label class="cursor-pointer dropdown-label flex items-center justify-between py-2 px-4" tabindex="0"><img class="cursor-pointer" src="assets/images/icons/icon-toggle.svg" alt="toggle icon">
-                      </label>
-                      <ul class="dropdown-content" tabindex="0">
-                        <div class="relative menu rounded-box dropdown-shadow min-w-[126px] bg-neutral-bg mt-[10px] pt-[14px] pb-[7px] px-4 border border-neutral-border dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
-                          <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-transparent right-[18px]"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Sales report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Export report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Profit manage</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Revenue report</span></a>
-                          </li>
-                          <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#remove"> <span class="text-red text-[11px] leading-4">Remove widget</span></a>
-                          </li>
-                        </div>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between"><span class="text-gray-500 text-xs dark:text-gray-dark-500">Social Shared</span>
-                    <div class="flex items-center gap-x-[7px]"><img src="assets/images/icons/icon-export-green.svg" alt="export icon"><span class="text-green font-medium text-[16px] leading-[16px]">3.7%</span></div>
-                  </div>
-                </div>
-                <div class="flex flex-col gap-y-4 bg-neutral-bg border border-neutral-accent p-5 rounded-2xl dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
-                  <div class="flex items-center justify-between"> 
-                    <div class="flex gap-x-2 items-center"><img class="p-2 rounded-lg bg-red" src="assets/images/icons/icon-menu.svg" alt="menu icon"><span class="text-gray-1100 font-bold dark:text-gray-dark-1100 text-[16px] leading-[16px]">857</span></div>
-                    <div class="translate-x-4">
-                      <canvas class="max-h-[34px]" width="400" height="400" id="redChart"></canvas>
-                    </div>
-                    <div class="dropdown dropdown-end translate-x-4 z-10 self-start">
-                      <label class="cursor-pointer dropdown-label flex items-center justify-between py-2 px-4" tabindex="0"><img class="cursor-pointer" src="assets/images/icons/icon-toggle.svg" alt="toggle icon">
-                      </label>
-                      <ul class="dropdown-content" tabindex="0">
-                        <div class="relative menu rounded-box dropdown-shadow min-w-[126px] bg-neutral-bg mt-[10px] pt-[14px] pb-[7px] px-4 border border-neutral-border dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
-                          <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-transparent right-[18px]"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Sales report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Export report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Profit manage</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Revenue report</span></a>
-                          </li>
-                          <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#remove"> <span class="text-red text-[11px] leading-4">Remove widget</span></a>
-                          </li>
-                        </div>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between"><span class="text-gray-500 text-xs dark:text-gray-dark-500">Menu items</span>
-                    <div class="flex items-center gap-x-[7px]"><img src="assets/images/icons/icon-export-green.svg" alt="export icon"><span class="text-green font-medium text-[16px] leading-[16px]">34.7%</span></div>
-                  </div>
-                </div>
-                <div class="bg-neutral-bg border border-neutral-accent p-5 rounded-[16.079px] dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
-                  <div class="flex justify-between">
-                    <div class="flex items-center gap-x-[11px]"><img src="assets/images/icons/icon-shield-tick-circle.svg" alt="shield tick icon">
-                      <p class="text-gray-500 dark:text-gray-dark-500 text-[10px] leading-[15px] max-w-[135px]">Congratulation! <br> Your FoxDash CMS is up to date (Versions 4.0.12 LTE)</p>
-                    </div>
-                    <div class="dropdown dropdown-end translate-x-4 z-10 self-start">
-                      <label class="cursor-pointer dropdown-label flex items-center justify-between py-2 px-4" tabindex="0"><img class="cursor-pointer" src="assets/images/icons/icon-toggle.svg" alt="toggle icon">
-                      </label>
-                      <ul class="dropdown-content" tabindex="0">
-                        <div class="relative menu rounded-box dropdown-shadow min-w-[126px] bg-neutral-bg mt-[10px] pt-[14px] pb-[7px] px-4 border border-neutral-border  dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
-                          <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-transparent right-[18px]"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Sales report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Export report</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Profit manage</span></a>
-                          </li>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Revenue report</span></a>
-                          </li>
-                          <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                          <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#remove"> <span class="text-red text-[11px] leading-4">Remove widget</span></a>
-                          </li>
-                        </div>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-            <div class="flex justify-between gap-x-5 mb-6 flex-col xl:flex-row">
-              <div class="border bg-neutral-bg border-neutral dark:bg-dark-neutral-bg dark:border-dark-neutral-border rounded-lg py-5 px-[29px]">
-                <div class="flex items-center justify-between border-b border-neutral dark:border-dark-neutral-border mb-[35px] pb-[16px]">
-                  <div class="text-base leading-5 text-gray-1100 font-semibold dark:text-gray-dark-1100">Quick Draft</div>
-                  <div class="dropdown dropdown-end ml-auto translate-x-4 z-10">
-                    <label class="cursor-pointer dropdown-label flex items-center justify-between py-2 px-4" tabindex="0"><img class="cursor-pointer" src="assets/images/icons/icon-toggle.svg" alt="toggle icon">
-                    </label>
-                    <ul class="dropdown-content" tabindex="0">
-                      <div class="relative menu rounded-box dropdown-shadow min-w-[126px] bg-neutral-bg mt-[10px] pt-[14px] pb-[7px] px-4 border border-neutral-border  dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
-                        <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-transparent right-[18px]"></div>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Sales report</span></a>
-                        </li>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Export report</span></a>
-                        </li>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Profit manage</span></a>
-                        </li>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Revenue report</span></a>
-                        </li>
-                        <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#remove"> <span class="text-red text-[11px] leading-4">Remove widget</span></a>
-                        </li>
-                      </div>
-                    </ul>
-                  </div>
+            <div class="flex items-center justify-between">
+                <span class="text-gray-500 text-xs dark:text-gray-dark-500">Courses</span>
+                <div class="flex items-center gap-x-[7px]">
+                    <span class="text-green font-medium text-[16px] leading-[16px]">{{ $completedCourses }}</span>
                 </div>
-                <div class="input-group border rounded-lg border-[#E8EDF2] dark:border-[#313442] sm:min-w-[252px] mb-5">
-                  <input class="input bg-transparent text-sm leading-4 text-gray-400 h-fit min-h-fit py-4 focus:outline-none pl-[13px] dark:text-gray-dark-400 placeholder:text-inherit" type="text" placeholder="Post title">
-                </div>
-                <div class="rounded-lg border border-neutral min-w-fit dark:border-dark-neutral-border p-[13px] lg:min-w-[498px] mb-[18px]">
-                  <div class="flex items-center gap-y-4 flex-col gap-x-[27px] mb-[31px] lg:flex-row xl:gap-y-0">
-                    <div class="flex items-center gap-x-[20px]"><img class="cursor-pointer" src="assets/images/icons/icon-bold.svg" alt="bold icon"><img class="cursor-pointer" src="assets/images/icons/icon-italicized.svg" alt="italicized icon"><img class="cursor-pointer" src="assets/images/icons/icon-underlined.svg" alt="underlined icon"><img class="cursor-pointer" src="assets/images/icons/icon-strikethrough.svg" alt="strikethrough icon"><img class="cursor-pointer" src="assets/images/icons/icon-textcolor.svg" alt="textcolor icon"><img class="cursor-pointer" src="assets/images/icons/icon-backgroundcolor.svg" alt="backgroundcolor icon"><img class="cursor-pointer" src="assets/images/icons/icon-smile.svg" alt="smile icon"></div>
-                    <div class="flex items-center gap-x-[20px]">
-                      <div class="flex items-center cursor-pointer gap-x-[1.5px]"><img src="assets/images/icons/icon-paragraphformat.svg" alt="paragraphformat icon"><img src="assets/images/icons/icon-arrow-down-triangle.svg" alt="arrow down triangle icon"></div>
-                      <div class="flex items-center cursor-pointer gap-x-[1.5px]"><img src="assets/images/icons/icon-align-left.svg" alt="align left icon"><img src="assets/images/icons/icon-arrow-down-triangle.svg" alt="arrow down triangle icon"></div>
-                      <div class="flex items-center cursor-pointer gap-x-[1.5px]"><img src="assets/images/icons/icon-ordered-list.svg" alt="ordered list icon"><img src="assets/images/icons/icon-arrow-down-triangle.svg" alt="arrow down triangle icon"></div>
-                      <div class="flex items-center cursor-pointer gap-x-[1.5px]"><img src="assets/images/icons/icon-unordered-list.svg" alt="unordered list icon"><img src="assets/images/icons/icon-arrow-down-triangle.svg" alt="arrow down triangle icon"></div><img class="cursor-pointer" src="assets/images/icons/icon-indent.svg" alt="indent icon"><img class="cursor-pointer opacity-40" src="assets/images/icons/icon-indent.svg" alt="outdent icon">
-                    </div>
-                  </div>
-                  <textarea class="textarea w-full p-0 text-gray-400 resize-none rounded-none bg-transparent min-h-[140px] focus:outline-none" placeholder="What’s on your mind?"></textarea>
-                </div>
-                <div class="text-right">
-                  <button class="btn text-sm h-fit min-h-fit capitalize leading-4 border-0 font-medium bg-color-brands py-[7px] px-[17px] hover:bg-color-brands">Save Draft</button>
-                </div>
-              </div>
-              <div class="border bg-neutral-bg border-neutral dark:bg-dark-neutral-bg dark:border-dark-neutral-border rounded-lg py-5 flex-1 px-[29px]">
-                <div class="flex items-center justify-between border-b border-neutral dark:border-dark-neutral-border mb-[28px] pb-[16px]">
-                  <div class="text-base leading-5 text-gray-1100 font-semibold dark:text-gray-dark-1100">Social Network</div>
-                  <div class="dropdown dropdown-end ml-auto translate-x-4 z-10">
-                    <label class="cursor-pointer dropdown-label flex items-center justify-between py-2 px-4" tabindex="0"><img class="cursor-pointer" src="assets/images/icons/icon-toggle.svg" alt="toggle icon">
-                    </label>
-                    <ul class="dropdown-content" tabindex="0">
-                      <div class="relative menu rounded-box dropdown-shadow min-w-[126px] bg-neutral-bg mt-[10px] pt-[14px] pb-[7px] px-4 border border-neutral-border  dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
-                        <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-transparent right-[18px]"></div>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Sales report</span></a>
-                        </li>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Export report</span></a>
-                        </li>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Profit manage</span></a>
-                        </li>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Revenue report</span></a>
-                        </li>
-                        <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#remove"> <span class="text-red text-[11px] leading-4">Remove widget</span></a>
-                        </li>
-                      </div>
-                    </ul>
-                  </div>
-                </div>
-                <div>
-                  <canvas class="max-h-[300px]" width="400" height="400" id="barChart"></canvas>
-                </div>
-              </div>
             </div>
+        </div>
+
+        {{-- Products Sell --}}
+        <div class="flex flex-col gap-y-4 bg-neutral-bg border border-neutral-accent p-5 rounded-2xl dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
+            <div class="flex items-center justify-between"> 
+                <div class="flex gap-x-2 items-center">
+                    <img class="p-2 rounded-lg bg-blue" src="{{ asset('assets/images/icons/icon-messages-2.svg') }}" alt="messages icon">
+                    <span class="text-gray-1100 font-bold dark:text-gray-dark-1100 text-[16px] leading-[16px]">Products Sell</span>
+                </div>
+            </div>
+            <div class="flex items-center justify-between">
+                <span class="text-gray-500 text-xs dark:text-gray-dark-500">Items</span>
+                <div class="flex items-center gap-x-[7px]">
+                    <span class="text-green font-medium text-[16px] leading-[16px]">{{ $productsSell ?? 0 }}</span>
+                </div>
+            </div>
+        </div>
+
+        {{-- Your Rank --}}
+        <div class="flex flex-col gap-y-4 bg-neutral-bg border border-neutral-accent p-5 rounded-2xl dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
+            <div class="flex items-center justify-between"> 
+                <div class="flex gap-x-2 items-center">
+                    <img class="p-2 rounded-lg bg-violet" src="{{ asset('assets/images/icons/icon-folder-2.svg') }}" alt="folder icon">
+                    <span class="text-gray-1100 font-bold dark:text-gray-dark-1100 text-[16px] leading-[16px]">Your Rank</span>
+                </div>
+            </div>
+            <div class="flex items-center justify-between">
+                <span class="text-gray-500 text-xs dark:text-gray-dark-500">Completion %</span>
+                <div class="flex items-center gap-x-[7px]">
+                    <span class="text-green font-medium text-[16px] leading-[16px]">{{ $rankPercentage }}%</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+  
             
             <div class="flex justify-between gap-6 mb-10 flex-col xl:flex-row">
               <div class="border bg-neutral-bg border-neutral dark:bg-dark-neutral-bg dark:border-dark-neutral-border rounded-lg pt-5 pl-6 pb-8 pr-[22px] xl:max-w-[361px]">

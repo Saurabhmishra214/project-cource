@@ -20,10 +20,27 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    public function dashboard()
-    {
-        return view('dashboard.home');
-    }
+ public function dashboard()
+{
+    $userId = Auth::id();
+
+    // User ke courses aur progress fetch karo
+    $userCourses = AutomationCourse::with('lessons')->where('user_id', $userId)->get();
+
+    $completedCourses = $userCourses->where('status', 3)->count();
+    $inProgressCourses = $userCourses->where('status', 2)->count();
+    $notStartedCourses = $userCourses->where('status', 1)->count();
+    $notPurchasedCourses = $userCourses->where('status', 0)->count();
+
+    // Rank calculation (example: completed / total)
+    $totalCourses = $userCourses->count();
+    $rankPercentage = $totalCourses > 0 ? round(($completedCourses / $totalCourses) * 100) : 0;
+
+    return view('dashboard.home', compact(
+        'completedCourses', 'inProgressCourses', 'notStartedCourses', 'notPurchasedCourses', 'rankPercentage'
+    ));
+}
+
 
 
 

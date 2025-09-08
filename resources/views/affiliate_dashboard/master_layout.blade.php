@@ -297,11 +297,20 @@
 
                     <li class="dropdown topbar-item">
                        
- <a href="{{route('user.profile')}}">
-                            <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt=""
-                                class="thumb-md rounded-circle">
-
+<a href="{{ route('user.profile') }}">
+    @if(Auth::user()->profile_image)
+        <img src="{{ asset('storage/' . Auth::user()->profile_image) }}" 
+             alt="Profile Image" 
+             class="thumb-md"
+             style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%; border: 2px solid #ddd;">
+    @else
+        <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" 
+             alt="Default Avatar" 
+             class="thumb-md"
+             style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%; border: 2px solid #ddd;">
+    @endif
 </a>
+
                             {{-- <img src="{{ asset('assets/images/affiliate/avatar-1.jpg') }}" alt=""
                                 class="thumb-md rounded-circle"> --}}
 
@@ -496,7 +505,9 @@
                                 <span>Rewards & Ranks</span>
 
                             </a>
-                        </li><!--end nav-item-->
+                        </li>
+                        
+                        <!--end nav-item-->
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="apps-invoice.html">
                                 <i class="iconoir-paste-clipboard menu-icon"></i> 
