@@ -566,6 +566,24 @@
           </div>
         </li><!--end nav-item-->
 
+        <!-- Marketing Tools -->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarTools" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-paste-clipboard menu-icon"></i>
+              <span class="ms-2">Marketing Tools</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarTools">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('marketing-tools.add')}}" class="nav-link">Add Tools</a></li>
+              {{-- <li class="nav-item"><a href="{{route('blogs.index')}}" class="nav-link">List Blogs</a></li> --}}
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
         <!-- Affiliate Trainings -->
         <li class="nav-item">
           <a class="nav-link collapsed d-flex justify-content-between align-items-center"

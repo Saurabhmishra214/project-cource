@@ -23,6 +23,7 @@ use App\Http\Controllers\admin\SoftwareController;
 use App\Http\Controllers\admin\UserManageController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\MarketingToolController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -167,7 +168,7 @@ Route::get('/freelancing/create', [FreelancingController::class, 'create'])->nam
 Route::post('/freelancing/store', [FreelancingController::class, 'store'])->name('freelancing.store');     // Save Job
 Route::get('/freelancing/view/{id}', [FreelancingController::class, 'details'])->name('freelancing.view');        // Show single Job
 Route::get('/freelancing/{id}/edit', [FreelancingController::class, 'edit'])->name('freelancing.edit');   // Edit Job form
-Route::post('/freelancing/{id}', [FreelancingController::class, 'update'])->name('freelancing.update');    // Update Job
+Route::put('/freelancing/{id}', [FreelancingController::class, 'update'])->name('freelancing.update');    // Update Job
 Route::delete('/freelancing/{id}', [FreelancingController::class, 'destroy'])->name('freelancing.destroy');// Delete Job
 Route::get('/freelancing/applications', [FreelancingController::class, 'allJobApplications'])->name('freelancing.applications'); // List Job Applications
 
@@ -312,3 +313,8 @@ Route::get('/gamify-challenge/add', [GamifyController::class, 'create'])->name('
 Route::get('/gamify-challenge/{id}/edit', [GamifyController::class, 'edit'])->name('gamifychallenge.edit'); 
 Route::put('/gamify-challenge/{id}/update', [GamifyController::class, 'update'])->name('gamifychallenge.update'); 
 Route::delete('/gamify-challenge/{id}/delete', [GamifyController::class, 'destroy'])->name('gamifychallenge.delete');
+
+
+//Marketing tool routes
+Route::get('/marketing-tools/create', [MarketingToolController::class, 'create'])->name('marketing-tools.add');
+Route::post('/marketing-tools/store', [MarketingToolController::class, 'store'])->name('marketing-tools.store');

@@ -36,6 +36,7 @@
 
     <!-- App css -->
      <link href="{{asset('assets/css/affiliate/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{asset('assets/libs/tobii/css/tobii.min.css')}}" rel="stylesheet" type="text/css" />
      <link href="{{asset('assets/css/cards/webinar.css')}}" rel="stylesheet" type="text/css" />
      {{-- <link href="{{asset('assets/css/cards/video_cards.css')}}" rel="stylesheet" type="text/css" /> --}}
      <link href="{{asset('assets/css/affiliate/icons.min.css')}}" rel="stylesheet" type="text/css" />
@@ -266,6 +267,10 @@
     <script src="{{asset('assets/libs/fullcalendar/index.global.min.js')}}"></script>
     <script src="{{asset('assets/js/affiliate/pages/calendar.init.js')}}"></script> --}}
     <script src="{{asset('assets/js/affiliate/app.js')}}"></script>
+    <script src="assets/js/affiliate/app.js"></script>
+    <script>
+        const tobii = new Tobii()
+    </script>
 
 </body>
 
