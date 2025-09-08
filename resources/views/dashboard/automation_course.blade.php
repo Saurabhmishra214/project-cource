@@ -164,8 +164,7 @@ body.modal-open {
               <p class="text-gray-300 text-sm mt-2 line-clamp-2">{{ $course->description }}</p>
 
               <div class="mt-3 flex justify-center">
-                  <a href="{{ $course->link }}" target="_blank" class="glow-gold">JOIN NOW →</a>
-              </div>
+<a href="{{ route('course.lesson', ['courseId' => $course->id]) }}" target="_blank" class="glow-gold">JOIN NOW →</a>                 </div>
           </div>
       </div>
       @endforeach

@@ -47,7 +47,7 @@
                                                 name="software_name" 
                                                 value="{{ old('software_name') }}" 
                                                 required>
-                                            @error('title')
+                                            @error('software_name')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -61,7 +61,7 @@
                                                 name="software_image_url" 
                                                 value="{{ old('software_image_url') }}" 
                                                 required>
-                                            @error('description')
+                                            @error('software_image_url')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -73,9 +73,9 @@
                                             <input type="text" 
                                                 class="form-control @error('Google drive link') is-invalid @enderror" 
                                                 name="google_drive_link" 
-                                                value="{{ old('google_drive_link') }}" 
+                                                value="{{ old('software_image_url') }}" 
                                                 required>
-                                            @error('company_name')
+                                            @error('software_image_url')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -89,7 +89,7 @@
                                                 name="sales_page_url" 
                                                 value="{{ old('sales_page_url') }}" 
                                                 required>
-                                            @error('location')
+                                            @error('sales_page_url')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -103,7 +103,7 @@
                                                 name="description" 
                                                 value="{{ old('description') }}" 
                                                 required>Type Here..</textarea>
-                                            @error('location')
+                                            @error('description')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -117,7 +117,7 @@
                                                 name="price" 
                                                 value="{{ old('price') }}" 
                                                 required>
-                                            @error('location')
+                                            @error('price')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -131,7 +131,7 @@
                                                 name="title" 
                                                 value="{{ old('title') }}" 
                                                 required>
-                                            @error('location')
+                                            @error('title')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>

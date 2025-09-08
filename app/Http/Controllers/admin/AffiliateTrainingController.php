@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AffiliateTraining;
+use App\Models\AffiliateTrainingSession;
+
 
 class AffiliateTrainingController extends Controller
 {
@@ -20,11 +22,12 @@ class AffiliateTrainingController extends Controller
         return view('admin_dashboard.affiliatetrainings.add');
     }
 
-    public function details($id)
-    {
-        $training = AffiliateTraining::findOrFail($id);
-        return view('admin_dashboard.affiliatetrainings.show', compact('training'));
-    }
+  public function details($id)
+{
+    $training = AffiliateTraining::with('sessions')->findOrFail($id);
+    return view('admin_dashboard.affiliatetrainings.show', compact('training'));
+}
+
 
     // Store new training
     public function store(Request $request)
@@ -39,7 +42,7 @@ class AffiliateTrainingController extends Controller
 
         AffiliateTraining::create($request->all());
 
-        return redirect()->route('admin.affiliatetrainings.list')
+        return redirect()->route('affiliatetrainings.list')
                          ->with('success', 'Training added successfully!');
     }
 
@@ -77,4 +80,27 @@ class AffiliateTrainingController extends Controller
         return redirect()->route('admin.affiliatetrainings.list')
                          ->with('success', 'Training deleted successfully!');
     }
+
+
+public function sessionscreate(AffiliateTraining $training)
+{
+    return view('admin_dashboard.affiliatetrainings.sessionsshow', compact('training'));
+}
+
+// Store session
+public function sessionsstore(Request $request, AffiliateTraining $training)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+    ]);
+
+    $training->sessions()->create([
+        'title' => $request->title,
+        'session_video_url' => $request->session_video_url,
+    ]);
+
+    return redirect()->route('affiliatetrainings.list')
+                     ->with('success', 'Session added successfully!');
+}
+
 }

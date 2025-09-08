@@ -23,6 +23,7 @@ use App\Http\Controllers\admin\SoftwareController;
 use App\Http\Controllers\admin\UserManageController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\MarketingToolController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -57,7 +58,13 @@ Route::get('/hustler', [FrontController::class, 'hustlers_course'])->name('cours
 
 
 
+Route::middleware(['role:user'])->group(function () {
+
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
+ 
+});
+
+
 Route::get('/automation-course', [UserController::class, 'automation_course'])->name('user.dashboard.automation');
 Route::get('/hustlers', [UserController::class, 'huslers_campus'])->name('user.dashboard.huslers.traings');
 Route::get('/freelance-content', [UserController::class, 'freelance_content'])->name('user.dashboard.freelance.content');
@@ -65,6 +72,8 @@ Route::get('/applyjob-form/{job}', [UserController::class, 'applyjob'])->name('a
 Route::post('/job-application', [UserController::class, 'store'])->name('job.application.store');
 
 Route::get('/asset-sections', [UserController::class, 'asset_sections'])->name('user.dashboard.huslers.assets');
+
+Route::get('course-lesson/{courseId}', [UserController::class, 'courselesson'])->name('course.lesson');
 
 
 // Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
@@ -113,8 +122,21 @@ Route::post('/courses/update/{id}', [AutomationCoursesController::class, 'course
 Route::delete('/courses/delete/{id}', [AutomationCoursesController::class, 'coursedelete'])->name('courses.delete');
 
 
+
+
 Route::get('/courses/list', [AutomationCoursesController::class, 'courseslist'])->name('courses.list');
 
+
+
+Route::middleware(['auth','role:admin'])->group(function() {
+    Route::get('courses/{course}/lessons', [AutomationCoursesController::class, 'lessonsList'])->name('lessons.list');
+    Route::get('courses/{course}/lessons/add', [AutomationCoursesController::class, 'lessonsAdd'])->name('lessons.add');
+    Route::post('courses/{course}/lessons/store', [AutomationCoursesController::class, 'lessonsStore'])->name('lessons.store');
+
+    Route::get('lessons/{id}/edit', [AutomationCoursesController::class, 'lessonsEdit'])->name('lessons.edit');
+    Route::post('lessons/{id}/update', [AutomationCoursesController::class, 'lessonsUpdate'])->name('lessons.update');
+    Route::delete('lessons/{id}/delete', [AutomationCoursesController::class, 'lessonsDelete'])->name('lessons.delete');
+});
 
 
 
@@ -146,7 +168,7 @@ Route::get('/freelancing/create', [FreelancingController::class, 'create'])->nam
 Route::post('/freelancing/store', [FreelancingController::class, 'store'])->name('freelancing.store');     // Save Job
 Route::get('/freelancing/view/{id}', [FreelancingController::class, 'details'])->name('freelancing.view');        // Show single Job
 Route::get('/freelancing/{id}/edit', [FreelancingController::class, 'edit'])->name('freelancing.edit');   // Edit Job form
-Route::post('/freelancing/{id}', [FreelancingController::class, 'update'])->name('freelancing.update');    // Update Job
+Route::put('/freelancing/{id}', [FreelancingController::class, 'update'])->name('freelancing.update');    // Update Job
 Route::delete('/freelancing/{id}', [FreelancingController::class, 'destroy'])->name('freelancing.destroy');// Delete Job
 Route::get('/freelancing/applications', [FreelancingController::class, 'allJobApplications'])->name('freelancing.applications'); // List Job Applications
 
@@ -178,12 +200,11 @@ Route::delete('blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.des
 
 // admin routes
 
-Route::middleware(['auth', 'admin'])->group(function () {
-    
+
+ Route::middleware(['role:admin'])->group(function () {
+    Route::get('admin-dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
     Route::get('admin_profile', [AdminController::class, 'admin_profile'])->name('admin_profile');
 });
-Route::get('admin-dashboard', [AdminController::class, 'admin_dashboard'])->name('admin.dashboard');
-
 
     Route::post('admin/logout', [AdminController::class, 'admin_logout'])->name('admin.logout');
 
@@ -198,6 +219,13 @@ Route::post('admin/affiliatetrainings/store', [AffiliateTrainingController::clas
 Route::get('admin/affiliatetrainings/{id}/edit', [AffiliateTrainingController::class, 'edit'])->name('affiliatetrainings.edit');
 Route::post('admin/affiliatetrainings/{id}/update', [AffiliateTrainingController::class, 'update'])->name('affiliatetrainings.update');
 Route::delete('admin/affiliatetrainings/{id}/delete', [AffiliateTrainingController::class, 'destroy'])->name('affiliatetrainings.delete');
+
+// Show session create form for specific training
+Route::get('trainings/{training}/sessions/create', [AffiliateTrainingController::class, 'sessionscreate'])->name('admin.sessions.create');
+
+// Store session for specific training
+Route::post('trainings/{training}/sessions', [AffiliateTrainingController::class, 'sessionsstore'])->name('sessions.store');
+
 
 // Route::get('/softwares', [DigitalSoftwareController::class, 'index'])->name('softwares.index');
 
@@ -285,3 +313,12 @@ Route::get('/gamify-challenge/add', [GamifyController::class, 'create'])->name('
 Route::get('/gamify-challenge/{id}/edit', [GamifyController::class, 'edit'])->name('gamifychallenge.edit'); 
 Route::put('/gamify-challenge/{id}/update', [GamifyController::class, 'update'])->name('gamifychallenge.update'); 
 Route::delete('/gamify-challenge/{id}/delete', [GamifyController::class, 'destroy'])->name('gamifychallenge.delete');
+
+
+//Marketing tool routes
+Route::get('/marketing-tools/index', [MarketingToolController::class, 'index'])->name('marketing-tools.index');
+Route::get('/marketing-tools/create', [MarketingToolController::class, 'create'])->name('marketing-tools.add');
+Route::post('/marketing-tools/store', [MarketingToolController::class, 'store'])->name('marketing-tools.store');
+Route::get('/marketing-tools/{id}/edit', [MarketingToolController::class, 'edit'])->name('marketing-tools.edit');
+Route::put('/marketing-tools/{id}/update', [MarketingToolController::class, 'update'])->name('marketing-tools.update');
+Route::delete('/marketing-tools/{id}/delete', [MarketingToolController::class, 'destroy'])->name('marketing-tools.destroy');

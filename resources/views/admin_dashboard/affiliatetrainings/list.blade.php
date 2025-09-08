@@ -63,6 +63,15 @@
                                                     <a href="{{ route('affiliatetrainings.edit', $training->id) }}" class="btn btn-sm btn-outline-secondary me-1">
                                                         <i class="fa-solid fa-pen-to-square fs-6"></i>
                                                     </a>
+
+
+                                                    <a href="{{ route('admin.sessions.create', $training->id) }}" 
+   class="btn btn-sm btn-outline-primary me-1">
+    <i class="fa-solid fa-book-open fs-6"></i>
+</a>
+
+
+
                                                     <form action="{{ route('affiliatetrainings.delete', $training->id) }}" method="POST" style="display:inline;">
                                                         @csrf
                                                         @method('DELETE')

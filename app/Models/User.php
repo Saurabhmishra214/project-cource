@@ -32,6 +32,7 @@ class User extends Authenticatable
         'is_verified',
         'coins',
         'posted_by',
+     'role'
     ];
 
     /**

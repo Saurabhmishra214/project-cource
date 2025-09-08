@@ -117,6 +117,12 @@
         <i class="fa-solid fa-pen-to-square fs-6"></i>
     </a>
 
+
+    
+        <a href="{{ route('lessons.add', $course->id) }}" class="btn btn-sm btn-outline-success me-1">
+        <i class="fa-solid fa-book-open fs-6"></i>
+    </a>
+
     {{-- Delete Button --}}
     <form action="{{ route('courses.delete', $course->id) }}" method="POST" style="display:inline;">
         @csrf

@@ -26,4 +26,11 @@ class AutomationCourse extends Model
     {
         return $this->hasOne(Snippet::class, 'course_id');
     }
+
+
+    public function lessons()
+{
+    return $this->hasMany(CourseLesson::class, 'course_id');
+}
+
 }

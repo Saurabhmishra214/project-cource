@@ -11,6 +11,7 @@ use App\Models\JobApplication;
 use App\Models\Offer;
 use App\Mail\JobApplyMail;
 use Illuminate\Support\Facades\Mail;
+use App\Models\CourseLesson;
 
 use Illuminate\Support\Facades\Validator;
 
@@ -175,6 +176,16 @@ public function uploadProfile(Request $request)
     }
 
  
+
+    public function courselesson($courseId)
+{
+    $lessons = CourseLesson::where('course_id', $courseId)
+                ->orderBy('lesson_order', 'asc')
+                ->get();
+
+    return view('dashboard.course.lesson', compact('lessons'));
+}
+
 
 
 }

@@ -15,17 +15,19 @@ class AffiliateController extends Controller
         return view('affiliate_dashboard.home');
     }
 
-   public function affiliate_training()
-    {
-        $trainings = AffiliateTraining::with('sessions')
-                                      ->orderBy('day_number', 'asc')
-                                      ->get()
-                                      ->groupBy('category');
+// ...
+public function affiliate_training()
+{
+    $trainings = AffiliateTraining::with('sessions')
+                                ->orderBy('day_number', 'asc')
+                                ->get()
+                                ->groupBy('category');
 
-        return view('affiliate_dashboard.training', [
-            'trainings' => $trainings,
-        ]);
-    }
+    return view('affiliate_dashboard.training', [
+        'trainings' => $trainings,
+    ]);
+}
+// ...
 
 
     // public function getTrainingDay($day)

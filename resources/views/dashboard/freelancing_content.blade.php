@@ -1,6 +1,85 @@
 @extends('dashboard.master_layout')
 
 @section('content')
+<style>
+    body.modal-open {
+    overflow: hidden;
+  }
+  body.modal-open #section-why-attend {
+    filter: blur(6px);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Modal container */
+  .video-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    padding: 20px;
+    object-fit: cover;
+  }
+  .video-modal.active {
+    display: flex;
+  }
+
+  /* Modal content */
+  .video-modal-content {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 800px;
+    animation: modalFadeIn 0.3s ease-out;
+  }
+
+  /* Video iframe */
+  .video-modal-content video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+  }
+
+  /* Close button */
+  .close-modal {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .close-modal:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  .close-modal svg {
+    width: 20px;
+    height: 20px;
+    stroke: #fff;
+    pointer-events: none;
+  }
+
+
+  @keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
     
     <main class="overflow-x-scroll scrollbar-hide flex flex-col justify-between pt-[42px] px-[23px] pb-[28px]">
         <div>
@@ -89,6 +168,13 @@
 
           <!-- Footer -->
           <div class="flex items-center justify-between">
+            <div class="card-play-button-small openVideoModal" data-video="{{ asset('storage/' . $job->summary_video) }}">
+              <button style="background-color: white;color:black;"
+                    class="px-4 py-2 text-xs font-semibold bg-color-brands rounded-lg hover:bg-opacity-90"
+                    >
+                    Learn
+                </button>
+              </div>
             <div>
               <p class="text-xs text-gray-500 dark:text-gray-dark-500">Duration</p>
               <p class="text-sm font-semibold text-gray-900 dark:text-gray-dark-900">{{ $job->duration }}</p>
@@ -98,10 +184,10 @@
               <p class="text-sm font-semibold text-gray-900 dark:text-gray-dark-900">{{ $job->pay }}</p>
             </div>
             <button style="background-color: white;color:black;"
-    class="px-4 py-2 text-xs font-semibold bg-color-brands rounded-lg hover:bg-opacity-90"
-    onclick="window.location='{{ route('applyjob.form', ['job' => $job->id]) }}'">
-    Apply
-</button>
+                class="px-4 py-2 text-xs font-semibold bg-color-brands rounded-lg hover:bg-opacity-90"
+                onclick="window.location='{{ route('applyjob.form', ['job' => $job->id]) }}'">
+                Apply
+            </button>
 
           </div>
         </a>
@@ -157,10 +243,83 @@
         @endif
     </div>
 </div>
+<!-- Video Modal -->
+        <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="close-modal" id="closeVideoModal">
+            <!-- SVG Close Icon -->
+            {{-- <svg xmlns="" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg> --}}
+            </button>
+            <video id="videoFrame" controls autoplay muted playsinline style="width:100%;height:100%;">
+            <source src="" type="video/mp4">
+            Something went wrong. Your browser does not support embedded videos.
+            </video>
+        </div>
+        </div>
+
+        <script>
+        const modal = document.getElementById('videoModal');
+        const closeBtn = document.getElementById('closeVideoModal');
+        const videoFrame = document.getElementById('videoFrame');
+        let videoTimeout;
+
+        // Calculate and show full video length on card
+        document.querySelectorAll('.openVideoModal').forEach(card => {
+            const videoURL = card.dataset.video;
+            const lengthDiv = card.querySelector('.video-card-length');
+
+            const tempVideo = document.createElement('video');
+            tempVideo.src = videoURL;
+
+            tempVideo.addEventListener('loadedmetadata', () => {
+                const minutes = Math.floor(tempVideo.duration / 60);
+                const seconds = Math.floor(tempVideo.duration % 60);
+                lengthDiv.textContent = `${minutes}:${seconds.toString().padStart(2,'0')}`;
+            });
+            
+            card.addEventListener('click', () => {
+                videoFrame.querySelector('source').src = videoURL;
+                videoFrame.load();
+                videoFrame.play();
+
+                modal.classList.add('active');
+                document.body.classList.add('modal-open');
+
+                // Stop after 10 seconds
+                // clearTimeout(videoTimeout);
+                // videoTimeout = setTimeout(() => {
+                //     videoFrame.pause();
+                // }, 10000); // 10 seconds
+            });
+        });
+
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+            videoFrame.pause();
+            videoFrame.removeAttribute('src');
+            videoFrame.load();
+            // clearTimeout(videoTimeout);
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside content
+        modal.addEventListener('click', e => {
+            if (e.target === modal) closeModal();
+        });
+
+
+        </script>
+
 
 
 {{-- Static modals and other content (unchanged) --}}
 @endsection
+
 <!-- Head section me (CSS ke sath) -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -178,6 +337,8 @@
     });
 </script>
 @endif
+
+
 
 @if(session('error'))
 <script>

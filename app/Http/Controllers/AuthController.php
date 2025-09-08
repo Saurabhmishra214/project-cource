@@ -131,7 +131,7 @@ public function registerUser(Request $request)
             'email'         => $request->email,
             'password'      => Hash::make($request->password),
             'mobile_number' => $request->mobile_number,
-            'role_id'       => 2,
+            // 'role_id'       => 2,
             'status'        => 'active',
             'referral_code' => (string) Str::uuid(),
             'referred_by'   => $referrer ? $referrer->id : null,

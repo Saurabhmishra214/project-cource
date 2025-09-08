@@ -3,88 +3,89 @@
 @section('content')
 <div class="page-wrapper">
     <div class="page-content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
-                                <h4 class="page-title">{{ $training->title }}</h4>
-                                <div class="">
-                                    <ol class="breadcrumb mb-0">
-                                        <li class="breadcrumb-item"><a href="#">Mifty</a>
-                                        </li><!--end nav-item-->
-                                        <li class="breadcrumb-item"><a href="#">Pages</a>
-                                        </li><!--end nav-item-->
-                                        {{-- <li class="breadcrumb-item active">Profile</li> --}}
-                                    </ol>
-                                </div>                                
-                            </div><!--end page-title-box-->
-                        </div><!--end col-->
-                    </div><!--end row-->
-                    <div class="row">
-                        
-                                
-                                
-                            
-                                                             
-                            </div><!--end row-->
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="post" role="tabpanel"> 
-                                    <div class="row">
-                                         
-                                        <div class="col-12">                                            
-                                            <div class="card">
-                                                <div class="card-body">                                                                                          
-                                                    {{-- <img src="assets/images/extra/card/post-1.jpg" alt="" class="img-fluid"> --}}
-                                                    <div class="card">
-                                                        {{-- <div class="card-header">
-                                                            <div class="row align-items-center">
-                                                                <div class="col">                      
-                                                                    <h4 class="card-title">Ratio Video 16:9</h4>                      
-                                                                </div><!--end col-->
-                                                            </div>  <!--end row-->                                  
-                                                        </div><!--end card-header--> --}}
-                                                        <div class="card-body pt-0">
-                                                            <!-- 16:9 aspect ratio -->
-                                                            <div class="ratio ratio-16x9">
-                                                                <video src="{{ $training->session_video_url }}"></video>
-                                                            </div>  
-                                                        </div><!--end card-body--> 
-                                                    </div><!--end card--> 
-                                                    <div class="post-title mt-3">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <span class="badge bg-primary-subtle text-primary">{{ $training->category }}</span>
-                                                            </div><!--end col-->
-                                                            <div class="col-auto">
-                                                                <span class="text-muted"><i class="far fa-calendar me-1"></i>{{ $training->created_at }}</span>
-                                                            </div><!--end col-->
-                                                        </div><!--end row-->
-                                                       
-                                                        <h5 href="#" class="fs-20 fw-bold d-block my-3">{{ $webinar->title }}</h5>
-                                                        <span class="fs-15 bg-light py-2 px-3 rounded">{{ $webinar->description}}</span>
-                                                        <p class="fs-15 mt-3"> 
+        <div class="container-fluid"> 
 
-                                                        </p>
-                                                        {{-- <blockquote class="blockquote border-start ps-4">
-                                                            <p class="fs-18"><i>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."</i></p>
-                                                            <footer class="blockquote-footer mt-1">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                                                        </blockquote> --}}
-                                                    </div>
-                                                </div>
-                                                <div class="card-body pt-0">
-                                                    <div class="row mb-3">
-                                                        <div class="col">
-                                                            <p class="text-dark fw-semibold mb-0">Skills</p>
-                                                        </div>
-                                                    </div>
-                                                    <span class="badge bg-light text-dark px-3 py-2 fw-semibold">Music</span>
-                                                </div>
-                                            </div>    
-                                        </div><!--end col-->                                                
-                                    </div><!--end row-->
-                                </div>
+            <!-- Page Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-title-box d-md-flex justify-content-md-between align-items-center">
+                        <h4 class="page-title">Course Detail</h4>                          
+                    </div>
+                </div>
             </div>
-</div>
 
+            <div class="row">
+                <!-- Sessions Left -->
+                <div class="col-lg-8">                            
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0">Sessions</h4>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Title</th>
+                                            <th class="text-end">Video</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse($training->sessions as $session)
+                                            <tr>
+                                                <td class="fw-semibold">{{ $session->title }}</td>
+                                                <td class="text-end">
+                                                    @if($session->session_video_url)
+                                                        <a href="{{ $session->session_video_url }}" target="_blank" class="btn btn-sm btn-primary">
+                                                            <i class="fas fa-play"></i> Play
+                                                        </a>
+                                                    @else
+                                                        <span class="text-muted">N/A</span>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="2" class="text-center text-muted">No sessions available.</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!--card-body-->
+                    </div><!--end card-->
+                </div> <!-- end col -->
+
+                <!-- Training Right -->
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0">Training Info</h4>
+                        </div>
+                        <div class="card-body pt-0">
+                            <!-- Main Video -->
+                            @if($training->main_video_url)
+                                <div class="ratio ratio-16x9 mb-3">
+                                    <iframe width="100%" height="200" src="{{ $training->main_video_url }}" title="Training Video" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            @endif
+
+                            <h5 class="fw-bold">{{ $training->title }}</h5>
+                            <p class="text-muted">{{ $training->description }}</p>
+
+                            <p>
+                                <span class="badge bg-primary-subtle text-primary">{{ $training->category }}</span>
+                            </p>
+
+                            <p class="text-muted mb-0">
+                                <i class="far fa-calendar me-1"></i> 
+                                {{ $training->created_at->format('d M, Y') }}
+                            </p>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row -->                                       
+        </div><!-- container -->
+    </div>
+</div>
 @endsection
