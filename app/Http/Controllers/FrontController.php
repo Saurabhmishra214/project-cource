@@ -29,6 +29,11 @@ class FrontController extends Controller
         return view('frontend.pages.blog', compact('blogs'));
     }
 
+    public function pricing()
+    {
+        return view('frontend.pricing');
+    }
+
     public function blogDetails()
     {
         return view('frontend.pages.blog_details');

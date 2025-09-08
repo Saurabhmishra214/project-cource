@@ -51,6 +51,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/home', [FrontController::class, 'index'])->name('home');
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
+Route::get('/pricing', [FrontController::class, 'pricing'])->name('pricing');
 Route::get('/blog-details', [FrontController::class, 'blogDetails'])->name('blog.details');
 Route::get('/automation', [FrontController::class, 'automation_course'])->name('courses.automation');
 Route::get('/hustler', [FrontController::class, 'hustlers_course'])->name('courses.hustlers');

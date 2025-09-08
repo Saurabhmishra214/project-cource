@@ -42,6 +42,7 @@
      <link href="{{asset('assets/css/affiliate/icons.min.css')}}" rel="stylesheet" type="text/css" />
      {{-- <link href="{{asset('assets/css/wealth_card.css')}}" rel="stylesheet" type="text/css" /> --}}
      <link href="{{asset('assets/css/affiliate/app.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{asset('assets/css/affiliate/style.css')}}" rel="stylesheet" type="text/css" />
 
     <style>
         .myVideoSwiper {
@@ -130,6 +131,7 @@
                                         <li><a class="menu-item active" href="{{route('home')}}">Home</a></li>
                                         {{-- <li><a class="menu-item" href="#section-about">About</a></li>  --}}
                                         <li><a class="menu-item" href="{{route('blog')}}">Blogs</a></li>
+                                        <li><a class="menu-item" href="{{route('pricing')}}">Pricing</a></li>
                                         {{-- <li><a class="menu-item" href="#section-why-attend">Why Attend</a></li>
                                         <li><a class="menu-item" href="#section-speakers">Speakers</a></li>
                                         <li><a class="menu-item" href="#section-schedule">Schedule</a></li>
@@ -267,7 +269,7 @@
     <script src="{{asset('assets/libs/fullcalendar/index.global.min.js')}}"></script>
     <script src="{{asset('assets/js/affiliate/pages/calendar.init.js')}}"></script> --}}
     <script src="{{asset('assets/js/affiliate/app.js')}}"></script>
-    <script src="assets/js/affiliate/app.js"></script>
+    {{-- <script src="assets/js/affiliate/app.js"></script> --}}
     <script>
         const tobii = new Tobii()
     </script>
