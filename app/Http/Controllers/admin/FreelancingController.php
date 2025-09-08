@@ -24,37 +24,48 @@ class FreelancingController extends Controller
     }
 
     // Save Job
-public function store(Request $request)
-{
-    // Manual validation
-    $validator = Validator::make($request->all(), [
-        'title' => 'required|string|max:255',
-        'description' => 'required|string',
-        'company_name' => 'required|string|max:255',
-        'location' => 'required|string|max:255',
-        'pay' => 'required|string|max:255',
-        'duration' => 'required|string|max:255',
-        // अगर skills भी भेजी जा रही हैं
-        // 'skills' => 'nullable|array',
-        // 'skills.*' => 'exists:skills,id',
-    ]);
+    public function store(Request $request)
+    {
+        // Manual validation
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'company_name' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'pay' => 'required|string|max:255',
+            'duration' => 'required|string|max:255',
+            'summary_video' => 'nullable|file|mimes:mp4,avi,mpeg,mov,qt,webm,wmv|max:102400',
 
-    if ($validator->fails()) {
-        return redirect()->back()
-                         ->withErrors($validator)
-                         ->withInput();
+            // max:51200 = 50MB (adjust as needed)
+            // अगर skills भी भेजी जा रही हैं
+            // 'skills' => 'nullable|array',
+            // 'skills.*' => 'exists:skills,id',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                            ->withErrors($validator)
+                            ->withInput();
+        }
+
+        $data = $request->all();
+
+        // Handle video upload
+        if ($request->hasFile('summary_video')) {
+            $data['summary_video'] = $request->file('summary_video')->store('jobs/videos', 'public');
+        }
+
+        // Job create
+        $job = Job::create($data);
+
+        // अगर skills भी भेजी हैं तो attach करो
+        if ($request->has('skills')) {
+            $job->skills()->sync($request->skills); // skills is an array of skill IDs
+        }
+
+        return redirect()->route('freelancing.index')->with('success', 'Job added successfully!');
     }
 
-    // Job create
-    $job = Job::create($request->all());
-
-    // अगर skills भी भेजी हैं तो attach करो
-    if ($request->has('skills')) {
-        $job->skills()->sync($request->skills); // skills is an array of skill IDs
-    }
-
-    return redirect()->route('freelancing.index')->with('success', 'Job added successfully!');
-}
 
 
     // Show single Job
@@ -81,13 +92,23 @@ public function store(Request $request)
             'location' => 'nullable|string|max:255',
             'pay' => 'nullable|numeric',
             'duration' => 'nullable|string|max:255',
+            'summary_video' => 'nullable|file|mimes:mp4,avi,mpeg,mov,qt,webm,wmv|max:102400',
+
         ]);
 
         $job = Job::findOrFail($id);
-        $job->update($request->all());
+        $data = $request->all();
+
+        // Handle video upload
+        if ($request->hasFile('summary_video')) {
+            $data['summary_video'] = $request->file('summary_video')->store('jobs/videos', 'public');
+        }
+
+        $job->update($data);
 
         return redirect()->route('freelancing.index')->with('success', 'Job updated successfully!');
     }
+
 
     // Delete Job
     public function destroy($id)

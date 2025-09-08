@@ -19,6 +19,7 @@ class Job extends Model
         'location',
         'pay',
         'duration',
+        'summary_video',
     ];
 
  

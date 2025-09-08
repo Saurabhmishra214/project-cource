@@ -131,6 +131,10 @@ public function registerUser(Request $request)
             'email'         => $request->email,
             'password'      => Hash::make($request->password),
             'mobile_number' => $request->mobile_number,
+<<<<<<< HEAD
+=======
+            // 'role_id'       => 2,
+>>>>>>> origin/gourav
             'status'        => 'active',
             'referral_code' => (string) Str::uuid(),
             'referred_by'   => $referrer ? $referrer->id : null,

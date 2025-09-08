@@ -33,9 +33,10 @@
 <form class="row g-3 needs-validation" 
       method="POST" 
       action="{{ route('freelancing.update', $job->id) }}" 
-      novalidate>
+      novalidate
+      enctype="multipart/form-data">
     @csrf
-    @method('PATCH')
+    @method('PUT')
 
     <div class="col-md-6">
         <label class="form-label">Job Title</label>
@@ -115,6 +116,19 @@
                value="{{ old('duration', $job->duration) }}" 
                required>
         @error('duration')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Summary Video</label>
+        <input type="file" 
+               class="form-control @error('summary_video') is-invalid @enderror" 
+               name="summary_video" 
+               value="{{ old('summary_video') }}">
+        @error('summary_video')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
