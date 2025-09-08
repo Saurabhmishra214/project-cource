@@ -579,7 +579,7 @@
           <div class="collapse" id="sidebarTools">
             <ul class="nav flex-column">
               <li class="nav-item"><a href="{{route('marketing-tools.add')}}" class="nav-link">Add Tools</a></li>
-              {{-- <li class="nav-item"><a href="{{route('blogs.index')}}" class="nav-link">List Blogs</a></li> --}}
+              <li class="nav-item"><a href="{{route('marketing-tools.index')}}" class="nav-link">List Tools</a></li>
             </ul>
           </div>
         </li><!--end nav-item-->

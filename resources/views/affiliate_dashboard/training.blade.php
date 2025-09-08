@@ -27,9 +27,9 @@
                             Hello, <span class="text-primary">{{ Auth::user()->name }}</span>
                         </h4>
                         <div class="d-flex align-items-center gap-2">
-                            <button class="btn btn-soft-primary" data-category="10 Days Training">10 Days Training</button>
+                            {{-- <button class="btn btn-soft-primary" data-category="10 Days Training">10 Days Training</button>
                             <button class="btn btn-outline-light" data-category="All Time Trainings">All Time Trainings</button>
-                            <button class="btn btn-outline-light" data-category="Live Webinar">Webinars</button>
+                            <button class="btn btn-outline-light" data-category="Live Webinar">Webinars</button> --}}
                             <select class="form-select form-select-sm ms-2">
                                 <option>Select Language</option>
                                 <option>English</option>
