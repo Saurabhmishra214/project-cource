@@ -137,7 +137,8 @@
             </div>
         </section>
 
-        <section id="section-tickets" class="bg-dark section-dark text-light pt-80 relative" aria-label="section">
+        <section id="section-tickets" class="bg-dark section-dark text-light pt-80 relative jarallax " aria-label="section">
+            <div class="sw-overlay op-8"></div>
             <div class="container relative z-2">
                 <div class="row gy-4 gx-5 justify-content-center">
                     <div class="col-lg-10">
