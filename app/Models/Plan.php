@@ -14,7 +14,7 @@ class Plan extends Model
         'amount',
         'mode',
         'description',
-        'features',   // old feature field (अगर रखना है)
+        // 'features',   // old feature field (अगर रखना है)
         'is_active',
     ];
 

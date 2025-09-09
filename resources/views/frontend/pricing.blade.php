@@ -24,7 +24,7 @@
 
 </style>
 
-    <div class="page-wrapper">
+    {{-- <div class="page-wrapper">
 
             <!-- Page Content-->
             <div class="page-content">
@@ -111,7 +111,81 @@
                 <!--end Rightbar-->
             </div>
             <!-- end page content -->
-        </div>
+        </div> --}}
         <!-- end page-wrapper -->
+
+        <section id="section-hero" class="section-dark no-top no-bottom text-light jarallax relative mh-500 jarallax">
+            <img src="{{asset('assets/images/frontend/background/7.webp')}}" class="jarallax-img" alt="">
+            <div class="gradient-edge-bottom h-50"></div>
+            <div class="sw-overlay op-5"></div>
+            <div class="abs w-80 bottom-10 z-2 w-100">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between gx-5">
+                        <div class="col-lg-6">
+                            <div class="relative wow mask-right">
+                                <div class="text-start">
+                                    <h1 class="fs-96 text-uppercase fs-sm-10vw mb-0 lh-1">Packages</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 wow fadeInRight" data-wow-delay=".3s">
+                            <p class="mb-0">Join thought leaders, developers, researchers, and founders as we explore how artificial intelligence is reshaping industries, creativity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-tickets" class="bg-dark section-dark text-light pt-80 relative" aria-label="section">
+            <div class="container relative z-2">
+                <div class="row gy-4 gx-5 justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="row g-4">
+                            <!-- ticket item begin -->
+                            @foreach($plans as $plan)
+                            <div class="col-md-6">
+                                <div class="relative overflow-hidden h-100 border-white-op-3 rounded-1 bg-blur">
+                                    <div class="gradient-edge-bottom color op-5"></div>
+                                    <div class="p-40 pb-80 z-2">
+                                        <div class="text-center">
+                                            <h2 class="fs-40 mb-0">{{$plan->plantname}}</h2>
+                                            <h3 class="id-color mb-4">&#8377; {{$plan->amount}}</h3>
+                                            <h4>Benefits:</h4>
+                                        </div>
+
+                                        <div class="border-white-bottom-op-2 mb-4"></div>
+
+                                        <ul class="ul-check mb-4">
+                                            @if($plan->features && $plan->features->count())
+                                                @foreach($plan->features as $feature)
+                                                    <li>{{ $feature->feature }}</li>
+                                                @endforeach
+                                            @else
+                                                <li>No features available</li>
+                                            @endif
+                                        </ul>
+                                        <div class="text-center">
+                                        <h4>Description:</h4>
+                                        </div>
+                                        <div class="border-white-bottom-op-2 mb-4"></div>
+                                        <p class="text-align-justify">{{$plan->description}}</p>
+                                    </div>
+                                    <div class="abs abs-center p-40 pb-30 bottom-0 z-2 w-100 text-center">
+                                        <div class="de-number">
+                                            <a href="" class="btn btn-warning">Buy Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            @endforeach
+                            <!-- ticket item end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 @endsection
