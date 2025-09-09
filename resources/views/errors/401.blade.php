@@ -5,7 +5,7 @@
         
 
         <meta charset="utf-8" />
-                <title>404</title>
+                <title>401</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
                 <meta content="" name="description" />
                 <meta content="" name="author" />
@@ -37,15 +37,15 @@
                                         <a href="" class="logo logo-admin">
                                             <img src="{{ asset('assets/images/affiliate/logo-sm.png') }}" height="50" alt="logo" class="auth-logo">
                                         </a>
-                                        <h4 class="mt-3 mb-1 fw-semibold text-white fs-18">Oops! Sorry page not found</h4>   
+                                        <h4 class="mt-3 mb-1 fw-semibold text-white fs-18">Sorry! You're not authorized</h4>   
                                         {{-- <p class="text-muted fw-medium mb-0">Back to dashboard of Mifty</p>   --}}
                                     </div>
                                 </div>
                                 <div class="card-body pt-0">                                    
                                     <div class="ex-page-content text-center">
                                         <img src="{{ asset('assets/images/affiliate/extra/error.svg') }}" alt="0" class="" height="170">
-                                        <h1 class="my-2">404!</h1>  
-                                        <h5 class="fs-16 text-muted mb-3">Somthing went wrong</h5>                                    
+                                        <h1 class="my-2">401!</h1>  
+                                        <h5 class="fs-16 text-muted mb-3">Unauthorized</h5>                                    
                                     </div>   
                                     {{-- <a class="btn btn-primary w-100" href="index.html">Back to Dashboard <i class="fas fa-redo ms-1"></i></a>  --}}
                                 </div><!--end card-body-->

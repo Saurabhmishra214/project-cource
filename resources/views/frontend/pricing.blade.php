@@ -37,6 +37,7 @@
                         </div><!--end col-->
                     </div><!--end row-->                   
                     <div class="row justify-content-center">
+                        @foreach($plans as $plan)
                         <div class="col-md-6 col-lg-3">
                             <div class="card">
                                 <div class="card-body bg-soft-blue text-center rounded-top">
@@ -45,103 +46,25 @@
                                 <div class="card-body mt-n52">
                                     <div class="text-center">
                                         <div class="py-2 px-3 shadow-sm d-inline-block rounded-pill card-bg">
-                                            <h1 class="d-inline-block fw-bold mb-0">$39.00</h1>
-                                            <small class="font-12 text-muted">/month</small>
+                                            <h1 class="d-inline-block fw-bold mb-0">&#8377; {{ number_format($plan->amount, 2) }} </h1>
+                                            <small class="font-12 text-muted">{{ $plan->mode }}</small>
                                         </div>   
-                                        <h6 class="pt-3 pb-2 m-0 fs-18 fw-medium">Basic plan</h6>
+                                        <h6 class="pt-3 pb-2 m-0 fs-18 fw-medium">{{ $plan->plantname }}</h6>
                                         <ul class="list-unstyled pricing-content text-center pt-2 border-0 mb-3">
-                                            <li>30GB Disk Space</li>
-                                            <li>30 Email Accounts</li>
-                                            <li>30GB Monthly Bandwidth</li>
-                                            <li>06 Subdomains</li>
-                                            <li>10 Domains</li>
+                                            @if($plan->features && $plan->features->count() > 0)
+                                            @foreach($plan->features as $feature)
+                                                <li>{{ $feature->feature }}</li>
+                                            @endforeach
+                                            @endif
                                         </ul> 
                                         <hr class="hr-dashed">   
                                                                              
-                                        <a href="#" class="btn btn-dark py-2 px-3 mt-2"><span>Get Started</span></a>
+                                        <a href="#" class="btn btn-dark py-2 px-3 mt-2"><span>Know More</span></a>
                                     </div><!--end pricing Table-->              
                                 </div><!--end card-body--> 
                             </div><!--end card--> 
                         </div> <!--end col-->
-                        <div class="col-md-6 col-lg-3">
-                            <div class="card">
-                                <div class="card-body bg-soft-pink text-center rounded-top">
-                                    <i class="icofont-woman-bird d-inline-block mt-2 mb-3 display-4 text-pink"></i>                                    
-                                </div><!--end card-body--> 
-                                <div class="card-body mt-n52">
-                                    <div class="text-center">
-                                        <div class="py-2 px-3 shadow-sm d-inline-block rounded-pill card-bg">
-                                            <h1 class="d-inline-block fw-bold mb-0">$49.00</h1>
-                                            <small class="font-12 text-muted">/month</small>
-                                        </div>   
-                                        <h6 class="pt-3 pb-2 m-0 fs-18 fw-medium">Premium Plan</h6>
-                                        <ul class="list-unstyled pricing-content text-center pt-2 border-0 mb-3">
-                                            <li>30GB Disk Space</li>
-                                            <li>30 Email Accounts</li>
-                                            <li>30GB Monthly Bandwidth</li>
-                                            <li>06 Subdomains</li>
-                                            <li>10 Domains</li>
-                                        </ul> 
-                                        <hr class="hr-dashed">   
-                                                                             
-                                        <a href="#" class="btn btn-dark py-2 px-3 mt-2"><span>Get Started</span></a>
-                                    </div><!--end pricing Table-->              
-                                </div><!--end card-body--> 
-                            </div><!--end card--> 
-                        </div> <!--end col--> 
-                        <div class="col-md-6 col-lg-3">
-                            <div class="card">
-                                <div class="card-body bg-soft-success text-center rounded-top">
-                                    <i class="icofont-elk d-inline-block mt-2 mb-3 display-4 text-success"></i>                                    
-                                </div><!--end card-body--> 
-                                <div class="card-body mt-n52">
-                                    <div class="text-center">
-                                        <div class="py-2 px-3 shadow-sm d-inline-block rounded-pill card-bg">
-                                            <h1 class="d-inline-block fw-bold mb-0">$69.00</h1>
-                                            <small class="font-12 text-muted">/month</small>
-                                        </div>   
-                                        <h6 class="pt-3 pb-2 m-0 fs-18 fw-medium">Plus Plan</h6>
-                                        <ul class="list-unstyled pricing-content text-center pt-2 border-0 mb-3">
-                                            <li>30GB Disk Space</li>
-                                            <li>30 Email Accounts</li>
-                                            <li>30GB Monthly Bandwidth</li>
-                                            <li>06 Subdomains</li>
-                                            <li>10 Domains</li>
-                                        </ul> 
-                                        <hr class="hr-dashed">   
-                                                                             
-                                        <a href="#" class="btn btn-dark py-2 px-3 mt-2"><span>Get Started</span></a>
-                                    </div><!--end pricing Table-->              
-                                </div><!--end card-body--> 
-                            </div><!--end card--> 
-                        </div> <!--end col--> 
-                        <div class="col-md-6 col-lg-3">
-                            <div class="card">
-                                <div class="card-body bg-soft-warning text-center rounded-top">
-                                    <i class="icofont-fire-burn d-inline-block mt-2 mb-3 display-4 text-warning"></i>                                    
-                                </div><!--end card-body--> 
-                                <div class="card-body mt-n52">
-                                    <div class="text-center">
-                                        <div class="py-2 px-3 shadow-sm d-inline-block rounded-pill card-bg">
-                                            <h1 class="d-inline-block fw-bold mb-0">$199.00</h1>
-                                            <small class="font-12 text-muted">/month</small>
-                                        </div>   
-                                        <h6 class="pt-3 pb-2 m-0 fs-18 fw-medium">Master Plan</h6>
-                                        <ul class="list-unstyled pricing-content text-center pt-2 border-0 mb-3">
-                                            <li>30GB Disk Space</li>
-                                            <li>30 Email Accounts</li>
-                                            <li>30GB Monthly Bandwidth</li>
-                                            <li>06 Subdomains</li>
-                                            <li>10 Domains</li>
-                                        </ul> 
-                                        <hr class="hr-dashed">   
-                                                                             
-                                        <a href="#" class="btn btn-dark py-2 px-3 mt-2"><span>Get Started</span></a>
-                                    </div><!--end pricing Table-->              
-                                </div><!--end card-body--> 
-                            </div><!--end card--> 
-                        </div> <!--end col--> 
-                                                                              
+                        @endforeach                                       
                     </div><!--end row-->         
                 </div><!-- container -->
                 <!--Start Rightbar-->
