@@ -22,6 +22,11 @@ class HustlersTraining extends Model
         'link',
     ];
 
+    public function lessons()
+    {
+        return $this->hasMany(TrainingLesson::class, 'course_id');
+    }
+
     const STATUS_IN_PROGRESS = 'In Progress';
     const STATUS_START_HERE = 'Start Here';
     const STATUS_BOOKMARKS = 'Bookmarks';

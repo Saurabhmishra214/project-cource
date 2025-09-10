@@ -66,6 +66,11 @@
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                     </a>
 
+                                                    {{-- Lessons Add --}}
+                                                    <a href="{{ route('training.lessons.add', $training->id) }}" class="btn btn-sm btn-outline-success me-1">
+                                                        <i class="fa-solid fa-book-open fs-6"></i>
+                                                    </a>
+
                                                     {{-- Delete --}}
                                                     <form action="{{ route('businesstrainings.destroy', $training->id) }}" 
                                                           method="POST" style="display:inline;">
