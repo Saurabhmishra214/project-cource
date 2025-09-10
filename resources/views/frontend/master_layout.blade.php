@@ -42,6 +42,7 @@
      <link href="{{asset('assets/css/affiliate/icons.min.css')}}" rel="stylesheet" type="text/css" />
      {{-- <link href="{{asset('assets/css/wealth_card.css')}}" rel="stylesheet" type="text/css" /> --}}
      <link href="{{asset('assets/css/affiliate/app.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{asset('assets/css/affiliate/style.css')}}" rel="stylesheet" type="text/css" />
 
     <style>
         .myVideoSwiper {
@@ -130,6 +131,7 @@
                                         <li><a class="menu-item active" href="{{route('home')}}">Home</a></li>
                                         {{-- <li><a class="menu-item" href="#section-about">About</a></li>  --}}
                                         <li><a class="menu-item" href="{{route('blog')}}">Blogs</a></li>
+                                        <li><a class="menu-item" href="{{route('pricing')}}">Pricing</a></li>
                                         {{-- <li><a class="menu-item" href="#section-why-attend">Why Attend</a></li>
                                         <li><a class="menu-item" href="#section-speakers">Speakers</a></li>
                                         <li><a class="menu-item" href="#section-schedule">Schedule</a></li>
@@ -147,19 +149,69 @@
                                                 <li><a class="menu-item" href="{{ route('courses.hustlers') }}">Hustlers Campus</a></li>
                                             </ul>
                                         </li>
-                                        <li><a class="menu-item" href="news.html">Pages</a>
-                                            <ul>
-                                                <li><a class="menu-item" href="{{route('register_form')}}">Register</a></li>
-                                                <li><a class="menu-item" href="{{route('login_form')}}">Login</a></li>
-                                                
-                                            </ul>
-                                        </li>
+                                        
+                                        
+                                     <li>
+    <a class="menu-item" href="#">Pages</a>
+    <ul>
+        @if(Auth::check())
+            <li>
+                @if(Auth::user()->role === 'admin')
+                    <a class="menu-item" href="{{ route('admin.dashboard') }}">
+                        Admin Dashboard
+                    </a>
+                @else
+                    <a class="menu-item" href="{{ route('user.dashboard') }}">
+                        User Dashboard
+                    </a>
+                @endif
+            </li>
+            <li>
+                <a class="menu-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+        @else
+            <li><a class="menu-item" href="{{ route('register_form') }}">Register</a></li>
+            <li><a class="menu-item" href="{{ route('login_form') }}">Login</a></li>
+        @endif
+    </ul>
+</li>
+                                        
+                                        
+                                        
+                                        
+                                        
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="de-flex-col">
-                                <a class="btn-main fx-slide w-100" href="{{route('login_form')}}"><span>Login</span></a>
+                                
+                                
+                         @if(Auth::check())
+    @if(Auth::user()->role === 'admin')
+        <a class="btn-main fx-slide w-100" href="{{ route('admin.dashboard') }}">
+            <span>Admin Dashboard</span>
+        </a>
+    @else
+        <a class="btn-main fx-slide w-100" href="{{ route('user.dashboard') }}">
+            <span>User Dashboard</span>
+        </a>
+    @endif
+@else
+    <a class="btn-main fx-slide w-100" href="{{ route('login_form') }}">
+        <span>Login</span>
+    </a>
+@endif
+
+                                
+                                
+                                
 
                                 <div class="menu_side_area">
                                     <span id="menu-btn"></span>
@@ -267,7 +319,7 @@
     <script src="{{asset('assets/libs/fullcalendar/index.global.min.js')}}"></script>
     <script src="{{asset('assets/js/affiliate/pages/calendar.init.js')}}"></script> --}}
     <script src="{{asset('assets/js/affiliate/app.js')}}"></script>
-    <script src="assets/js/affiliate/app.js"></script>
+    {{-- <script src="assets/js/affiliate/app.js"></script> --}}
     <script>
         const tobii = new Tobii()
     </script>

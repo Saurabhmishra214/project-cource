@@ -131,7 +131,6 @@ public function registerUser(Request $request)
             'email'         => $request->email,
             'password'      => Hash::make($request->password),
             'mobile_number' => $request->mobile_number,
-            // 'role_id'       => 2,
             'status'        => 'active',
             'referral_code' => (string) Str::uuid(),
             'referred_by'   => $referrer ? $referrer->id : null,
@@ -177,38 +176,31 @@ public function registerUser(Request $request)
     }
 
 
-  public function loginUser(Request $request)
-    {
-        // 1. वैलिडेट करें कि ईमेल और पासवर्ड भरे गए हैं
-        $request->validate([
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
-        ]);
+public function loginUser(Request $request)
+{
+    $request->validate([
+        'email' => ['required', 'string', 'email'],
+        'password' => ['required', 'string'],
+    ]);
 
-        // 2. ऑथेंटिकेशन का प्रयास करें
-        $credentials = $request->only('email', 'password');
+    $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            // 3. यदि सफल, तो सेशन रीजेनरेट करें और लास्ट लॉगिन टाइम अपडेट करें
-            $request->session()->regenerate();
-            
-            $user = Auth::user();
-            $user->last_login_at = now();
-            $user->save();
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
 
-            // 4. रोल के आधार पर सही डैशबोर्ड पर रीडायरेक्ट करें
-            if ($user->role === 'admin') {
-                return redirect()->intended('admin-dashboard');
-            }
-            
-            return redirect()->intended('dashboard');
-        }
+        $user = Auth::user();
+        $user->last_login_at = now();
+        $user->save();
 
-        // 5. यदि विफल, तो वापस भेजें और एरर दिखाएं
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        // ✅ Always redirect to home page
+        return redirect('/');
     }
+
+    return back()->withErrors([
+        'email' => 'The provided credentials do not match our records.',
+    ])->onlyInput('email');
+}
+
 
     
     public function logout(Request $request)

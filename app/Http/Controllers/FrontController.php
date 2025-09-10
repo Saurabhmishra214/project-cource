@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AutomationCourse;
 use App\Models\Blog;
 use App\Models\Content;
+use App\Models\Plan;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -27,6 +28,12 @@ class FrontController extends Controller
     {
         $blogs = Blog::latest()->take(6)->get();
         return view('frontend.pages.blog', compact('blogs'));
+    }
+
+    public function pricing()
+    {
+        $plans = Plan::with('features')->get();
+        return view('frontend.pricing', compact('plans'));
     }
 
     public function blogDetails()

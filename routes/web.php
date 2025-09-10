@@ -24,6 +24,7 @@ use App\Http\Controllers\admin\UserManageController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\MarketingToolController;
+use App\Http\Controllers\admin\PlanController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -33,24 +34,24 @@ Route::get('/', function () {
 });
 
 
-Route::get('/register-form', [AuthController::class, 'showRegister'])->name('register_form');
-Route::post('/register-store', [AuthController::class, 'registerUser'])->name('register.submit');
 
+Route::middleware('web')->group(function () {
+    Route::get('/register-form', [AuthController::class, 'showRegister'])->name('register_form');
+    Route::post('/register-store', [AuthController::class, 'registerUser'])->name('register.submit');
+    
+    Route::get('/login-form', [AuthController::class, 'showLogin'])->name('login_form');
+    Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login.submit');
+});
 
 
 Route::get('/referral-register', [AuthController::class, 'showReferralForm'])->name('referral.register');
-
-
-
-Route::get('/login-form', [AuthController::class, 'showLogin'])->name('login_form');
-
-Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login.submit');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::get('/home', [FrontController::class, 'index'])->name('home');
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
+Route::get('/pricing', [FrontController::class, 'pricing'])->name('pricing');
 Route::get('/blog-details', [FrontController::class, 'blogDetails'])->name('blog.details');
 Route::get('/automation', [FrontController::class, 'automation_course'])->name('courses.automation');
 Route::get('/hustler', [FrontController::class, 'hustlers_course'])->name('courses.hustlers');
@@ -97,16 +98,7 @@ Route::get('/freelance/apply', [ApplicationController::class, 'freelance_apply']
 Route::post('/freelance/apply/store', [ApplicationController::class, 'store'])->name('user.dashboard.freelance.application.store');
 
 
-
-
-
-
-
-
 // admin courses routes
-
-
-
 Route::get('/courses/add', [AutomationCoursesController::class, 'coursesadd'])->name('courses.add');
 
 Route::post('/courses/store', [AutomationCoursesController::class, 'coursestore'])->name('courses.store');
@@ -122,10 +114,7 @@ Route::post('/courses/update/{id}', [AutomationCoursesController::class, 'course
 Route::delete('/courses/delete/{id}', [AutomationCoursesController::class, 'coursedelete'])->name('courses.delete');
 
 
-
-
 Route::get('/courses/list', [AutomationCoursesController::class, 'courseslist'])->name('courses.list');
-
 
 
 Route::middleware(['auth','role:admin'])->group(function() {
@@ -139,12 +128,9 @@ Route::middleware(['auth','role:admin'])->group(function() {
 });
 
 
-
 // admin business trainings routes  
 
     Route::get('businesstrainings-list', [AffiliateBusinessTrainingsController::class, 'list'])->name('businesstrainings.list');
-
-
     Route::get('businesstrainings-create', [AffiliateBusinessTrainingsController::class, 'create'])->name('businesstrainings.create');
     Route::post('businesstrainings-store', [AffiliateBusinessTrainingsController::class, 'store'])->name('businesstrainings.store');
     
@@ -157,9 +143,6 @@ Route::middleware(['auth','role:admin'])->group(function() {
     
     // Delete
     Route::delete('businesstrainings{id}/delete', [AffiliateBusinessTrainingsController::class, 'destroy'])->name('businesstrainings.destroy');
-
-
-
 
 
 // Freelancing Jobs routes without group
@@ -192,11 +175,6 @@ Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');  
 Route::get('blogs/{id}/edit', [BlogController::class, 'edit'])->name('blogs.edit');   // Show edit form
 Route::post('blogs/{id}/update', [BlogController::class, 'update'])->name('blogs.update'); // Update blog using POST
 Route::delete('blogs/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy');   
-
-
-
-
-
 
 // admin routes
 
@@ -322,3 +300,11 @@ Route::post('/marketing-tools/store', [MarketingToolController::class, 'store'])
 Route::get('/marketing-tools/{id}/edit', [MarketingToolController::class, 'edit'])->name('marketing-tools.edit');
 Route::put('/marketing-tools/{id}/update', [MarketingToolController::class, 'update'])->name('marketing-tools.update');
 Route::delete('/marketing-tools/{id}/delete', [MarketingToolController::class, 'destroy'])->name('marketing-tools.destroy');
+
+//Plans manage routes
+Route::get('/plans/index', [PlanController::class, 'index'])->name('plans.index');
+Route::get('/plans/add', [PlanController::class, 'create'])->name('plans.add');
+Route::post('/plans/store', [PlanController::class, 'store'])->name('plans.store');
+Route::get('/plans/{id}/edit', [PlanController::class, 'edit'])->name('plans.edit');
+Route::put('/plans/{id}/update', [PlanController::class, 'update'])->name('plans.update');
+Route::delete('/plans/index/{id}/delete', [PlanController::class, 'destroy'])->name('plans.destroy');

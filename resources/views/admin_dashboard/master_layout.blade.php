@@ -375,12 +375,20 @@
 
 
                      <li class="dropdown topbar-item">
+<a href="{{ route('admin_profile') }}">
+    @if(Auth::user() && Auth::user()->profile_image)
+        <img src="{{ asset('storage/' . Auth::user()->profile_image) }}" 
+             alt="Profile Image" 
+             class="thumb-md rounded-circle"
+             style="object-fit: cover;">
+    @else
+        <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" 
+             alt="Default Avatar" 
+             class="thumb-md rounded-circle"
+             style="object-fit: cover;">
+    @endif
+</a>
 
-                        <a href="{{ route('admin_profile') }}">
-                            <img src="{{ asset('assets/images/affiliate/users/avatar-1.jpg') }}" alt=""
-                                class="thumb-md rounded-circle">
-
-                        </a>
                       
                     </li>
 
@@ -654,6 +662,24 @@
           </div>
         </li><!--end nav-item-->
 
+        <!--Plan Management-->
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarPlans" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-trophy menu-icon"></i>
+              <span class="ms-2">Plan Management</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarPlans">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{ route('plans.add') }}" class="nav-link">Add</a></li>
+              <li class="nav-item"><a href="{{ route('plans.index') }}" class="nav-link">List</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
         <li class="nav-item">
           <a class="nav-link collapsed d-flex justify-content-between align-items-center"
              href="#sidebarUsers" data-bs-toggle="collapse" role="button" aria-expanded="false">
@@ -713,6 +739,12 @@
     <!-- end leftbar-tab-menu-->
 
     @yield('content')
+
+
+
+
+  
+    
 
 <!-- Core JS -->
 <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

@@ -26,13 +26,17 @@
     <div class="wrapper mx-auto text-gray-900 font-normal grid scrollbar-hide grid-cols-[257px,1fr] grid-rows-[auto,1fr]" id="layout">
      <aside class="row-span-2 border-r border-neutral relative flex flex-col justify-between p-[25px] dark:bg-dark-neutral-bg dark:border-dark-neutral-border">
     <div class="absolute p-2 border-neutral right-0 border bg-white rounded-full cursor-pointer duration-300 translate-x-1/2 hover:opacity-75 dark:bg-dark-neutral-bg dark:border-dark-neutral-border" id="sidebar-btn"><img src="{{ asset('assets/images/icons/icon-arrow-left.svg') }}" alt="left chevron icon"></div>
-    <div><a class="mb-10" href="index.html"> <img class="logo-maximize" src="{{ asset('assets/images/icons/icon-logo.svg') }}" alt="Frox logo"><img class="logo-minimize ml-[10px]" src="{{ asset('assets/images/icons/icon-favicon.svg') }}" alt="Frox logo"></a>
+    <div><a class="mb-10" href="#"> <img class="logo-maximize" src="{{ asset('assets/images/icons/icon-logo.svg') }}" alt="Frox logo"><img class="logo-minimize ml-[10px]" src="{{ asset('assets/images/icons/icon-favicon.svg') }}" alt="Frox logo"></a>
         <div class="pt-[106px] lg:pt-[35px] pb-[18px]">
             <div class="sidemenu-item rounded-xl relative">
                 <input class="sr-only peer" type="checkbox" value="dashboard" name="sidemenu" id="dashboard">
-                <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent active" for="dashboard">
-                    <div class="flex items-center gap-[10px]"><img src="{{ asset('assets/images/icons/icon-favorite-chart.svg') }}" alt="side menu icon"><span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Dashboard</span></div>
-                </label>
+              <a href="{{ route('user.dashboard') }}" class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none active">
+    <div class="flex items-center gap-[10px]">
+        <img src="{{ asset('assets/images/icons/icon-favorite-chart.svg') }}" alt="side menu icon">
+        <span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Dashboard</span>
+    </div>
+</a>
+
             </div>
             <div class="sidemenu-item rounded-xl relative">
                 <input class="sr-only peer" type="checkbox" value="ecommerce" name="sidemenu" id="ecommerce">
@@ -141,7 +145,7 @@
     <div class="bg-gray-100 flex rounded-xl w-full m-0 py-[14px] px-[18px] xl:w-[360px] dark:bg-gray-dark-100 lg:max-w-[250px] xl:max-w-[360px] lg:mr-[47px] lg:ml-6 order-last lg:order-first"><img src="{{ asset('assets/images/icons/icon-search-normal.svg') }}" alt="seacrh icon">
         <input class="input w-full bg-transparent outline-none pl-2 h-5 text-gray-300 focus:!outline-none placeholder:text-gray-300 dark:placeholder:text-gray-dark-300 placeholder:font-semibold" type="text" placeholder="Search"><img src="{{ asset('assets/images/icons/icon-microphone-2.svg') }}" alt="microphone icon">
     </div>
-    <div class="dropdown">
+    {{-- <div class="dropdown">
         <label class="cursor-pointer dropdown-label flex items-center justify-between w-[142px]" tabindex="0">
             <div class="items-center justify-center hidden rounded-lg border border-neutral dark:border-dark-neutral-border gap-x-[10px] px-[18px] py-[11px] sm:flex">
                 <div class="flex items-center gap-[11px]"><img src="{{asset('assets/images/icons/icon-export.svg')}}" alt="export icon"><span class="text-normal font-semibold text-gray-500 dark:text-gray-dark-500">Browse</span></div><img src="{{ asset('assets/images/icons/icon-arrow-down.svg') }}" alt="down icon">
@@ -166,9 +170,9 @@
                 </li>
             </div>
         </ul>
-    </div>
+    </div> --}}
     <div class="flex items-center order-2 user-noti gap-[30px] xl:gap-[48px] lg:order-3 lg:mr-0">
-        <div class="dropdown dropdown-end">
+        {{-- <div class="dropdown dropdown-end">
             <label class="cursor-pointer dropdown-label" tabindex="0">
                 <div class="relative w-[26px] h-[26px]"><img class="w-full h-full object-cover" src="{{ asset('assets/images/icons/icon-messages.svg') }}" alt="message icon">
                     <div class="w-2 h-2 bg-fuchsia rounded-full absolute right-[1px] top-[-1px]"></div>
@@ -217,8 +221,8 @@
                     </li>
                 </div>
             </ul>
-        </div>
-        <div class="dropdown dropdown-end">
+        </div> --}}
+        {{-- <div class="dropdown dropdown-end">
             <label class="cursor-pointer dropdown-label" tabindex="0">
                 <div class="relative w-[26px] h-[26px]"><img class="w-full h-full object-cover" src="{{ asset('assets/images/icons/icon-notification-bing.svg') }}" alt="notification icon">
                     <div class="w-2 h-2 bg-fuchsia rounded-full absolute right-[1px] top-[-1px]"></div>
@@ -291,23 +295,36 @@
                     </li>
                 </div>
             </ul>
-        </div>
+        </div> --}}
         <div class="dropdown dropdown-end">
-            <label class="cursor-pointer dropdown-label" tabindex="0"><img src="{{ asset('assets/images/avatar-layouts-5.png') }}" alt="user avatar">
-            </label>
+      <label class="cursor-pointer dropdown-label" tabindex="0">
+    @if(Auth::user()->profile_image)
+        <img src="{{ asset('storage/' . Auth::user()->profile_image) }}" 
+             alt="Profile Image" 
+             class="img-fluid"
+             style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%; border: 2px solid #ddd;">
+    @else
+        <img src="{{ asset('assets/images/avatar-layouts-5.png') }}" 
+             alt="Default Avatar" 
+             class="img-fluid"
+             style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%; border: 2px solid #ddd;">
+    @endif
+</label>
+
+
             <ul class="dropdown-content" tabindex="0">
                 <div class="relative menu rounded-box dropdown-shadow p-[25px] pb-[10px] bg-neutral-bg mt-[25px] md:mt-[40px] min-w-[237px] dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
                     <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-neutral-bg dark:border-b-dark-neutral-bg right-[18px]"></div>
                     <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="{{ route('user.profile') }}"> <i class="w-4 h-4 grid place-items-center"><img class="group-hover:filter-black dark:group-hover:filter-white" src="{{ asset('assets/images/icons/icon-user.svg') }}" alt="icon"></i><span>Profile</span></a>
                     </li>
-                    <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img class="group-hover:filter-black dark:group-hover:filter-white" src="{{ asset('assets/images/icons/icon-favorite-chart.svg') }}" alt="icon"></i><span>Dashboard</span></a>
+                    {{-- <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="{{route('user.dashboard')}}"> <i class="w-4 h-4 grid place-items-center"><img class="group-hover:filter-black dark:group-hover:filter-white" src="{{ asset('assets/images/icons/icon-favorite-chart.svg') }}" alt="icon"></i><span>Dashboard</span></a>
                     </li>
                     <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img class="group-hover:filter-black dark:group-hover:filter-white" src="{{ asset('assets/images/icons/icon-bitcoin-card.svg') }}" alt="icon"></i><span>Payouts</span></a>
                     </li>
                     <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img class="group-hover:filter-black dark:group-hover:filter-white" src="{{ asset('assets/images/icons/icon-trade.svg') }}" alt="icon"></i><span>Statement</span></a>
                     </li>
                     <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <i class="w-4 h-4 grid place-items-center"><img class="group-hover:filter-black dark:group-hover:filter-white" src="{{ asset('assets/images/icons/icon-sun.svg') }}" alt="icon"></i><span>Settings</span></a>
-                    </li>
+                    </li> --}}
                     <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
                     <li class="text-gray-500 hover:text-gray-1100 hover:bg-gray-100 dark:text-gray-dark-500 dark:hover:text-gray-dark-1100 dark:hover:bg-gray-dark-100 rounded-lg group p-[15px] pl-[21px]">
                         {{-- Logout functionality ke liye ek hidden form --}}
