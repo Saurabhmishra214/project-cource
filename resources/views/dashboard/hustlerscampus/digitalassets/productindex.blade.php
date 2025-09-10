@@ -18,6 +18,32 @@
 .btn-product:hover {
     background-color: rgb(240, 175, 50); /* Darker color on hover */
 }
+
+@media (max-width: 640px) {
+  .btn-group {
+    flex-direction: column !important;
+    align-items: stretch; /* full width buttons */
+  }
+  .btn-group button,
+  .btn-group a {
+    width: 100%;
+  }
+
+  .btn-product {
+  min-width: 150px;     /* sab buttons ka ek base width */
+  text-align: center;   /* text center aligned */
+  display: inline-block;
+}
+
+.btn-product {
+  min-width: 150px;     /* sab buttons ka ek base width */
+  text-align: center;   /* text center aligned */
+  display: inline-block;
+}
+
+
+}
+
 </style>
 
 {{-- head section में (CSS optional है) --}}
@@ -31,64 +57,14 @@
         <div>
             <h2 class="capitalize text-gray-1100 font-bold text-[28px] leading-[35px] dark:text-gray-dark-1100 mb-[13px]">All
                 courses</h2>
-            <div class="flex justify-between flex-col gap-y-2 sm:flex-row mb-[43px]"><span
-                    class="text-gray-500 text-xs dark:text-gray-dark-500">Check out latest updates</span>
-                <div class="flex items-center gap-x-2"> 
-    <img src="{{ asset('assets/images/icons/icon-calendar-1.svg') }}" alt="calendar icon">
-    <time class="text-xs text-gray-500 dark:text-gray-dark-500">Feb 15, 2022 - Feb 21, 2022</time>
-</div>
-            </div>
+          
             <section>
                 <div
                     class="border bg-neutral-bg border-neutral dark:bg-dark-neutral-bg dark:border-dark-neutral-border rounded-2xl pt-6 flex-1 pb-[28px]">
                 <div class="flex items-center justify-between border-b border-neutral dark:border-dark-neutral-border mb-[33px] pb-[19px] px-[25px]">
     <div class="text-base leading-5 text-gray-1100 font-semibold dark:text-gray-dark-1100">Recent
         Courses</div>
-    <div class="dropdown dropdown-end ml-auto translate-x-4 z-10">
-        <label class="cursor-pointer dropdown-label flex items-center justify-between py-2 px-4"
-            tabindex="0">
-            <img class="cursor-pointer" src="{{ asset('assets/images/icons/icon-toggle.svg') }}"
-                alt="toggle icon">
-        </label>
-        <ul class="dropdown-content" tabindex="0">
-            <div
-                class="relative menu rounded-box dropdown-shadow min-w-[126px] bg-neutral-bg mt-[10px] pt-[14px] pb-[7px] px-4 border border-neutral-border dark:text-gray-dark-500 dark:border-dark-neutral-bg">
-                <div
-                    class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-transparent right-[18px]">
-                </div>
-                <li class="text-normal mb-[7px]">
-                    <a class="flex items-center bg-transparent p-0 gap-[7px]" href="#">
-                        <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Sales
-                            report</span>
-                    </a>
-                </li>
-                <li class="text-normal mb-[7px]">
-                    <a class="flex items-center bg-transparent p-0 gap-[7px]" href="#">
-                        <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Export
-                            report</span>
-                    </a>
-                </li>
-                <li class="text-normal mb-[7px]">
-                    <a class="flex items-center bg-transparent p-0 gap-[7px]" href="#">
-                        <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Profit
-                            manage</span>
-                    </a>
-                </li>
-                <li class="text-normal mb-[7px]">
-                    <a class="flex items-center bg-transparent p-0 gap-[7px]" href="#">
-                        <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Revenue
-                            report</span>
-                    </a>
-                </li>
-                <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                <li class="text-normal mb-[7px]">
-                    <a class="flex items-center bg-transparent p-0 gap-[7px]" href="#remove">
-                        <span class="text-red text-[11px] leading-4">Remove widget</span>
-                    </a>
-                </li>
-            </div>
-        </ul>
-    </div>
+   
 </div>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <div class="px-[25px]">
@@ -114,94 +90,99 @@
                 </p>
                 <div class="flex flex-col gap-y-[5px]">
                     <p class="font-semibold leading-4 text-gray-900 text-[18px] mr-[10px] dark:text-gray-dark-900">
-                        ${{ $product->price ?? '0.00' }}
+                        ₹{{ $product->price ?? '0.00' }}
                     </p>
                 </div>
             </div>
 
-            <div class="flex justify-between flex-col gap-3 sm:flex-row">
-                <div class="flex items-center gap-x-4">
-      {{-- Button (only if user logged in) --}}
-@if($user)
-    <button 
-        style="background-color: rgb(255 189 58);"
-        class="btn-product px-4 py-2 fw-700 rounded-lg text-dark text-sm hover:bg-blue-700 generate-link-btn"
-        data-product-id="{{ $product->product_id }}">
-        Generate Link
-    </button>
-@else
-    <p class="text-gray-500">
-        Please <a href="{{ route('login') }}" class="underline">log in</a> to generate your referral link.
-    </p>
-@endif
+           <div class="flex flex-col sm:flex-row gap-3">
+    <div class="flex flex-col sm:flex-row gap-3">
+        {{-- Generate Link Button --}}
+        @if($user)
+            <button 
+                style="background-color: rgb(255 189 58);"
+                class="btn-product px-4 py-2 fw-700 rounded-lg text-dark text-sm hover:bg-blue-700 generate-link-btn"
+                data-product-id="{{ $product->product_id }}">
+                Generate Link
+            </button>
+        @else
+            <p class="text-gray-500">
+                Please <a href="{{ route('login') }}" class="underline">log in</a> to generate your referral link.
+            </p>
+        @endif
 
+        {{-- Ads Creatives Button --}}
+        @if($user && in_array($product->product_id, $purchasedProductIds))
+            <a href="{{ $product->google_drive_link }}" target="_blank">
+                <button class="btn-product bg-green-500 text-white hover:bg-green-600">
+                    Ads creatives
+                </button>
+            </a>
+        @else
+            <button class="btn-product bg-gray-300 text-gray-700 cursor-not-allowed" disabled title="Purchase to unlock">
+                Locked
+            </button>
+        @endif
 
-                
-                    <a href="{{ $product->google_drive_link }}" target="_blank">
-                        <button class="btn-product">
-                            Ads creatives
-                        </button>
-                    </a>
-                
-                    <a href="{{ route('products.show', ['product' => $product->product_id]) }}" target="_blank">
-                        <button class="btn-product">
-                            Buy Access
-                        </button>
-                    </a>
-                </div>
-            </div>
+        {{-- Buy Access --}}
+        <a href="{{ route('products.show', ['product' => $product->product_id]) }}" target="_blank">
+            <button class="btn-product bg-blue-500 text-white hover:bg-blue-600">
+                Buy Access
+            </button>
+        </a>
+    </div>
+</div>
+
         </div>
         @endforeach
     </div>
 
+    {{-- Pagination --}}
+    <div class="mt-8 flex flex-col sm:flex-row justify-between items-center text-gray-700 dark:text-gray-200 px-4">
+        <div class="mb-4 sm:mb-0 text-sm">
+            Showing
+            <span class="font-medium">{{ $products->firstItem() }}</span>
+            to <span class="font-medium">{{ $products->lastItem() }}</span>
+            of <span class="font-medium">{{ $products->total() }}</span> results
+        </div>
 
-<div class="mt-8 flex flex-col sm:flex-row justify-between items-center text-gray-700 dark:text-gray-200 px-4">
-    <div class="mb-4 sm:mb-0 text-sm">
-        Showing
-        <span class="font-medium">{{ $products->firstItem() }}</span>
-        to <span class="font-medium">{{ $products->lastItem() }}</span>
-        of <span class="font-medium">{{ $products->total() }}</span> results
-    </div>
-
-    <div class="flex items-center space-x-2">
-        {{-- Previous --}}
-        @if ($products->onFirstPage())
-            <span class="px-4 py-2 rounded-lg cursor-not-allowed bg-gray-400 text-white">Previous</span>
-        @else
-            <a href="{{ $products->previousPageUrl() }}" 
-               class="px-4 py-2 rounded-lg bg-[#7364db] text-white hover:opacity-90">Previous</a>
-        @endif
-
-        {{-- Page Numbers --}}
-        @foreach ($products->links()->elements as $element)
-            @if (is_string($element))
-                <span class="px-4 py-2 text-gray-300">{{ $element }}</span>
+        <div class="flex items-center space-x-2">
+            {{-- Previous --}}
+            @if ($products->onFirstPage())
+                <span class="px-4 py-2 rounded-lg cursor-not-allowed bg-gray-400 text-white">Previous</span>
+            @else
+                <a href="{{ $products->previousPageUrl() }}" 
+                   class="px-4 py-2 rounded-lg bg-[#7364db] text-white hover:opacity-90">Previous</a>
             @endif
 
-            @if (is_array($element))
-                @foreach ($element as $page => $url)
-                    @if ($page == $products->currentPage())
-                        <span class="px-4 py-2 rounded-lg bg-orange-400 text-black dark:bg-orange-500 dark:text-white font-semibold shadow-sm">{{ $page }}</span>
-                    @else
-                        <a href="{{ $url }}" class="px-4 py-2 rounded-lg text-white bg-gray-700 hover:bg-gray-800">{{ $page }}</a>
-                    @endif
-                @endforeach
-            @endif
-        @endforeach
+            {{-- Page Numbers --}}
+            @foreach ($products->links()->elements as $element)
+                @if (is_string($element))
+                    <span class="px-4 py-2 text-gray-300">{{ $element }}</span>
+                @endif
 
-        {{-- Next --}}
-        @if ($products->hasMorePages())
-            <a href="{{ $products->nextPageUrl() }}" 
-               class="px-4 py-2 rounded-lg bg-[#7364db] text-white hover:opacity-90">Next</a>
-        @else
-            <span class="px-4 py-2 rounded-lg cursor-not-allowed bg-gray-400 text-white">Next</span>
-        @endif
+                @if (is_array($element))
+                    @foreach ($element as $page => $url)
+                        @if ($page == $products->currentPage())
+                            <span class="px-4 py-2 rounded-lg bg-orange-400 text-black dark:bg-orange-500 dark:text-white font-semibold shadow-sm">{{ $page }}</span>
+                        @else
+                            <a href="{{ $url }}" class="px-4 py-2 rounded-lg text-white bg-gray-700 hover:bg-gray-800">{{ $page }}</a>
+                        @endif
+                    @endforeach
+                @endif
+            @endforeach
+
+            {{-- Next --}}
+            @if ($products->hasMorePages())
+                <a href="{{ $products->nextPageUrl() }}" 
+                   class="px-4 py-2 rounded-lg bg-[#7364db] text-white hover:opacity-90">Next</a>
+            @else
+                <span class="px-4 py-2 rounded-lg cursor-not-allowed bg-gray-400 text-white">Next</span>
+            @endif
+        </div>
     </div>
 </div>
 
-
-
-</div>
 
 {{-- Toast/Alert --}}
 <div id="copy-toast" class="hidden fixed bottom-5 right-5 bg-green-600 text-white px-4 py-2 rounded shadow-lg">

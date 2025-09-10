@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\DigitalSoftware;
 use App\Models\UserReferral;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Payment;
 use Illuminate\Support\Str;
 
 class DigitalSoftwareController extends Controller
@@ -14,19 +15,36 @@ class DigitalSoftwareController extends Controller
     /**
      * Show paginated list of digital softwares
      */
-    public function index()
-    {
-        $softwares = DigitalSoftware::paginate(4);
-        $user = Auth::user();
+public function index()
+{
+    $softwares = DigitalSoftware::paginate(4);
+    $user = Auth::user();
 
-        // If user doesn't have a referral_code, generate oneS
-        if ($user && empty($user->referral_code)) {
+    // Purchased product IDs default empty
+    $purchasedProductIds = [];
+
+    if ($user) {
+        // Agar user ke paas referral code nahi hai to generate karo
+        if (empty($user->referral_code)) {
             $user->referral_code = Str::upper(Str::random(8));
             $user->save();
         }
 
-        return view('dashboard.hustlerscampus.digitalassets.softwareindex', compact('softwares', 'user'));
+        // Yaha se purchased softwares nikal lo
+        $purchasedProductIds = Payment::where('user_id', $user->id)
+            ->where('status', 'success') // sirf successful payments
+            ->pluck('software_id')
+            ->map(fn ($id) => (int) $id) // int convert
+            ->toArray();
     }
+
+    return view('dashboard.hustlerscampus.digitalassets.softwareindex', compact(
+        'softwares',
+        'user',
+        'purchasedProductIds'
+    ));
+}
+
 
     /**
      * Generate referral link for software

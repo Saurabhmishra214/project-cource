@@ -106,34 +106,87 @@ body.modal-open {
     box-shadow: 0 0 25px rgba(255, 223, 0, 0.9), 0 0 50px rgba(255, 223, 0, 0.7);
   }
 } */
+
+
+
+ /* Default (Laptop / Desktop view) */
+.course-title {
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.375rem;
+  margin-top: 0.25rem;
+  text-align: left;
+}
+
+.course-description {
+  color: #d1d5db; /* gray-300 */
+  font-size: 0.875rem; /* text-sm */
+  margin-top: 0.5rem;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.course-btn-wrapper {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* ✅ Mobile View (screen ≤ 640px) */
+@media (max-width: 640px) {
+  .course-title {
+    font-size: 1rem;   /* text-base */
+    text-align: center;
+  }
+
+  .course-description {
+    text-align: center;
+  }
+
+  .course-btn-wrapper {
+    justify-content: center;
+  }
+
+.course-btn-wrapper a {
+  display: inline-block;
+  white-space: nowrap; /* JOIN NOW → ek line me rahega */
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #FFA500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.course-btn-wrapper a:hover {
+  opacity: 0.9;
+}
+
+/* ✅ Mobile View */
+@media (max-width: 640px) {
+  .course-btn-wrapper {
+    justify-content: center;
+  }
+
+  .course-btn-wrapper a {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    white-space: nowrap; /* mobile par bhi ek line */
+  }
+}
+
+}
+
 </style>
 <main class="overflow-x-scroll scrollbar-hide flex flex-col justify-between pt-[42px] px-[23px] pb-[28px]">
     <div class="border bg-neutral-bg border-neutral dark:bg-dark-neutral-bg dark:border-dark-neutral-border rounded-lg pb-11 mb-6 pt-[23px] pl-[29px] pr-[22px]">
         <div class="flex items-center justify-between border-b border-neutral dark:border-dark-neutral-border mb-[23px] pb-[16px]">
             <div class="text-base leading-5 text-gray-1100 font-semibold dark:text-gray-dark-1100">Available Courses</div>
-            <div class="dropdown dropdown-end ml-auto translate-x-4 z-10">
-                <label class="cursor-pointer dropdown-label flex items-center justify-between py-2 px-4" tabindex="0">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 12H20M4 6H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </label>
-                <ul class="dropdown-content" tabindex="0">
-                    <div class="relative menu rounded-box dropdown-shadow min-w-[126px] bg-neutral-bg mt-[10px] pt-[14px] pb-[7px] px-4 border border-neutral-border dark:text-gray-dark-500 dark:border-dark-neutral-border dark:bg-dark-neutral-bg">
-                        <div class="border-solid border-b-8 border-x-transparent border-x-8 border-t-0 absolute w-[14px] top-[-7px] border-b-transparent right-[18px]"></div>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Sales report</span></a>
-                        </li>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Export report</span></a>
-                        </li>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Profit manage</span></a>
-                        </li>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#"> <span class="text-gray-500 text-[11px] leading-4 hover:text-gray-700">Revenue report</span></a>
-                        </li>
-                        <div class="w-full bg-neutral h-[1px] my-[7px] dark:bg-dark-neutral-border"></div>
-                        <li class="text-normal mb-[7px]"><a class="flex items-center bg-transparent p-0 gap-[7px]" href="#remove"> <span class="text-red text-[11px] leading-4">Remove widget</span></a>
-                        </li>
-                    </div>
-                </ul>
-            </div>
+          
         </div>
         
   <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -158,14 +211,32 @@ body.modal-open {
 
 
           {{-- Content (unchanged) --}}
-          <div class="p-5 flex-1 flex flex-col">
-              <span class="text-xs text-gray-400 uppercase tracking-wide">{{ $course->category }}</span>
-              <h2 class="text-white font-semibold text-lg leading-snug mt-1">{{ $course->title }}</h2>
-              <p class="text-gray-300 text-sm mt-2 line-clamp-2">{{ $course->description }}</p>
+     <div class="p-5 flex-1 flex flex-col course-card">
+    <!-- Category -->
+    <span class="text-xs text-gray-400 uppercase tracking-wide">
+        {{ $course->category }}
+    </span>
 
-              <div class="mt-3 flex justify-center">
-<a href="{{ route('course.lesson', ['courseId' => $course->id]) }}" target="_blank" class="glow-gold">JOIN NOW →</a>                 </div>
-          </div>
+    <!-- Title -->
+    <h2 class="course-title">
+        {{ $course->title }}
+    </h2>
+
+    <!-- Description -->
+    <p class="course-description">
+        {{ $course->description }}
+    </p>
+
+    <!-- Button -->
+    <div class="course-btn-wrapper">
+        <a href="{{ route('course.lesson', ['courseId' => $course->id]) }}" 
+           target="_blank" 
+           class="glow-gold">
+           JOIN NOW →
+        </a>
+    </div>
+</div>
+
       </div>
       @endforeach
   </div>

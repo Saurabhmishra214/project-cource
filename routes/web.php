@@ -24,6 +24,8 @@ use App\Http\Controllers\admin\UserManageController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\MarketingToolController;
+use App\Http\Controllers\PaymentController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -226,11 +228,6 @@ Route::get('trainings/{training}/sessions/create', [AffiliateTrainingController:
 Route::post('trainings/{training}/sessions', [AffiliateTrainingController::class, 'sessionsstore'])->name('sessions.store');
 
 
-// Route::get('/softwares', [DigitalSoftwareController::class, 'index'])->name('softwares.index');
-
-// Route::post('/softwares/generate-referral', [DigitalSoftwareController::class, 'generateReferralLink'])->name('softwares.generateReferral');
-
-// Route::get('/software-sales/{software}', [DigitalSoftwareController::class, 'show'])->name('softwares.show');
 
 
 // Hustlers Campus Digital Assets - Software Products 
@@ -321,3 +318,12 @@ Route::post('/marketing-tools/store', [MarketingToolController::class, 'store'])
 Route::get('/marketing-tools/{id}/edit', [MarketingToolController::class, 'edit'])->name('marketing-tools.edit');
 Route::put('/marketing-tools/{id}/update', [MarketingToolController::class, 'update'])->name('marketing-tools.update');
 Route::delete('/marketing-tools/{id}/delete', [MarketingToolController::class, 'destroy'])->name('marketing-tools.destroy');
+
+
+
+// Payment Route
+Route::post('/payment/save', [PaymentController::class, 'store'])->name('payment.save');
+
+Route::get('/thank-you', [PaymentController::class, 'thankYou'])->name('thankyou.page');
+
+

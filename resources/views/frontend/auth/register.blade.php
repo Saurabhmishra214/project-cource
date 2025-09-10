@@ -24,114 +24,104 @@
       action="{{ route('register.submit') }}" method="POST">
     @csrf
 
+    <!-- Logo / Icon -->
     <div class="mb-4 text-center mx-auto">
         <img class="inline-block" src="assets/images/icons/icon-landing-success-1.svg" alt="landing success">
     </div>
 
-    <h3 class="font-bold text-2xl text-gray-1100 capitalize mb-[5px] dark:text-gray-dark-1100">Create an account</h3>
-    <p class="text-sm text-gray-500 mb-[30px] dark:text-gray-dark-500">You are welcome!</p>
+    <!-- Heading -->
+    <h3 class="font-bold text-2xl text-gray-1100 capitalize mb-[5px] dark:text-white">Create an account</h3>
+    <p class="text-sm text-gray-500 mb-[30px] dark:text-gray-400">You are welcome!</p>
 
     <div>
         {{-- Name --}}
-        <label for="name">
-            <p class="text-left text-sm mb-2 text-gray-1100 dark:text-gray-dark-1100">Your name</p>
-        </label>
+        <label for="name" class="block text-left text-sm mb-2 text-gray-1100 dark:text-white">Your name</label>
         <div class="form-control mb-[20px]">
             <div class="input-group border rounded-lg border-[#E8EDF2] dark:border-[#313442]">
-                <input class="input flex-1 bg-transparent text-gray-300 focus:outline-none dark:text-gray-dark-300" 
+                <input class="input flex-1 bg-transparent text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none" 
                        type="text" placeholder="Full name" name="name" value="{{ old('name') }}">
-                <button class="btn-square flex items-center justify-center bg-transparent">
-                    <img src="assets/images/icons/icon-input-user.svg" alt="sms icon">
+                <button type="button" class="btn-square flex items-center justify-center bg-transparent">
+                    <img src="assets/images/icons/icon-input-user.svg" alt="user icon">
                 </button>
             </div>
         </div>
         @error('name')
-            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+            <p class="text-red-500 text-xs mt-1" style="color: red" >{{ $message }}</p>
         @enderror
 
         {{-- Email --}}
-        <label for="email">
-            <p class="text-left text-sm mb-2 text-gray-1100 dark:text-gray-dark-1100">E-mail</p>
-        </label>
+        <label for="email" class="block text-left text-sm mb-2 text-gray-1100 dark:text-white">E-mail</label>
         <div class="form-control mb-[20px]">
             <div class="input-group border rounded-lg border-[#E8EDF2] dark:border-[#313442]">
-                <input class="input flex-1 bg-transparent text-gray-300 focus:outline-none dark:text-gray-dark-300" 
-                       type="text" placeholder="Email" name="email" value="{{ old('email') }}">
-                <button class="btn-square flex items-center justify-center bg-transparent">
+                <input class="input flex-1 bg-transparent text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none" 
+                       type="email" placeholder="Email" name="email" value="{{ old('email') }}">
+                <button type="button" class="btn-square flex items-center justify-center bg-transparent">
                     <img src="assets/images/icons/icon-sms.svg" alt="sms icon">
                 </button>
             </div>
         </div>
         @error('email')
-            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+            <p class="text-red-500 text-xs mt-1" style="color: red">{{ $message }}</p>
         @enderror
 
         {{-- Phone --}}
-        <label for="mobile_number">
-            <p class="text-left text-sm mb-2 text-gray-1100 dark:text-gray-dark-1100">Phone Number</p>
-        </label>
+        <label for="mobile_number" class="block text-left text-sm mb-2 text-gray-1100 dark:text-white">Phone Number</label>
         <div class="form-control mb-[20px]">
             <div class="input-group border rounded-lg border-[#E8EDF2] dark:border-[#313442]">
-                <input class="input flex-1 bg-transparent text-gray-300 focus:outline-none dark:text-gray-dark-300" 
+                <input class="input flex-1 bg-transparent text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none" 
                        type="text" placeholder="(+01)" name="mobile_number" value="{{ old('mobile_number') }}">
-                <button class="btn-square flex items-center justify-center bg-transparent">
-                    <img src="assets/images/icons/icon-input-phone.svg" alt="sms icon">
+                <button type="button" class="btn-square flex items-center justify-center bg-transparent">
+                    <img src="assets/images/icons/icon-input-phone.svg" alt="phone icon">
                 </button>
             </div>
         </div>
         @error('mobile_number')
-            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+            <p class="text-red-500 text-xs mt-1" style="color: red">{{ $message }}</p>
         @enderror
-        
-        {{-- Referral Code (NEW) --}}
-        <label for="referral_code">
-            <p class="text-left text-sm mb-2 text-gray-1100 dark:text-gray-dark-1100">Referral Code (Optional)</p>
-        </label>
+
+        {{-- Referral Code --}}
+        <label for="referral_code" class="block text-left text-sm mb-2 text-gray-1100 dark:text-white">Referral Code (Optional)</label>
         <div class="form-control mb-[20px]">
             <div class="input-group border rounded-lg border-[#E8EDF2] dark:border-[#313442]">
-                <input class="input flex-1 bg-transparent text-gray-300 focus:outline-none dark:text-gray-dark-300" 
+                <input class="input flex-1 bg-transparent text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none" 
                        type="text" placeholder="Enter code" name="referral_code" value="{{ old('referral_code', request('referral_code')) }}">
-                <button class="btn-square flex items-center justify-center bg-transparent">
+                <button type="button" class="btn-square flex items-center justify-center bg-transparent">
                     <img src="assets/images/icons/icon-input-user.svg" alt="user icon">
                 </button>
             </div>
         </div>
         @error('referral_code')
-            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+            <p class="text-red-500 text-xs mt-1" style="color: red">{{ $message }}</p>
         @enderror
 
         {{-- Password --}}
-        <label for="password">
-            <p class="text-left text-sm mb-2 text-gray-1100 dark:text-gray-dark-1100">Password</p>
-        </label>
+        <label for="password" class="block text-left text-sm mb-2 text-gray-1100 dark:text-white">Password</label>
         <div class="form-control mb-[20px]">
             <div class="input-group border rounded-lg border-[#E8EDF2] dark:border-[#313442]">
-                <input class="input flex-1 bg-transparent text-gray-300 focus:outline-none dark:text-gray-dark-300" 
+                <input class="input flex-1 bg-transparent text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none" 
                        type="password" placeholder="Password" name="password" autocomplete="on">
-                <button class="btn-square border-white flex items-center justify-center bg-transparent">
+                <button type="button" class="btn-square flex items-center justify-center bg-transparent">
                     <img src="assets/images/icons/icon-eye.svg" alt="eye icon">
                 </button>
             </div>
         </div>
         @error('password')
-            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+            <p class="text-red-500 text-xs mt-1" style="color: red">{{ $message }}</p>
         @enderror
 
         {{-- Confirm Password --}}
-        <label for="password_confirmation">
-            <p class="text-left text-sm mb-2 text-gray-1100 dark:text-gray-dark-1100">Confirm Password</p>
-        </label>
+        <label for="password_confirmation" class="block text-left text-sm mb-2 text-gray-1100 dark:text-white">Confirm Password</label>
         <div class="form-control mb-[20px]">
             <div class="input-group border rounded-lg border-[#E8EDF2] dark:border-[#313442]">
-                <input class="input flex-1 bg-transparent text-gray-300 focus:outline-none dark:text-gray-dark-300" 
-                       type="password" placeholder="Password" name="password_confirmation" autocomplete="on">
-                <button class="btn-square border-white flex items-center justify-center bg-transparent">
+                <input class="input flex-1 bg-transparent text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none" 
+                       type="password" placeholder="Confirm Password" name="password_confirmation" autocomplete="on">
+                <button type="button" class="btn-square flex items-center justify-center bg-transparent">
                     <img src="assets/images/icons/icon-eye.svg" alt="eye icon">
                 </button>
             </div>
         </div>
         @error('password_confirmation')
-            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+            <p class="text-red-500 text-xs mt-1" style="color: red">{{ $message }}</p>
         @enderror
     </div>
 
@@ -147,17 +137,17 @@
     <div class="flex items-center gap-x-2 justify-between mb-[20px]">
         <a class="flex items-center justify-center border rounded-lg gap-x-[10px] border-[#E8EDF2] p-[3px] py-[14px] sm:min-w-[170px]" href="#">
             <img src="assets/images/icons/icon-google.svg" alt="google icon">
-            <span class="text-gray-1100 text-xs dark:text-gray-dark-1100">Google account</span>
+            <span class="text-gray-1100 text-xs dark:text-white">Google account</span>
         </a>
         <a class="flex items-center justify-center border rounded-lg gap-x-[10px] border-[#E8EDF2] p-[3px] py-[14px] sm:min-w-[170px]" href="#">
             <img src="assets/images/icons/icon-facebook.svg" alt="facebook icon">
-            <span class="text-gray-1100 text-xs dark:text-gray-dark-1100">Facebook account</span>
+            <span class="text-gray-1100 text-xs dark:text-white">Facebook account</span>
         </a>
     </div>
 
-    <p class="text-sm text-gray-1100 dark:text-gray-dark-1100">
+    <p class="text-sm text-gray-1100 dark:text-white">
         Already have an account?
-        <a href="{{route('login_form')}}" class="text-color-brands">&nbsp;Sign In</a>
+        <a href="{{ route('login_form') }}" class="text-color-brands">&nbsp;Sign In</a>
     </p>
 </form>
 

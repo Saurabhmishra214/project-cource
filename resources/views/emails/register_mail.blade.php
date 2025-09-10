@@ -67,7 +67,7 @@
     <div class="email-container">
         <div class="header">
             <img src="{{ asset('images/logo.png') }}" alt="Company Logo">
-            <h2>Welcome to [Your Company Name]!</h2>
+            <h2>Welcome to therealworld</h2>
         </div>
         <div class="content">
             <h1>Hello {{ $name }},</h1>
@@ -77,7 +77,7 @@
             <a href="{{ url('/') }}" class="button">Visit Our Website</a>
         </div>
         <div class="footer">
-            &copy; {{ date('Y') }} [Your Company Name] | <a href="{{ url('/') }}">Website</a><br>
+            &copy; {{ date('Y') }} therealworld | <a href="{{ url('/') }}">Website</a><br>
             This is an automated message. Please do not reply.
         </div>
     </div>

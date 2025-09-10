@@ -7,10 +7,11 @@
                 Application</h2>
       <div class="flex justify-between flex-col gap-y-2 sm:flex-row mb-[32px]">
     <div class="flex items-center text-xs gap-x-[11px]">
-        <div class="flex items-center gap-x-1">
-            <img src="{{ asset('assets/images/icons/icon-home-2.svg') }}" alt="home icon">
-            <span class="capitalize text-gray-500 dark:text-gray-dark-500">Home</span>
-        </div>
+      <a href="{{ url('/') }}" class="flex items-center gap-x-1">
+    <img src="{{ asset('assets/images/icons/icon-home-2.svg') }}" alt="home icon">
+    <span class="capitalize text-gray-500 dark:text-gray-dark-500">Home</span>
+</a>
+
         <img src="{{ asset('assets/images/icons/icon-arrow-right.svg') }}" alt="arrow right icon">
         <span class="capitalize text-color-brands">Job Application Form</span>
     </div>
@@ -210,7 +211,7 @@
                             </div>
 
 
-                            <div class="flex flex-col sm:flex-row sm:justify-end gap-4">
+                            <div class="flex flex-col sm:flex-row sm:justify-end mt-2 gap-4">
                                 <button type="button"
                                     class="bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-bold sm:flex-1">
                                     Cancel

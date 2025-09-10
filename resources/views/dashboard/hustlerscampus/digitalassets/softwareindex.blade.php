@@ -45,6 +45,34 @@
             width: 1px;
             height: 1px;
         }
+
+        @media screen and (max-width: 640px) {
+    .software-card {
+        flex-direction: column;
+    }
+
+    .software-card img {
+        height: 150px;
+    }
+
+    .software-card-body h2 {
+        font-size: 15px;
+    }
+
+    .software-card-body p {
+        font-size: 12px;
+    }
+
+    .software-price {
+        font-size: 16px;
+    }
+
+    .software-buttons button,
+    .software-buttons a {
+        flex: 1 1 100%;
+        font-size: 13px;
+    }
+}
     </style>
 
     <main class="overflow-x-scroll scrollbar-hide flex flex-col justify-between pt-[42px] px-[23px] pb-[28px]">
@@ -114,7 +142,7 @@
                     <div class="text-right">
                         <span class="block text-gray-400 dark:text-gray-dark-400 text-[12px]">Ali Education</span>
                         <p class="font-bold text-gray-900 text-[18px] dark:text-gray-dark-900">
-                            ${{ $software->price ?? '0.00' }}
+                            ₹{{ $software->price ?? '0.00' }}
                         </p>
                     </div>
                 </div>
@@ -122,12 +150,12 @@
                 {{-- Action Buttons --}}
                 <div class="flex flex-wrap gap-3">
                     @if($user)
-                        <button style="background-color: rgb(255 189 58);"
-                            class="px-4 py-2 rounded-lg bg-blue-600 text-dark text-sm hover:bg-blue-700 generate-link-btn"
-                            data-software-id="{{ $software->software_id }}"
-                            data-link="{{ url('software/'.$software->software_id) . '?ref=' . ($user->referral_code ?? '') }}">
-                            Generate Link
-                        </button>
+              <button class="px-4 py-2 rounded-lg generate-link-btn text-black font-medium text-sm hover:bg-yellow-400"
+        data-software-id="{{ $software->software_id }}"
+        data-link="{{ url('software/'.$software->software_id) . '?ref=' . ($user->referral_code ?? '') }}" style="background-color: rgb(255, 189, 58)">
+    Generate Link
+</button>
+
                     @else
                         <button class="px-4 py-2 rounded-lg bg-gray-600 text-white text-sm" 
                                 onclick="location.href='{{ route('login') }}'">
@@ -135,15 +163,24 @@
                         </button>
                     @endif
 
-                    <a style="background-color: rgb(255 189 58);" href="{{ $software->google_drive_link }}" target="_blank" 
-                       class="px-4 py-2 rounded-lg bg-green-600 text-dark text-sm hover:bg-green-700">
-                        Ads Creatives
-                    </a>
+                      {{-- Ads Creatives Button (unlock if purchased) --}}
+    @if($user && in_array($software->software_id, $purchasedProductIds))
+     <a href="{{ $software->google_drive_link }}" target="_blank">
+    <button class="btn-product bg-green-500 text-black font-medium text-sm hover:bg-green-600">
+        Ads creatives
+    </button>
+</a>
+    @else
+        <button class="btn-product bg-gray-300 text-gray-700 cursor-not-allowed" disabled title="Purchase to unlock">
+            Locked
+        </button>
+    @endif
 
-                    <a style="background-color: rgb(255 189 58);" href="{{ route('softwares.show', ['software' => $software->software_id]) }}" target="_blank" 
-                       class="px-4 py-2 rounded-lg bg-orange-500 text-dark text-sm hover:bg-orange-600">
-                        Buy Access
-                    </a>
+
+                   <a href="{{ route('softwares.show', ['software' => $software->software_id]) }}" target="_blank"
+   class="px-4 py-2 rounded-lg bg-orange-500 text-black font-medium text-sm hover:bg-orange-600" style="background-color: rgb(255, 189, 58)">
+    Buy Access
+</a>
                 </div>
             </div>
         @endforeach

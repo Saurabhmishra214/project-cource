@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AffiliateTraining; 
+use App\Models\HustlersTraining;
 use App\Models\AffiliateTrainingSession; 
 
 
@@ -40,7 +41,7 @@ class AffiliateBusinessTrainingsController extends Controller
 
 public function list()
 {
-    $trainings = AffiliateTraining::latest()->paginate(10); // paginate only
+    $trainings = HustlersTraining::latest()->paginate(10); // paginate only
     return view('admin_dashboard.businesstrainings.list', compact('trainings'));
 }
 

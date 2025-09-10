@@ -113,7 +113,7 @@ public function registerUser(Request $request)
             'name'          => 'required|string|max:255',
             'email'         => 'required|string|email|max:255|unique:users,email',
             'password'      => 'required|string|min:8|confirmed',
-            'mobile_number' => 'nullable|string|max:20',
+            'mobile_number' => 'string|max:20',
             'referral_code' => 'nullable|string|exists:users,referral_code',
         ]);
 
