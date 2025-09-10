@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\MarketingToolController;
 use App\Http\Controllers\admin\PlanController;
+use App\Http\Controllers\admin\TrainingLessonController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -75,6 +76,7 @@ Route::post('/job-application', [UserController::class, 'store'])->name('job.app
 Route::get('/asset-sections', [UserController::class, 'asset_sections'])->name('user.dashboard.huslers.assets');
 
 Route::get('course-lesson/{courseId}', [UserController::class, 'courselesson'])->name('course.lesson');
+Route::get('businesstrainings/lessons/{courseId}', [UserController::class, 'businessLessons'])->name('business.training.lesson');
 
 
 // Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
@@ -308,3 +310,7 @@ Route::post('/plans/store', [PlanController::class, 'store'])->name('plans.store
 Route::get('/plans/{id}/edit', [PlanController::class, 'edit'])->name('plans.edit');
 Route::put('/plans/{id}/update', [PlanController::class, 'update'])->name('plans.update');
 Route::delete('/plans/index/{id}/delete', [PlanController::class, 'destroy'])->name('plans.destroy');
+
+//BusinessTraining Lesson Routes
+Route::get('/business/training/{courseId}/lessons/add', [TrainingLessonController::class, 'create'])->name('training.lessons.add');
+Route::post('/business/training/{courseId}/lessons/store', [TrainingLessonController::class, 'store'])->name('training.lessons.store');

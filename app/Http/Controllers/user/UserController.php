@@ -12,7 +12,7 @@ use App\Models\Offer;
 use App\Mail\JobApplyMail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\CourseLesson;
-
+use App\Models\TrainingLesson;
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +25,7 @@ class UserController extends Controller
     $userId = Auth::id();
 
     // User ke courses aur progress fetch karo
-    $userCourses = AutomationCourse::with('lessons')->where('user_id', $userId)->get();
+    $userCourses = AutomationCourse::with('lessons')->where('id', $userId)->get();
 
     $completedCourses = $userCourses->where('status', 3)->count();
     $inProgressCourses = $userCourses->where('status', 2)->count();
@@ -202,6 +202,15 @@ public function uploadProfile(Request $request)
 
     return view('dashboard.course.lesson', compact('lessons'));
 }
+
+    public function businessLessons($courseId)
+    {
+        $lessons = TrainingLesson::where('course_id', $courseId)
+                ->orderBy('lesson_order', 'asc')
+                ->get();
+
+        return view('dashboard.hustlerscampus.business_lesson', compact('lessons'));
+    }
 
 
 

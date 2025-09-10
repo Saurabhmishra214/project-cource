@@ -77,7 +77,7 @@
                     </a>
                 </div>
                 <h2 class="font-semibold text-gray-1100 text-[12px] leading-[18px] dark:text-gray-dark-1100 mb-[27px]">{{ $training->title }}</h2>
-                <a href="{{ $training->link }}" class="bg-transparent mt-auto border-transparent rounded-lg transition-all duration-200 group w-fit">
+                <a href="{{ route('business.training.lesson', $training->id) }}" class="bg-transparent mt-auto border-transparent rounded-lg transition-all duration-200 group w-fit">
                     <div style="background-color:hsl(213.33deg 35.06% 15.1%);" class="border-[#313442] flex items-center gap-x-2 border rounded-lg py-2 px-[10px] group-hover:border-transparent">
                         <span class="text-white text-[12px] leading-[19px]" style="font-weight: 500;" >Start Course</span>
                     </div>

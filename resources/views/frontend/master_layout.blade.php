@@ -138,7 +138,7 @@
                                         <li><a class="menu-item" href="#section-tickets">Tickets</a></li>
                                         <li><a class="menu-item" href="#section-venue">Venue</a></li>
                                         <li><a class="menu-item" href="#section-faq">FAQ</a></li> --}}
-                                        <li><a class="menu-item" href="news.html">Courses</a>
+                                        <li><a class="menu-item" href="#">Courses</a>
                                             <ul>
                                                 <li><a class="menu-item" href="{{ route('courses.automation') }}">Automation Business</a>
                                                         {{-- <ul>
@@ -152,67 +152,58 @@
                                         
                                         
                                      <li>
-    <a class="menu-item" href="#">Pages</a>
-    <ul>
-        @if(Auth::check())
-            <li>
-                @if(Auth::user()->role === 'admin')
-                    <a class="menu-item" href="{{ route('admin.dashboard') }}">
-                        Admin Dashboard
-                    </a>
-                @else
-                    <a class="menu-item" href="{{ route('user.dashboard') }}">
-                        User Dashboard
-                    </a>
-                @endif
-            </li>
-            <li>
-                <a class="menu-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            </li>
-        @else
-            <li><a class="menu-item" href="{{ route('register_form') }}">Register</a></li>
-            <li><a class="menu-item" href="{{ route('login_form') }}">Login</a></li>
-        @endif
-    </ul>
-</li>
-                                        
-                                        
-                                        
-                                        
-                                        
+                                        <a class="menu-item" href="#">Pages</a>
+                                        <ul>
+                                            @if(Auth::check())
+                                                <li>
+                                                    @if(Auth::user()->role === 'admin')
+                                                        <a class="menu-item" href="{{ route('admin.dashboard') }}">
+                                                            Admin Dashboard
+                                                        </a>
+                                                    @else
+                                                        <a class="menu-item" href="{{ route('user.dashboard') }}">
+                                                            User Dashboard
+                                                        </a>
+                                                    @endif
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                        Logout
+                                                    </a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                </li>
+                                            @else
+                                                <li><a class="menu-item" href="{{ route('register_form') }}">Register</a></li>
+                                                <li><a class="menu-item" href="{{ route('login_form') }}">Login</a></li>
+                                            @endif
+                                        </ul>
+                                    </li>
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="de-flex-col">
-                                
-                                
                          @if(Auth::check())
-    @if(Auth::user()->role === 'admin')
-        <a class="btn-main fx-slide w-100" href="{{ route('admin.dashboard') }}">
-            <span>Admin Dashboard</span>
-        </a>
-    @else
-        <a class="btn-main fx-slide w-100" href="{{ route('user.dashboard') }}">
-            <span>User Dashboard</span>
-        </a>
-    @endif
-@else
-    <a class="btn-main fx-slide w-100" href="{{ route('login_form') }}">
-        <span>Login</span>
-    </a>
-@endif
+                            @if(Auth::user()->role === 'admin')
+                                <a class="btn-main fx-slide w-100" href="{{ route('admin.dashboard') }}">
+                                    <span>Admin Dashboard</span>
+                                </a>
+                            @else
+                                <a class="btn-main fx-slide w-100" href="{{ route('user.dashboard') }}">
+                                    <span>User Dashboard</span>
+                                </a>
+                            @endif
+                        @else
+                            <a class="btn-main fx-slide w-100" href="{{ route('login_form') }}">
+                                <span>Login</span>
+                            </a>
+                        @endif
 
-                                
-                                
-                                
-
+                                                        
+                                                        
                                 <div class="menu_side_area">
                                     <span id="menu-btn"></span>
                                 </div>
