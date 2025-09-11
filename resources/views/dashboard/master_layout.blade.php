@@ -30,25 +30,25 @@
         <div class="pt-[106px] lg:pt-[35px] pb-[18px]">
             <div class="sidemenu-item rounded-xl relative">
                 <input class="sr-only peer" type="checkbox" value="dashboard" name="sidemenu" id="dashboard">
-              <a href="{{ route('user.dashboard') }}" class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none active">
-    <div class="flex items-center gap-[10px]">
-        <img src="{{ asset('assets/images/icons/icon-favorite-chart.svg') }}" alt="side menu icon">
-        <span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Dashboard</span>
-    </div>
-</a>
+                <a href="{{ route('user.dashboard') }}" class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none active">
+                    <div class="flex items-center gap-[10px]">
+                        <img src="{{ asset('assets/images/icons/icon-favorite-chart.svg') }}" alt="side menu icon">
+                        <span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Dashboard</span>
+                    </div>
+                </a>
 
             </div>
             <div class="sidemenu-item rounded-xl relative">
-                <input class="sr-only peer" type="checkbox" value="ecommerce" name="sidemenu" id="ecommerce">
-                <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent" for="ecommerce">
-                    <div class="flex items-center gap-[10px]"><img src="{{ asset('assets/images/icons/icon-products.svg') }}" alt="side menu icon"><span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Automation Businesses</span></div>
-                </label><img class="absolute right-2 transition-all duration-150 caret-icon pointer-events-none peer-checked:rotate-180 top-[22px]" src="{{ asset('assets/images/icons/icon-arrow-down.svg') }}" alt="caret icon">
-                <div class="hidden peer-checked:block">
-                    <ul class="text-gray-300 child-menu z-10 pl-[53px]">
-                        <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{route('user.dashboard.automation')}}">Courses</a></li>
-                    </ul>
-                </div>
+                <input class="sr-only peer" type="checkbox" value="dashboard" name="sidemenu" id="dashboard">
+                <a href="{{ route('user.dashboard.automation') }}" class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none active">
+                    <div class="flex items-center gap-[10px]">
+                        <img src="{{ asset('assets/images/icons/icon-favorite-chart.svg') }}" alt="side menu icon">
+                        <span class="text-normal font-semibold text-gray-500 sidemenu-title dark:text-gray-dark-500">Automation Businesses</span>
+                    </div>
+                </a>
+
             </div>
+            
             <div class="sidemenu-item rounded-xl relative">
                 <input class="sr-only peer" type="checkbox" value="finance" name="sidemenu" id="finance">
                 <label class="flex items-center justify-between w-full cursor-pointer py-[17px] px-[21px] focus:outline-none peer-checked:border-transparent" for="finance">
@@ -97,9 +97,7 @@
                 </label><img class="absolute right-2 transition-all duration-150 caret-icon pointer-events-none peer-checked:rotate-180 top-[22px]" src="{{ asset('assets/images/icons/icon-arrow-down.svg') }}" alt="caret icon">
                 <div class="hidden peer-checked:block">
                     <ul class="text-gray-300 child-menu z-10 pl-[53px]">
-                        <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="social-feed-1.html">Social Feed 1</a></li>
-                        <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="social-feed-2.html">Social Feed 2</a></li>
-                        <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="social-feed-3.html">Social Feed 3</a></li>
+                        <li class="pb-2 transition-opacity duration-150 hover:opacity-75"><a class="text-normal" href="{{ route('user.socialmedia') }}">Visit</a></li>
                     </ul>
                 </div>
             </div>
@@ -142,8 +140,8 @@
     </div>
 </aside>
 <header class="flex items-center justify-between flex-wrap bg-neutral-bg p-5 gap-5 md:py-6 md:pl-[25px] md:pr-[38px] lg:flex-nowrap dark:bg-dark-neutral-bg lg:gap-0"><a class="hidden logo" href="index.html"><img class="md:mr-[100px] lg:mr-[133px]" src="{{ asset('assets/images/icons/icon-logo.svg') }}" alt="Frox logo"></a>
-    <div class="bg-gray-100 flex rounded-xl w-full m-0 py-[14px] px-[18px] xl:w-[360px] dark:bg-gray-dark-100 lg:max-w-[250px] xl:max-w-[360px] lg:mr-[47px] lg:ml-6 order-last lg:order-first"><img src="{{ asset('assets/images/icons/icon-search-normal.svg') }}" alt="seacrh icon">
-        <input class="input w-full bg-transparent outline-none pl-2 h-5 text-gray-300 focus:!outline-none placeholder:text-gray-300 dark:placeholder:text-gray-dark-300 placeholder:font-semibold" type="text" placeholder="Search"><img src="{{ asset('assets/images/icons/icon-microphone-2.svg') }}" alt="microphone icon">
+    <div class=" flex  w-full m-0 py-[14px] px-[18px] xl:w-[360px]  lg:max-w-[250px] xl:max-w-[360px] lg:mr-[47px] lg:ml-6 order-last lg:order-first">
+        
     </div>
     {{-- <div class="dropdown">
         <label class="cursor-pointer dropdown-label flex items-center justify-between w-[142px]" tabindex="0">
@@ -387,6 +385,10 @@
     <script type="text/javascript" src="{{asset('assets/js/chart.min.js')}}"></script>
     <script type="text/javascript" src="https://unpkg.com/chartjs-chart-geo@3"></script>
     <script src="{{asset('assets/js/app.js?v=5.0')}}"></script>
+    <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="https://apexcharts.com/samples/assets/irregular-data-series.js"></script>
+    <script src="https://apexcharts.com/samples/assets/ohlc.js"></script>
+    <script src="{{ asset('assets/js/affiliate/pages/apexcharts.init.js') }}"></script>
     
   </body>
 </html>

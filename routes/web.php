@@ -26,6 +26,7 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\MarketingToolController;
 use App\Http\Controllers\admin\PlanController;
 use App\Http\Controllers\admin\TrainingLessonController;
+use App\Http\Controllers\admin\SocialMediaController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -87,6 +88,7 @@ Route::get('/profile', [UserController::class, 'user_profile'])->name('user.prof
     Route::delete('/profile/delete', [UserController::class, 'deleteProfile'])->name('profile.delete');
 
 Route::get('/user/dashboard/offers', [UserController::class, 'offers_show'])->name('user.offers');
+Route::get('/user/dashboard/social-media', [UserController::class, 'social_media'])->name('user.socialmedia');
 
 
 Route::get('/affiliate-panel', [AffiliateController::class, 'affiliate_dashboard'])->name('user.affiliate.dashboard');
@@ -314,3 +316,11 @@ Route::delete('/plans/index/{id}/delete', [PlanController::class, 'destroy'])->n
 //BusinessTraining Lesson Routes
 Route::get('/business/training/{courseId}/lessons/add', [TrainingLessonController::class, 'create'])->name('training.lessons.add');
 Route::post('/business/training/{courseId}/lessons/store', [TrainingLessonController::class, 'store'])->name('training.lessons.store');
+
+//Social media routes 
+Route::get('/social-media', [SocialMediaController::class, 'index'])->name('social_media.index');
+Route::get('/social-media/add', [SocialMediaController::class, 'create'])->name('social_media.add');
+Route::post('/social-media', [SocialMediaController::class, 'store'])->name('social_media.store');
+Route::get('/social-media/{id}/edit', [SocialMediaController::class, 'edit'])->name('social_media.edit');
+Route::put('/social-media/{id}', [SocialMediaController::class, 'update'])->name('social_media.update');
+Route::delete('/social-media/{id}', [SocialMediaController::class, 'destroy'])->name('social_media.destroy');
