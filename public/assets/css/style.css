@@ -13126,3 +13126,27 @@ img {
     width: auto;
   }
 }
+
+
+/* Slide transition effect */
+  .myVideoSwiper .swiper-slide {
+    opacity: 0.3;
+    transform: scale(0.85);
+    transition: all 0.4s ease;
+  }
+  .myVideoSwiper .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .video-card .overlay {
+    transition: background 0.3s ease;
+  }
+  .myVideoSwiper .swiper-slide-active .overlay {
+    background: rgba(0, 0, 0, 0.25);
+  }
+  .play-btn {
+    transition: transform 0.3s ease;
+  }
+  .video-card:hover .play-btn {
+    transform: scale(1.1);
+  }

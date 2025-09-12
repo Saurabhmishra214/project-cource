@@ -296,7 +296,6 @@ Route::get('/gamify-challenge/{id}/edit', [GamifyController::class, 'edit'])->na
 Route::put('/gamify-challenge/{id}/update', [GamifyController::class, 'update'])->name('gamifychallenge.update'); 
 Route::delete('/gamify-challenge/{id}/delete', [GamifyController::class, 'destroy'])->name('gamifychallenge.delete');
 
-
 //Marketing tool routes
 Route::get('/marketing-tools/index', [MarketingToolController::class, 'index'])->name('marketing-tools.index');
 Route::get('/marketing-tools/create', [MarketingToolController::class, 'create'])->name('marketing-tools.add');
