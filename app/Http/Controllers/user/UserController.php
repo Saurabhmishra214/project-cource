@@ -12,6 +12,7 @@ use App\Models\Offer;
 use App\Mail\JobApplyMail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\CourseLesson;
+use App\Models\SocialMedia;
 use App\Models\TrainingLesson;
 use Illuminate\Support\Facades\Validator;
 
@@ -213,5 +214,13 @@ public function uploadProfile(Request $request)
     }
 
 
+    public function social_media()
+    {
+        // database se saare records fetch karo
+        $socialMedias = SocialMedia::all();
+
+        // view ko bhejo
+        return view('dashboard.social_media', compact('socialMedias'));
+    }
 
 }

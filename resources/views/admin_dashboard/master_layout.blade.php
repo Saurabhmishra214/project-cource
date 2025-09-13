@@ -696,6 +696,23 @@
           </div>
         </li><!--end nav-item-->
 
+        <li class="nav-item">
+          <a class="nav-link collapsed d-flex justify-content-between align-items-center"
+             href="#sidebarSocial" data-bs-toggle="collapse" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center">
+              <i class="iconoir-trophy menu-icon"></i>
+              <span class="ms-2">Media Management</span>
+            </div>
+            <i class="bi bi-chevron-right dropdown-icon"></i>
+          </a>
+          <div class="collapse" id="sidebarSocial">
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="{{route('social_media.add')}}" class="nav-link">Add</a></li>
+              <li class="nav-item"><a href="{{route('social_media.index')}}" class="nav-link">List</a></li>
+            </ul>
+          </div>
+        </li><!--end nav-item-->
+
 
             <li class="nav-item">
                 <form action="{{ route('admin.logout') }}" method="POST" class="w-full">
