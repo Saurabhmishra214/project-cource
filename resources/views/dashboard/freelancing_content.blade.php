@@ -91,10 +91,10 @@
         </h2>
         <div class="flex items-center text-xs text-gray-500 gap-x-[11px]">
             <div class="flex items-center gap-x-1">
-                <img src="assets/images/icons/icon-home-2.svg" alt="home icon">
-                <span class="capitalize">home</span>
+                <img src="{{ asset('assets/images/icons/icon-home-2.svg') }}" alt="home icon">
+                <span class="capitalize">Home</span>
             </div>
-            <img src="assets/images/icons/icon-arrow-right.svg" alt="arrow right icon">
+            <img src="{{ asset('assets/images/icons/icon-arrow-right.svg') }}" alt="arrow right icon">
             <span class="capitalize text-color-brands">All Jobs</span>
         </div>
     </div>
@@ -102,7 +102,7 @@
     <!-- Filter Section with better UI -->
     <div class="flex items-center gap-x-2">
         <form action="" method="GET" class="flex items-center gap-x-2">
-            <div class="relative">
+            <div class="relative" >
                 <select name="skill" id="skill-filter" class="w-full px-[17px] py-[14px] border-neutral bg-neutral rounded-2xl text-xs text-[#8083A3] appearance-none dark:bg-dark-neutral-border dark:border-dark-neutral-border">
                     <option value="">All Skills</option>
                     @foreach($allSkills as $skill)
