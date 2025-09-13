@@ -137,7 +137,7 @@
             </div>
         </section>
 
-        <section id="section-tickets" class="bg-dark section-dark text-light pt-80 relative jarallax " aria-label="section">
+        {{-- <section id="section-tickets" class="bg-dark section-dark text-light pt-80 relative jarallax " aria-label="section">
             <div class="sw-overlay op-8"></div>
             <div class="container relative z-2">
                 <div class="row gy-4 gx-5 justify-content-center">
@@ -186,6 +186,91 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section> --}}
+        
+        <section id="section-tickets" class="bg-dark section-dark text-light pt-80 relative jarallax " aria-label="section">
+            <div class="sw-overlay op-8"></div>
+            <div class="container relative z-2">
+                <div class="row justify-content-center">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card" style="background-color: transparent">
+                                <div class="card-body bg-soft-blue text-center rounded-top">
+                                    <i class="icofont-bird-wings d-inline-block mt-2 mb-3 display-4 text-blue"></i>                                    
+                                </div><!--end card-body--> 
+                                <div class="card-body mt-n52">
+                                    <div class="text-center">
+                                        <div class="py-2 px-3 shadow-sm d-inline-block rounded-pill card-bg" style="background-color: rgb(0, 153, 255)">
+                                            <h1 class="d-inline-block fw-bold mb-0">$49.00</h1>
+                                            <small class="font-12 text-white">/month</small>
+                                        </div>   
+                                        <h6 class="pt-3 pb-2 m-0 fs-18 fw-medium">Cadet</h6>
+                                        <ul class="list-unstyled pricing-content text-center pt-2 border-0 mb-3">
+                                            <li>Access to all courses</li>
+                                            <li>Daily Live Broadcasts</li>
+                                        </ul> 
+                                        <hr class="hr-dashed">   
+                                                                             
+                                        <a href="#" class="btn btn-dark py-2 px-3 mt-2"><span>Get Started</span></a>
+                                    </div><!--end pricing Table-->              
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col-->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card" style="background-color: transparent; border-top:8px solid #b3236b;
+                                    border-bottom:8px solid #b3236b;
+                                    border-left:1px solid #b3236b;
+                                    border-right:1px solid #b3236b;
+                                    border-radius:12px;
+                                    padding:20px;">
+                                <div class="card-body bg-soft-pink text-center rounded-top">
+                                    <i class="icofont-woman-bird d-inline-block mb-5 display-4 text-pink"></i>                                    
+                                </div><!--end card-body--> 
+                                <div class="card-body mt-n52" >
+                                    <div class="text-center">
+                                        <div class="py-2 px-3 shadow-sm d-inline-block rounded-pill" style="background-color: #b3236b">
+                                            <h1 class="d-inline-block fw-bold mb-0">$49.00</h1>
+                                            <small class="font-12 text-white">/month</small>
+                                        </div>   
+                                        <h6 class="pt-3 pb-2 m-0 fs-18 fw-medium">Hero</h6>
+                                        <ul class="list-unstyled pricing-content text-center pt-2 border-0 mb-3">
+                                            <li>All of Cadet</li>
+                                            <li>Daily Coin Bonus</li>
+                                        </ul> 
+                                        <hr class="hr-dashed">   
+                                                                             
+                                        <a href="#" class="btn btn-dark py-2 px-3 mt-2"><span>Get Started</span></a>
+                                    </div><!--end pricing Table-->              
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col--> 
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card" style="background-color: transparent">
+                                <div class="card-body bg-soft-success text-center rounded-top">
+                                    <i class="icofont-elk d-inline-block mt-2 mb-3 display-4 text-success"></i>                                    
+                                </div><!--end card-body--> 
+                                <div class="card-body mt-n52">
+                                    <div class="text-center">
+                                        <div class="py-2 px-3 shadow-sm d-inline-block rounded-pill card-bg" style="background-color: rgb(35, 179, 133)">
+                                            <h1 class="d-inline-block fw-bold mb-0">&rupee;69.00</h1>
+                                            <small class="font-12 text-white">/month</small>
+                                        </div>   
+                                        <h6 class="pt-3 pb-2 m-0 fs-18 fw-medium">Champion</h6>
+                                        <ul class="list-unstyled pricing-content text-center pt-2 border-0 mb-3">
+                                            <li>All of Cadet</li>
+                                            <li>Daily Coin Bonus</li>
+                                            <li>Access to Job Portal</li>
+                                            <li>Campus Certification</li>
+                                        </ul> 
+                                        <hr class="hr-dashed">   
+                                                                             
+                                        <a href="#" class="btn btn-dark py-2 px-3 mt-2"><span>Get Started</span></a>
+                                    </div><!--end pricing Table-->              
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col--> 
+                                                                              
+                    </div><!--end row--> 
             </div>
         </section>
 
